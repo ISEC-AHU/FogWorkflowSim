@@ -1,0 +1,903 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+BaseXSSFEvaluationWorkbook (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="BaseXSSFEvaluationWorkbook (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/BaseXSSFEvaluationWorkbook.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="BaseXSSFEvaluationWorkbook.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.xssf.usermodel</FONT>
+<BR>
+Class BaseXSSFEvaluationWorkbook</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.xssf.usermodel.BaseXSSFEvaluationWorkbook</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A>, <A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A>, <A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</A></DD>
+</DL>
+<DL>
+<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../../../org/apache/poi/xssf/streaming/SXSSFEvaluationWorkbook.html" title="class in org.apache.poi.xssf.streaming">SXSSFEvaluationWorkbook</A>, <A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFEvaluationWorkbook.html" title="class in org.apache.poi.xssf.usermodel">XSSFEvaluationWorkbook</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE><FONT SIZE="-1"><A HREF="../../../../../org/apache/poi/util/Internal.html" title="annotation in org.apache.poi.util">@Internal</A>
+</FONT>public abstract class <B>BaseXSSFEvaluationWorkbook</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</A>, <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A>, <A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></DL>
+</PRE>
+
+<P>
+Internal POI use only - parent of XSSF and SXSSF evaluation workbooks
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="nested_classes_inherited_from_class_org.apache.poi.ss.formula.EvaluationWorkbook"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from interface org.apache.poi.ss.formula.<A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</A>, <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</A>, <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheetRange.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheetRange</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html" title="class in org.apache.poi.xssf.usermodel">XSSFWorkbook</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#_uBook">_uBook</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected </CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#BaseXSSFEvaluationWorkbook(org.apache.poi.xssf.usermodel.XSSFWorkbook)">BaseXSSFEvaluationWorkbook</A></B>(<A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html" title="class in org.apache.poi.xssf.usermodel">XSSFWorkbook</A>&nbsp;book)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#clearAllCachedResultValues()">clearAllCachedResultValues</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Propagated from <A HREF="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#clearAllCachedResultValues()"><CODE>WorkbookEvaluator.clearAllCachedResultValues()</CODE></A> to clear locally cached data.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#convertFromExternSheetIndex(int)">convertFromExternSheetIndex</A></B>(int&nbsp;externSheetIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XSSF doesn't use external sheet indexes, so when asked treat
+ it just as a local index</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFName.html" title="class in org.apache.poi.xssf.usermodel">XSSFName</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#createName()">createName</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the underlying workbook</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.AreaReference, org.apache.poi.ss.formula.SheetIdentifier)">get3DReferencePtg</A></B>(<A HREF="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</A>&nbsp;area,
+                  <A HREF="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Produce the appropriate Ptg for a 3d area reference</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.formula.SheetIdentifier)">get3DReferencePtg</A></B>(<A HREF="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cell,
+                  <A HREF="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Produce the appropriate Ptg for a 3d cell reference</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalName(int, int)">getExternalName</A></B>(int&nbsp;externSheetIndex,
+                int&nbsp;externNameIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HSSF Only - fetch the external-style name details</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalName(java.lang.String, java.lang.String, int)">getExternalName</A></B>(java.lang.String&nbsp;nameName,
+                java.lang.String&nbsp;sheetName,
+                int&nbsp;externalWorkbookNumber)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XSSF Only - fetch the external-style name details</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalSheet(int)">getExternalSheet</A></B>(int&nbsp;externSheetIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HSSF Only - fetch the external-style sheet details</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalSheet(java.lang.String, java.lang.String, int)">getExternalSheet</A></B>(java.lang.String&nbsp;firstSheetName,
+                 java.lang.String&nbsp;lastSheetName,
+                 int&nbsp;externalWorkbookNumber)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XSSF Only - fetch the external-style sheet details</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalSheetIndex(java.lang.String)">getExternalSheetIndex</A></B>(java.lang.String&nbsp;sheetName)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gets the externSheet index for a sheet from this workbook</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getExternalSheetIndex(java.lang.String, java.lang.String)">getExternalSheetIndex</A></B>(java.lang.String&nbsp;workbookName,
+                      java.lang.String&nbsp;sheetName)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gets the externSheet index for a sheet from an external workbook</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getName(org.apache.poi.ss.formula.ptg.NamePtg)">getName</A></B>(<A HREF="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html" title="class in org.apache.poi.ss.formula.ptg">NamePtg</A>&nbsp;namePtg)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getName(java.lang.String, int)">getName</A></B>(java.lang.String&nbsp;name,
+        int&nbsp;sheetIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return EvaluationName wrapper around the matching XSSFName (named range)</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getNameText(org.apache.poi.ss.formula.ptg.NamePtg)">getNameText</A></B>(<A HREF="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html" title="class in org.apache.poi.ss.formula.ptg">NamePtg</A>&nbsp;namePtg)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/ptg/NameXPxg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPxg</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getNameXPtg(java.lang.String, org.apache.poi.ss.formula.SheetIdentifier)">getNameXPtg</A></B>(java.lang.String&nbsp;name,
+            <A HREF="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return an external name (named range, function, user-defined function) Pxg</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getSheetFirstNameByExternSheet(int)">getSheetFirstNameByExternSheet</A></B>(int&nbsp;externSheetIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getSheetIndex(java.lang.String)">getSheetIndex</A></B>(java.lang.String&nbsp;sheetName)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finds a sheet index by case insensitive name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getSheetLastNameByExternSheet(int)">getSheetLastNameByExternSheet</A></B>(int&nbsp;externSheetIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getSheetName(int)">getSheetName</A></B>(int&nbsp;sheetIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getSpreadsheetVersion()">getSpreadsheetVersion</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns an enum holding spreadhseet properties specific to an Excel version (
+ max column and row numbers, max arguments to a function, etc.)</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFTable.html" title="class in org.apache.poi.xssf.usermodel">XSSFTable</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getTable(java.lang.String)">getTable</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the data table with the given name (case insensitive).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#getUDFFinder()">getUDFFinder</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#resolveNameXText(org.apache.poi.ss.formula.ptg.NameXPtg)">resolveNameXText</A></B>(<A HREF="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPtg</A>&nbsp;n)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.poi.ss.formula.EvaluationWorkbook"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface org.apache.poi.ss.formula.<A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getFormulaTokens(org.apache.poi.ss.formula.EvaluationCell)">getFormulaTokens</A>, <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheet(int)">getSheet</A>, <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheetIndex(org.apache.poi.ss.formula.EvaluationSheet)">getSheetIndex</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="_uBook"><!-- --></A><H3>
+_uBook</H3>
+<PRE>
+protected final <A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html" title="class in org.apache.poi.xssf.usermodel">XSSFWorkbook</A> <B>_uBook</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="BaseXSSFEvaluationWorkbook(org.apache.poi.xssf.usermodel.XSSFWorkbook)"><!-- --></A><H3>
+BaseXSSFEvaluationWorkbook</H3>
+<PRE>
+protected <B>BaseXSSFEvaluationWorkbook</B>(<A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFWorkbook.html" title="class in org.apache.poi.xssf.usermodel">XSSFWorkbook</A>&nbsp;book)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="clearAllCachedResultValues()"><!-- --></A><H3>
+clearAllCachedResultValues</H3>
+<PRE>
+public void <B>clearAllCachedResultValues</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#clearAllCachedResultValues()">EvaluationWorkbook</A></CODE></B></DD>
+<DD>Propagated from <A HREF="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#clearAllCachedResultValues()"><CODE>WorkbookEvaluator.clearAllCachedResultValues()</CODE></A> to clear locally cached data.
+ Implementations must call the same method on all referenced <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationSheet.html" title="interface in org.apache.poi.ss.formula"><CODE>EvaluationSheet</CODE></A> instances, as well as clearing local caches.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#clearAllCachedResultValues()">clearAllCachedResultValues</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#clearAllCachedResultValues()"><CODE>WorkbookEvaluator.clearAllCachedResultValues()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="convertFromExternSheetIndex(int)"><!-- --></A><H3>
+convertFromExternSheetIndex</H3>
+<PRE>
+public int <B>convertFromExternSheetIndex</B>(int&nbsp;externSheetIndex)</PRE>
+<DL>
+<DD>XSSF doesn't use external sheet indexes, so when asked treat
+ it just as a local index
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#convertFromExternSheetIndex(int)">convertFromExternSheetIndex</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExternalSheetIndex(java.lang.String)"><!-- --></A><H3>
+getExternalSheetIndex</H3>
+<PRE>
+public int <B>getExternalSheetIndex</B>(java.lang.String&nbsp;sheetName)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex(java.lang.String)">FormulaParsingWorkbook</A></CODE></B></DD>
+<DD>gets the externSheet index for a sheet from this workbook
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex(java.lang.String)">getExternalSheetIndex</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getName(java.lang.String, int)"><!-- --></A><H3>
+getName</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</A> <B>getName</B>(java.lang.String&nbsp;name,
+                              int&nbsp;sheetIndex)</PRE>
+<DL>
+<DD>Return EvaluationName wrapper around the matching XSSFName (named range)
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getName(java.lang.String, int)">getName</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getName(java.lang.String, int)">getName</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - case-aware but case-insensitive named range in workbook<DD><CODE>sheetIndex</CODE> - index of sheet if named range scope is limited to one sheet
+         if named range scope is global to the workbook, sheetIndex is -1.
+<DT><B>Returns:</B><DD>If name is a named range in the workbook, returns
+  EvaluationName corresponding to that named range 
+  Returns null if there is no named range with the same name and scope in the workbook</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSheetName(int)"><!-- --></A><H3>
+getSheetName</H3>
+<PRE>
+public java.lang.String <B>getSheetName</B>(int&nbsp;sheetIndex)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheetName(int)">getSheetName</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExternalName(int, int)"><!-- --></A><H3>
+getExternalName</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</A> <B>getExternalName</B>(int&nbsp;externSheetIndex,
+                                                       int&nbsp;externNameIndex)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalName(int, int)">EvaluationWorkbook</A></CODE></B></DD>
+<DD>HSSF Only - fetch the external-style name details
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalName(int, int)">getExternalName</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExternalName(java.lang.String, java.lang.String, int)"><!-- --></A><H3>
+getExternalName</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalName.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalName</A> <B>getExternalName</B>(java.lang.String&nbsp;nameName,
+                                                       java.lang.String&nbsp;sheetName,
+                                                       int&nbsp;externalWorkbookNumber)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalName(java.lang.String, java.lang.String, int)">EvaluationWorkbook</A></CODE></B></DD>
+<DD>XSSF Only - fetch the external-style name details
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalName(java.lang.String, java.lang.String, int)">getExternalName</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNameXPtg(java.lang.String, org.apache.poi.ss.formula.SheetIdentifier)"><!-- --></A><H3>
+getNameXPtg</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/ptg/NameXPxg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPxg</A> <B>getNameXPtg</B>(java.lang.String&nbsp;name,
+                            <A HREF="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</PRE>
+<DL>
+<DD>Return an external name (named range, function, user-defined function) Pxg
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getNameXPtg(java.lang.String, org.apache.poi.ss.formula.SheetIdentifier)">getNameXPtg</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="get3DReferencePtg(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.formula.SheetIdentifier)"><!-- --></A><H3>
+get3DReferencePtg</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</A> <B>get3DReferencePtg</B>(<A HREF="../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cell,
+                             <A HREF="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.formula.SheetIdentifier)">FormulaParsingWorkbook</A></CODE></B></DD>
+<DD>Produce the appropriate Ptg for a 3d cell reference
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.formula.SheetIdentifier)">get3DReferencePtg</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="get3DReferencePtg(org.apache.poi.ss.util.AreaReference, org.apache.poi.ss.formula.SheetIdentifier)"><!-- --></A><H3>
+get3DReferencePtg</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</A> <B>get3DReferencePtg</B>(<A HREF="../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</A>&nbsp;area,
+                             <A HREF="../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.AreaReference, org.apache.poi.ss.formula.SheetIdentifier)">FormulaParsingWorkbook</A></CODE></B></DD>
+<DD>Produce the appropriate Ptg for a 3d area reference
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.AreaReference, org.apache.poi.ss.formula.SheetIdentifier)">get3DReferencePtg</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="resolveNameXText(org.apache.poi.ss.formula.ptg.NameXPtg)"><!-- --></A><H3>
+resolveNameXText</H3>
+<PRE>
+public java.lang.String <B>resolveNameXText</B>(<A HREF="../../../../../org/apache/poi/ss/formula/ptg/NameXPtg.html" title="class in org.apache.poi.ss.formula.ptg">NameXPtg</A>&nbsp;n)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#resolveNameXText(org.apache.poi.ss.formula.ptg.NameXPtg)">resolveNameXText</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#resolveNameXText(org.apache.poi.ss.formula.ptg.NameXPtg)">resolveNameXText</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExternalSheet(int)"><!-- --></A><H3>
+getExternalSheet</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</A> <B>getExternalSheet</B>(int&nbsp;externSheetIndex)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalSheet(int)">EvaluationWorkbook</A></CODE></B></DD>
+<DD>HSSF Only - fetch the external-style sheet details
+ <p>Return will have no workbook set if it's actually in our own workbook</p>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalSheet(int)">getExternalSheet</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#getExternalSheet(int)">getExternalSheet</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD><code>null</code> if externSheetIndex refers to a sheet inside the current workbook</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExternalSheet(java.lang.String, java.lang.String, int)"><!-- --></A><H3>
+getExternalSheet</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.ExternalSheet.html" title="class in org.apache.poi.ss.formula">EvaluationWorkbook.ExternalSheet</A> <B>getExternalSheet</B>(java.lang.String&nbsp;firstSheetName,
+                                                         java.lang.String&nbsp;lastSheetName,
+                                                         int&nbsp;externalWorkbookNumber)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalSheet(java.lang.String, java.lang.String, int)">EvaluationWorkbook</A></CODE></B></DD>
+<DD>XSSF Only - fetch the external-style sheet details
+ <p>Return will have no workbook set if it's actually in our own workbook</p>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getExternalSheet(java.lang.String, java.lang.String, int)">getExternalSheet</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExternalSheetIndex(java.lang.String, java.lang.String)"><!-- --></A><H3>
+getExternalSheetIndex</H3>
+<PRE>
+<FONT SIZE="-1"><A HREF="../../../../../org/apache/poi/util/NotImplemented.html" title="annotation in org.apache.poi.util">@NotImplemented</A>
+</FONT>public int <B>getExternalSheetIndex</B>(java.lang.String&nbsp;workbookName,
+                                                java.lang.String&nbsp;sheetName)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex(java.lang.String, java.lang.String)">FormulaParsingWorkbook</A></CODE></B></DD>
+<DD>gets the externSheet index for a sheet from an external workbook
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getExternalSheetIndex(java.lang.String, java.lang.String)">getExternalSheetIndex</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>workbookName</CODE> - e.g. "Budget.xls"<DD><CODE>sheetName</CODE> - a name of a sheet in that workbook</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSheetIndex(java.lang.String)"><!-- --></A><H3>
+getSheetIndex</H3>
+<PRE>
+public int <B>getSheetIndex</B>(java.lang.String&nbsp;sheetName)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheetIndex(java.lang.String)">EvaluationWorkbook</A></CODE></B></DD>
+<DD>Finds a sheet index by case insensitive name.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSheetIndex(java.lang.String)">getSheetIndex</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the index of the sheet matching the specified name.  -1 if not found</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSheetFirstNameByExternSheet(int)"><!-- --></A><H3>
+getSheetFirstNameByExternSheet</H3>
+<PRE>
+public java.lang.String <B>getSheetFirstNameByExternSheet</B>(int&nbsp;externSheetIndex)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#getSheetFirstNameByExternSheet(int)">getSheetFirstNameByExternSheet</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the name of the (first) sheet referred to by the given external sheet index</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSheetLastNameByExternSheet(int)"><!-- --></A><H3>
+getSheetLastNameByExternSheet</H3>
+<PRE>
+public java.lang.String <B>getSheetLastNameByExternSheet</B>(int&nbsp;externSheetIndex)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#getSheetLastNameByExternSheet(int)">getSheetLastNameByExternSheet</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the name of the (last) sheet referred to by the given external sheet index</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNameText(org.apache.poi.ss.formula.ptg.NamePtg)"><!-- --></A><H3>
+getNameText</H3>
+<PRE>
+public java.lang.String <B>getNameText</B>(<A HREF="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html" title="class in org.apache.poi.ss.formula.ptg">NamePtg</A>&nbsp;namePtg)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html#getNameText(org.apache.poi.ss.formula.ptg.NamePtg)">getNameText</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaRenderingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaRenderingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getName(org.apache.poi.ss.formula.ptg.NamePtg)"><!-- --></A><H3>
+getName</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/EvaluationName.html" title="interface in org.apache.poi.ss.formula">EvaluationName</A> <B>getName</B>(<A HREF="../../../../../org/apache/poi/ss/formula/ptg/NamePtg.html" title="class in org.apache.poi.ss.formula.ptg">NamePtg</A>&nbsp;namePtg)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getName(org.apache.poi.ss.formula.ptg.NamePtg)">getName</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createName()"><!-- --></A><H3>
+createName</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFName.html" title="class in org.apache.poi.xssf.usermodel">XSSFName</A> <B>createName</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#createName()">FormulaParsingWorkbook</A></CODE></B></DD>
+<DD>Return the underlying workbook
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#createName()">createName</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTable(java.lang.String)"><!-- --></A><H3>
+getTable</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFTable.html" title="class in org.apache.poi.xssf.usermodel">XSSFTable</A> <B>getTable</B>(java.lang.String&nbsp;name)</PRE>
+<DL>
+<DD>Returns the data table with the given name (case insensitive).
+ Tables are cached for performance (formula evaluation looks them up by name repeatedly).
+ After the first table lookup, adding or removing a table from the document structure will cause trouble.
+ This is meant to be used on documents whose structure is essentially static at the point formulas are evaluated.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getTable(java.lang.String)">getTable</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the data table name (case-insensitive)
+<DT><B>Returns:</B><DD>The Data table in the workbook named <tt>name</tt>, or <tt>null</tt> if no table is named <tt>name</tt>.<DT><B>Since:</B></DT>
+  <DD>3.15 beta 2</DD>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getUDFFinder()"><!-- --></A><H3>
+getUDFFinder</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/formula/udf/UDFFinder.html" title="interface in org.apache.poi.ss.formula.udf">UDFFinder</A> <B>getUDFFinder</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getUDFFinder()">getUDFFinder</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSpreadsheetVersion()"><!-- --></A><H3>
+getSpreadsheetVersion</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</A> <B>getSpreadsheetVersion</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getSpreadsheetVersion()">FormulaParsingWorkbook</A></CODE></B></DD>
+<DD>Returns an enum holding spreadhseet properties specific to an Excel version (
+ max column and row numbers, max arguments to a function, etc.)
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html#getSpreadsheetVersion()">getSpreadsheetVersion</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/EvaluationWorkbook.html" title="interface in org.apache.poi.ss.formula">EvaluationWorkbook</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#getSpreadsheetVersion()">getSpreadsheetVersion</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html" title="interface in org.apache.poi.ss.formula">FormulaParsingWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/BaseXSSFEvaluationWorkbook.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/xssf/usermodel/BaseXSSFFormulaEvaluator.html" title="class in org.apache.poi.xssf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="BaseXSSFEvaluationWorkbook.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

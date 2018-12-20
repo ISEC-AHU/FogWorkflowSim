@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Algorithm>
+ <name>Test</name>
+ <setting1 name="setting  a" value="1"></setting1>
+ <setting2 name="setting  b" value="1"></setting2>
+ <setting3 name="setting  c" value="1"></setting3>
+ <setting4 name="setting  d" value="1"></setting4>
+</Algorithm>

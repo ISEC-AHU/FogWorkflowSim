@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="jars/cloudsim-3.0.3-sources.jar"/>
+	<classpathentry kind="lib" path="jars/cloudsim-3.0.3.jar"/>
+	<classpathentry kind="lib" path="jars/cloudsim-examples-3.0.3-sources.jar"/>
+	<classpathentry kind="lib" path="jars/cloudsim-examples-3.0.3.jar"/>
+	<classpathentry kind="lib" path="jars/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="jars/json-simple-1.1.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="jars/commons-math3-3.5.jar"/>
+	<classpathentry kind="lib" path="jars/drawbar.jar"/>
+	<classpathentry kind="lib" path="jars/drawpicture.jar"/>
+	<classpathentry kind="lib" path="jars/drawplot2.jar"/>
+	<classpathentry kind="lib" path="jars/flanagan.jar"/>
+	<classpathentry kind="lib" path="jars/javabuilder.jar"/>
+	<classpathentry kind="lib" path="jars/jdom-2.0.0.jar"/>
+	<classpathentry kind="lib" path="jars/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="jars/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="jars/miglayout15-swing.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

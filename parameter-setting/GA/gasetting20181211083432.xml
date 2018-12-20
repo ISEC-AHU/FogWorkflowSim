@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GA>
+ <Population_Size>75</Population_Size>
+ <Number_of_Iterations>100</Number_of_Iterations>
+ <Cross_Probability>0.8</Cross_Probability>
+ <Mutation_Probability>0.1</Mutation_Probability>
+ <Repeated_experiment>100</Repeated_experiment>
+</GA>

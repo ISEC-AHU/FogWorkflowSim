@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91"><channel><title>Apache POI Changes</title><link>https://poi.apache.org/changes.html</link><description>Apache POI Changes</description><language>en-us</language>
+<item><title>OPC: fix(bug 61478)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61478) - OPC: POI OOXML-Schema lookup uses wrong classloader</description></item>
+<item><title>XWPF: fix(bug 61470)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61470) - XWPF: Handle ruby (phonetic) elements in XWPFRun</description></item>
+<item><title>POIFS: fix(bug 61381)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61381) - POIFS: PushbackInputStreams passed to ZipHelper may not hold 8 bytes</description></item>
+<item><title>SS Common: fix(bug 58975)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 58975) - SS Common: Support formula evaluation with functions containing more than 127 arguments</description></item>
+<item><title>SS Common: fix(bug 60422)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 60422) - SS Common: Fix issue with number formatting in non-default locales</description></item>
+<item><title>SXSSF: fix(bug 61048)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61048) - SXSSF: Fix issue where carriage returns were being escaped as line feeds</description></item>
+<item><title>SXSSF: fix(bug 61246)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61246) - SXSSF: Do not replace Unicode Surrogate chars with ? when writing SXXSF sheets</description></item>
+<item><title>POI Overall: fix(bug 61363)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61363) - POI Overall: Unify escher shape id allocation</description></item>
+<item><title>OPC: fix(bug 61350)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61350) - OPC: Use unsynchronized xmlbeans</description></item>
+<item><title>HEMF: fix(bug 61346)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61346) - HEMF: Add more sanity checks before allocation of byte arrays in HEMF/HWMF.</description></item>
+<item><title>HWMF: fix(bug 61338)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61338) - HWMF: Avoid infinite loop with corrupt file.</description></item>
+<item><title>HPSF: fix(bug 61295)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61295) - HPSF: Avoid OOM in hpsf with corrupt file.</description></item>
+<item><title>SL Common: add(bug 61331)</title><link>https://poi.apache.org/changes.html</link><description>add by POI Developers (bug 61331) - SL Common: Font group handling / common font interface</description></item>
+<item><title>POIFS: fix(bug 61300)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61300) - POIFS: Avoid infinite loop with corrupt file.</description></item>
+<item><title>HSSF: fix(bug 61286,61287)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61286,61287) - HSSF: Handle zero-length headerfooter and 2 byte WriteProtectRecord</description></item>
+<item><title>SS Common: fix(bug github-43)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug github-43) - SS Common: RoundUp and RoundDown functions round incorrectly in some scenarios</description></item>
+<item><title>SS Common: fix(bug github-52)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug github-52) - SS Common: Support number formats with trailing commas</description></item>
+<item><title>POI Overall: fix(bug 61294)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61294) - POI Overall: Fix bug that allowed IOUtils.skipFully to enter infinite loop</description></item>
+<item><title>POIFS: fix(bug 61266)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61266) - POIFS: More helpful exception on unsupported old MS Write WRI files</description></item>
+<item><title>POI Overall: fix(bug 61243)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61243) - POI Overall: Refactor and unify toString/toXml in DDF</description></item>
+<item><title>OPC: fix(bug 61182)</title><link>https://poi.apache.org/changes.html</link><description>fix by POI Developers (bug 61182) - OPC: Invalid signature created for streamed xlsx file</description></item>
+</channel></rss>

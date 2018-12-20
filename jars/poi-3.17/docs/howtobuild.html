@@ -1,0 +1,537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Apache POI - How To Build</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td width="50%" align="left">
+<div class="groupLogo">
+<a href="https://www.apache.org"><img border="0" class="logoImage" alt="The Apache Software Foundation" src="resources/images/asf_logo.png"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td width="50%" align="right">
+<div align="right" class="projectLogo">
+<a href="https://donate.apache.org/"><img border="0" class="logoImage" alt="Support Apache" src="resources/images/support-asf.png" width="120" height="120" title="Your donation helps The Apache Software Foundation ensure its community-driven software remains available to billions of users at absolutely no cost."></a><a href="https://poi.apache.org/"><img border="0" class="logoImage" alt="Apache POI" src="resources/images/pb-poi.png" width="120" height="120" title="Apache POI - the Java API for Microsoft Documents"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href="https://www.apache.org/">Apache</a> | <a href="https://poi.apache.org/">POI</a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="index.html">Home</a></span> | <script language="Javascript" type="text/javascript">
+function printit() {  
+if (window.print) {
+    window.print() ;  
+} else {
+    var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH="0" HEIGHT="0" CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+    WebBrowser1.ExecWB(6, 2);//Use a 1 vs. a 2 for a prompting dialog box    WebBrowser1.outerHTML = "";  
+}
+}
+</script><script language="Javascript" type="text/javascript">
+var NS = (navigator.appName == "Netscape");
+var VERSION = parseInt(navigator.appVersion);
+if (VERSION > 3) {
+    document.write('  <a title="PRINT this page OUT" href="javascript:printit()">PRINT</a>');
+}
+</script>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Overview</span>
+        
+<div class="menuItem">
+<a href="index.html">Home</a>
+</div>
+        
+<div class="menuItem">
+<a href="download.html">Download</a>
+</div>
+        
+<div class="menuItem">
+<a href="overview.html">Components</a>
+</div>
+        
+<div class="menuItem">
+<a href="text-extraction.html">Text Extraction</a>
+</div>
+        
+<div class="menuItem">
+<a href="encryption.html">Encryption support</a>
+</div>
+        
+<div class="menuItem">
+<a href="casestudies.html">Case Studies</a>
+</div>
+        
+<div class="menuItem">
+<a href="related-projects.html">Related projects</a>
+</div>
+        
+<div class="menuItem">
+<a href="legal.html">Legal</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Help</span>
+        
+<div class="menuItem">
+<a href="apidocs/index.html">Javadocs</a>
+</div>
+        
+<div class="menuItem">
+<a href="faq.html">FAQ</a>
+</div>
+        
+<div class="menuItem">
+<a href="mailinglists.html">Mailing Lists</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://bz.apache.org/bugzilla/buglist.cgi?product=POI">Bug Database</a>
+</div>
+        
+<div class="menuItem">
+<a href="changes.html">Changelog</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Getting Involved</span>
+        
+<div class="menuItem">
+<a href="subversion.html">Subversion Repository</a>
+</div>
+        
+<div class="menuItem">
+<span class="menuSelected">How To Build</span>
+</div>
+        
+<div class="menuItem">
+<a href="guidelines.html">Contribution Guidelines</a>
+</div>
+        
+<div class="menuItem">
+<a href="who.html">Who We Are</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Component APIs</span>
+        
+<div class="menuItem">
+<a href="spreadsheet/index.html">Excel (SS=HSSF+XSSF+SXSSF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="slideshow/index.html">PowerPoint (SL=HSLF+XSLF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="document/index.html">Word (WP=HWPF+XWPF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hsmf/index.html">Outlook (HSMF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="diagram/index.html">Visio (HDGF+XDGF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hpbf/index.html">Publisher (HPBF)</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Low-level Component APIs</span>
+        
+<div class="menuItem">
+<a href="poifs/index.html">OLE2 Filesystem (POIFS)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hpsf/index.html">OLE2 Document Props (HPSF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hmef/index.html">TNEF (HMEF) for winmail.dat</a>
+</div>
+        
+<div class="menuItem">
+<a href="oxml4j/index.html">OpenXML4J (OOXML)</a>
+</div>
+        
+<div class="menuItem">
+<a href="logging.html">Logging framework</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Apache Wide</span>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/">Apache Software Foundation</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/licenses/">License</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/foundation/thanks.html">Thanks</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/security/">Security</a>
+</div>
+    
+</div>
+</div>
+</div>
+<form target="_blank" action="https://www.google.com/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap">
+                          Search Apache POI<br>
+<input value="poi.apache.org" name="sitesearch" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="skin/images/spacer.gif" class="spacer"><input name="Search" value="GO" type="submit"></td><td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Apache POI - How To Build</h1>
+</div>
+<div class="h3">
+    
+    
+        
+<a name="JDK+Version"></a>
+<div class="h3">
+<h3>JDK Version<a title="Permanent link" class="headerlink" href="#JDK+Version">#</a>
+</h3>
+</div>
+          
+          
+<p>
+            POI 3.11 and later requires the JDK version 1.6 or later.
+          </p>
+          
+<p>
+            POI 3.5 to 3.10 required the JDK version 1.5 or later.
+            Versions prior to 3.5 required JDK 1.4+.
+          </p>
+        
+        
+<a name="Install+Apache+Ant"></a>
+<div class="h3">
+<h3>Install Apache Ant<a title="Permanent link" class="headerlink" href="#Install+Apache+Ant">#</a>
+</h3>
+</div>
+            
+            
+<p>
+                The POI build system requires <a href="https://ant.apache.org/">Apache Ant</a>
+                version 1.8 - 1.9.x for Java 1.6 and higher. Newer versions (1.10.x) require Java 8 or higher.
+            </p>
+            
+<p>
+                Specifically the build has been tested to work with Ant version
+                1.8.4, 1.9.4, and 1.9.9.
+            </p>
+            
+<p>
+                Remember to set the ANT_HOME environment variable and add 
+                ANT_HOME/bin to your shell's PATH.
+            </p>
+        
+        
+<a name="Install+Apache+Forrest"></a>
+<div class="h3">
+<h3>Install Apache Forrest<a title="Permanent link" class="headerlink" href="#Install+Apache+Forrest">#</a>
+</h3>
+</div>
+            
+            
+<p>
+                The POI build system requires 
+                <a href="https://forrest.apache.org/">Apache Forrest</a> 
+                to build the documentation.
+            </p>
+            
+<p>
+                Specifically the build has been tested to work with Forrest 0.5.x. 
+                This is an <strong>old release</strong> which is available
+                <a href="https://archive.apache.org/dist/forrest/pre-0.6/">here</a>.
+            </p>
+	    
+<p>
+	        Remember to set the FORREST_HOME environment variable.
+            </p>
+        
+        
+<a name="Building+Targets+with+Ant"></a>
+<div class="h3">
+<h3>Building Targets with Ant<a title="Permanent link" class="headerlink" href="#Building+Targets+with+Ant">#</a>
+</h3>
+</div>
+            
+            
+<p>
+                The main targets of interest to our users are:
+            </p>
+            
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+                
+<tr class="b">
+                    
+<th colspan="1" rowspan="1">Ant Target</th>
+                    <th colspan="1" rowspan="1">Description</th>
+                
+</tr>
+                
+<tr class="a">
+                    
+<td colspan="1" rowspan="1">clean</td>
+                    <td colspan="1" rowspan="1">Erase all build work products (ie. everything in the
+                        build directory</td>
+                
+</tr>
+                
+<tr class="b">
+                    
+<td colspan="1" rowspan="1">compile</td>
+                    <td colspan="1" rowspan="1">Compiles all files from main, ooxml and scratchpad</td>
+                
+</tr>
+                
+<tr class="a">
+                    
+<td colspan="1" rowspan="1">test</td>
+                    <td colspan="1" rowspan="1">Run all unit tests from main, ooxml and scratchpad</td>
+                
+</tr>
+                
+<tr class="b">
+                    
+<td colspan="1" rowspan="1">jar</td>
+                    <td colspan="1" rowspan="1">Produce jar files</td>
+                
+</tr>
+                
+<tr class="a">
+                    
+<td colspan="1" rowspan="1">assemble</td>
+                    <td colspan="1" rowspan="1">Produce .zip and tar.gz distribution packages</td>
+                
+</tr>
+                
+<tr class="b">
+                    
+<td colspan="1" rowspan="1">docs</td>
+                    <td colspan="1" rowspan="1">Generate all documentation (Requires Apache Forrest)</td>
+                
+</tr>
+                
+<tr class="a">
+                    
+<td colspan="1" rowspan="1">jenkins</td>
+                    <td colspan="1" rowspan="1">Runs the tests which Jenkins, our Continuous Integration system, does. This includes the unit tests and various code quality checks.</td>
+                
+</tr>
+            
+</table>
+        
+        
+<a name="Working+with+Eclipse"></a>
+<div class="h3">
+<h3>Working with Eclipse<a title="Permanent link" class="headerlink" href="#Working+with+Eclipse">#</a>
+</h3>
+</div>
+            
+            
+<p>
+            	Apache POI includes a pre-defined Eclipse project file which can be 
+            	used to quickly get set up in the Eclipse IDE. 
+            </p>
+            
+<p>
+            	In order to get started, first build Apache POI using Ant as described above
+            	to get all required 3rd party libraries downloaded. 
+            </p>
+            
+<p>
+            	Then import the project in Eclipse via File-&gt;Import-&gt;Existing Projects into Workspace.
+            </p>
+            
+<p>
+            	Note: when executing junit tests from within Eclipse, you might need to set the system 
+            	property "POI.testdata.path" to the actual location of the 'test-data' directory to make 
+            	the test framework find the required test-files. A simple value of 'test-data' usually works. 
+            </p>
+        
+        
+<a name="Working+with+IntelliJ+Idea"></a>
+<div class="h3">
+<h3>Working with IntelliJ Idea<a title="Permanent link" class="headerlink" href="#Working+with+IntelliJ+Idea">#</a>
+</h3>
+</div>
+            
+            
+<p>
+                We currently do not offer project files for IntelliJ and unfortunately it
+                cannot import the project from the Ant build files.
+            </p>
+            
+<p>
+                In order to get started, first build Apache POI using Ant as described above
+                to get all required 3rd party libraries downloaded.
+            </p>
+            
+<p>
+                Then import the main folder into a new project and then define all the source folders under src
+                accordingly. Also add all libraries from the lib, compile-lib and ooxml-lib folders.
+            </p>
+            
+<p>
+                Note: when executing junit tests from within IntelliJ, you might need to set the system
+                property "POI.testdata.path" to the actual location of the 'test-data' directory to make
+                the test framework find the required test-files. A simple value of 'test-data' usually works.
+            </p>
+        
+        
+<a name="Using+Maven"></a>
+<div class="h3">
+<h3>Using Maven<a title="Permanent link" class="headerlink" href="#Using+Maven">#</a>
+</h3>
+</div>
+            
+            
+<p>Building Apache POI using Maven is not currently officially
+             supported, and we strongly suggest continuing to use the official
+             Ant build.</p>
+            
+<p>However, including Apache POI within your own Maven project
+             is fully supported, and widely used. Please see the
+             <a href="overview.html#components">Components Page</a>
+             for details of the Maven artifacts available.</p>
+        
+        
+<a name="Setting+environment+variables"></a>
+<div class="h3">
+<h3>Setting environment variables<a title="Permanent link" class="headerlink" href="#Setting+environment+variables">#</a>
+</h3>
+</div>
+            
+            
+<p>Linux:
+              <a href="https://help.ubuntu.com/community/EnvironmentVariables">help.ubuntu.com</a>,
+              <a href="http://unix.stackexchange.com/questions/117467/how-to-permanently-set-environmental-variables">unix.stackexchange.com</a>
+            
+</p>
+            
+<p>Windows:
+              <a href="https://en.wikipedia.org/wiki/Environment_variable#DOS.2C_OS.2F2_and_Windows">en.wikipedia.org</a>
+            
+</p>
+        
+    
+  
+
+<div id="authors" align="right">by&nbsp;Glen Stampoultzis,&nbsp;Tetsuya Kitahata,&nbsp;David Fisher</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2002-2017&nbsp;The Apache Software Foundation. All rights reserved.<br>
+              Apache, Apache POI, and the Apache POI logo are registered trademarks or
+              trademarks of The Apache Software Foundation in the U.S. and/or other countries.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

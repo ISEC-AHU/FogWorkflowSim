@@ -1,0 +1,880 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+Uses of Class org.apache.poi.ss.util.CellReference (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Uses of Class org.apache.poi.ss.util.CellReference (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/poi/ss/util//class-useCellReference.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="CellReference.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<CENTER>
+<H2>
+<B>Uses of Class<br>org.apache.poi.ss.util.CellReference</B></H2>
+</CENTER>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Packages that use <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.hssf.record.aggregates"><B>org.apache.poi.hssf.record.aggregates</B></A></TD>
+<TD>record aggregates are not real "records" but collections of records that act as a single record.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.hssf.usermodel"><B>org.apache.poi.hssf.usermodel</B></A></TD>
+<TD>usermodel package maps HSSF low level strutures to familiar workbook/sheet model&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.hssf.util"><B>org.apache.poi.hssf.util</B></A></TD>
+<TD>util package contains tools needed for writing HSSF files that are not necesarily "real" 
+HSSF concepts.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.ss.formula"><B>org.apache.poi.ss.formula</B></A></TD>
+<TD>This package contains common internal POI code for manipulating formulas.&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.ss.formula.ptg"><B>org.apache.poi.ss.formula.ptg</B></A></TD>
+<TD>formula package contains binary PTG structures used in Formulas&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.ss.usermodel"><B>org.apache.poi.ss.usermodel</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.ss.usermodel.charts"><B>org.apache.poi.ss.usermodel.charts</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.ss.util"><B>org.apache.poi.ss.util</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xssf.streaming"><B>org.apache.poi.xssf.streaming</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xssf.usermodel"><B>org.apache.poi.xssf.usermodel</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xssf.usermodel.charts"><B>org.apache.poi.xssf.usermodel.charts</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.hssf.record.aggregates"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/hssf/record/aggregates/package-summary.html">org.apache.poi.hssf.record.aggregates</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/hssf/record/aggregates/package-summary.html">org.apache.poi.hssf.record.aggregates</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../../org/apache/poi/hssf/record/aggregates/SharedValueManager.html" title="class in org.apache.poi.hssf.record.aggregates">SharedValueManager</A></CODE></FONT></TD>
+<TD><CODE><B>SharedValueManager.</B><B><A HREF="../../../../../../org/apache/poi/hssf/record/aggregates/SharedValueManager.html#create(org.apache.poi.hssf.record.SharedFormulaRecord[], org.apache.poi.ss.util.CellReference[], org.apache.poi.hssf.record.ArrayRecord[], org.apache.poi.hssf.record.TableRecord[])">create</A></B>(<A HREF="../../../../../../org/apache/poi/hssf/record/SharedFormulaRecord.html" title="class in org.apache.poi.hssf.record">SharedFormulaRecord</A>[]&nbsp;sharedFormulaRecords,
+       <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>[]&nbsp;firstCells,
+       <A HREF="../../../../../../org/apache/poi/hssf/record/ArrayRecord.html" title="class in org.apache.poi.hssf.record">ArrayRecord</A>[]&nbsp;arrayRecords,
+       <A HREF="../../../../../../org/apache/poi/hssf/record/TableRecord.html" title="class in org.apache.poi.hssf.record">TableRecord</A>[]&nbsp;tableRecords)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/hssf/record/SharedFormulaRecord.html" title="class in org.apache.poi.hssf.record">SharedFormulaRecord</A></CODE></FONT></TD>
+<TD><CODE><B>SharedValueManager.</B><B><A HREF="../../../../../../org/apache/poi/hssf/record/aggregates/SharedValueManager.html#linkSharedFormulaRecord(org.apache.poi.ss.util.CellReference, org.apache.poi.hssf.record.aggregates.FormulaRecordAggregate)">linkSharedFormulaRecord</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;firstCell,
+                        <A HREF="../../../../../../org/apache/poi/hssf/record/aggregates/FormulaRecordAggregate.html" title="class in org.apache.poi.hssf.record.aggregates">FormulaRecordAggregate</A>&nbsp;agg)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.hssf.usermodel"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/hssf/usermodel/package-summary.html">org.apache.poi.hssf.usermodel</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/hssf/usermodel/package-summary.html">org.apache.poi.hssf.usermodel</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</A></CODE></FONT></TD>
+<TD><CODE><B>HSSFCreationHelper.</B><B><A HREF="../../../../../../org/apache/poi/hssf/usermodel/HSSFCreationHelper.html#createAreaReference(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellReference)">createAreaReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;topLeft,
+                    <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;bottomRight)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates an area ref from a pair of Cell References..</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</A></CODE></FONT></TD>
+<TD><CODE><B>HSSFEvaluationWorkbook.</B><B><A HREF="../../../../../../org/apache/poi/hssf/usermodel/HSSFEvaluationWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.formula.SheetIdentifier)">get3DReferencePtg</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cr,
+                  <A HREF="../../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.hssf.util"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/hssf/util/package-summary.html">org.apache.poi.hssf.util</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Subclasses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/hssf/util/package-summary.html">org.apache.poi.hssf.util</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/hssf/util/CellReference.html" title="class in org.apache.poi.hssf.util">CellReference</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Common conversion functions between Excel style A1, C27 style
+  cell references, and POI usermodel style row=0, column=0
+  style references.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.ss.formula"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</A> that return <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>Formula.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/Formula.html#getExpReference()">getExpReference</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the locator for the corresponding <A HREF="../../../../../../org/apache/poi/hssf/record/SharedFormulaRecord.html" title="class in org.apache.poi.hssf.record"><CODE>SharedFormulaRecord</CODE></A>,
+ <A HREF="../../../../../../org/apache/poi/hssf/record/ArrayRecord.html" title="class in org.apache.poi.hssf.record"><CODE>ArrayRecord</CODE></A> or <A HREF="../../../../../../org/apache/poi/hssf/record/TableRecord.html" title="class in org.apache.poi.hssf.record"><CODE>TableRecord</CODE></A>
+ if this formula belongs to such a grouping.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>ConditionalFormattingEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html#getRef(org.apache.poi.ss.usermodel.Cell)">getRef</A></B>(<A HREF="../../../../../../org/apache/poi/ss/usermodel/Cell.html" title="interface in org.apache.poi.ss.usermodel">Cell</A>&nbsp;cell)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>DataValidationEvaluator.DataValidationContext.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html#getTarget()">getTarget</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>WorkbookEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#adjustRegionRelativeReference(org.apache.poi.ss.formula.ptg.Ptg[], org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellRangeAddressBase)">adjustRegionRelativeReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</A>[]&nbsp;ptgs,
+                              <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;target,
+                              <A HREF="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</A>&nbsp;region)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adjust formula relative references by the offset between the start of the given region and the given target cell.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</A></CODE></FONT></TD>
+<TD><CODE><B>WorkbookEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#evaluate(java.lang.String, org.apache.poi.ss.util.CellReference)">evaluate</A></B>(java.lang.String&nbsp;formula,
+         <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;ref)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Evaluate a formula outside a cell value, e.g.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</A></CODE></FONT></TD>
+<TD><CODE><B>WorkbookEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#evaluate(java.lang.String, org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellRangeAddressBase)">evaluate</A></B>(java.lang.String&nbsp;formula,
+         <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;target,
+         <A HREF="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</A>&nbsp;region)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some expressions need to be evaluated in terms of an offset from the top left corner of a region,
+ such as some data validation and conditional format expressions, when those constraints apply
+ to contiguous cells.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</A></CODE></FONT></TD>
+<TD><CODE><B>WorkbookEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/WorkbookEvaluator.html#evaluateList(java.lang.String, org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellRangeAddressBase)">evaluateList</A></B>(java.lang.String&nbsp;formula,
+             <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;target,
+             <A HREF="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</A>&nbsp;region)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some expressions need to be evaluated in terms of an offset from the top left corner of a region,
+ such as some data validation and conditional format expressions, when those constraints apply
+ to contiguous cells.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</A></CODE></FONT></TD>
+<TD><CODE><B>FormulaParsingWorkbook.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/FormulaParsingWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.formula.SheetIdentifier)">get3DReferencePtg</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cell,
+                  <A HREF="../../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Produce the appropriate Ptg for a 3d cell reference</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../../org/apache/poi/ss/formula/EvaluationConditionalFormatRule.html" title="class in org.apache.poi.ss.formula">EvaluationConditionalFormatRule</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>ConditionalFormattingEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/ConditionalFormattingEvaluator.html#getConditionalFormattingForCell(org.apache.poi.ss.util.CellReference)">getConditionalFormattingForCell</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cellRef)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This checks all applicable <A HREF="../../../../../../org/apache/poi/ss/usermodel/ConditionalFormattingRule.html" title="interface in org.apache.poi.ss.usermodel"><CODE>ConditionalFormattingRule</CODE></A>s for the cell's sheet, 
+ in defined "priority" order, returning the matches if any.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html" title="class in org.apache.poi.ss.formula">DataValidationEvaluator.DataValidationContext</A></CODE></FONT></TD>
+<TD><CODE><B>DataValidationEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html#getValidationContextForCell(org.apache.poi.ss.util.CellReference)">getValidationContextForCell</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cell)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finds and returns the <A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html" title="class in org.apache.poi.ss.formula"><CODE>DataValidationEvaluator.DataValidationContext</CODE></A> for the cell, if there is
+ one.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/usermodel/DataValidation.html" title="interface in org.apache.poi.ss.usermodel">DataValidation</A></CODE></FONT></TD>
+<TD><CODE><B>DataValidationEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html#getValidationForCell(org.apache.poi.ss.util.CellReference)">getValidationForCell</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cell)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finds and returns the <A HREF="../../../../../../org/apache/poi/ss/usermodel/DataValidation.html" title="interface in org.apache.poi.ss.usermodel"><CODE>DataValidation</CODE></A> for the cell, if there is
+ one.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../../org/apache/poi/ss/formula/eval/ValueEval.html" title="interface in org.apache.poi.ss.formula.eval">ValueEval</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>DataValidationEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html#getValidationValuesForCell(org.apache.poi.ss.util.CellReference)">getValidationValuesForCell</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cell)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If <A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html#getValidationForCell(org.apache.poi.ss.util.CellReference)"><CODE>DataValidationEvaluator.getValidationForCell(CellReference)</CODE></A> returns an instance, and the
+ <A HREF="../../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.ValidationType.html" title="class in org.apache.poi.ss.usermodel"><CODE>DataValidationConstraint.ValidationType</CODE></A> is <A HREF="../../../../../../org/apache/poi/ss/usermodel/DataValidationConstraint.ValidationType.html#LIST"><CODE>DataValidationConstraint.ValidationType.LIST</CODE></A>, return the valid
+ values, whether they are from a static list or cell range.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>DataValidationEvaluator.</B><B><A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html#isValidCell(org.apache.poi.ss.util.CellReference)">isValidCell</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cellRef)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use the validation returned by <A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html#getValidationForCell(org.apache.poi.ss.util.CellReference)"><CODE>DataValidationEvaluator.getValidationForCell(CellReference)</CODE></A> if you
+ want the error display details.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../../org/apache/poi/ss/formula/package-summary.html">org.apache.poi.ss.formula</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.DataValidationContext.html#DataValidationEvaluator.DataValidationContext(org.apache.poi.ss.usermodel.DataValidation, org.apache.poi.ss.formula.DataValidationEvaluator, org.apache.poi.ss.util.CellRangeAddressBase, org.apache.poi.ss.util.CellReference)">DataValidationEvaluator.DataValidationContext</A></B>(<A HREF="../../../../../../org/apache/poi/ss/usermodel/DataValidation.html" title="interface in org.apache.poi.ss.usermodel">DataValidation</A>&nbsp;dv,
+                                              <A HREF="../../../../../../org/apache/poi/ss/formula/DataValidationEvaluator.html" title="class in org.apache.poi.ss.formula">DataValidationEvaluator</A>&nbsp;dve,
+                                              <A HREF="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html" title="class in org.apache.poi.ss.util">CellRangeAddressBase</A>&nbsp;region,
+                                              <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;target)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.ss.formula.ptg"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/ss/formula/ptg/package-summary.html">org.apache.poi.ss.formula.ptg</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../../org/apache/poi/ss/formula/ptg/package-summary.html">org.apache.poi.ss.formula.ptg</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPtg.html#Ref3DPtg(org.apache.poi.ss.util.CellReference, int)">Ref3DPtg</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;c,
+         int&nbsp;externIdx)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPxg.html#Ref3DPxg(int, org.apache.poi.ss.formula.SheetIdentifier, org.apache.poi.ss.util.CellReference)">Ref3DPxg</A></B>(int&nbsp;externalWorkbookNumber,
+         <A HREF="../../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheetName,
+         <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/formula/ptg/Ref3DPxg.html#Ref3DPxg(org.apache.poi.ss.formula.SheetIdentifier, org.apache.poi.ss.util.CellReference)">Ref3DPxg</A></B>(<A HREF="../../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheetName,
+         <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/formula/ptg/RefPtg.html#RefPtg(org.apache.poi.ss.util.CellReference)">RefPtg</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cr)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/formula/ptg/RefPtgBase.html#RefPtgBase(org.apache.poi.ss.util.CellReference)">RefPtgBase</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.ss.usermodel"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/ss/usermodel/package-summary.html">org.apache.poi.ss.usermodel</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/ss/usermodel/package-summary.html">org.apache.poi.ss.usermodel</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</A></CODE></FONT></TD>
+<TD><CODE><B>CreationHelper.</B><B><A HREF="../../../../../../org/apache/poi/ss/usermodel/CreationHelper.html#createAreaReference(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellReference)">createAreaReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;topLeft,
+                    <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;bottomRight)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates an area ref from a pair of Cell References..</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.ss.usermodel.charts"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/ss/usermodel/charts/package-summary.html">org.apache.poi.ss.usermodel.charts</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/ss/usermodel/charts/package-summary.html">org.apache.poi.ss.usermodel.charts</A> that return <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>ChartSeries.</B><B><A HREF="../../../../../../org/apache/poi/ss/usermodel/charts/ChartSeries.html#getTitleCellReference()">getTitleCellReference</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/ss/usermodel/charts/package-summary.html">org.apache.poi.ss.usermodel.charts</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ChartSeries.</B><B><A HREF="../../../../../../org/apache/poi/ss/usermodel/charts/ChartSeries.html#setTitle(org.apache.poi.ss.util.CellReference)">setTitle</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;titleReference)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the title of the series as a cell reference.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.ss.util"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/ss/util/package-summary.html">org.apache.poi.ss.util</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/ss/util/package-summary.html">org.apache.poi.ss.util</A> that return <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>[]</CODE></FONT></TD>
+<TD><CODE><B>AreaReference.</B><B><A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html#getAllReferencedCells()">getAllReferencedCells</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a reference to every cell covered by this area</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>AreaReference.</B><B><A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html#getFirstCell()">getFirstCell</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>AreaReference.</B><B><A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html#getLastCell()">getLastCell</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note - if this area reference refers to a single cell, the return value of this method will
+ be identical to that of <tt>getFirstCell()</tt></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/ss/util/package-summary.html">org.apache.poi.ss.util</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>CellRangeAddressBase.</B><B><A HREF="../../../../../../org/apache/poi/ss/util/CellRangeAddressBase.html#isInRange(org.apache.poi.ss.util.CellReference)">isInRange</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;ref)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Determines if the given <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util"><CODE>CellReference</CODE></A> lies within the bounds 
+ of this range.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>AreaReference.</B><B><A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html#isWholeColumnReference(org.apache.poi.ss.SpreadsheetVersion, org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellReference)">isWholeColumnReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</A>&nbsp;version,
+                       <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;topLeft,
+                       <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;botRight)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is the reference for a whole-column reference,
+  such as C:C or D:G ?</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../../org/apache/poi/ss/util/package-summary.html">org.apache.poi.ss.util</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html#AreaReference(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellReference)">AreaReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;topLeft,
+              <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;botRight)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>use <A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html#AreaReference(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellReference, org.apache.poi.ss.SpreadsheetVersion)"><CODE>AreaReference.AreaReference(CellReference, CellReference, SpreadsheetVersion)</CODE></A> instead</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html#AreaReference(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellReference, org.apache.poi.ss.SpreadsheetVersion)">AreaReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;topLeft,
+              <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;botRight,
+              <A HREF="../../../../../../org/apache/poi/ss/SpreadsheetVersion.html" title="enum in org.apache.poi.ss">SpreadsheetVersion</A>&nbsp;version)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates an area ref from a pair of Cell References.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/ss/util/CellAddress.html#CellAddress(org.apache.poi.ss.util.CellReference)">CellAddress</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;reference)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new CellAddress object.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xssf.streaming"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/xssf/streaming/package-summary.html">org.apache.poi.xssf.streaming</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xssf/streaming/package-summary.html">org.apache.poi.xssf.streaming</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</A></CODE></FONT></TD>
+<TD><CODE><B>SXSSFCreationHelper.</B><B><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFCreationHelper.html#createAreaReference(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellReference)">createAreaReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;topLeft,
+                    <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;bottomRight)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates an area ref from a pair of Cell References..</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xssf.usermodel"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/xssf/usermodel/package-summary.html">org.apache.poi.xssf.usermodel</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xssf/usermodel/package-summary.html">org.apache.poi.xssf.usermodel</A> that return <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>XSSFTable.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFTable.html#getEndCellReference()">getEndCellReference</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>XSSFTable.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFTable.html#getStartCellReference()">getStartCellReference</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xssf/usermodel/package-summary.html">org.apache.poi.xssf.usermodel</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>XSSFSheet.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#addIgnoredErrors(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.usermodel.IgnoredErrorType...)">addIgnoredErrors</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cell,
+                 <A HREF="../../../../../../org/apache/poi/ss/usermodel/IgnoredErrorType.html" title="enum in org.apache.poi.ss.usermodel">IgnoredErrorType</A>...&nbsp;ignoredErrorTypes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add ignored errors (usually to suppress them in the UI of a consuming
+ application).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</A></CODE></FONT></TD>
+<TD><CODE><B>XSSFCreationHelper.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFCreationHelper.html#createAreaReference(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.util.CellReference)">createAreaReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;topLeft,
+                    <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;bottomRight)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates an area ref from a pair of Cell References..</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFPivotTable.html" title="class in org.apache.poi.xssf.usermodel">XSSFPivotTable</A></CODE></FONT></TD>
+<TD><CODE><B>XSSFSheet.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#createPivotTable(org.apache.poi.ss.util.AreaReference, org.apache.poi.ss.util.CellReference)">createPivotTable</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</A>&nbsp;source,
+                 <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;position)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a pivot table using the AreaReference range, at the given position.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFPivotTable.html" title="class in org.apache.poi.xssf.usermodel">XSSFPivotTable</A></CODE></FONT></TD>
+<TD><CODE><B>XSSFSheet.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#createPivotTable(org.apache.poi.ss.util.AreaReference, org.apache.poi.ss.util.CellReference, org.apache.poi.ss.usermodel.Sheet)">createPivotTable</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/AreaReference.html" title="class in org.apache.poi.ss.util">AreaReference</A>&nbsp;source,
+                 <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;position,
+                 <A HREF="../../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</A>&nbsp;sourceSheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a pivot table using the AreaReference range on sourceSheet, at the given position.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFPivotTable.html" title="class in org.apache.poi.xssf.usermodel">XSSFPivotTable</A></CODE></FONT></TD>
+<TD><CODE><B>XSSFSheet.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#createPivotTable(org.apache.poi.ss.usermodel.Name, org.apache.poi.ss.util.CellReference)">createPivotTable</A></B>(<A HREF="../../../../../../org/apache/poi/ss/usermodel/Name.html" title="interface in org.apache.poi.ss.usermodel">Name</A>&nbsp;source,
+                 <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;position)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a pivot table using the Name range, at the given position.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFPivotTable.html" title="class in org.apache.poi.xssf.usermodel">XSSFPivotTable</A></CODE></FONT></TD>
+<TD><CODE><B>XSSFSheet.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#createPivotTable(org.apache.poi.ss.usermodel.Name, org.apache.poi.ss.util.CellReference, org.apache.poi.ss.usermodel.Sheet)">createPivotTable</A></B>(<A HREF="../../../../../../org/apache/poi/ss/usermodel/Name.html" title="interface in org.apache.poi.ss.usermodel">Name</A>&nbsp;source,
+                 <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;position,
+                 <A HREF="../../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</A>&nbsp;sourceSheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a pivot table using the Name range reference on sourceSheet, at the given position.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFPivotTable.html" title="class in org.apache.poi.xssf.usermodel">XSSFPivotTable</A></CODE></FONT></TD>
+<TD><CODE><B>XSSFSheet.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFSheet.html#createPivotTable(org.apache.poi.ss.usermodel.Table, org.apache.poi.ss.util.CellReference)">createPivotTable</A></B>(<A HREF="../../../../../../org/apache/poi/ss/usermodel/Table.html" title="interface in org.apache.poi.ss.usermodel">Table</A>&nbsp;source,
+                 <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;position)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a pivot table using the Table, at the given position.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>XSSFPivotTable.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFPivotTable.html#createSourceReferences(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.usermodel.Sheet, org.apache.poi.xssf.usermodel.XSSFPivotTable.PivotTableReferenceConfigurator)">createSourceReferences</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;position,
+                       <A HREF="../../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</A>&nbsp;sourceSheet,
+                       <A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFPivotTable.PivotTableReferenceConfigurator.html" title="interface in org.apache.poi.xssf.usermodel">XSSFPivotTable.PivotTableReferenceConfigurator</A>&nbsp;refConfig)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates cacheSource and workSheetSource for pivot table and sets the source reference as well assets the location of the pivot table</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/formula/ptg/Ptg.html" title="class in org.apache.poi.ss.formula.ptg">Ptg</A></CODE></FONT></TD>
+<TD><CODE><B>BaseXSSFEvaluationWorkbook.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/BaseXSSFEvaluationWorkbook.html#get3DReferencePtg(org.apache.poi.ss.util.CellReference, org.apache.poi.ss.formula.SheetIdentifier)">get3DReferencePtg</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;cell,
+                  <A HREF="../../../../../../org/apache/poi/ss/formula/SheetIdentifier.html" title="class in org.apache.poi.ss.formula">SheetIdentifier</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>XSSFHyperlink.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/XSSFHyperlink.html#setCellReference(org.apache.poi.ss.util.CellReference)">setCellReference</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;ref)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xssf.usermodel.charts"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A> in <A HREF="../../../../../../org/apache/poi/xssf/usermodel/charts/package-summary.html">org.apache.poi.xssf.usermodel.charts</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xssf/usermodel/charts/package-summary.html">org.apache.poi.xssf.usermodel.charts</A> that return <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></CODE></FONT></TD>
+<TD><CODE><B>AbstractXSSFChartSeries.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/charts/AbstractXSSFChartSeries.html#getTitleCellReference()">getTitleCellReference</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xssf/usermodel/charts/package-summary.html">org.apache.poi.xssf.usermodel.charts</A> with parameters of type <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>AbstractXSSFChartSeries.</B><B><A HREF="../../../../../../org/apache/poi/xssf/usermodel/charts/AbstractXSSFChartSeries.html#setTitle(org.apache.poi.ss.util.CellReference)">setTitle</A></B>(<A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util">CellReference</A>&nbsp;titleReference)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../org/apache/poi/ss/util/CellReference.html" title="class in org.apache.poi.ss.util"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/poi/ss/util//class-useCellReference.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="CellReference.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

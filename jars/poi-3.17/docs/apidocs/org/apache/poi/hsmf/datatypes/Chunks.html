@@ -1,0 +1,771 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+Chunks (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Chunks (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Chunks.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroupWithProperties.html" title="interface in org.apache.poi.hsmf.datatypes"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/DirectoryChunk.html" title="class in org.apache.poi.hsmf.datatypes"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hsmf/datatypes/Chunks.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="Chunks.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.hsmf.datatypes</FONT>
+<BR>
+Class Chunks</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.hsmf.datatypes.Chunks</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html" title="interface in org.apache.poi.hsmf.datatypes">ChunkGroup</A>, <A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroupWithProperties.html" title="interface in org.apache.poi.hsmf.datatypes">ChunkGroupWithProperties</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public final class <B>Chunks</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroupWithProperties.html" title="interface in org.apache.poi.hsmf.datatypes">ChunkGroupWithProperties</A></DL>
+</PRE>
+
+<P>
+Collection of convenience chunks for standard parts of the MSG file.
+ 
+ Not all of these will be present in any given file.
+ 
+ A partial list is available at:
+ http://msdn.microsoft.com/en-us/library/ms526356%28v=exchg.10%29.aspx
+ 
+ TODO Deprecate the public Chunks in favour of Property Lookups
+<P>
+
+<P>
+<HR>
+
+<P>
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#Chunks()">Chunks</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#chunksComplete()">chunksComplete</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Called by the parser when all chunks have been found.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/MAPIProperty.html" title="class in org.apache.poi.hsmf.datatypes">MAPIProperty</A>,java.util.List&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunk.html" title="class in org.apache.poi.hsmf.datatypes">Chunk</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getAll()">getAll</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunk.html" title="class in org.apache.poi.hsmf.datatypes">Chunk</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getChunks()">getChunks</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the chunks that make up the group.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getConversationTopic()">getConversationTopic</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getDisplayBCCChunk()">getDisplayBCCChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getDisplayCCChunk()">getDisplayCCChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getDisplayFromChunk()">getDisplayFromChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getDisplayToChunk()">getDisplayToChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getEmailFromChunk()">getEmailFromChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/ByteChunk.html" title="class in org.apache.poi.hsmf.datatypes">ByteChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getHtmlBodyChunkBinary()">getHtmlBodyChunkBinary</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getHtmlBodyChunkString()">getHtmlBodyChunkString</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getMessageClass()">getMessageClass</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getMessageHeaders()">getMessageHeaders</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getMessageId()">getMessageId</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/MessagePropertiesChunk.html" title="class in org.apache.poi.hsmf.datatypes">MessagePropertiesChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getMessageProperties()">getMessageProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/MAPIProperty.html" title="class in org.apache.poi.hsmf.datatypes">MAPIProperty</A>,java.util.List&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/PropertyValue.html" title="class in org.apache.poi.hsmf.datatypes">PropertyValue</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getProperties()">getProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns all the Properties contained in the Chunk, along with their
+ Values.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/MAPIProperty.html" title="class in org.apache.poi.hsmf.datatypes">MAPIProperty</A>,<A HREF="../../../../../org/apache/poi/hsmf/datatypes/PropertyValue.html" title="class in org.apache.poi.hsmf.datatypes">PropertyValue</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getRawProperties()">getRawProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/ByteChunk.html" title="class in org.apache.poi.hsmf.datatypes">ByteChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getRtfBodyChunk()">getRtfBodyChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getSentByServerType()">getSentByServerType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getSubjectChunk()">getSubjectChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/MessageSubmissionChunk.html" title="class in org.apache.poi.hsmf.datatypes">MessageSubmissionChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getSubmissionChunk()">getSubmissionChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#getTextBodyChunk()">getTextBodyChunk</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunks.html#record(org.apache.poi.hsmf.datatypes.Chunk)">record</A></B>(<A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunk.html" title="class in org.apache.poi.hsmf.datatypes">Chunk</A>&nbsp;chunk)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Called by the parser whenever a chunk is found.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="Chunks()"><!-- --></A><H3>
+Chunks</H3>
+<PRE>
+public <B>Chunks</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getProperties()"><!-- --></A><H3>
+getProperties</H3>
+<PRE>
+public java.util.Map&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/MAPIProperty.html" title="class in org.apache.poi.hsmf.datatypes">MAPIProperty</A>,java.util.List&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/PropertyValue.html" title="class in org.apache.poi.hsmf.datatypes">PropertyValue</A>&gt;&gt; <B>getProperties</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroupWithProperties.html#getProperties()">ChunkGroupWithProperties</A></CODE></B></DD>
+<DD>Returns all the Properties contained in the Chunk, along with their
+ Values. Normally, each property will have one value, sometimes none, and
+ rarely multiple (normally for Unknown etc). For fixed sized properties,
+ the value can be fetched straight from the <A HREF="../../../../../org/apache/poi/hsmf/datatypes/PropertyValue.html" title="class in org.apache.poi.hsmf.datatypes"><CODE>PropertyValue</CODE></A>. For
+ variable sized properties, you'll need to go via the chunk.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroupWithProperties.html#getProperties()">getProperties</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroupWithProperties.html" title="interface in org.apache.poi.hsmf.datatypes">ChunkGroupWithProperties</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRawProperties()"><!-- --></A><H3>
+getRawProperties</H3>
+<PRE>
+public java.util.Map&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/MAPIProperty.html" title="class in org.apache.poi.hsmf.datatypes">MAPIProperty</A>,<A HREF="../../../../../org/apache/poi/hsmf/datatypes/PropertyValue.html" title="class in org.apache.poi.hsmf.datatypes">PropertyValue</A>&gt; <B>getRawProperties</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAll()"><!-- --></A><H3>
+getAll</H3>
+<PRE>
+public java.util.Map&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/MAPIProperty.html" title="class in org.apache.poi.hsmf.datatypes">MAPIProperty</A>,java.util.List&lt;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunk.html" title="class in org.apache.poi.hsmf.datatypes">Chunk</A>&gt;&gt; <B>getAll</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getChunks()"><!-- --></A><H3>
+getChunks</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunk.html" title="class in org.apache.poi.hsmf.datatypes">Chunk</A>[] <B>getChunks</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html#getChunks()">ChunkGroup</A></CODE></B></DD>
+<DD>Returns the chunks that make up the group. Should certainly contain all
+ the interesting Chunks, but needn't always contain all of the Chunks.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html#getChunks()">getChunks</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html" title="interface in org.apache.poi.hsmf.datatypes">ChunkGroup</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageClass()"><!-- --></A><H3>
+getMessageClass</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getMessageClass</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTextBodyChunk()"><!-- --></A><H3>
+getTextBodyChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getTextBodyChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHtmlBodyChunkString()"><!-- --></A><H3>
+getHtmlBodyChunkString</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getHtmlBodyChunkString</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHtmlBodyChunkBinary()"><!-- --></A><H3>
+getHtmlBodyChunkBinary</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/ByteChunk.html" title="class in org.apache.poi.hsmf.datatypes">ByteChunk</A> <B>getHtmlBodyChunkBinary</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRtfBodyChunk()"><!-- --></A><H3>
+getRtfBodyChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/ByteChunk.html" title="class in org.apache.poi.hsmf.datatypes">ByteChunk</A> <B>getRtfBodyChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSubjectChunk()"><!-- --></A><H3>
+getSubjectChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getSubjectChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDisplayToChunk()"><!-- --></A><H3>
+getDisplayToChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getDisplayToChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDisplayFromChunk()"><!-- --></A><H3>
+getDisplayFromChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getDisplayFromChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDisplayCCChunk()"><!-- --></A><H3>
+getDisplayCCChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getDisplayCCChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDisplayBCCChunk()"><!-- --></A><H3>
+getDisplayBCCChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getDisplayBCCChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getConversationTopic()"><!-- --></A><H3>
+getConversationTopic</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getConversationTopic</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSentByServerType()"><!-- --></A><H3>
+getSentByServerType</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getSentByServerType</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageHeaders()"><!-- --></A><H3>
+getMessageHeaders</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getMessageHeaders</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSubmissionChunk()"><!-- --></A><H3>
+getSubmissionChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/MessageSubmissionChunk.html" title="class in org.apache.poi.hsmf.datatypes">MessageSubmissionChunk</A> <B>getSubmissionChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEmailFromChunk()"><!-- --></A><H3>
+getEmailFromChunk</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getEmailFromChunk</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageId()"><!-- --></A><H3>
+getMessageId</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/StringChunk.html" title="class in org.apache.poi.hsmf.datatypes">StringChunk</A> <B>getMessageId</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMessageProperties()"><!-- --></A><H3>
+getMessageProperties</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hsmf/datatypes/MessagePropertiesChunk.html" title="class in org.apache.poi.hsmf.datatypes">MessagePropertiesChunk</A> <B>getMessageProperties</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="record(org.apache.poi.hsmf.datatypes.Chunk)"><!-- --></A><H3>
+record</H3>
+<PRE>
+public void <B>record</B>(<A HREF="../../../../../org/apache/poi/hsmf/datatypes/Chunk.html" title="class in org.apache.poi.hsmf.datatypes">Chunk</A>&nbsp;chunk)</PRE>
+<DL>
+<DD>Called by the parser whenever a chunk is found.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html#record(org.apache.poi.hsmf.datatypes.Chunk)">record</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html" title="interface in org.apache.poi.hsmf.datatypes">ChunkGroup</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="chunksComplete()"><!-- --></A><H3>
+chunksComplete</H3>
+<PRE>
+public void <B>chunksComplete</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html#chunksComplete()">ChunkGroup</A></CODE></B></DD>
+<DD>Called by the parser when all chunks have been found.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html#chunksComplete()">chunksComplete</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroup.html" title="interface in org.apache.poi.hsmf.datatypes">ChunkGroup</A></CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/Chunks.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/ChunkGroupWithProperties.html" title="interface in org.apache.poi.hsmf.datatypes"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hsmf/datatypes/DirectoryChunk.html" title="class in org.apache.poi.hsmf.datatypes"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hsmf/datatypes/Chunks.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="Chunks.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

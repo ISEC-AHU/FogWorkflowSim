@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+SXSSFWorkbookWithCustomZipEntrySource (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="SXSSFWorkbookWithCustomZipEntrySource (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SXSSFWorkbookWithCustomZipEntrySource.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/temp/SheetDataWriterWithDecorator.html" title="class in org.apache.poi.poifs.crypt.temp"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/poi/poifs/crypt/temp/SXSSFWorkbookWithCustomZipEntrySource.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SXSSFWorkbookWithCustomZipEntrySource.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_org.apache.poi.xssf.streaming.SXSSFWorkbook">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.poifs.crypt.temp</FONT>
+<BR>
+Class SXSSFWorkbookWithCustomZipEntrySource</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html" title="class in org.apache.poi.xssf.streaming">org.apache.poi.xssf.streaming.SXSSFWorkbook</A>
+      <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.poifs.crypt.temp.SXSSFWorkbookWithCustomZipEntrySource</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Closeable, java.lang.Iterable&lt;<A HREF="../../../../../../org/apache/poi/ss/usermodel/Sheet.html" title="interface in org.apache.poi.ss.usermodel">Sheet</A>&gt;, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE><FONT SIZE="-1"><A HREF="../../../../../../org/apache/poi/util/Beta.html" title="annotation in org.apache.poi.util">@Beta</A>
+</FONT>public class <B>SXSSFWorkbookWithCustomZipEntrySource</B><DT>extends <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html" title="class in org.apache.poi.xssf.streaming">SXSSFWorkbook</A></DL>
+</PRE>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_org.apache.poi.xssf.streaming.SXSSFWorkbook"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class org.apache.poi.xssf.streaming.<A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html" title="class in org.apache.poi.xssf.streaming">SXSSFWorkbook</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#DEFAULT_WINDOW_SIZE">DEFAULT_WINDOW_SIZE</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_org.apache.poi.ss.usermodel.Workbook"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from interface org.apache.poi.ss.usermodel.<A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#PICTURE_TYPE_DIB">PICTURE_TYPE_DIB</A>, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#PICTURE_TYPE_EMF">PICTURE_TYPE_EMF</A>, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#PICTURE_TYPE_JPEG">PICTURE_TYPE_JPEG</A>, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#PICTURE_TYPE_PICT">PICTURE_TYPE_PICT</A>, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#PICTURE_TYPE_PNG">PICTURE_TYPE_PNG</A>, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#PICTURE_TYPE_WMF">PICTURE_TYPE_WMF</A>, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#SHEET_STATE_HIDDEN">SHEET_STATE_HIDDEN</A>, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#SHEET_STATE_VERY_HIDDEN">SHEET_STATE_VERY_HIDDEN</A>, <A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#SHEET_STATE_VISIBLE">SHEET_STATE_VISIBLE</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/temp/SXSSFWorkbookWithCustomZipEntrySource.html#SXSSFWorkbookWithCustomZipEntrySource()">SXSSFWorkbookWithCustomZipEntrySource</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../../org/apache/poi/xssf/streaming/SheetDataWriter.html" title="class in org.apache.poi.xssf.streaming">SheetDataWriter</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/temp/SXSSFWorkbookWithCustomZipEntrySource.html#createSheetDataWriter()">createSheetDataWriter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/temp/SXSSFWorkbookWithCustomZipEntrySource.html#write(java.io.OutputStream)">write</A></B>(java.io.OutputStream&nbsp;stream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Write out this workbook to an OutputStream.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.poi.xssf.streaming.SXSSFWorkbook"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.poi.xssf.streaming.<A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html" title="class in org.apache.poi.xssf.streaming">SXSSFWorkbook</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#addOlePackage(byte[], java.lang.String, java.lang.String, java.lang.String)">addOlePackage</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#addPicture(byte[], int)">addPicture</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#addToolPack(org.apache.poi.ss.formula.udf.UDFFinder)">addToolPack</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#cloneSheet(int)">cloneSheet</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#close()">close</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#createCellStyle()">createCellStyle</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#createDataFormat()">createDataFormat</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#createFont()">createFont</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#createName()">createName</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#createSheet()">createSheet</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#createSheet(java.lang.String)">createSheet</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#dispose()">dispose</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#findFont(boolean, short, short, java.lang.String, boolean, boolean, short, byte)">findFont</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#flushSheets()">flushSheets</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getActiveSheetIndex()">getActiveSheetIndex</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getAllNames()">getAllNames</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getAllPictures()">getAllPictures</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getCellStyleAt(int)">getCellStyleAt</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getCreationHelper()">getCreationHelper</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getFirstVisibleTab()">getFirstVisibleTab</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getFontAt(short)">getFontAt</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getForceFormulaRecalculation()">getForceFormulaRecalculation</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getMissingCellPolicy()">getMissingCellPolicy</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getName(java.lang.String)">getName</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getNameAt(int)">getNameAt</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getNameIndex(java.lang.String)">getNameIndex</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getNames(java.lang.String)">getNames</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getNumberOfFonts()">getNumberOfFonts</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getNumberOfNames()">getNumberOfNames</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getNumberOfSheets()">getNumberOfSheets</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getNumCellStyles()">getNumCellStyles</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getPrintArea(int)">getPrintArea</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getRandomAccessWindowSize()">getRandomAccessWindowSize</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getSharedStringSource()">getSharedStringSource</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getSheet(java.lang.String)">getSheet</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getSheetAt(int)">getSheetAt</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getSheetIndex(org.apache.poi.ss.usermodel.Sheet)">getSheetIndex</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getSheetIndex(java.lang.String)">getSheetIndex</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getSheetName(int)">getSheetName</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getSheetVisibility(int)">getSheetVisibility</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getSpreadsheetVersion()">getSpreadsheetVersion</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#getXSSFWorkbook()">getXSSFWorkbook</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#injectData(org.apache.poi.openxml4j.util.ZipEntrySource, java.io.OutputStream)">injectData</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#isCompressTempFiles()">isCompressTempFiles</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#isDate1904()">isDate1904</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#isHidden()">isHidden</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#isSheetHidden(int)">isSheetHidden</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#isSheetVeryHidden(int)">isSheetVeryHidden</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#iterator()">iterator</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#linkExternalWorkbook(java.lang.String, org.apache.poi.ss.usermodel.Workbook)">linkExternalWorkbook</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#removeName(int)">removeName</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#removeName(org.apache.poi.ss.usermodel.Name)">removeName</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#removeName(java.lang.String)">removeName</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#removePrintArea(int)">removePrintArea</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#removeSheetAt(int)">removeSheetAt</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setActiveSheet(int)">setActiveSheet</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setCompressTempFiles(boolean)">setCompressTempFiles</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setFirstVisibleTab(int)">setFirstVisibleTab</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setForceFormulaRecalculation(boolean)">setForceFormulaRecalculation</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setHidden(boolean)">setHidden</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setMissingCellPolicy(org.apache.poi.ss.usermodel.Row.MissingCellPolicy)">setMissingCellPolicy</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setPrintArea(int, int, int, int, int)">setPrintArea</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setPrintArea(int, java.lang.String)">setPrintArea</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setSelectedTab(int)">setSelectedTab</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setSheetHidden(int, boolean)">setSheetHidden</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setSheetHidden(int, int)">setSheetHidden</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setSheetName(int, java.lang.String)">setSheetName</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setSheetOrder(java.lang.String, int)">setSheetOrder</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#setSheetVisibility(int, org.apache.poi.ss.usermodel.SheetVisibility)">setSheetVisibility</A>, <A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#sheetIterator()">sheetIterator</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="SXSSFWorkbookWithCustomZipEntrySource()"><!-- --></A><H3>
+SXSSFWorkbookWithCustomZipEntrySource</H3>
+<PRE>
+public <B>SXSSFWorkbookWithCustomZipEntrySource</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="write(java.io.OutputStream)"><!-- --></A><H3>
+write</H3>
+<PRE>
+public void <B>write</B>(java.io.OutputStream&nbsp;stream)
+           throws java.io.IOException</PRE>
+<DL>
+<DD><B>Description copied from class: <CODE><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#write(java.io.OutputStream)">SXSSFWorkbook</A></CODE></B></DD>
+<DD>Write out this workbook to an OutputStream.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html#write(java.io.OutputStream)">write</A></CODE> in interface <CODE><A HREF="../../../../../../org/apache/poi/ss/usermodel/Workbook.html" title="interface in org.apache.poi.ss.usermodel">Workbook</A></CODE><DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#write(java.io.OutputStream)">write</A></CODE> in class <CODE><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html" title="class in org.apache.poi.xssf.streaming">SXSSFWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>stream</CODE> - - the java OutputStream you wish to write to
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if anything can't be written.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createSheetDataWriter()"><!-- --></A><H3>
+createSheetDataWriter</H3>
+<PRE>
+protected <A HREF="../../../../../../org/apache/poi/xssf/streaming/SheetDataWriter.html" title="class in org.apache.poi.xssf.streaming">SheetDataWriter</A> <B>createSheetDataWriter</B>()
+                                         throws java.io.IOException</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html#createSheetDataWriter()">createSheetDataWriter</A></CODE> in class <CODE><A HREF="../../../../../../org/apache/poi/xssf/streaming/SXSSFWorkbook.html" title="class in org.apache.poi.xssf.streaming">SXSSFWorkbook</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SXSSFWorkbookWithCustomZipEntrySource.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/temp/SheetDataWriterWithDecorator.html" title="class in org.apache.poi.poifs.crypt.temp"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;NEXT CLASS</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/poi/poifs/crypt/temp/SXSSFWorkbookWithCustomZipEntrySource.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SXSSFWorkbookWithCustomZipEntrySource.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#fields_inherited_from_class_org.apache.poi.xssf.streaming.SXSSFWorkbook">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

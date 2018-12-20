@@ -1,0 +1,859 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+HSLFHyperlink (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="HSLFHyperlink (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HSLFHyperlink.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFGroupShape.html" title="class in org.apache.poi.hslf.usermodel"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFLine.html" title="class in org.apache.poi.hslf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hslf/usermodel/HSLFHyperlink.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HSLFHyperlink.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.hslf.usermodel</FONT>
+<BR>
+Class HSLFHyperlink</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.hslf.usermodel.HSLFHyperlink</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html" title="interface in org.apache.poi.common.usermodel">Hyperlink</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public final class <B>HSLFHyperlink</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../org/apache/poi/sl/usermodel/Hyperlink.html" title="interface in org.apache.poi.sl.usermodel">Hyperlink</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;</DL>
+</PRE>
+
+<P>
+Represents a hyperlink in a PowerPoint document
+<P>
+
+<P>
+<HR>
+
+<P>
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected </CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#HSLFHyperlink(org.apache.poi.hslf.record.ExHyperlink, org.apache.poi.hslf.record.InteractiveInfo)">HSLFHyperlink</A></B>(<A HREF="../../../../../org/apache/poi/hslf/record/ExHyperlink.html" title="class in org.apache.poi.hslf.record">ExHyperlink</A>&nbsp;exHyper,
+              <A HREF="../../../../../org/apache/poi/hslf/record/InteractiveInfo.html" title="class in org.apache.poi.hslf.record">InteractiveInfo</A>&nbsp;info)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html" title="class in org.apache.poi.hslf.usermodel">HSLFHyperlink</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#find(org.apache.poi.hslf.usermodel.HSLFShape)">find</A></B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Find hyperlink assigned to the supplied shape</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html" title="class in org.apache.poi.hslf.usermodel">HSLFHyperlink</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#find(org.apache.poi.hslf.usermodel.HSLFTextShape)">find</A></B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Find hyperlinks in a text shape</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html" title="class in org.apache.poi.hslf.usermodel">HSLFHyperlink</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#find(java.util.List)">find</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Find hyperlinks in a text paragraph</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getAddress()">getAddress</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hyperlink address.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getEndIndex()">getEndIndex</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the ending character position</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/ExHyperlink.html" title="class in org.apache.poi.hslf.record">ExHyperlink</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getExHyperlink()">getExHyperlink</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getId()">getId</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/InteractiveInfo.html" title="class in org.apache.poi.hslf.record">InteractiveInfo</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getInfo()">getInfo</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getLabel()">getLabel</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return text label for this hyperlink</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getStartIndex()">getStartIndex</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the beginning character position</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/TxInteractiveInfoAtom.html" title="class in org.apache.poi.hslf.record">TxInteractiveInfoAtom</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getTextRunInfo()">getTextRunInfo</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getType()">getType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>POI 3.15 beta 3. Use <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getTypeEnum()"><CODE>getTypeEnum()</CODE></A></I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/common/usermodel/HyperlinkType.html" title="enum in org.apache.poi.common.usermodel">HyperlinkType</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getTypeEnum()">getTypeEnum</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets the type of the hyperlink action.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#linkToEmail(java.lang.String)">linkToEmail</A></B>(java.lang.String&nbsp;emailAddress)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link to an email</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#linkToFirstSlide()">linkToFirstSlide</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link to the first slide in this slideshow</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#linkToLastSlide()">linkToLastSlide</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link to the last slide in this slideshow</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#linkToNextSlide()">linkToNextSlide</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link to the next slide (relative from the current)</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#linkToPreviousSlide()">linkToPreviousSlide</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link to the previous slide (relative from the current)</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#linkToSlide(org.apache.poi.sl.usermodel.Slide)">linkToSlide</A></B>(<A HREF="../../../../../org/apache/poi/sl/usermodel/Slide.html" title="interface in org.apache.poi.sl.usermodel">Slide</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;slide)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link to a slide in this slideshow</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#linkToUrl(java.lang.String)">linkToUrl</A></B>(java.lang.String&nbsp;url)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Link to a web page / URL</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#setAddress(java.lang.String)">setAddress</A></B>(java.lang.String&nbsp;str)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hyperlink address.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#setEndIndex(int)">setEndIndex</A></B>(int&nbsp;endIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the ending character position</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#setLabel(java.lang.String)">setLabel</A></B>(java.lang.String&nbsp;label)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets text label for this hyperlink</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#setStartIndex(int)">setStartIndex</A></B>(int&nbsp;startIndex)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the beginning character position</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#setTextRunInfo(org.apache.poi.hslf.record.TxInteractiveInfoAtom)">setTextRunInfo</A></B>(<A HREF="../../../../../org/apache/poi/hslf/record/TxInteractiveInfoAtom.html" title="class in org.apache.poi.hslf.record">TxInteractiveInfoAtom</A>&nbsp;txinfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="HSLFHyperlink(org.apache.poi.hslf.record.ExHyperlink, org.apache.poi.hslf.record.InteractiveInfo)"><!-- --></A><H3>
+HSLFHyperlink</H3>
+<PRE>
+protected <B>HSLFHyperlink</B>(<A HREF="../../../../../org/apache/poi/hslf/record/ExHyperlink.html" title="class in org.apache.poi.hslf.record">ExHyperlink</A>&nbsp;exHyper,
+                        <A HREF="../../../../../org/apache/poi/hslf/record/InteractiveInfo.html" title="class in org.apache.poi.hslf.record">InteractiveInfo</A>&nbsp;info)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getExHyperlink()"><!-- --></A><H3>
+getExHyperlink</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/ExHyperlink.html" title="class in org.apache.poi.hslf.record">ExHyperlink</A> <B>getExHyperlink</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInfo()"><!-- --></A><H3>
+getInfo</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/InteractiveInfo.html" title="class in org.apache.poi.hslf.record">InteractiveInfo</A> <B>getInfo</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTextRunInfo()"><!-- --></A><H3>
+getTextRunInfo</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/TxInteractiveInfoAtom.html" title="class in org.apache.poi.hslf.record">TxInteractiveInfoAtom</A> <B>getTextRunInfo</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTextRunInfo(org.apache.poi.hslf.record.TxInteractiveInfoAtom)"><!-- --></A><H3>
+setTextRunInfo</H3>
+<PRE>
+protected void <B>setTextRunInfo</B>(<A HREF="../../../../../org/apache/poi/hslf/record/TxInteractiveInfoAtom.html" title="class in org.apache.poi.hslf.record">TxInteractiveInfoAtom</A>&nbsp;txinfo)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getType()"><!-- --></A><H3>
+getType</H3>
+<PRE>
+public int <B>getType</B>()</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<I>POI 3.15 beta 3. Use <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html#getTypeEnum()"><CODE>getTypeEnum()</CODE></A></I>
+<P>
+<DD>Gets the type of the hyperlink action.
+ Must be a <code>LINK_*</code>  constant</code>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#getType()">getType</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html" title="interface in org.apache.poi.common.usermodel">Hyperlink</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the hyperlink URL<DT><B>See Also:</B><DD><A HREF="../../../../../org/apache/poi/hslf/record/InteractiveInfoAtom.html" title="class in org.apache.poi.hslf.record"><CODE>InteractiveInfoAtom</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTypeEnum()"><!-- --></A><H3>
+getTypeEnum</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/common/usermodel/HyperlinkType.html" title="enum in org.apache.poi.common.usermodel">HyperlinkType</A> <B>getTypeEnum</B>()</PRE>
+<DL>
+<DD>Gets the type of the hyperlink action.
+ Must be a <code>LINK_*</code>  constant</code>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#getTypeEnum()">getTypeEnum</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html" title="interface in org.apache.poi.common.usermodel">Hyperlink</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the hyperlink URL<DT><B>See Also:</B><DD><A HREF="../../../../../org/apache/poi/hslf/record/InteractiveInfoAtom.html" title="class in org.apache.poi.hslf.record"><CODE>InteractiveInfoAtom</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="linkToEmail(java.lang.String)"><!-- --></A><H3>
+linkToEmail</H3>
+<PRE>
+public void <B>linkToEmail</B>(java.lang.String&nbsp;emailAddress)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Hyperlink.html#linkToEmail(java.lang.String)">Hyperlink</A></CODE></B></DD>
+<DD>Link to an email
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>emailAddress</CODE> - the email address</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="linkToUrl(java.lang.String)"><!-- --></A><H3>
+linkToUrl</H3>
+<PRE>
+public void <B>linkToUrl</B>(java.lang.String&nbsp;url)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Hyperlink.html#linkToUrl(java.lang.String)">Hyperlink</A></CODE></B></DD>
+<DD>Link to a web page / URL
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>url</CODE> - the url</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="linkToSlide(org.apache.poi.sl.usermodel.Slide)"><!-- --></A><H3>
+linkToSlide</H3>
+<PRE>
+public void <B>linkToSlide</B>(<A HREF="../../../../../org/apache/poi/sl/usermodel/Slide.html" title="interface in org.apache.poi.sl.usermodel">Slide</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;slide)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Hyperlink.html#linkToSlide(org.apache.poi.sl.usermodel.Slide)">Hyperlink</A></CODE></B></DD>
+<DD>Link to a slide in this slideshow
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>slide</CODE> - the linked slide</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="linkToNextSlide()"><!-- --></A><H3>
+linkToNextSlide</H3>
+<PRE>
+public void <B>linkToNextSlide</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Hyperlink.html#linkToNextSlide()">Hyperlink</A></CODE></B></DD>
+<DD>Link to the next slide (relative from the current)
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="linkToPreviousSlide()"><!-- --></A><H3>
+linkToPreviousSlide</H3>
+<PRE>
+public void <B>linkToPreviousSlide</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Hyperlink.html#linkToPreviousSlide()">Hyperlink</A></CODE></B></DD>
+<DD>Link to the previous slide (relative from the current)
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="linkToFirstSlide()"><!-- --></A><H3>
+linkToFirstSlide</H3>
+<PRE>
+public void <B>linkToFirstSlide</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Hyperlink.html#linkToFirstSlide()">Hyperlink</A></CODE></B></DD>
+<DD>Link to the first slide in this slideshow
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="linkToLastSlide()"><!-- --></A><H3>
+linkToLastSlide</H3>
+<PRE>
+public void <B>linkToLastSlide</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Hyperlink.html#linkToLastSlide()">Hyperlink</A></CODE></B></DD>
+<DD>Link to the last slide in this slideshow
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAddress()"><!-- --></A><H3>
+getAddress</H3>
+<PRE>
+public java.lang.String <B>getAddress</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#getAddress()">Hyperlink</A></CODE></B></DD>
+<DD>Hyperlink address. Depending on the hyperlink type it can be URL, e-mail, path to a file, etc.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#getAddress()">getAddress</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html" title="interface in org.apache.poi.common.usermodel">Hyperlink</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the address of this hyperlink</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setAddress(java.lang.String)"><!-- --></A><H3>
+setAddress</H3>
+<PRE>
+public void <B>setAddress</B>(java.lang.String&nbsp;str)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#setAddress(java.lang.String)">Hyperlink</A></CODE></B></DD>
+<DD>Hyperlink address. Depending on the hyperlink type it can be URL, e-mail, path to a file, etc.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#setAddress(java.lang.String)">setAddress</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html" title="interface in org.apache.poi.common.usermodel">Hyperlink</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>str</CODE> - the address of this hyperlink</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getId()"><!-- --></A><H3>
+getId</H3>
+<PRE>
+public int <B>getId</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLabel()"><!-- --></A><H3>
+getLabel</H3>
+<PRE>
+public java.lang.String <B>getLabel</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#getLabel()">Hyperlink</A></CODE></B></DD>
+<DD>Return text label for this hyperlink
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#getLabel()">getLabel</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html" title="interface in org.apache.poi.common.usermodel">Hyperlink</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>text to display</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setLabel(java.lang.String)"><!-- --></A><H3>
+setLabel</H3>
+<PRE>
+public void <B>setLabel</B>(java.lang.String&nbsp;label)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#setLabel(java.lang.String)">Hyperlink</A></CODE></B></DD>
+<DD>Sets text label for this hyperlink
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html#setLabel(java.lang.String)">setLabel</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/common/usermodel/Hyperlink.html" title="interface in org.apache.poi.common.usermodel">Hyperlink</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>label</CODE> - text label for this hyperlink</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getStartIndex()"><!-- --></A><H3>
+getStartIndex</H3>
+<PRE>
+public int <B>getStartIndex</B>()</PRE>
+<DL>
+<DD>Gets the beginning character position
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the beginning character position</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setStartIndex(int)"><!-- --></A><H3>
+setStartIndex</H3>
+<PRE>
+public void <B>setStartIndex</B>(int&nbsp;startIndex)</PRE>
+<DL>
+<DD>Sets the beginning character position
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>startIndex</CODE> - the beginning character position</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEndIndex()"><!-- --></A><H3>
+getEndIndex</H3>
+<PRE>
+public int <B>getEndIndex</B>()</PRE>
+<DL>
+<DD>Gets the ending character position
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the ending character position</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setEndIndex(int)"><!-- --></A><H3>
+setEndIndex</H3>
+<PRE>
+public void <B>setEndIndex</B>(int&nbsp;endIndex)</PRE>
+<DL>
+<DD>Sets the ending character position
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>endIndex</CODE> - the ending character position</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="find(org.apache.poi.hslf.usermodel.HSLFTextShape)"><!-- --></A><H3>
+find</H3>
+<PRE>
+public static java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html" title="class in org.apache.poi.hslf.usermodel">HSLFHyperlink</A>&gt; <B>find</B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextShape</A>&nbsp;shape)</PRE>
+<DL>
+<DD>Find hyperlinks in a text shape
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>shape</CODE> - <code>TextRun</code> to lookup hyperlinks in
+<DT><B>Returns:</B><DD>found hyperlinks or <code>null</code> if not found</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="find(java.util.List)"><!-- --></A><H3>
+find</H3>
+<PRE>
+protected static java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html" title="class in org.apache.poi.hslf.usermodel">HSLFHyperlink</A>&gt; <B>find</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</PRE>
+<DL>
+<DD>Find hyperlinks in a text paragraph
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>paragraphs</CODE> - List of <code>TextParagraph</code> to lookup hyperlinks
+<DT><B>Returns:</B><DD>found hyperlinks</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="find(org.apache.poi.hslf.usermodel.HSLFShape)"><!-- --></A><H3>
+find</H3>
+<PRE>
+protected static <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFHyperlink.html" title="class in org.apache.poi.hslf.usermodel">HSLFHyperlink</A> <B>find</B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>&nbsp;shape)</PRE>
+<DL>
+<DD>Find hyperlink assigned to the supplied shape
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>shape</CODE> - <code>Shape</code> to lookup hyperlink in
+<DT><B>Returns:</B><DD>found hyperlink or <code>null</code></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HSLFHyperlink.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFGroupShape.html" title="class in org.apache.poi.hslf.usermodel"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFLine.html" title="class in org.apache.poi.hslf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hslf/usermodel/HSLFHyperlink.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HSLFHyperlink.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

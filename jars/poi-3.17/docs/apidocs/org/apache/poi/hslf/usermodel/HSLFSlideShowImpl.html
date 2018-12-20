@@ -1,0 +1,944 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+HSLFSlideShowImpl (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="HSLFSlideShowImpl (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HSLFSlideShowImpl.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowFactory.html" title="class in org.apache.poi.hslf.usermodel"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSoundData.html" title="class in org.apache.poi.hslf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HSLFSlideShowImpl.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.hslf.usermodel</FONT>
+<BR>
+Class HSLFSlideShowImpl</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">org.apache.poi.POIDocument</A>
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.hslf.usermodel.HSLFSlideShowImpl</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Closeable</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public final class <B>HSLFSlideShowImpl</B><DT>extends <A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">POIDocument</A><DT>implements java.io.Closeable</DL>
+</PRE>
+
+<P>
+This class contains the main functionality for the Powerpoint file
+ "reader". It is only a very basic class for now
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#UNSET_OFFSET">UNSET_OFFSET</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#HSLFSlideShowImpl(org.apache.poi.poifs.filesystem.DirectoryNode)">HSLFSlideShowImpl</A></B>(<A HREF="../../../../../org/apache/poi/poifs/filesystem/DirectoryNode.html" title="class in org.apache.poi.poifs.filesystem">DirectoryNode</A>&nbsp;dir)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a Powerpoint document from a specific point in a
+ POIFS Filesystem.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#HSLFSlideShowImpl(java.io.InputStream)">HSLFSlideShowImpl</A></B>(java.io.InputStream&nbsp;inputStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a Powerpoint document from an input stream.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#HSLFSlideShowImpl(org.apache.poi.poifs.filesystem.NPOIFSFileSystem)">HSLFSlideShowImpl</A></B>(<A HREF="../../../../../org/apache/poi/poifs/filesystem/NPOIFSFileSystem.html" title="class in org.apache.poi.poifs.filesystem">NPOIFSFileSystem</A>&nbsp;filesystem)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a Powerpoint document from a POIFS Filesystem.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#HSLFSlideShowImpl(org.apache.poi.poifs.filesystem.POIFSFileSystem)">HSLFSlideShowImpl</A></B>(<A HREF="../../../../../org/apache/poi/poifs/filesystem/POIFSFileSystem.html" title="class in org.apache.poi.poifs.filesystem">POIFSFileSystem</A>&nbsp;filesystem)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a Powerpoint document from a POIFS Filesystem.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#HSLFSlideShowImpl(java.lang.String)">HSLFSlideShowImpl</A></B>(java.lang.String&nbsp;fileName)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a Powerpoint document from fileName.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#addPicture(org.apache.poi.hslf.usermodel.HSLFPictureData)">addPicture</A></B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFPictureData.html" title="class in org.apache.poi.hslf.usermodel">HSLFPictureData</A>&nbsp;img)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a new picture to this presentation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#appendRootLevelRecord(org.apache.poi.hslf.record.Record)">appendRootLevelRecord</A></B>(<A HREF="../../../../../org/apache/poi/hslf/record/Record.html" title="class in org.apache.poi.hslf.record">Record</A>&nbsp;newRecord)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adds a new root level record, at the end, but before the last
+ PersistPtrIncrementalBlock.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#close()">close</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Closes the underlying <A HREF="../../../../../org/apache/poi/poifs/filesystem/NPOIFSFileSystem.html" title="class in org.apache.poi.poifs.filesystem"><CODE>NPOIFSFileSystem</CODE></A> from which
+  the document was read, if any.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html" title="class in org.apache.poi.hslf.usermodel">HSLFSlideShowImpl</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#create()">create</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Constructs a new, empty, Powerpoint document.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/CurrentUserAtom.html" title="class in org.apache.poi.hslf.record">CurrentUserAtom</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getCurrentUserAtom()">getCurrentUserAtom</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fetch the Current User Atom of the document</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/DocumentEncryptionAtom.html" title="class in org.apache.poi.hslf.record">DocumentEncryptionAtom</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getDocumentEncryptionAtom()">getDocumentEncryptionAtom</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFObjectData.html" title="class in org.apache.poi.hslf.usermodel">HSLFObjectData</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getEmbeddedObjects()">getEmbeddedObjects</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gets embedded object data from the slide show.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getEncryptedPropertyStreamName()">getEncryptedPropertyStreamName</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/poifs/crypt/EncryptionInfo.html" title="class in org.apache.poi.poifs.crypt">EncryptionInfo</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getEncryptionInfo()">getEncryptionInfo</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFPictureData.html" title="class in org.apache.poi.hslf.usermodel">HSLFPictureData</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getPictureData()">getPictureData</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return list of pictures contained in this presentation</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../org/apache/poi/poifs/filesystem/DirectoryNode.html" title="class in org.apache.poi.poifs.filesystem">DirectoryNode</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getPOIFSDirectory()">getPOIFSDirectory</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Deprecated.</B>&nbsp;<I>POI 3.16 beta 1. use <A HREF="../../../../../org/apache/poi/POIDocument.html#getDirectory()"><CODE>POIDocument.getDirectory()</CODE></A> instead</I></TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/Record.html" title="class in org.apache.poi.hslf.record">Record</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getRecords()">getRecords</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns an array of all the records found in the slideshow</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;byte[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#getUnderlyingBytes()">getUnderlyingBytes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns an array of the bytes of the file.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#normalizeRecords()">normalizeRecords</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove duplicated UserEditAtoms and merge PersistPtrHolder, i.e.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#updateAndWriteDependantRecords(java.io.OutputStream, java.util.Map)">updateAndWriteDependantRecords</A></B>(java.io.OutputStream&nbsp;os,
+                               java.util.Map&lt;<A HREF="../../../../../org/apache/poi/hslf/record/RecordTypes.html" title="enum in org.apache.poi.hslf.record">RecordTypes</A>,<A HREF="../../../../../org/apache/poi/hslf/record/PositionDependentRecord.html" title="interface in org.apache.poi.hslf.record">PositionDependentRecord</A>&gt;&nbsp;interestingRecords)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a helper functions, which is needed for adding new position dependent records
+ or finally write the slideshow to a file.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write()">write</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writes out the slideshow to the currently open file.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write(java.io.File)">write</A></B>(java.io.File&nbsp;newFile)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writes out the slideshow file the is represented by an instance
+ of this class.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write(java.io.File, boolean)">write</A></B>(java.io.File&nbsp;newFile,
+      boolean&nbsp;preserveNodes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writes out the slideshow file the is represented by an instance
+ of this class.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write(java.io.OutputStream)">write</A></B>(java.io.OutputStream&nbsp;out)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writes out the slideshow file the is represented by an instance
+ of this class.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write(java.io.OutputStream, boolean)">write</A></B>(java.io.OutputStream&nbsp;out,
+      boolean&nbsp;preserveNodes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Writes out the slideshow file the is represented by an instance
+ of this class.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.poi.POIDocument"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.poi.<A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">POIDocument</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/POIDocument.html#clearDirectory()">clearDirectory</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#createInformationProperties()">createInformationProperties</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#getDirectory()">getDirectory</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#getDocumentSummaryInformation()">getDocumentSummaryInformation</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#getPropertySet(java.lang.String)">getPropertySet</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#getPropertySet(java.lang.String, org.apache.poi.poifs.crypt.EncryptionInfo)">getPropertySet</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#getSummaryInformation()">getSummaryInformation</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#initDirectory()">initDirectory</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#readProperties()">readProperties</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#replaceDirectory(org.apache.poi.poifs.filesystem.DirectoryNode)">replaceDirectory</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#validateInPlaceWritePossible()">validateInPlaceWritePossible</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#writeProperties()">writeProperties</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#writeProperties(org.apache.poi.poifs.filesystem.NPOIFSFileSystem)">writeProperties</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#writeProperties(org.apache.poi.poifs.filesystem.NPOIFSFileSystem, java.util.List)">writeProperties</A>, <A HREF="../../../../../org/apache/poi/POIDocument.html#writePropertySet(java.lang.String, org.apache.poi.hpsf.PropertySet, org.apache.poi.poifs.filesystem.NPOIFSFileSystem)">writePropertySet</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="UNSET_OFFSET"><!-- --></A><H3>
+UNSET_OFFSET</H3>
+<PRE>
+public static final int <B>UNSET_OFFSET</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.hslf.usermodel.HSLFSlideShowImpl.UNSET_OFFSET">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="HSLFSlideShowImpl(java.lang.String)"><!-- --></A><H3>
+HSLFSlideShowImpl</H3>
+<PRE>
+public <B>HSLFSlideShowImpl</B>(java.lang.String&nbsp;fileName)
+                  throws java.io.IOException</PRE>
+<DL>
+<DD>Constructs a Powerpoint document from fileName. Parses the document
+ and places all the important stuff into data structures.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>fileName</CODE> - The name of the file to read.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if there is a problem while parsing the document.</DL>
+</DL>
+<HR>
+
+<A NAME="HSLFSlideShowImpl(java.io.InputStream)"><!-- --></A><H3>
+HSLFSlideShowImpl</H3>
+<PRE>
+public <B>HSLFSlideShowImpl</B>(java.io.InputStream&nbsp;inputStream)
+                  throws java.io.IOException</PRE>
+<DL>
+<DD>Constructs a Powerpoint document from an input stream. Parses the
+ document and places all the important stuff into data structures.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>inputStream</CODE> - the source of the data
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if there is a problem while parsing the document.</DL>
+</DL>
+<HR>
+
+<A NAME="HSLFSlideShowImpl(org.apache.poi.poifs.filesystem.POIFSFileSystem)"><!-- --></A><H3>
+HSLFSlideShowImpl</H3>
+<PRE>
+public <B>HSLFSlideShowImpl</B>(<A HREF="../../../../../org/apache/poi/poifs/filesystem/POIFSFileSystem.html" title="class in org.apache.poi.poifs.filesystem">POIFSFileSystem</A>&nbsp;filesystem)
+                  throws java.io.IOException</PRE>
+<DL>
+<DD>Constructs a Powerpoint document from a POIFS Filesystem. Parses the
+ document and places all the important stuff into data structures.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>filesystem</CODE> - the POIFS FileSystem to read from
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if there is a problem while parsing the document.</DL>
+</DL>
+<HR>
+
+<A NAME="HSLFSlideShowImpl(org.apache.poi.poifs.filesystem.NPOIFSFileSystem)"><!-- --></A><H3>
+HSLFSlideShowImpl</H3>
+<PRE>
+public <B>HSLFSlideShowImpl</B>(<A HREF="../../../../../org/apache/poi/poifs/filesystem/NPOIFSFileSystem.html" title="class in org.apache.poi.poifs.filesystem">NPOIFSFileSystem</A>&nbsp;filesystem)
+                  throws java.io.IOException</PRE>
+<DL>
+<DD>Constructs a Powerpoint document from a POIFS Filesystem. Parses the
+ document and places all the important stuff into data structures.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>filesystem</CODE> - the POIFS FileSystem to read from
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if there is a problem while parsing the document.</DL>
+</DL>
+<HR>
+
+<A NAME="HSLFSlideShowImpl(org.apache.poi.poifs.filesystem.DirectoryNode)"><!-- --></A><H3>
+HSLFSlideShowImpl</H3>
+<PRE>
+public <B>HSLFSlideShowImpl</B>(<A HREF="../../../../../org/apache/poi/poifs/filesystem/DirectoryNode.html" title="class in org.apache.poi.poifs.filesystem">DirectoryNode</A>&nbsp;dir)
+                  throws java.io.IOException</PRE>
+<DL>
+<DD>Constructs a Powerpoint document from a specific point in a
+ POIFS Filesystem. Parses the document and places all the
+ important stuff into data structures.
+<P>
+<DL>
+<DT><B>Parameters:</B><DD><CODE>dir</CODE> - the POIFS directory to read from
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - if there is a problem while parsing the document.</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getPOIFSDirectory()"><!-- --></A><H3>
+getPOIFSDirectory</H3>
+<PRE>
+<FONT SIZE="-1">@Deprecated
+<A HREF="../../../../../org/apache/poi/util/Removal.html" title="annotation in org.apache.poi.util">@Removal</A>(<A HREF="../../../../../org/apache/poi/util/Removal.html#version()">version</A>="3.18")
+</FONT>protected <A HREF="../../../../../org/apache/poi/poifs/filesystem/DirectoryNode.html" title="class in org.apache.poi.poifs.filesystem">DirectoryNode</A> <B>getPOIFSDirectory</B>()</PRE>
+<DL>
+<DD><B>Deprecated.</B>&nbsp;<I>POI 3.16 beta 1. use <A HREF="../../../../../org/apache/poi/POIDocument.html#getDirectory()"><CODE>POIDocument.getDirectory()</CODE></A> instead</I>
+<P>
+<DD>Returns the directory in the underlying POIFSFileSystem for the
+ document that is open.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="create()"><!-- --></A><H3>
+create</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html" title="class in org.apache.poi.hslf.usermodel">HSLFSlideShowImpl</A> <B>create</B>()</PRE>
+<DL>
+<DD>Constructs a new, empty, Powerpoint document.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDocumentEncryptionAtom()"><!-- --></A><H3>
+getDocumentEncryptionAtom</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/DocumentEncryptionAtom.html" title="class in org.apache.poi.hslf.record">DocumentEncryptionAtom</A> <B>getDocumentEncryptionAtom</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="normalizeRecords()"><!-- --></A><H3>
+normalizeRecords</H3>
+<PRE>
+public void <B>normalizeRecords</B>()</PRE>
+<DL>
+<DD>remove duplicated UserEditAtoms and merge PersistPtrHolder, i.e.
+ remove document edit history
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="updateAndWriteDependantRecords(java.io.OutputStream, java.util.Map)"><!-- --></A><H3>
+updateAndWriteDependantRecords</H3>
+<PRE>
+public void <B>updateAndWriteDependantRecords</B>(java.io.OutputStream&nbsp;os,
+                                           java.util.Map&lt;<A HREF="../../../../../org/apache/poi/hslf/record/RecordTypes.html" title="enum in org.apache.poi.hslf.record">RecordTypes</A>,<A HREF="../../../../../org/apache/poi/hslf/record/PositionDependentRecord.html" title="interface in org.apache.poi.hslf.record">PositionDependentRecord</A>&gt;&nbsp;interestingRecords)
+                                    throws java.io.IOException</PRE>
+<DL>
+<DD>This is a helper functions, which is needed for adding new position dependent records
+ or finally write the slideshow to a file.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>os</CODE> - the stream to write to, if null only the references are updated<DD><CODE>interestingRecords</CODE> - a map of interesting records (PersistPtrHolder and UserEditAtom)
+                           referenced by their RecordType. Only the very last of each type will be saved to the map.
+                           May be null, if not needed.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="write()"><!-- --></A><H3>
+write</H3>
+<PRE>
+public void <B>write</B>()
+           throws java.io.IOException</PRE>
+<DL>
+<DD>Writes out the slideshow to the currently open file.
+ <p>
+ <p>This will fail (with an <CODE>IllegalStateException</CODE> if the
+ slideshow was opened read-only, opened from an <CODE>InputStream</CODE>
+ instead of a File, or if this is not the root document. For those cases,
+ you must use <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write(java.io.OutputStream)"><CODE>write(OutputStream)</CODE></A> or <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write(java.io.File)"><CODE>write(File)</CODE></A> to
+ write to a brand new document.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/POIDocument.html#write()">write</A></CODE> in class <CODE><A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">POIDocument</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - thrown on errors writing to the file
+<DD><CODE>java.lang.IllegalStateException</CODE> - if this isn't from a writable File<DT><B>Since:</B></DT>
+  <DD>POI 3.15 beta 3</DD>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="write(java.io.File)"><!-- --></A><H3>
+write</H3>
+<PRE>
+public void <B>write</B>(java.io.File&nbsp;newFile)
+           throws java.io.IOException</PRE>
+<DL>
+<DD>Writes out the slideshow file the is represented by an instance
+ of this class.
+ <p>This will write out only the common OLE2 streams. If you require all
+ streams to be written out, use <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write(java.io.File, boolean)"><CODE>write(File, boolean)</CODE></A>
+ with <code>preserveNodes</code> set to <code>true</code>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/POIDocument.html#write(java.io.File)">write</A></CODE> in class <CODE><A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">POIDocument</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>newFile</CODE> - The File to write to.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - If there is an unexpected IOException from writing to the File</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="write(java.io.File, boolean)"><!-- --></A><H3>
+write</H3>
+<PRE>
+public void <B>write</B>(java.io.File&nbsp;newFile,
+                  boolean&nbsp;preserveNodes)
+           throws java.io.IOException</PRE>
+<DL>
+<DD>Writes out the slideshow file the is represented by an instance
+ of this class.
+ If you require all streams to be written out (eg Marcos, embeded
+ documents), then set <code>preserveNodes</code> set to <code>true</code>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>newFile</CODE> - The File to write to.<DD><CODE>preserveNodes</CODE> - Should all OLE2 streams be written back out, or only the common ones?
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - If there is an unexpected IOException from writing to the File</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="write(java.io.OutputStream)"><!-- --></A><H3>
+write</H3>
+<PRE>
+public void <B>write</B>(java.io.OutputStream&nbsp;out)
+           throws java.io.IOException</PRE>
+<DL>
+<DD>Writes out the slideshow file the is represented by an instance
+ of this class.
+ <p>This will write out only the common OLE2 streams. If you require all
+ streams to be written out, use <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html#write(java.io.OutputStream, boolean)"><CODE>write(OutputStream, boolean)</CODE></A>
+ with <code>preserveNodes</code> set to <code>true</code>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/POIDocument.html#write(java.io.OutputStream)">write</A></CODE> in class <CODE><A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">POIDocument</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>out</CODE> - The OutputStream to write to.
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - If there is an unexpected IOException from
+                     the passed in OutputStream</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="write(java.io.OutputStream, boolean)"><!-- --></A><H3>
+write</H3>
+<PRE>
+public void <B>write</B>(java.io.OutputStream&nbsp;out,
+                  boolean&nbsp;preserveNodes)
+           throws java.io.IOException</PRE>
+<DL>
+<DD>Writes out the slideshow file the is represented by an instance
+ of this class.
+ If you require all streams to be written out (eg Marcos, embeded
+ documents), then set <code>preserveNodes</code> set to <code>true</code>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>out</CODE> - The OutputStream to write to.<DD><CODE>preserveNodes</CODE> - Should all OLE2 streams be written back out, or only the common ones?
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE> - If there is an unexpected IOException from
+                     the passed in OutputStream</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEncryptionInfo()"><!-- --></A><H3>
+getEncryptionInfo</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/poifs/crypt/EncryptionInfo.html" title="class in org.apache.poi.poifs.crypt">EncryptionInfo</A> <B>getEncryptionInfo</B>()
+                                 throws java.io.IOException</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../org/apache/poi/POIDocument.html#getEncryptionInfo()">getEncryptionInfo</A></CODE> in class <CODE><A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">POIDocument</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the encryption info if the document is encrypted, otherwise <code>null</code>
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="appendRootLevelRecord(org.apache.poi.hslf.record.Record)"><!-- --></A><H3>
+appendRootLevelRecord</H3>
+<PRE>
+public int <B>appendRootLevelRecord</B>(<A HREF="../../../../../org/apache/poi/hslf/record/Record.html" title="class in org.apache.poi.hslf.record">Record</A>&nbsp;newRecord)</PRE>
+<DL>
+<DD>Adds a new root level record, at the end, but before the last
+ PersistPtrIncrementalBlock.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addPicture(org.apache.poi.hslf.usermodel.HSLFPictureData)"><!-- --></A><H3>
+addPicture</H3>
+<PRE>
+public int <B>addPicture</B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFPictureData.html" title="class in org.apache.poi.hslf.usermodel">HSLFPictureData</A>&nbsp;img)</PRE>
+<DL>
+<DD>Add a new picture to this presentation.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>offset of this picture in the Pictures stream</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRecords()"><!-- --></A><H3>
+getRecords</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/Record.html" title="class in org.apache.poi.hslf.record">Record</A>[] <B>getRecords</B>()</PRE>
+<DL>
+<DD>Returns an array of all the records found in the slideshow
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getUnderlyingBytes()"><!-- --></A><H3>
+getUnderlyingBytes</H3>
+<PRE>
+public byte[] <B>getUnderlyingBytes</B>()</PRE>
+<DL>
+<DD>Returns an array of the bytes of the file. Only correct after a
+ call to open or write - at all other times might be wrong!
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getCurrentUserAtom()"><!-- --></A><H3>
+getCurrentUserAtom</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/CurrentUserAtom.html" title="class in org.apache.poi.hslf.record">CurrentUserAtom</A> <B>getCurrentUserAtom</B>()</PRE>
+<DL>
+<DD>Fetch the Current User Atom of the document
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPictureData()"><!-- --></A><H3>
+getPictureData</H3>
+<PRE>
+public java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFPictureData.html" title="class in org.apache.poi.hslf.usermodel">HSLFPictureData</A>&gt; <B>getPictureData</B>()</PRE>
+<DL>
+<DD>Return list of pictures contained in this presentation
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>list with the read pictures or an empty list if the
+ presentation doesn't contain pictures.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEmbeddedObjects()"><!-- --></A><H3>
+getEmbeddedObjects</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFObjectData.html" title="class in org.apache.poi.hslf.usermodel">HSLFObjectData</A>[] <B>getEmbeddedObjects</B>()</PRE>
+<DL>
+<DD>Gets embedded object data from the slide show.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the embedded objects.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="close()"><!-- --></A><H3>
+close</H3>
+<PRE>
+public void <B>close</B>()
+           throws java.io.IOException</PRE>
+<DL>
+<DD><B>Description copied from class: <CODE><A HREF="../../../../../org/apache/poi/POIDocument.html#close()">POIDocument</A></CODE></B></DD>
+<DD>Closes the underlying <A HREF="../../../../../org/apache/poi/poifs/filesystem/NPOIFSFileSystem.html" title="class in org.apache.poi.poifs.filesystem"><CODE>NPOIFSFileSystem</CODE></A> from which
+  the document was read, if any. Has no effect on documents
+  opened from an InputStream, or newly created ones.
+ <p>Once <A HREF="../../../../../org/apache/poi/POIDocument.html#close()"><CODE>POIDocument.close()</CODE></A> has been called, no further operations
+  should be called on the document.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>close</CODE> in interface <CODE>java.io.Closeable</CODE><DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../org/apache/poi/POIDocument.html#close()">close</A></CODE> in class <CODE><A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">POIDocument</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getEncryptedPropertyStreamName()"><!-- --></A><H3>
+getEncryptedPropertyStreamName</H3>
+<PRE>
+protected java.lang.String <B>getEncryptedPropertyStreamName</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../org/apache/poi/POIDocument.html#getEncryptedPropertyStreamName()">getEncryptedPropertyStreamName</A></CODE> in class <CODE><A HREF="../../../../../org/apache/poi/POIDocument.html" title="class in org.apache.poi">POIDocument</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the stream name of the property set collection, if the document is encrypted</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HSLFSlideShowImpl.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShowFactory.html" title="class in org.apache.poi.hslf.usermodel"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSoundData.html" title="class in org.apache.poi.hslf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hslf/usermodel/HSLFSlideShowImpl.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HSLFSlideShowImpl.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

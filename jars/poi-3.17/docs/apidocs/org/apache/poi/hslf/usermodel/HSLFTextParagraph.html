@@ -1,0 +1,2328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+HSLFTextParagraph (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="HSLFTextParagraph (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HSLFTextParagraph.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextBox.html" title="class in org.apache.poi.hslf.usermodel"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HSLFTextParagraph.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.hslf.usermodel</FONT>
+<BR>
+Class HSLFTextParagraph</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.hslf.usermodel.HSLFTextParagraph</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.lang.Iterable&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;, <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public final class <B>HSLFTextParagraph</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</DL>
+</PRE>
+
+<P>
+This class represents a run of text in a powerpoint document. That
+  run could be text on a sheet, or text in a note.
+  It is only a very basic class for now
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="nested_classes_inherited_from_class_org.apache.poi.sl.usermodel.TextParagraph"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from interface org.apache.poi.sl.usermodel.<A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.BulletStyle.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph.BulletStyle</A>, <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.FontAlign.html" title="enum in org.apache.poi.sl.usermodel">TextParagraph.FontAlign</A>, <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.TextAlign.html" title="enum in org.apache.poi.sl.usermodel">TextParagraph.TextAlign</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextShape</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#_parentShape">_parentShape</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/TextRulerAtom.html" title="class in org.apache.poi.hslf.record">TextRulerAtom</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#_ruler">_ruler</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#_runs">_runs</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../org/apache/poi/util/POILogger.html" title="class in org.apache.poi.util">POILogger</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#logger">logger</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#addTextRun(org.apache.poi.hslf.usermodel.HSLFTextRun)">addTextRun</A></B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&nbsp;run)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#appendText(java.util.List, java.lang.String, boolean)">appendText</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+           java.lang.String&nbsp;text,
+           boolean&nbsp;newParagraph)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adds the supplied text onto the end of the TextParagraphs,
+ creating a new RichTextRun for it to sit in.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#applyCharacterStyles(java.util.List, java.util.List)">applyCharacterStyles</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                     java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&gt;&nbsp;charStyles)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#applyHyperlinks(java.util.List)">applyHyperlinks</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#applyParagraphIndents(java.util.List, java.util.List)">applyParagraphIndents</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                      java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/IndentProp.html" title="class in org.apache.poi.hslf.model.textproperties">IndentProp</A>&gt;&nbsp;paraStyles)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#applyParagraphStyles(java.util.List, java.util.List)">applyParagraphStyles</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                     java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&gt;&nbsp;paraStyles)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/TextRulerAtom.html" title="class in org.apache.poi.hslf.record">TextRulerAtom</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#createTextRuler()">createTextRuler</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#findTextParagraphs(org.apache.poi.hslf.record.EscherTextboxWrapper, org.apache.poi.hslf.usermodel.HSLFSheet)">findTextParagraphs</A></B>(<A HREF="../../../../../org/apache/poi/hslf/record/EscherTextboxWrapper.html" title="class in org.apache.poi.hslf.record">EscherTextboxWrapper</A>&nbsp;wrapper,
+                   <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scans through the supplied record array, looking for
+ a TextHeaderAtom followed by one of a TextBytesAtom or
+ a TextCharsAtom.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.util.List&lt;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#findTextParagraphs(org.apache.poi.hslf.record.PPDrawing, org.apache.poi.hslf.usermodel.HSLFSheet)">findTextParagraphs</A></B>(<A HREF="../../../../../org/apache/poi/hslf/record/PPDrawing.html" title="class in org.apache.poi.hslf.record">PPDrawing</A>&nbsp;ppdrawing,
+                   <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For a given PPDrawing, grab all the TextRuns</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;java.util.List&lt;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#findTextParagraphs(org.apache.poi.hslf.record.Record[])">findTextParagraphs</A></B>(<A HREF="../../../../../org/apache/poi/hslf/record/Record.html" title="class in org.apache.poi.hslf.record">Record</A>[]&nbsp;records)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scans through the supplied record array, looking for
+ a TextHeaderAtom followed by one of a TextBytesAtom or
+ a TextCharsAtom.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#fixLineEndings(java.util.List)">fixLineEndings</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check and add linebreaks to text runs leading other paragraphs</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/AutoNumberingScheme.html" title="enum in org.apache.poi.sl.usermodel">AutoNumberingScheme</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getAutoNumberingScheme()">getAutoNumberingScheme</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Integer</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getAutoNumberingStartAt()">getAutoNumberingStartAt</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Character</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getBulletChar()">getBulletChar</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the bullet character</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.awt.Color</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getBulletColor()">getBulletColor</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the bullet color</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getBulletFont()">getBulletFont</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the bullet font</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getBulletSize()">getBulletSize</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the bullet size, null if unset</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.BulletStyle.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph.BulletStyle</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getBulletStyle()">getBulletStyle</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;java.awt.Color</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getColorFromColorIndexStruct(int, org.apache.poi.hslf.usermodel.HSLFSheet)">getColorFromColorIndexStruct</A></B>(int&nbsp;rgb,
+                             <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getDefaultFontFamily()">getDefaultFontFamily</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getDefaultFontSize()">getDefaultFontSize</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getDefaultTabSize()">getDefaultTabSize</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.FontAlign.html" title="enum in org.apache.poi.sl.usermodel">TextParagraph.FontAlign</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getFontAlign()">getFontAlign</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the font alignment that is applied to the paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getIndent()">getIndent</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getIndentLevel()">getIndentLevel</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getIndex()">getIndex</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getLeftMargin()">getLeftMargin</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getLineSpacing()">getLineSpacing</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the vertical line spacing that is to be used within a paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getParagraphStyle()">getParagraphStyle</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextShape</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getParentShape()">getParentShape</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextProp.html" title="class in org.apache.poi.hslf.model.textproperties">TextProp</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getPropVal(org.apache.poi.hslf.model.textproperties.TextPropCollection, org.apache.poi.hslf.model.textproperties.TextPropCollection, java.lang.String)">getPropVal</A></B>(<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;props,
+           <A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;masterProps,
+           java.lang.String&nbsp;propName)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fetch the value of the given Paragraph related TextProp.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getRawText(java.util.List)">getRawText</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/Record.html" title="class in org.apache.poi.hslf.record">Record</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getRecords()">getRecords</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns records that make up the list of text paragraphs
+ (there can be misc InteractiveInfo, TxInteractiveInfo and other records)</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getRightMargin()">getRightMargin</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the right margin of the paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getRunType()">getRunType</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the type of the text, from the TextHeaderAtom.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getShapeId()">getShapeId</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getSheet()">getSheet</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getSpaceAfter()">getSpaceAfter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of vertical white space after the paragraph
+ This may be specified in two different ways, percentage spacing and font point spacing:</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getSpaceBefore()">getSpaceBefore</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The amount of vertical white space before the paragraph
+ This may be specified in two different ways, percentage spacing and font point spacing:</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/StyleTextProp9Atom.html" title="class in org.apache.poi.hslf.record">StyleTextProp9Atom</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getStyleTextProp9Atom()">getStyleTextProp9Atom</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numbered List info</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getText(java.util.List)">getText</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.TextAlign.html" title="enum in org.apache.poi.sl.usermodel">TextParagraph.TextAlign</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getTextAlign()">getTextAlign</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the alignment that is applied to the paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/EscherTextboxWrapper.html" title="class in org.apache.poi.hslf.record">EscherTextboxWrapper</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getTextboxWrapper()">getTextboxWrapper</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/hslf/record/TextRulerAtom.html" title="class in org.apache.poi.hslf.record">TextRulerAtom</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getTextRuler()">getTextRuler</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#getTextRuns()">getTextRuns</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fetch the text runs that are contained within this block of text</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#isBullet()">isBullet</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns whether this rich text run has bullets</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#isDirty()">isDirty</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#isDrawingBased()">isDrawingBased</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Is this Text Run one from a <A HREF="../../../../../org/apache/poi/hslf/record/PPDrawing.html" title="class in org.apache.poi.hslf.record"><CODE>PPDrawing</CODE></A>, or is it
+  one from the <A HREF="../../../../../org/apache/poi/hslf/record/SlideListWithText.html" title="class in org.apache.poi.hslf.record"><CODE>SlideListWithText</CODE></A>?</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#isHeaderOrFooter()">isHeaderOrFooter</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenience method to determine if this text paragraph is part of
+ the slide header or footer</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Iterator&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#iterator()">iterator</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setBullet(boolean)">setBullet</A></B>(boolean&nbsp;flag)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets whether this rich text run has bullets</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setBulletChar(java.lang.Character)">setBulletChar</A></B>(java.lang.Character&nbsp;c)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the bullet character</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setBulletColor(java.awt.Color)">setBulletColor</A></B>(java.awt.Color&nbsp;color)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the bullet color</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setBulletFont(java.lang.String)">setBulletFont</A></B>(java.lang.String&nbsp;typeface)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the bullet font</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setBulletSize(java.lang.Double)">setBulletSize</A></B>(java.lang.Double&nbsp;size)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the bullet size</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setBulletStyle(java.lang.Object...)">setBulletStyle</A></B>(java.lang.Object...&nbsp;styles)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the bullet styles.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setDirty()">setDirty</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;marks this paragraph dirty, so its records will be renewed on save</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setIndent(java.lang.Double)">setIndent</A></B>(java.lang.Double&nbsp;indent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the indent size that will be applied to the first line of text in the paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setIndentLevel(int)">setIndentLevel</A></B>(int&nbsp;level)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the particular level text properties that this paragraph will follow.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setIndex(int)">setIndex</A></B>(int&nbsp;index)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the index of the paragraph in the SLWT container</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setLeftMargin(java.lang.Double)">setLeftMargin</A></B>(java.lang.Double&nbsp;leftMargin)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the left margin of the paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setLineSpacing(java.lang.Double)">setLineSpacing</A></B>(java.lang.Double&nbsp;lineSpacing)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This element specifies the vertical line spacing that is to be used within a paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setParagraphStyle(org.apache.poi.hslf.model.textproperties.TextPropCollection)">setParagraphStyle</A></B>(<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;paragraphStyle)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setParagraphTextPropVal(java.lang.String, java.lang.Integer)">setParagraphTextPropVal</A></B>(java.lang.String&nbsp;propName,
+                        java.lang.Integer&nbsp;val)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the value of the given Paragraph TextProp, add if required</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setParentShape(org.apache.poi.hslf.usermodel.HSLFTextShape)">setParentShape</A></B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextShape</A>&nbsp;parentShape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setPropVal(org.apache.poi.hslf.model.textproperties.TextPropCollection, org.apache.poi.hslf.model.textproperties.TextPropCollection, java.lang.String, java.lang.Integer)">setPropVal</A></B>(<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;props,
+           <A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;masterProps,
+           java.lang.String&nbsp;name,
+           java.lang.Integer&nbsp;val)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the named TextProp, either by fetching it (if it exists) or
+ adding it (if it didn't)</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setRightMargin(java.lang.Double)">setRightMargin</A></B>(java.lang.Double&nbsp;rightMargin)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setRunType(int)">setRunType</A></B>(int&nbsp;runType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setShapeId(int)">setShapeId</A></B>(int&nbsp;id)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setSpaceAfter(java.lang.Double)">setSpaceAfter</A></B>(java.lang.Double&nbsp;spaceAfter)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the amount of vertical white space that will be present after the paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setSpaceBefore(java.lang.Double)">setSpaceBefore</A></B>(java.lang.Double&nbsp;spaceBefore)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set the amount of vertical white space that will be present before the paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setStyleTextProp9Atom(org.apache.poi.hslf.record.StyleTextProp9Atom)">setStyleTextProp9Atom</A></B>(<A HREF="../../../../../org/apache/poi/hslf/record/StyleTextProp9Atom.html" title="class in org.apache.poi.hslf.record">StyleTextProp9Atom</A>&nbsp;styleTextProp9Atom)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Numbered List info</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setText(java.util.List, java.lang.String)">setText</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+        java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets (overwrites) the current text.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#setTextAlign(org.apache.poi.sl.usermodel.TextParagraph.TextAlign)">setTextAlign</A></B>(<A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.TextAlign.html" title="enum in org.apache.poi.sl.usermodel">TextParagraph.TextAlign</A>&nbsp;align)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the alignment that is to be applied to the paragraph.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#storeText(java.util.List)">storeText</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saves the modified paragraphs/textrun to the records.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#supplySheet(java.util.List, org.apache.poi.hslf.usermodel.HSLFSheet)">supplySheet</A></B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+            <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Supply the Sheet we belong to, which might have an assigned SlideShow
+ Also passes it on to our child RichTextRuns</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#toExternalString(java.lang.String, int)">toExternalString</A></B>(java.lang.String&nbsp;rawText,
+                 int&nbsp;runType)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Converts raw text from the text paragraphs to a formatted string,
+ i.e.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#toInternalString(java.lang.String)">toInternalString</A></B>(java.lang.String&nbsp;s)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a new string with line breaks converted into internal ppt
+ representation</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html#toString()">toString</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="logger"><!-- --></A><H3>
+logger</H3>
+<PRE>
+protected static final <A HREF="../../../../../org/apache/poi/util/POILogger.html" title="class in org.apache.poi.util">POILogger</A> <B>logger</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="_ruler"><!-- --></A><H3>
+_ruler</H3>
+<PRE>
+protected <A HREF="../../../../../org/apache/poi/hslf/record/TextRulerAtom.html" title="class in org.apache.poi.hslf.record">TextRulerAtom</A> <B>_ruler</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="_runs"><!-- --></A><H3>
+_runs</H3>
+<PRE>
+protected final java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt; <B>_runs</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="_parentShape"><!-- --></A><H3>
+_parentShape</H3>
+<PRE>
+protected <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextShape</A> <B>_parentShape</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="addTextRun(org.apache.poi.hslf.usermodel.HSLFTextRun)"><!-- --></A><H3>
+addTextRun</H3>
+<PRE>
+public void <B>addTextRun</B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&nbsp;run)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTextRuns()"><!-- --></A><H3>
+getTextRuns</H3>
+<PRE>
+public java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt; <B>getTextRuns</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getTextRuns()">TextParagraph</A></CODE></B></DD>
+<DD>Fetch the text runs that are contained within this block of text
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getTextRuns()">getTextRuns</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getParagraphStyle()"><!-- --></A><H3>
+getParagraphStyle</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A> <B>getParagraphStyle</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setParagraphStyle(org.apache.poi.hslf.model.textproperties.TextPropCollection)"><!-- --></A><H3>
+setParagraphStyle</H3>
+<PRE>
+public void <B>setParagraphStyle</B>(<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;paragraphStyle)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="supplySheet(java.util.List, org.apache.poi.hslf.usermodel.HSLFSheet)"><!-- --></A><H3>
+supplySheet</H3>
+<PRE>
+public static void <B>supplySheet</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                               <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A>&nbsp;sheet)</PRE>
+<DL>
+<DD>Supply the Sheet we belong to, which might have an assigned SlideShow
+ Also passes it on to our child RichTextRuns
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSheet()"><!-- --></A><H3>
+getSheet</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A> <B>getSheet</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getShapeId()"><!-- --></A><H3>
+getShapeId</H3>
+<PRE>
+protected int <B>getShapeId</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>Shape ID</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setShapeId(int)"><!-- --></A><H3>
+setShapeId</H3>
+<PRE>
+protected void <B>setShapeId</B>(int&nbsp;id)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>id</CODE> - Shape ID</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getIndex()"><!-- --></A><H3>
+getIndex</H3>
+<PRE>
+protected int <B>getIndex</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>0-based index of the text run in the SLWT container</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setIndex(int)"><!-- --></A><H3>
+setIndex</H3>
+<PRE>
+protected void <B>setIndex</B>(int&nbsp;index)</PRE>
+<DL>
+<DD>Sets the index of the paragraph in the SLWT container
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>index</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRunType()"><!-- --></A><H3>
+getRunType</H3>
+<PRE>
+public int <B>getRunType</B>()</PRE>
+<DL>
+<DD>Returns the type of the text, from the TextHeaderAtom.
+ Possible values can be seen from TextHeaderAtom
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../org/apache/poi/hslf/record/TextHeaderAtom.html" title="class in org.apache.poi.hslf.record"><CODE>TextHeaderAtom</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setRunType(int)"><!-- --></A><H3>
+setRunType</H3>
+<PRE>
+public void <B>setRunType</B>(int&nbsp;runType)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isDrawingBased()"><!-- --></A><H3>
+isDrawingBased</H3>
+<PRE>
+public boolean <B>isDrawingBased</B>()</PRE>
+<DL>
+<DD>Is this Text Run one from a <A HREF="../../../../../org/apache/poi/hslf/record/PPDrawing.html" title="class in org.apache.poi.hslf.record"><CODE>PPDrawing</CODE></A>, or is it
+  one from the <A HREF="../../../../../org/apache/poi/hslf/record/SlideListWithText.html" title="class in org.apache.poi.hslf.record"><CODE>SlideListWithText</CODE></A>?
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTextRuler()"><!-- --></A><H3>
+getTextRuler</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/TextRulerAtom.html" title="class in org.apache.poi.hslf.record">TextRulerAtom</A> <B>getTextRuler</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="createTextRuler()"><!-- --></A><H3>
+createTextRuler</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/TextRulerAtom.html" title="class in org.apache.poi.hslf.record">TextRulerAtom</A> <B>createTextRuler</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRecords()"><!-- --></A><H3>
+getRecords</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/Record.html" title="class in org.apache.poi.hslf.record">Record</A>[] <B>getRecords</B>()</PRE>
+<DL>
+<DD>Returns records that make up the list of text paragraphs
+ (there can be misc InteractiveInfo, TxInteractiveInfo and other records)
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>text run records</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setStyleTextProp9Atom(org.apache.poi.hslf.record.StyleTextProp9Atom)"><!-- --></A><H3>
+setStyleTextProp9Atom</H3>
+<PRE>
+public void <B>setStyleTextProp9Atom</B>(<A HREF="../../../../../org/apache/poi/hslf/record/StyleTextProp9Atom.html" title="class in org.apache.poi.hslf.record">StyleTextProp9Atom</A>&nbsp;styleTextProp9Atom)</PRE>
+<DL>
+<DD>Numbered List info
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getStyleTextProp9Atom()"><!-- --></A><H3>
+getStyleTextProp9Atom</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/StyleTextProp9Atom.html" title="class in org.apache.poi.hslf.record">StyleTextProp9Atom</A> <B>getStyleTextProp9Atom</B>()</PRE>
+<DL>
+<DD>Numbered List info
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="iterator()"><!-- --></A><H3>
+iterator</H3>
+<PRE>
+public java.util.Iterator&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt; <B>iterator</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE>iterator</CODE> in interface <CODE>java.lang.Iterable&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLeftMargin()"><!-- --></A><H3>
+getLeftMargin</H3>
+<PRE>
+public java.lang.Double <B>getLeftMargin</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getLeftMargin()">getLeftMargin</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the left margin (in points) of the paragraph or null, if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setLeftMargin(java.lang.Double)"><!-- --></A><H3>
+setLeftMargin</H3>
+<PRE>
+public void <B>setLeftMargin</B>(java.lang.Double&nbsp;leftMargin)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setLeftMargin(java.lang.Double)">TextParagraph</A></CODE></B></DD>
+<DD>Specifies the left margin of the paragraph. This is specified in addition to the text body
+ inset and applies only to this text paragraph. That is the text body Inset and the LeftMargin
+ attributes are additive with respect to the text position.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setLeftMargin(java.lang.Double)">setLeftMargin</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>leftMargin</CODE> - the left margin (in points) or null to unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRightMargin()"><!-- --></A><H3>
+getRightMargin</H3>
+<PRE>
+public java.lang.Double <B>getRightMargin</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getRightMargin()">TextParagraph</A></CODE></B></DD>
+<DD>Specifies the right margin of the paragraph. This is specified in addition to the text body
+ inset and applies only to this text paragraph. That is the text body Inset and the RightMargin
+ attributes are additive with respect to the text position.
+ 
+ The right margin is not support and therefore ignored by the HSLF implementation.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getRightMargin()">getRightMargin</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the right margin (in points) of the paragraph or null, if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setRightMargin(java.lang.Double)"><!-- --></A><H3>
+setRightMargin</H3>
+<PRE>
+public void <B>setRightMargin</B>(java.lang.Double&nbsp;rightMargin)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setRightMargin(java.lang.Double)">setRightMargin</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>rightMargin</CODE> - the right margin (in points) of the paragraph</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getIndent()"><!-- --></A><H3>
+getIndent</H3>
+<PRE>
+public java.lang.Double <B>getIndent</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getIndent()">getIndent</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the indent (in points) applied to the first line of text in the paragraph.
+  or null, if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setIndent(java.lang.Double)"><!-- --></A><H3>
+setIndent</H3>
+<PRE>
+public void <B>setIndent</B>(java.lang.Double&nbsp;indent)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setIndent(java.lang.Double)">TextParagraph</A></CODE></B></DD>
+<DD>Specifies the indent size that will be applied to the first line of text in the paragraph.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setIndent(java.lang.Double)">setIndent</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>indent</CODE> - the indent (in points) applied to the first line of text in the paragraph</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDefaultFontFamily()"><!-- --></A><H3>
+getDefaultFontFamily</H3>
+<PRE>
+public java.lang.String <B>getDefaultFontFamily</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getDefaultFontFamily()">getDefaultFontFamily</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDefaultFontSize()"><!-- --></A><H3>
+getDefaultFontSize</H3>
+<PRE>
+public java.lang.Double <B>getDefaultFontSize</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getDefaultFontSize()">getDefaultFontSize</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the default font size, in case its not set in the textrun or null, if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTextAlign(org.apache.poi.sl.usermodel.TextParagraph.TextAlign)"><!-- --></A><H3>
+setTextAlign</H3>
+<PRE>
+public void <B>setTextAlign</B>(<A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.TextAlign.html" title="enum in org.apache.poi.sl.usermodel">TextParagraph.TextAlign</A>&nbsp;align)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setTextAlign(org.apache.poi.sl.usermodel.TextParagraph.TextAlign)">TextParagraph</A></CODE></B></DD>
+<DD>Specifies the alignment that is to be applied to the paragraph.
+ Possible values for this include left, right, centered, justified and distributed,
+ see <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.TextAlign.html" title="enum in org.apache.poi.sl.usermodel"><CODE>TextParagraph.TextAlign</CODE></A>.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setTextAlign(org.apache.poi.sl.usermodel.TextParagraph.TextAlign)">setTextAlign</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>align</CODE> - text align</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTextAlign()"><!-- --></A><H3>
+getTextAlign</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.TextAlign.html" title="enum in org.apache.poi.sl.usermodel">TextParagraph.TextAlign</A> <B>getTextAlign</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getTextAlign()">TextParagraph</A></CODE></B></DD>
+<DD>Returns the alignment that is applied to the paragraph.
+
+ If this attribute is omitted, then null is returned.
+ User code can imply the value <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.TextAlign.html#LEFT"><CODE>TextParagraph.TextAlign.LEFT</CODE></A> then.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getTextAlign()">getTextAlign</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>alignment that is applied to the paragraph</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getFontAlign()"><!-- --></A><H3>
+getFontAlign</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.FontAlign.html" title="enum in org.apache.poi.sl.usermodel">TextParagraph.FontAlign</A> <B>getFontAlign</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getFontAlign()">TextParagraph</A></CODE></B></DD>
+<DD>Returns the font alignment that is applied to the paragraph.
+
+ If this attribute is omitted, then null is return,
+ user code can imply the a value of <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.FontAlign.html#AUTO"><CODE>TextParagraph.FontAlign.AUTO</CODE></A>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getFontAlign()">getFontAlign</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>alignment that is applied to the paragraph</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAutoNumberingScheme()"><!-- --></A><H3>
+getAutoNumberingScheme</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/sl/usermodel/AutoNumberingScheme.html" title="enum in org.apache.poi.sl.usermodel">AutoNumberingScheme</A> <B>getAutoNumberingScheme</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getAutoNumberingStartAt()"><!-- --></A><H3>
+getAutoNumberingStartAt</H3>
+<PRE>
+public java.lang.Integer <B>getAutoNumberingStartAt</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getBulletStyle()"><!-- --></A><H3>
+getBulletStyle</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.BulletStyle.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph.BulletStyle</A> <B>getBulletStyle</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getBulletStyle()">getBulletStyle</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the bullet style of the paragraph, if <code>null</code> then no bullets are used</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setBulletStyle(java.lang.Object...)"><!-- --></A><H3>
+setBulletStyle</H3>
+<PRE>
+public void <B>setBulletStyle</B>(java.lang.Object...&nbsp;styles)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setBulletStyle(java.lang.Object...)">TextParagraph</A></CODE></B></DD>
+<DD>Sets the bullet styles. If no styles are given, the bullets are omitted.
+ Possible attributes are integer/double (bullet size), Color (bullet color),
+ character (bullet character), string (bullet font), AutoNumberingScheme
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setBulletStyle(java.lang.Object...)">setBulletStyle</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getParentShape()"><!-- --></A><H3>
+getParentShape</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextShape</A> <B>getParentShape</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getParentShape()">getParentShape</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setParentShape(org.apache.poi.hslf.usermodel.HSLFTextShape)"><!-- --></A><H3>
+setParentShape</H3>
+<PRE>
+public void <B>setParentShape</B>(<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextShape</A>&nbsp;parentShape)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getIndentLevel()"><!-- --></A><H3>
+getIndentLevel</H3>
+<PRE>
+public int <B>getIndentLevel</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getIndentLevel()">getIndentLevel</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the text level of this paragraph (0-based). Default is 0.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setIndentLevel(int)"><!-- --></A><H3>
+setIndentLevel</H3>
+<PRE>
+public void <B>setIndentLevel</B>(int&nbsp;level)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setIndentLevel(int)">TextParagraph</A></CODE></B></DD>
+<DD>Specifies the particular level text properties that this paragraph will follow.
+ The value for this attribute formats the text according to the corresponding level
+ paragraph properties defined in the SlideMaster.
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setIndentLevel(int)">setIndentLevel</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>level</CODE> - the level (0 ... 4)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setBullet(boolean)"><!-- --></A><H3>
+setBullet</H3>
+<PRE>
+public void <B>setBullet</B>(boolean&nbsp;flag)</PRE>
+<DL>
+<DD>Sets whether this rich text run has bullets
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isBullet()"><!-- --></A><H3>
+isBullet</H3>
+<PRE>
+public boolean <B>isBullet</B>()</PRE>
+<DL>
+<DD>Returns whether this rich text run has bullets
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setBulletChar(java.lang.Character)"><!-- --></A><H3>
+setBulletChar</H3>
+<PRE>
+public void <B>setBulletChar</B>(java.lang.Character&nbsp;c)</PRE>
+<DL>
+<DD>Sets the bullet character
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getBulletChar()"><!-- --></A><H3>
+getBulletChar</H3>
+<PRE>
+public java.lang.Character <B>getBulletChar</B>()</PRE>
+<DL>
+<DD>Returns the bullet character
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setBulletSize(java.lang.Double)"><!-- --></A><H3>
+setBulletSize</H3>
+<PRE>
+public void <B>setBulletSize</B>(java.lang.Double&nbsp;size)</PRE>
+<DL>
+<DD>Sets the bullet size
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getBulletSize()"><!-- --></A><H3>
+getBulletSize</H3>
+<PRE>
+public java.lang.Double <B>getBulletSize</B>()</PRE>
+<DL>
+<DD>Returns the bullet size, null if unset
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setBulletColor(java.awt.Color)"><!-- --></A><H3>
+setBulletColor</H3>
+<PRE>
+public void <B>setBulletColor</B>(java.awt.Color&nbsp;color)</PRE>
+<DL>
+<DD>Sets the bullet color
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getBulletColor()"><!-- --></A><H3>
+getBulletColor</H3>
+<PRE>
+public java.awt.Color <B>getBulletColor</B>()</PRE>
+<DL>
+<DD>Returns the bullet color
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setBulletFont(java.lang.String)"><!-- --></A><H3>
+setBulletFont</H3>
+<PRE>
+public void <B>setBulletFont</B>(java.lang.String&nbsp;typeface)</PRE>
+<DL>
+<DD>Sets the bullet font
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getBulletFont()"><!-- --></A><H3>
+getBulletFont</H3>
+<PRE>
+public java.lang.String <B>getBulletFont</B>()</PRE>
+<DL>
+<DD>Returns the bullet font
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setLineSpacing(java.lang.Double)"><!-- --></A><H3>
+setLineSpacing</H3>
+<PRE>
+public void <B>setLineSpacing</B>(java.lang.Double&nbsp;lineSpacing)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setLineSpacing(java.lang.Double)">TextParagraph</A></CODE></B></DD>
+<DD>This element specifies the vertical line spacing that is to be used within a paragraph.
+ This may be specified in two different ways, percentage spacing and font point spacing:
+ <p>
+ If linespacing >= 0, then linespacing is a percentage of normal line height
+ If linespacing < 0, the absolute value of linespacing is the spacing in points
+ </p>
+ Examples:
+ <pre><code>
+      // spacing will be 120% of the size of the largest text on each line
+      paragraph.setLineSpacing(120);
+
+      // spacing will be 200% of the size of the largest text on each line
+      paragraph.setLineSpacing(200);
+
+      // spacing will be 48 points
+      paragraph.setLineSpacing(-48.0);
+ </code></pre>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setLineSpacing(java.lang.Double)">setLineSpacing</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>lineSpacing</CODE> - the vertical line spacing</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getLineSpacing()"><!-- --></A><H3>
+getLineSpacing</H3>
+<PRE>
+public java.lang.Double <B>getLineSpacing</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getLineSpacing()">TextParagraph</A></CODE></B></DD>
+<DD>Returns the vertical line spacing that is to be used within a paragraph.
+ This may be specified in two different ways, percentage spacing and font point spacing:
+ <p>
+ If linespacing >= 0, then linespacing is a percentage of normal line height.
+ If linespacing < 0, the absolute value of linespacing is the spacing in points
+ </p>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getLineSpacing()">getLineSpacing</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the vertical line spacing or null, if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSpaceBefore(java.lang.Double)"><!-- --></A><H3>
+setSpaceBefore</H3>
+<PRE>
+public void <B>setSpaceBefore</B>(java.lang.Double&nbsp;spaceBefore)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setSpaceBefore(java.lang.Double)">TextParagraph</A></CODE></B></DD>
+<DD>Set the amount of vertical white space that will be present before the paragraph.
+ This space is specified in either percentage or points:
+ <p>
+ If spaceBefore >= 0, then space is a percentage of normal line height.
+ If spaceBefore < 0, the absolute value of linespacing is the spacing in points
+ </p>
+ Examples:
+ <pre><code>
+      // The paragraph will be formatted to have a spacing before the paragraph text.
+      // The spacing will be 200% of the size of the largest text on each line
+      paragraph.setSpaceBefore(200);
+
+      // The spacing will be a size of 48 points
+      paragraph.setSpaceBefore(-48.0);
+ </code></pre>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setSpaceBefore(java.lang.Double)">setSpaceBefore</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>spaceBefore</CODE> - the vertical white space before the paragraph, null to unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSpaceBefore()"><!-- --></A><H3>
+getSpaceBefore</H3>
+<PRE>
+public java.lang.Double <B>getSpaceBefore</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getSpaceBefore()">TextParagraph</A></CODE></B></DD>
+<DD>The amount of vertical white space before the paragraph
+ This may be specified in two different ways, percentage spacing and font point spacing:
+ <p>
+ If spaceBefore >= 0, then space is a percentage of normal line height.
+ If spaceBefore < 0, the absolute value in points
+ </p>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getSpaceBefore()">getSpaceBefore</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the vertical white space before the paragraph, or null if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSpaceAfter(java.lang.Double)"><!-- --></A><H3>
+setSpaceAfter</H3>
+<PRE>
+public void <B>setSpaceAfter</B>(java.lang.Double&nbsp;spaceAfter)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setSpaceAfter(java.lang.Double)">TextParagraph</A></CODE></B></DD>
+<DD>Set the amount of vertical white space that will be present after the paragraph.
+ This space is specified in either percentage or points:
+ <p>
+ If spaceAfter >= 0, then space is a percentage of normal line height.
+ If spaceAfter < 0, the absolute value of linespacing is the spacing in points
+ </p>
+ Examples:
+ <pre><code>
+      // The paragraph will be formatted to have a spacing after the paragraph text.
+      // The spacing will be 200% of the size of the largest text on each line
+      paragraph.setSpaceAfter(200);
+
+      // The spacing will be a size of 48 points
+      paragraph.setSpaceAfter(-48.0);
+ </code></pre>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#setSpaceAfter(java.lang.Double)">setSpaceAfter</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>spaceAfter</CODE> - the vertical white space after the paragraph, null to unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSpaceAfter()"><!-- --></A><H3>
+getSpaceAfter</H3>
+<PRE>
+public java.lang.Double <B>getSpaceAfter</B>()</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getSpaceAfter()">TextParagraph</A></CODE></B></DD>
+<DD>The amount of vertical white space after the paragraph
+ This may be specified in two different ways, percentage spacing and font point spacing:
+ <p>
+ If spaceBefore >= 0, then space is a percentage of normal line height.
+ If spaceBefore < 0, the absolute value of linespacing is the spacing in points
+ </p>
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getSpaceAfter()">getSpaceAfter</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the vertical white space after the paragraph or null, if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDefaultTabSize()"><!-- --></A><H3>
+getDefaultTabSize</H3>
+<PRE>
+public java.lang.Double <B>getDefaultTabSize</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#getDefaultTabSize()">getDefaultTabSize</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the default size for a tab character within this paragraph in points, null if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPropVal(org.apache.poi.hslf.model.textproperties.TextPropCollection, org.apache.poi.hslf.model.textproperties.TextPropCollection, java.lang.String)"><!-- --></A><H3>
+getPropVal</H3>
+<PRE>
+protected <A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextProp.html" title="class in org.apache.poi.hslf.model.textproperties">TextProp</A> <B>getPropVal</B>(<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;props,
+                              <A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;masterProps,
+                              java.lang.String&nbsp;propName)</PRE>
+<DL>
+<DD>Fetch the value of the given Paragraph related TextProp. Returns null if
+ that TextProp isn't present. If the TextProp isn't present, the value
+ from the appropriate Master Sheet will apply.
+
+ The propName can be a comma-separated list, in case multiple equivalent values
+ are queried
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPropVal(org.apache.poi.hslf.model.textproperties.TextPropCollection, org.apache.poi.hslf.model.textproperties.TextPropCollection, java.lang.String, java.lang.Integer)"><!-- --></A><H3>
+setPropVal</H3>
+<PRE>
+protected void <B>setPropVal</B>(<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;props,
+                          <A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&nbsp;masterProps,
+                          java.lang.String&nbsp;name,
+                          java.lang.Integer&nbsp;val)</PRE>
+<DL>
+<DD>Returns the named TextProp, either by fetching it (if it exists) or
+ adding it (if it didn't)
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>props</CODE> - the TextPropCollection to fetch from / add into<DD><CODE>name</CODE> - the name of the TextProp to fetch/add<DD><CODE>val</CODE> - the value, null if unset</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="fixLineEndings(java.util.List)"><!-- --></A><H3>
+fixLineEndings</H3>
+<PRE>
+protected static void <B>fixLineEndings</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</PRE>
+<DL>
+<DD>Check and add linebreaks to text runs leading other paragraphs
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>paragraphs</CODE> - </DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="storeText(java.util.List)"><!-- --></A><H3>
+storeText</H3>
+<PRE>
+protected static void <B>storeText</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</PRE>
+<DL>
+<DD>Saves the modified paragraphs/textrun to the records.
+ Also updates the styles to the correct text length.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="appendText(java.util.List, java.lang.String, boolean)"><!-- --></A><H3>
+appendText</H3>
+<PRE>
+protected static <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A> <B>appendText</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                                        java.lang.String&nbsp;text,
+                                        boolean&nbsp;newParagraph)</PRE>
+<DL>
+<DD>Adds the supplied text onto the end of the TextParagraphs,
+ creating a new RichTextRun for it to sit in.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>text</CODE> - the text string used by this object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setText(java.util.List, java.lang.String)"><!-- --></A><H3>
+setText</H3>
+<PRE>
+public static <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A> <B>setText</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                                  java.lang.String&nbsp;text)</PRE>
+<DL>
+<DD>Sets (overwrites) the current text.
+ Uses the properties of the first paragraph / textrun
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>text</CODE> - the text string used by this object.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getText(java.util.List)"><!-- --></A><H3>
+getText</H3>
+<PRE>
+public static java.lang.String <B>getText</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRawText(java.util.List)"><!-- --></A><H3>
+getRawText</H3>
+<PRE>
+public static java.lang.String <B>getRawText</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toString()"><!-- --></A><H3>
+toString</H3>
+<PRE>
+public java.lang.String <B>toString</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>toString</CODE> in class <CODE>java.lang.Object</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toInternalString(java.lang.String)"><!-- --></A><H3>
+toInternalString</H3>
+<PRE>
+protected static java.lang.String <B>toInternalString</B>(java.lang.String&nbsp;s)</PRE>
+<DL>
+<DD>Returns a new string with line breaks converted into internal ppt
+ representation
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="toExternalString(java.lang.String, int)"><!-- --></A><H3>
+toExternalString</H3>
+<PRE>
+public static java.lang.String <B>toExternalString</B>(java.lang.String&nbsp;rawText,
+                                                int&nbsp;runType)</PRE>
+<DL>
+<DD>Converts raw text from the text paragraphs to a formatted string,
+ i.e. it converts certain control characters used in the raw txt
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>rawText</CODE> - the raw text<DD><CODE>runType</CODE> - the run type of the shape, paragraph or headerAtom.
+        use -1 if unknown
+<DT><B>Returns:</B><DD>the formatted string</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="findTextParagraphs(org.apache.poi.hslf.record.PPDrawing, org.apache.poi.hslf.usermodel.HSLFSheet)"><!-- --></A><H3>
+findTextParagraphs</H3>
+<PRE>
+public static java.util.List&lt;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&gt; <B>findTextParagraphs</B>(<A HREF="../../../../../org/apache/poi/hslf/record/PPDrawing.html" title="class in org.apache.poi.hslf.record">PPDrawing</A>&nbsp;ppdrawing,
+                                                                                   <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A>&nbsp;sheet)</PRE>
+<DL>
+<DD>For a given PPDrawing, grab all the TextRuns
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="findTextParagraphs(org.apache.poi.hslf.record.EscherTextboxWrapper, org.apache.poi.hslf.usermodel.HSLFSheet)"><!-- --></A><H3>
+findTextParagraphs</H3>
+<PRE>
+protected static java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt; <B>findTextParagraphs</B>(<A HREF="../../../../../org/apache/poi/hslf/record/EscherTextboxWrapper.html" title="class in org.apache.poi.hslf.record">EscherTextboxWrapper</A>&nbsp;wrapper,
+                                                                      <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A>&nbsp;sheet)</PRE>
+<DL>
+<DD>Scans through the supplied record array, looking for
+ a TextHeaderAtom followed by one of a TextBytesAtom or
+ a TextCharsAtom. Builds up TextRuns from these
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>wrapper</CODE> - an EscherTextboxWrapper</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="findTextParagraphs(org.apache.poi.hslf.record.Record[])"><!-- --></A><H3>
+findTextParagraphs</H3>
+<PRE>
+protected static java.util.List&lt;java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&gt; <B>findTextParagraphs</B>(<A HREF="../../../../../org/apache/poi/hslf/record/Record.html" title="class in org.apache.poi.hslf.record">Record</A>[]&nbsp;records)</PRE>
+<DL>
+<DD>Scans through the supplied record array, looking for
+ a TextHeaderAtom followed by one of a TextBytesAtom or
+ a TextCharsAtom. Builds up TextRuns from these
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>records</CODE> - the records to build from</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="applyHyperlinks(java.util.List)"><!-- --></A><H3>
+applyHyperlinks</H3>
+<PRE>
+protected static void <B>applyHyperlinks</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="applyCharacterStyles(java.util.List, java.util.List)"><!-- --></A><H3>
+applyCharacterStyles</H3>
+<PRE>
+protected static void <B>applyCharacterStyles</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                                           java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&gt;&nbsp;charStyles)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="applyParagraphStyles(java.util.List, java.util.List)"><!-- --></A><H3>
+applyParagraphStyles</H3>
+<PRE>
+protected static void <B>applyParagraphStyles</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                                           java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/TextPropCollection.html" title="class in org.apache.poi.hslf.model.textproperties">TextPropCollection</A>&gt;&nbsp;paraStyles)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="applyParagraphIndents(java.util.List, java.util.List)"><!-- --></A><H3>
+applyParagraphIndents</H3>
+<PRE>
+protected static void <B>applyParagraphIndents</B>(java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>&gt;&nbsp;paragraphs,
+                                            java.util.List&lt;<A HREF="../../../../../org/apache/poi/hslf/model/textproperties/IndentProp.html" title="class in org.apache.poi.hslf.model.textproperties">IndentProp</A>&gt;&nbsp;paraStyles)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTextboxWrapper()"><!-- --></A><H3>
+getTextboxWrapper</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/hslf/record/EscherTextboxWrapper.html" title="class in org.apache.poi.hslf.record">EscherTextboxWrapper</A> <B>getTextboxWrapper</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getColorFromColorIndexStruct(int, org.apache.poi.hslf.usermodel.HSLFSheet)"><!-- --></A><H3>
+getColorFromColorIndexStruct</H3>
+<PRE>
+protected static java.awt.Color <B>getColorFromColorIndexStruct</B>(int&nbsp;rgb,
+                                                             <A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFSheet.html" title="class in org.apache.poi.hslf.usermodel">HSLFSheet</A>&nbsp;sheet)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setParagraphTextPropVal(java.lang.String, java.lang.Integer)"><!-- --></A><H3>
+setParagraphTextPropVal</H3>
+<PRE>
+public void <B>setParagraphTextPropVal</B>(java.lang.String&nbsp;propName,
+                                    java.lang.Integer&nbsp;val)</PRE>
+<DL>
+<DD>Sets the value of the given Paragraph TextProp, add if required
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>propName</CODE> - The name of the Paragraph TextProp<DD><CODE>val</CODE> - The value to set for the TextProp</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setDirty()"><!-- --></A><H3>
+setDirty</H3>
+<PRE>
+public void <B>setDirty</B>()</PRE>
+<DL>
+<DD>marks this paragraph dirty, so its records will be renewed on save
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isDirty()"><!-- --></A><H3>
+isDirty</H3>
+<PRE>
+public boolean <B>isDirty</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isHeaderOrFooter()"><!-- --></A><H3>
+isHeaderOrFooter</H3>
+<PRE>
+public boolean <B>isHeaderOrFooter</B>()</PRE>
+<DL>
+<DD>Convenience method to determine if this text paragraph is part of
+ the slide header or footer
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html#isHeaderOrFooter()">isHeaderOrFooter</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/TextParagraph.html" title="interface in org.apache.poi.sl.usermodel">TextParagraph</A>&lt;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFShape.html" title="class in org.apache.poi.hslf.usermodel">HSLFShape</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextParagraph</A>,<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel">HSLFTextRun</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true if this paragraph is part of a header or footer placeholder<DT><B>See Also:</B><DD><A HREF="../../../../../org/apache/poi/hslf/record/RoundTripHFPlaceholder12.html" title="class in org.apache.poi.hslf.record"><CODE>RoundTripHFPlaceholder12</CODE></A></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HSLFTextParagraph.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextBox.html" title="class in org.apache.poi.hslf.usermodel"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html" title="class in org.apache.poi.hslf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hslf/usermodel/HSLFTextParagraph.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HSLFTextParagraph.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;CONSTR&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

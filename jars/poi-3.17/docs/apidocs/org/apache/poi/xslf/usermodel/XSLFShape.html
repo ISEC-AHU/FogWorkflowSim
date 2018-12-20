@@ -1,0 +1,947 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+XSLFShape (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="XSLFShape (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/XSLFShape.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShadow.html" title="class in org.apache.poi.xslf.usermodel"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShapeContainer.html" title="interface in org.apache.poi.xslf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/xslf/usermodel/XSLFShape.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="XSLFShape.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.xslf.usermodel</FONT>
+<BR>
+Class XSLFShape</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.xslf.usermodel.XSLFShape</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html" title="interface in org.apache.poi.sl.usermodel">Shape</A>&lt;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html" title="class in org.apache.poi.xslf.usermodel">XSLFShape</A>,<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTextParagraph.html" title="class in org.apache.poi.xslf.usermodel">XSLFTextParagraph</A>&gt;</DD>
+</DL>
+<DL>
+<DT><B>Direct Known Subclasses:</B> <DD><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFGraphicFrame.html" title="class in org.apache.poi.xslf.usermodel">XSLFGraphicFrame</A>, <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFGroupShape.html" title="class in org.apache.poi.xslf.usermodel">XSLFGroupShape</A>, <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShadow.html" title="class in org.apache.poi.xslf.usermodel">XSLFShadow</A>, <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFSimpleShape.html" title="class in org.apache.poi.xslf.usermodel">XSLFSimpleShape</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE><FONT SIZE="-1"><A HREF="../../../../../org/apache/poi/util/Beta.html" title="annotation in org.apache.poi.util">@Beta</A>
+</FONT>public abstract class <B>XSLFShape</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html" title="interface in org.apache.poi.sl.usermodel">Shape</A>&lt;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html" title="class in org.apache.poi.xslf.usermodel">XSLFShape</A>,<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTextParagraph.html" title="class in org.apache.poi.xslf.usermodel">XSLFTextParagraph</A>&gt;</DL>
+</PRE>
+
+<P>
+Base super-class class for all shapes in PresentationML
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#PML_NS">PML_NS</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected </CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#XSLFShape(org.apache.xmlbeans.XmlObject, org.apache.poi.xslf.usermodel.XSLFSheet)">XSLFShape</A></B>(org.apache.xmlbeans.XmlObject&nbsp;shape,
+          <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFSheet.html" title="class in org.apache.poi.xslf.usermodel">XSLFSheet</A>&nbsp;sheet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#draw(java.awt.Graphics2D, java.awt.geom.Rectangle2D)">draw</A></B>(java.awt.Graphics2D&nbsp;graphics,
+     java.awt.geom.Rectangle2D&nbsp;bounds)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convenience method to draw a single shape</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#fetchShapeProperty(org.apache.poi.xslf.model.PropertyFetcher)">fetchShapeProperty</A></B>(<A HREF="../../../../../org/apache/poi/xslf/model/PropertyFetcher.html" title="class in org.apache.poi.xslf.model">PropertyFetcher</A>&lt;?&gt;&nbsp;visitor)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Walk up the inheritance tree and fetch shape properties.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.openxmlformats.schemas.presentationml.x2006.main.CTBackgroundProperties</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getBgPr()">getBgPr</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.openxmlformats.schemas.drawingml.x2006.main.CTStyleMatrixReference</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getBgRef()">getBgRef</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected 
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T extends org.apache.xmlbeans.XmlObject&gt; 
+<BR>
+T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getChild(java.lang.Class, java.lang.String, java.lang.String)">getChild</A></B>(java.lang.Class&lt;T&gt;&nbsp;childClass,
+         java.lang.String&nbsp;namespace,
+         java.lang.String&nbsp;nodename)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return direct child objects of this shape</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.openxmlformats.schemas.drawingml.x2006.main.CTNonVisualDrawingProps</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getCNvPr()">getCNvPr</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.openxmlformats.schemas.presentationml.x2006.main.CTPlaceholder</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getCTPlaceholder()">getCTPlaceholder</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getFillPaint()">getFillPaint</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.openxmlformats.schemas.drawingml.x2006.main.CTGroupShapeProperties</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getGrpSpPr()">getGrpSpPr</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShapeContainer.html" title="interface in org.apache.poi.xslf.usermodel">XSLFShapeContainer</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getParent()">getParent</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/Placeholder.html" title="enum in org.apache.poi.sl.usermodel">Placeholder</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getPlaceholder()">getPlaceholder</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getShapeId()">getShapeId</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns a unique identifier for this shape within the current document.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getShapeName()">getShapeName</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.apache.xmlbeans.XmlObject</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getShapeProperties()">getShapeProperties</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return the shape specific (visual) properties</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFSheet.html" title="class in org.apache.poi.xslf.usermodel">XSLFSheet</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getSheet()">getSheet</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;org.openxmlformats.schemas.drawingml.x2006.main.CTShapeStyle</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getSpStyle()">getSpStyle</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;org.apache.xmlbeans.XmlObject</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#getXmlObject()">getXmlObject</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#selectPaint(org.openxmlformats.schemas.drawingml.x2006.main.CTBlipFillProperties, org.apache.poi.openxml4j.opc.PackagePart)">selectPaint</A></B>(org.openxmlformats.schemas.drawingml.x2006.main.CTBlipFillProperties&nbsp;blipFill,
+            <A HREF="../../../../../org/apache/poi/openxml4j/opc/PackagePart.html" title="class in org.apache.poi.openxml4j.opc">PackagePart</A>&nbsp;parentPart)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#selectPaint(org.openxmlformats.schemas.drawingml.x2006.main.CTGradientFillProperties, org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor, org.apache.poi.xslf.usermodel.XSLFTheme)">selectPaint</A></B>(org.openxmlformats.schemas.drawingml.x2006.main.CTGradientFillProperties&nbsp;gradFill,
+            org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor&nbsp;phClr,
+            <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTheme.html" title="class in org.apache.poi.xslf.usermodel">XSLFTheme</A>&nbsp;theme)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#selectPaint(org.openxmlformats.schemas.drawingml.x2006.main.CTSolidColorFillProperties, org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor, org.apache.poi.xslf.usermodel.XSLFTheme)">selectPaint</A></B>(org.openxmlformats.schemas.drawingml.x2006.main.CTSolidColorFillProperties&nbsp;solidFill,
+            org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor&nbsp;phClr,
+            <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTheme.html" title="class in org.apache.poi.xslf.usermodel">XSLFTheme</A>&nbsp;theme)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#selectPaint(org.openxmlformats.schemas.drawingml.x2006.main.CTStyleMatrixReference, org.apache.poi.xslf.usermodel.XSLFTheme, boolean, boolean)">selectPaint</A></B>(org.openxmlformats.schemas.drawingml.x2006.main.CTStyleMatrixReference&nbsp;fillRef,
+            <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTheme.html" title="class in org.apache.poi.xslf.usermodel">XSLFTheme</A>&nbsp;theme,
+            boolean&nbsp;isLineStyle,
+            boolean&nbsp;hasPlaceholder)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static&nbsp;<A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#selectPaint(org.apache.poi.xslf.usermodel.XSLFPropertiesDelegate.XSLFFillProperties, org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor, org.apache.poi.openxml4j.opc.PackagePart, org.apache.poi.xslf.usermodel.XSLFTheme, boolean)">selectPaint</A></B>(<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFPropertiesDelegate.XSLFFillProperties.html" title="interface in org.apache.poi.xslf.usermodel">XSLFPropertiesDelegate.XSLFFillProperties</A>&nbsp;fp,
+            org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor&nbsp;phClr,
+            <A HREF="../../../../../org/apache/poi/openxml4j/opc/PackagePart.html" title="class in org.apache.poi.openxml4j.opc">PackagePart</A>&nbsp;parentPart,
+            <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTheme.html" title="class in org.apache.poi.xslf.usermodel">XSLFTheme</A>&nbsp;theme,
+            boolean&nbsp;hasPlaceholder)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert shape fill into java.awt.Paint.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected 
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T extends org.apache.xmlbeans.XmlObject&gt; 
+<BR>
+T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#selectProperty(java.lang.Class, java.lang.String)">selectProperty</A></B>(java.lang.Class&lt;T&gt;&nbsp;resultClass,
+               java.lang.String&nbsp;xquery)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As there's no xmlbeans hierarchy, but XSLF works with subclassing, not all
+ child classes work with a <CODE>CTShape</CODE> object, but often contain the same
+ properties.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#setParent(org.apache.poi.xslf.usermodel.XSLFShapeContainer)">setParent</A></B>(<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShapeContainer.html" title="interface in org.apache.poi.xslf.usermodel">XSLFShapeContainer</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html#setPlaceholder(org.apache.poi.sl.usermodel.Placeholder)">setPlaceholder</A></B>(<A HREF="../../../../../org/apache/poi/sl/usermodel/Placeholder.html" title="enum in org.apache.poi.sl.usermodel">Placeholder</A>&nbsp;placeholder)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies that the corresponding shape should be represented by the generating application
+ as a placeholder.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.poi.sl.usermodel.Shape"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface org.apache.poi.sl.usermodel.<A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html" title="interface in org.apache.poi.sl.usermodel">Shape</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html#getAnchor()">getAnchor</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="PML_NS"><!-- --></A><H3>
+PML_NS</H3>
+<PRE>
+protected static final java.lang.String <B>PML_NS</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.xslf.usermodel.XSLFShape.PML_NS">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="XSLFShape(org.apache.xmlbeans.XmlObject, org.apache.poi.xslf.usermodel.XSLFSheet)"><!-- --></A><H3>
+XSLFShape</H3>
+<PRE>
+protected <B>XSLFShape</B>(org.apache.xmlbeans.XmlObject&nbsp;shape,
+                    <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFSheet.html" title="class in org.apache.poi.xslf.usermodel">XSLFSheet</A>&nbsp;sheet)</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="getXmlObject()"><!-- --></A><H3>
+getXmlObject</H3>
+<PRE>
+public final org.apache.xmlbeans.XmlObject <B>getXmlObject</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the xml bean holding this shape's data</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSheet()"><!-- --></A><H3>
+getSheet</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFSheet.html" title="class in org.apache.poi.xslf.usermodel">XSLFSheet</A> <B>getSheet</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html#getSheet()">getSheet</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html" title="interface in org.apache.poi.sl.usermodel">Shape</A>&lt;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html" title="class in org.apache.poi.xslf.usermodel">XSLFShape</A>,<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTextParagraph.html" title="class in org.apache.poi.xslf.usermodel">XSLFTextParagraph</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the sheet this shape belongs to</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getShapeName()"><!-- --></A><H3>
+getShapeName</H3>
+<PRE>
+public java.lang.String <B>getShapeName</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>human-readable name of this shape, e.g. "Rectange 3"</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getShapeId()"><!-- --></A><H3>
+getShapeId</H3>
+<PRE>
+public int <B>getShapeId</B>()</PRE>
+<DL>
+<DD>Returns a unique identifier for this shape within the current document.
+ This ID may be used to assist in uniquely identifying this object so that it can
+ be referred to by other parts of the document.
+ <p>
+ If multiple objects within the same document share the same id attribute value,
+ then the document shall be considered non-conformant.
+ </p>
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>unique id of this shape</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setParent(org.apache.poi.xslf.usermodel.XSLFShapeContainer)"><!-- --></A><H3>
+setParent</H3>
+<PRE>
+public void <B>setParent</B>(<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShapeContainer.html" title="interface in org.apache.poi.xslf.usermodel">XSLFShapeContainer</A>&nbsp;parent)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getParent()"><!-- --></A><H3>
+getParent</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShapeContainer.html" title="interface in org.apache.poi.xslf.usermodel">XSLFShapeContainer</A> <B>getParent</B>()</PRE>
+<DL>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html#getParent()">getParent</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html" title="interface in org.apache.poi.sl.usermodel">Shape</A>&lt;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html" title="class in org.apache.poi.xslf.usermodel">XSLFShape</A>,<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTextParagraph.html" title="class in org.apache.poi.xslf.usermodel">XSLFTextParagraph</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getFillPaint()"><!-- --></A><H3>
+getFillPaint</H3>
+<PRE>
+protected <A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A> <B>getFillPaint</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getBgPr()"><!-- --></A><H3>
+getBgPr</H3>
+<PRE>
+protected org.openxmlformats.schemas.presentationml.x2006.main.CTBackgroundProperties <B>getBgPr</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getBgRef()"><!-- --></A><H3>
+getBgRef</H3>
+<PRE>
+protected org.openxmlformats.schemas.drawingml.x2006.main.CTStyleMatrixReference <B>getBgRef</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getGrpSpPr()"><!-- --></A><H3>
+getGrpSpPr</H3>
+<PRE>
+protected org.openxmlformats.schemas.drawingml.x2006.main.CTGroupShapeProperties <B>getGrpSpPr</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getCNvPr()"><!-- --></A><H3>
+getCNvPr</H3>
+<PRE>
+protected org.openxmlformats.schemas.drawingml.x2006.main.CTNonVisualDrawingProps <B>getCNvPr</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSpStyle()"><!-- --></A><H3>
+getSpStyle</H3>
+<PRE>
+protected org.openxmlformats.schemas.drawingml.x2006.main.CTShapeStyle <B>getSpStyle</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getChild(java.lang.Class, java.lang.String, java.lang.String)"><!-- --></A><H3>
+getChild</H3>
+<PRE>
+protected &lt;T extends org.apache.xmlbeans.XmlObject&gt; T <B>getChild</B>(java.lang.Class&lt;T&gt;&nbsp;childClass,
+                                                               java.lang.String&nbsp;namespace,
+                                                               java.lang.String&nbsp;nodename)</PRE>
+<DL>
+<DD>Return direct child objects of this shape
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>childClass</CODE> - the class to cast the properties to<DD><CODE>namespace</CODE> - the namespace - usually it is <code>"http://schemas.openxmlformats.org/presentationml/2006/main"</code><DD><CODE>nodename</CODE> - the node name, without prefix
+<DT><B>Returns:</B><DD>the properties object or null if it can't be found</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getCTPlaceholder()"><!-- --></A><H3>
+getCTPlaceholder</H3>
+<PRE>
+protected org.openxmlformats.schemas.presentationml.x2006.main.CTPlaceholder <B>getCTPlaceholder</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPlaceholder()"><!-- --></A><H3>
+getPlaceholder</H3>
+<PRE>
+public <A HREF="../../../../../org/apache/poi/sl/usermodel/Placeholder.html" title="enum in org.apache.poi.sl.usermodel">Placeholder</A> <B>getPlaceholder</B>()</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPlaceholder(org.apache.poi.sl.usermodel.Placeholder)"><!-- --></A><H3>
+setPlaceholder</H3>
+<PRE>
+protected void <B>setPlaceholder</B>(<A HREF="../../../../../org/apache/poi/sl/usermodel/Placeholder.html" title="enum in org.apache.poi.sl.usermodel">Placeholder</A>&nbsp;placeholder)</PRE>
+<DL>
+<DD>Specifies that the corresponding shape should be represented by the generating application
+ as a placeholder. When a shape is considered a placeholder by the generating application
+ it can have special properties to alert the user that they may enter content into the shape.
+ Different types of placeholders are allowed and can be specified by using the placeholder
+ type attribute for this element
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>placeholder</CODE> - The shape to use as placeholder or null if no placeholder should be set.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="selectProperty(java.lang.Class, java.lang.String)"><!-- --></A><H3>
+selectProperty</H3>
+<PRE>
+protected &lt;T extends org.apache.xmlbeans.XmlObject&gt; T <B>selectProperty</B>(java.lang.Class&lt;T&gt;&nbsp;resultClass,
+                                                                     java.lang.String&nbsp;xquery)</PRE>
+<DL>
+<DD>As there's no xmlbeans hierarchy, but XSLF works with subclassing, not all
+ child classes work with a <CODE>CTShape</CODE> object, but often contain the same
+ properties. This method is the generalized form of selecting and casting those
+ properties.
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>resultClass</CODE> - the requested result class<DD><CODE>xquery</CODE> - the simple (xmlbean) xpath expression to the property
+<DT><B>Returns:</B><DD>the xml object at the xpath location, or null if not found</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="fetchShapeProperty(org.apache.poi.xslf.model.PropertyFetcher)"><!-- --></A><H3>
+fetchShapeProperty</H3>
+<PRE>
+protected boolean <B>fetchShapeProperty</B>(<A HREF="../../../../../org/apache/poi/xslf/model/PropertyFetcher.html" title="class in org.apache.poi.xslf.model">PropertyFetcher</A>&lt;?&gt;&nbsp;visitor)</PRE>
+<DL>
+<DD>Walk up the inheritance tree and fetch shape properties.<p>
+
+ The following order of inheritance is assumed:<p>
+ <ol>
+ <li>slide
+ <li>slideLayout
+ <li>slideMaster
+ </ol>
+ 
+ Currently themes and their defaults aren't correctly handled
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>visitor</CODE> - the object that collects the desired property
+<DT><B>Returns:</B><DD>true if the property was fetched</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="selectPaint(org.apache.poi.xslf.usermodel.XSLFPropertiesDelegate.XSLFFillProperties, org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor, org.apache.poi.openxml4j.opc.PackagePart, org.apache.poi.xslf.usermodel.XSLFTheme, boolean)"><!-- --></A><H3>
+selectPaint</H3>
+<PRE>
+protected static <A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A> <B>selectPaint</B>(<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFPropertiesDelegate.XSLFFillProperties.html" title="interface in org.apache.poi.xslf.usermodel">XSLFPropertiesDelegate.XSLFFillProperties</A>&nbsp;fp,
+                                        org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor&nbsp;phClr,
+                                        <A HREF="../../../../../org/apache/poi/openxml4j/opc/PackagePart.html" title="class in org.apache.poi.openxml4j.opc">PackagePart</A>&nbsp;parentPart,
+                                        <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTheme.html" title="class in org.apache.poi.xslf.usermodel">XSLFTheme</A>&nbsp;theme,
+                                        boolean&nbsp;hasPlaceholder)</PRE>
+<DL>
+<DD>Convert shape fill into java.awt.Paint. The result is either Color or
+ TexturePaint or GradientPaint or null
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>fp</CODE> - a properties handler specific to the underlying shape properties<DD><CODE>phClr</CODE> - context color<DD><CODE>parentPart</CODE> - the parent package part. Any external references (images, etc.) are resolved relative to it.<DD><CODE>theme</CODE> - the theme for the shape/sheet
+<DT><B>Returns:</B><DD>the applied Paint or null if none was applied</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="selectPaint(org.openxmlformats.schemas.drawingml.x2006.main.CTSolidColorFillProperties, org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor, org.apache.poi.xslf.usermodel.XSLFTheme)"><!-- --></A><H3>
+selectPaint</H3>
+<PRE>
+protected static <A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A> <B>selectPaint</B>(org.openxmlformats.schemas.drawingml.x2006.main.CTSolidColorFillProperties&nbsp;solidFill,
+                                        org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor&nbsp;phClr,
+                                        <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTheme.html" title="class in org.apache.poi.xslf.usermodel">XSLFTheme</A>&nbsp;theme)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="selectPaint(org.openxmlformats.schemas.drawingml.x2006.main.CTBlipFillProperties, org.apache.poi.openxml4j.opc.PackagePart)"><!-- --></A><H3>
+selectPaint</H3>
+<PRE>
+protected static <A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A> <B>selectPaint</B>(org.openxmlformats.schemas.drawingml.x2006.main.CTBlipFillProperties&nbsp;blipFill,
+                                        <A HREF="../../../../../org/apache/poi/openxml4j/opc/PackagePart.html" title="class in org.apache.poi.openxml4j.opc">PackagePart</A>&nbsp;parentPart)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="selectPaint(org.openxmlformats.schemas.drawingml.x2006.main.CTGradientFillProperties, org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor, org.apache.poi.xslf.usermodel.XSLFTheme)"><!-- --></A><H3>
+selectPaint</H3>
+<PRE>
+protected static <A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A> <B>selectPaint</B>(org.openxmlformats.schemas.drawingml.x2006.main.CTGradientFillProperties&nbsp;gradFill,
+                                        org.openxmlformats.schemas.drawingml.x2006.main.CTSchemeColor&nbsp;phClr,
+                                        <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTheme.html" title="class in org.apache.poi.xslf.usermodel">XSLFTheme</A>&nbsp;theme)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="selectPaint(org.openxmlformats.schemas.drawingml.x2006.main.CTStyleMatrixReference, org.apache.poi.xslf.usermodel.XSLFTheme, boolean, boolean)"><!-- --></A><H3>
+selectPaint</H3>
+<PRE>
+protected static <A HREF="../../../../../org/apache/poi/sl/usermodel/PaintStyle.html" title="interface in org.apache.poi.sl.usermodel">PaintStyle</A> <B>selectPaint</B>(org.openxmlformats.schemas.drawingml.x2006.main.CTStyleMatrixReference&nbsp;fillRef,
+                                        <A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTheme.html" title="class in org.apache.poi.xslf.usermodel">XSLFTheme</A>&nbsp;theme,
+                                        boolean&nbsp;isLineStyle,
+                                        boolean&nbsp;hasPlaceholder)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="draw(java.awt.Graphics2D, java.awt.geom.Rectangle2D)"><!-- --></A><H3>
+draw</H3>
+<PRE>
+public void <B>draw</B>(java.awt.Graphics2D&nbsp;graphics,
+                 java.awt.geom.Rectangle2D&nbsp;bounds)</PRE>
+<DL>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html#draw(java.awt.Graphics2D, java.awt.geom.Rectangle2D)">Shape</A></CODE></B></DD>
+<DD>Convenience method to draw a single shape
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html#draw(java.awt.Graphics2D, java.awt.geom.Rectangle2D)">draw</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/sl/usermodel/Shape.html" title="interface in org.apache.poi.sl.usermodel">Shape</A>&lt;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShape.html" title="class in org.apache.poi.xslf.usermodel">XSLFShape</A>,<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFTextParagraph.html" title="class in org.apache.poi.xslf.usermodel">XSLFTextParagraph</A>&gt;</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>graphics</CODE> - the graphics context<DD><CODE>bounds</CODE> - the rectangle to fit the shape to.
+   if null, the bounds of the shape are used.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getShapeProperties()"><!-- --></A><H3>
+getShapeProperties</H3>
+<PRE>
+protected org.apache.xmlbeans.XmlObject <B>getShapeProperties</B>()</PRE>
+<DL>
+<DD>Return the shape specific (visual) properties
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the shape specific properties</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/XSLFShape.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShadow.html" title="class in org.apache.poi.xslf.usermodel"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/xslf/usermodel/XSLFShapeContainer.html" title="interface in org.apache.poi.xslf.usermodel"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/xslf/usermodel/XSLFShape.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="XSLFShape.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

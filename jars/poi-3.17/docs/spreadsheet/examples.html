@@ -1,0 +1,897 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="../skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="../skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="../skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="../skin/print.css" type="text/css">
+<title>HSSF and XSSF Examples</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td width="50%" align="left">
+<div class="groupLogo">
+<a href="https://www.apache.org"><img border="0" class="logoImage" alt="The Apache Software Foundation" src="../resources/images/asf_logo.png"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td width="50%" align="right">
+<div align="right" class="projectLogo">
+<a href="https://donate.apache.org/"><img border="0" class="logoImage" alt="Support Apache" src="../resources/images/support-asf.png" width="120" height="120" title="Your donation helps The Apache Software Foundation ensure its community-driven software remains available to billions of users at absolutely no cost."></a><a href="https://poi.apache.org/"><img border="0" class="logoImage" alt="Apache POI" src="../resources/images/pb-poi.png" width="120" height="120" title="Apache POI - the Java API for Microsoft Documents"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href="https://www.apache.org/">Apache</a> | <a href="https://poi.apache.org/">POI</a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="../index.html">Home</a></span> | <script language="Javascript" type="text/javascript">
+function printit() {  
+if (window.print) {
+    window.print() ;  
+} else {
+    var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH="0" HEIGHT="0" CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+    WebBrowser1.ExecWB(6, 2);//Use a 1 vs. a 2 for a prompting dialog box    WebBrowser1.outerHTML = "";  
+}
+}
+</script><script language="Javascript" type="text/javascript">
+var NS = (navigator.appName == "Netscape");
+var VERSION = parseInt(navigator.appVersion);
+if (VERSION > 3) {
+    document.write('  <a title="PRINT this page OUT" href="javascript:printit()">PRINT</a>');
+}
+</script>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Apache POI</span>
+        
+<div class="menuItem">
+<a href="../index.html">Top</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">HSSF+XSSF</span>
+        
+<div class="menuItem">
+<a href="index.html">Overview</a>
+</div>
+        
+<div class="menuItem">
+<a href="quick-guide.html">Quick Guide</a>
+</div>
+        
+<div class="menuItem">
+<a href="how-to.html">HOWTO</a>
+</div>
+        
+<div class="menuItem">
+<a href="converting.html">HSSF to SS Converting</a>
+</div>
+        
+<div class="menuItem">
+<a href="formula.html">Formula Support</a>
+</div>
+        
+<div class="menuItem">
+<a href="eval.html">Formula Evaluation</a>
+</div>
+		    
+<div class="menuItem">
+<a href="eval-devguide.html">Eval Dev Guide</a>
+</div>
+        
+<div class="menuItem">
+<span class="menuSelected">Examples</span>
+</div>
+        
+<div class="menuItem">
+<a href="use-case.html">Use Case</a>
+</div>
+        
+<div class="menuItem">
+<a href="diagrams.html">Pictorial Docs</a>
+</div>
+        
+<div class="menuItem">
+<a href="limitations.html">Limitations</a>
+</div>
+        
+<div class="menuItem">
+<a href="user-defined-functions.html">User Defined Functions</a>
+</div>
+        
+<div class="menuItem">
+<a href="excelant.html">ExcelAnt Tests</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Contributer's Guide</span>
+        
+<div class="menuItem">
+<a href="hacking-hssf.html">Hacking HSSF</a>
+</div>
+        
+<div class="menuItem">
+<a href="record-generator.html">Record Generator</a>
+</div>
+        
+<div class="menuItem">
+<a href="chart.html">Charts</a>
+</div>
+    
+</div>
+</div>
+</div>
+<form target="_blank" action="https://www.google.com/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap">
+                          Search Apache POI<br>
+<input value="poi.apache.org" name="sitesearch" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="../skin/images/spacer.gif" class="spacer"><input name="Search" value="GO" type="submit"></td><td><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="../skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>HSSF and XSSF Examples</h1>
+</div>
+<div class="h3">
+  
+  
+    
+<a name="HSSF+and+XSSF+common+examples"></a>
+<div class="h3">
+<h3>HSSF and XSSF common examples<a title="Permanent link" class="headerlink" href="#HSSF+and+XSSF+common+examples">#</a>
+</h3>
+</div>
+      
+<p>Apache POI comes with a number of examples that demonstrate how you
+        can use the POI API to create documents from "real life". 
+        The examples below based on common XSSF-HSSF interfaces so that you 
+        can generate either *.xls or *.xlsx output just by setting a 
+        command-line argument:
+      </p>
+      
+<pre class="code">
+        BusinessPlan -xls 
+          or
+        BusinessPlan -xlsx
+      </pre>
+      
+<p>All sample source is available in <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/">SVN</a>
+</p>
+      
+<p>In addition, there are a handful of
+         <a href="#hssf-only">HSSF only</a> and 
+         <a href="#xssf-only">XSSF only</a> examples as well.
+      </p>
+
+		
+<a name="Available+Examples"></a>
+<div class="h4">
+<h4>Available Examples<a title="Permanent link" class="headerlink" href="#Available+Examples">#</a>
+</h4>
+</div>
+      
+<p>
+        The following examples are available:
+      </p>
+      
+<ul>
+        
+<li>
+<a href="#ss-common">Common HSSF and XSSF</a>
+<ul>
+           
+<li>
+<a href="#business-plan">Business Plan</a>
+</li>
+           
+<li>
+<a href="#calendar">Calendar</a>
+</li>
+           
+<li>
+<a href="#loan-calculator">Loan Calculator</a>
+</li>
+           
+<li>
+<a href="#timesheet">Timesheet</a>
+</li>
+           
+<li>
+<a href="#conditional-formats">Conditional Formats</a>
+</li>
+           
+<li>
+<a href="#common-formulas">Formula Examples</a>
+</li>
+           
+<li>
+<a href="#add-dimensioned-image">Add Dimensioned Image</a>
+</li>
+           
+<li>
+<a href="#aligned-cells">Aligned Cells</a>
+</li>
+           
+<li>
+<a href="#cell-style-details">Cell Style Details</a>
+</li>
+           
+<li>
+<a href="#linked-dropdown">Linked Dropdown Lists</a>
+</li>
+           
+<li>
+<a href="#performance-test">Common SS Performance Test</a>
+</li>
+           
+<li>
+<a href="#to-html">To HTML</a>
+</li>
+           
+<li>
+<a href="#to-csv">To CSV</a>
+</li>
+        
+</ul>
+</li>
+        
+<li>
+<a href="#hssf-only">HSSF-Only</a>
+</li>
+        
+<li>
+<a href="#xssf-only">XSSF-Only</a>
+</li>
+      
+</ul>
+		
+
+      
+<a name="ss-common"></a>
+      <a name="business-plan"></a>
+		<a name="Business+Plan"></a>
+<div class="h4">
+<h4>Business Plan<a title="Permanent link" class="headerlink" href="#Business+Plan">#</a>
+</h4>
+</div>
+      
+<p> The <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/BusinessPlan.java">BusinessPlan</a>
+        application creates a sample business plan with three phases, weekly iterations and time highlighting. Demonstrates advanced cell formatting 
+        (number and date formats, alignments, fills, borders) and various settings for organizing data in a sheet (freezed panes, grouped rows).
+      </p>
+      
+<p>
+        
+<img alt="business plan demo" src="../resources/images/businessplan.jpg">
+      </p>
+		
+
+      
+<a name="calendar"></a>
+		<a name="Calendar"></a>
+<div class="h4">
+<h4>Calendar<a title="Permanent link" class="headerlink" href="#Calendar">#</a>
+</h4>
+</div>
+      
+<p> The <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/CalendarDemo.java">Calendar</a>
+        demo creates a multi sheet calendar. Each month is on a separate sheet. 
+      </p>
+      
+<p>
+        
+<img alt="calendar demo" src="../resources/images/calendar.jpg">
+      </p>
+		
+
+      
+<a name="loan-calculator"></a>
+		<a name="Loan+Calculator"></a>
+<div class="h4">
+<h4>Loan Calculator<a title="Permanent link" class="headerlink" href="#Loan+Calculator">#</a>
+</h4>
+</div>
+      
+<p> The <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/LoanCalculator.java">LoanCalculator</a>
+        demo creates a simple loan calculator. Demonstrates advance usage of cell formulas and named ranges. 
+      </p>
+      
+<p>
+        
+<img alt="loan calculator demo" src="../resources/images/loancalc.jpg">
+      </p>
+		
+
+      
+<a name="timesheet"></a>
+		<a name="Timesheet"></a>
+<div class="h4">
+<h4>Timesheet<a title="Permanent link" class="headerlink" href="#Timesheet">#</a>
+</h4>
+</div>
+      
+<p> The <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/TimesheetDemo.java">Timesheet</a>
+        demo creates a weekly timesheet with automatic calculation of total hours. Demonstrates advance usage of cell formulas. 
+      </p>
+      
+<p>
+        
+<img alt="timesheet demo" src="../resources/images/timesheet.jpg">
+      </p>
+		
+
+      
+<a name="conditional-formats"></a>
+		<a name="Conditional+Formats"></a>
+<div class="h4">
+<h4>Conditional Formats<a title="Permanent link" class="headerlink" href="#Conditional+Formats">#</a>
+</h4>
+</div>
+      
+<p> The <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/ConditionalFormats.java">ConditionalFormats</a>
+        demo is a collection of short examples showing what you can do with Excel conditional formatting in POI:
+      </p>
+      
+<ul>
+          
+<li>Highlight cells based on their values</li>
+          
+<li>Highlight a range of cells based on a formula</li>
+          
+<li>Hide errors</li>
+          
+<li>Hide the duplicate values</li>
+          
+<li>Highlight duplicate entries in a column</li>
+          
+<li>Highlight items that are in a list on the worksheet</li>
+          
+<li>Highlight payments that are due in the next thirty days</li>
+          
+<li>Shade alternating rows on the worksheet</li>
+          
+<li>Shade bands of rows on the worksheet</li>
+      
+</ul>
+		
+
+      
+<a name="common-formulas"></a>
+		<a name="Formula+Examples"></a>
+<div class="h4">
+<h4>Formula Examples<a title="Permanent link" class="headerlink" href="#Formula+Examples">#</a>
+</h4>
+</div>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/formula/CalculateMortgage.java">CalculateMortgage</a>
+        example demonstrates a simple user-defined function to calculate
+        principal and interest.</p>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/formula/CheckFunctionsSupported.java">CheckFunctionsSupported</a>
+        example shows how to test what functions and formulas aren't
+        supported from a given file.</p>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/formula/SettingExternalFunction.java">SettingExternalFunction</a>
+        example demonstrates how to use externally provided (third-party)
+        formula add-ins.</p>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/formula/UserDefinedFunctionExample.java">UserDefinedFunctionExample</a>
+        example demonstrates how to invoke a User Defined Function for a 
+        given Workbook instance using POI's UDFFinder implementation.</p>
+      
+
+      
+<a name="add-dimensioned-image"></a>
+		<a name="Add+Dimensioned+Image"></a>
+<div class="h4">
+<h4>Add Dimensioned Image<a title="Permanent link" class="headerlink" href="#Add+Dimensioned+Image">#</a>
+</h4>
+</div>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/AddDimensionedImage.java">AddDimensionedImage</a>
+        example demonstrates how to add an image to a worksheet and set that 
+        images size to a specific number of millimetres irrespective of the 
+        width of the columns or height of the rows.</p>
+      
+
+      
+<a name="aligned-cells"></a>
+		<a name="Aligned+Cells"></a>
+<div class="h4">
+<h4>Aligned Cells<a title="Permanent link" class="headerlink" href="#Aligned+Cells">#</a>
+</h4>
+</div>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/AligningCells.java">AligningCells</a>
+        example demonstrates how various alignment options work.</p>
+      
+
+      
+<a name="cell-style-details"></a>
+		<a name="Cell+Style+Details"></a>
+<div class="h4">
+<h4>Cell Style Details<a title="Permanent link" class="headerlink" href="#Cell+Style+Details">#</a>
+</h4>
+</div>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/CellStyleDetails.java">CellStyleDetails</a>
+        example demonstrates how to read excel styles for cells.</p>
+      
+
+      
+<a name="linked-dropdown"></a>
+		<a name="Linked+Dropdown+Lists"></a>
+<div class="h4">
+<h4>Linked Dropdown Lists<a title="Permanent link" class="headerlink" href="#Linked+Dropdown+Lists">#</a>
+</h4>
+</div>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/LinkedDropDownLists.java">LinkedDropDownLists</a>
+        example demonstrates one technique that may be used to create linked 
+        or dependent drop down lists.</p>
+      
+
+      
+<a name="performance-test"></a>
+		<a name="Common+SS+Performance+Test"></a>
+<div class="h4">
+<h4>Common SS Performance Test<a title="Permanent link" class="headerlink" href="#Common+SS+Performance+Test">#</a>
+</h4>
+</div>
+      
+<p>The <a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/SSPerformanceTest.java">SSPerformanceTest</a>
+        example provides a way to create simple example files of varying
+        sizes, and to calculate how long they take. Useful for benchmarking
+        your system, and to also test if slow performance is due to Apache
+        POI itself or to your own code.</p>
+      
+
+      
+<a name="to-html"></a>
+		<a name="ToHtml"></a>
+<div class="h4">
+<h4>ToHtml<a title="Permanent link" class="headerlink" href="#ToHtml">#</a>
+</h4>
+</div>
+      
+<p> The <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/html/ToHtml.java">ToHtml</a>
+        example shows how to display a spreadsheet in HTML using the classes for spreadsheet display.
+      </p>
+		
+
+      
+<a name="to-csv"></a>
+		<a name="ToCSV"></a>
+<div class="h4">
+<h4>ToCSV<a title="Permanent link" class="headerlink" href="#ToCSV">#</a>
+</h4>
+</div>
+      
+<p>The <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/ss/examples/ToCSV.java">ToCSV</a>
+        example demonstrates <em>one</em> way to convert an Excel spreadsheet into a CSV file.        
+      </p>
+      
+    
+
+    
+<a name="hssf-only"></a>
+    <a name="HSSF-only+Examples"></a>
+<div class="h3">
+<h3>HSSF-only Examples<a title="Permanent link" class="headerlink" href="#HSSF-only+Examples">#</a>
+</h3>
+</div>
+      
+<p>All the HSSF-only examples can be found in
+         <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/examples/">SVN</a>
+</p>
+      
+<ul>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/CellComments.java">CellComments</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/HyperlinkFormula.java">HyperlinkFormula</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/EventExample.java">EventExample</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/OfficeDrawingWithGraphics.java">OfficeDrawingWithGraphics</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/CreateDateCells.java">CreateDateCells</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/NewWorkbook.java">NewWorkbook</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/EmeddedObjects.java">EmeddedObjects</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/Hyperlinks.java">Hyperlinks</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/OfficeDrawing.java">OfficeDrawing</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/HSSFReadWrite.java">HSSFReadWrite</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/NewSheet.java">NewSheet</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/SplitAndFreezePanes.java">SplitAndFreezePanes</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/InCellLists.java">InCellLists</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/RepeatingRowsAndColumns.java">RepeatingRowsAndColumns</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/MergedCells.java">MergedCells</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/CellTypes.java">CellTypes</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/ZoomSheet.java">ZoomSheet</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/ReadWriteWorkbook.java">ReadWriteWorkbook</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/CreateCells.java">CreateCells</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/Alignment.java">Alignment</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/FrillsAndFills.java">FrillsAndFills</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/AddDimensionedImage.java">AddDimensionedImage</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/Borders.java">Borders</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/NewLinesInCells.java">NewLinesInCells</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/WorkingWithFonts.java">WorkingWithFonts</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/BigExample.java">BigExample</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/usermodel/examples/Outlines.java">Outlines</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/eventusermodel/examples/XLS2CSVmra.java">XLS2CSVmra</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SViewer.java">SViewer</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SVFractionalFormat.java">SVFractionalFormat</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SVTableCellEditor.java">SVTableCellEditor</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SVBorder.java">SVBorder</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/brush/DoubleStroke.java">DoubleStroke</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/brush/BasicBrush.java">BasicBrush</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/brush/Brush.java">Brush</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/brush/PendingPaintings.java">PendingPaintings</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SVTableCellRenderer.java">SVTableCellRenderer</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SViewerPanel.java">SViewerPanel</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SVTableUtils.java">SVTableUtils</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SVTableModel.java">SVTableModel</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SVSheetTable.java">SVSheetTable</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/hssf/view/SVRowHeader.java">SVRowHeader</a>
+</li>
+      
+</ul>
+    
+
+    
+<a name="xssf-only"></a>
+    <a name="XSSF-only+Examples"></a>
+<div class="h3">
+<h3>XSSF-only Examples<a title="Permanent link" class="headerlink" href="#XSSF-only+Examples">#</a>
+</h3>
+</div>
+      
+<p>All the XSSF-only examples can be found in
+         <a href="http://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/examples/">SVN</a>
+</p>
+      
+<ul>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/ScatterChart.java">ScatterChart</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/CellComments.java">CellComments</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/HeadersAndFooters.java">HeadersAndFooters</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/CreateUserDefinedDataFormats.java">CreateUserDefinedDataFormats</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/CreatePivotTable.java">CreatePivotTable</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/FillsAndColors.java">FillsAndColors</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/WorkingWithBorders.java">WorkingWithBorders</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/BigGridDemo.java">BigGridDemo</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/CreateTable.java">CreateTable</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/CalendarDemo.java">CalendarDemo</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/AligningCells.java">AligningCells</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/SplitAndFreezePanes.java">SplitAndFreezePanes</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/WorkingWithPageSetup.java">WorkingWithPageSetup</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/WorkingWithPictures.java">WorkingWithPictures</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/MergingCells.java">MergingCells</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/CustomXMLMapping.java">CustomXMLMapping</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/SelectedSheet.java">SelectedSheet</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/EmbeddedObjects.java">EmbeddedObjects</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/WorkbookProperties.java">WorkbookProperties</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/NewLinesInCells.java">NewLinesInCells</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/Outlining.java">Outlining</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/CreateCell.java">CreateCell</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/IterateCells.java">IterateCells</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/LineChart.java">LineChart</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/WorkingWithFonts.java">WorkingWithFonts</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/HyperlinkExample.java">HyperlinkExample</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/ShiftRows.java">ShiftRows</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/WorkingWithRichText.java">WorkingWithRichText</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/usermodel/examples/FitSheetToOnePage.java">FitSheetToOnePage</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/streaming/examples/Outlining.java">Outlining</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/eventusermodel/XLSX2CSV.java">XLSX2CSV</a>
+</li>
+        
+<li>
+<a href="https://svn.apache.org/repos/asf/poi/trunk/src/examples/src/org/apache/poi/xssf/eventusermodel/examples/FromHowTo.java">FromHowTo</a>
+</li>
+      
+</ul>
+    
+	
+
+<div id="authors" align="right">by&nbsp;Yegor Kozlov</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2002-2017&nbsp;The Apache Software Foundation. All rights reserved.<br>
+              Apache, Apache POI, and the Apache POI logo are registered trademarks or
+              trademarks of The Apache Software Foundation in the U.S. and/or other countries.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

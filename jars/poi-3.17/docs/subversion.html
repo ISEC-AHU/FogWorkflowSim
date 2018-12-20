@@ -1,0 +1,608 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Apache POI - Source Code Repository</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td width="50%" align="left">
+<div class="groupLogo">
+<a href="https://www.apache.org"><img border="0" class="logoImage" alt="The Apache Software Foundation" src="resources/images/asf_logo.png"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td width="50%" align="right">
+<div align="right" class="projectLogo">
+<a href="https://donate.apache.org/"><img border="0" class="logoImage" alt="Support Apache" src="resources/images/support-asf.png" width="120" height="120" title="Your donation helps The Apache Software Foundation ensure its community-driven software remains available to billions of users at absolutely no cost."></a><a href="https://poi.apache.org/"><img border="0" class="logoImage" alt="Apache POI" src="resources/images/pb-poi.png" width="120" height="120" title="Apache POI - the Java API for Microsoft Documents"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href="https://www.apache.org/">Apache</a> | <a href="https://poi.apache.org/">POI</a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="index.html">Home</a></span> | <script language="Javascript" type="text/javascript">
+function printit() {  
+if (window.print) {
+    window.print() ;  
+} else {
+    var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH="0" HEIGHT="0" CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+    WebBrowser1.ExecWB(6, 2);//Use a 1 vs. a 2 for a prompting dialog box    WebBrowser1.outerHTML = "";  
+}
+}
+</script><script language="Javascript" type="text/javascript">
+var NS = (navigator.appName == "Netscape");
+var VERSION = parseInt(navigator.appVersion);
+if (VERSION > 3) {
+    document.write('  <a title="PRINT this page OUT" href="javascript:printit()">PRINT</a>');
+}
+</script>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Overview</span>
+        
+<div class="menuItem">
+<a href="index.html">Home</a>
+</div>
+        
+<div class="menuItem">
+<a href="download.html">Download</a>
+</div>
+        
+<div class="menuItem">
+<a href="overview.html">Components</a>
+</div>
+        
+<div class="menuItem">
+<a href="text-extraction.html">Text Extraction</a>
+</div>
+        
+<div class="menuItem">
+<a href="encryption.html">Encryption support</a>
+</div>
+        
+<div class="menuItem">
+<a href="casestudies.html">Case Studies</a>
+</div>
+        
+<div class="menuItem">
+<a href="related-projects.html">Related projects</a>
+</div>
+        
+<div class="menuItem">
+<a href="legal.html">Legal</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Help</span>
+        
+<div class="menuItem">
+<a href="apidocs/index.html">Javadocs</a>
+</div>
+        
+<div class="menuItem">
+<a href="faq.html">FAQ</a>
+</div>
+        
+<div class="menuItem">
+<a href="mailinglists.html">Mailing Lists</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://bz.apache.org/bugzilla/buglist.cgi?product=POI">Bug Database</a>
+</div>
+        
+<div class="menuItem">
+<a href="changes.html">Changelog</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Getting Involved</span>
+        
+<div class="menuItem">
+<span class="menuSelected">Subversion Repository</span>
+</div>
+        
+<div class="menuItem">
+<a href="howtobuild.html">How To Build</a>
+</div>
+        
+<div class="menuItem">
+<a href="guidelines.html">Contribution Guidelines</a>
+</div>
+        
+<div class="menuItem">
+<a href="who.html">Who We Are</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Component APIs</span>
+        
+<div class="menuItem">
+<a href="spreadsheet/index.html">Excel (SS=HSSF+XSSF+SXSSF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="slideshow/index.html">PowerPoint (SL=HSLF+XSLF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="document/index.html">Word (WP=HWPF+XWPF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hsmf/index.html">Outlook (HSMF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="diagram/index.html">Visio (HDGF+XDGF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hpbf/index.html">Publisher (HPBF)</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Low-level Component APIs</span>
+        
+<div class="menuItem">
+<a href="poifs/index.html">OLE2 Filesystem (POIFS)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hpsf/index.html">OLE2 Document Props (HPSF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hmef/index.html">TNEF (HMEF) for winmail.dat</a>
+</div>
+        
+<div class="menuItem">
+<a href="oxml4j/index.html">OpenXML4J (OOXML)</a>
+</div>
+        
+<div class="menuItem">
+<a href="logging.html">Logging framework</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Apache Wide</span>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/">Apache Software Foundation</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/licenses/">License</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/foundation/thanks.html">Thanks</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/security/">Security</a>
+</div>
+    
+</div>
+</div>
+</div>
+<form target="_blank" action="https://www.google.com/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap">
+                          Search Apache POI<br>
+<input value="poi.apache.org" name="sitesearch" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="skin/images/spacer.gif" class="spacer"><input name="Search" value="GO" type="submit"></td><td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Apache POI - Source Code Repository</h1>
+</div>
+<div class="h3">
+  
+  
+  
+    
+<a name="Download+the+Source"></a>
+<div class="h3">
+<h3>Download the Source<a title="Permanent link" class="headerlink" href="#Download+the+Source">#</a>
+</h3>
+</div>
+      
+<p>
+         Most users of the source code probably don't need to have day to 
+         day access to the source code as it changes. Therefore most users will want
+         to make use of our <a href="download.html">source release</a>
+         packages, which contain the complete source tree for each binary
+         release, suitable for browsing or debugging. These source releases
+         are available from our
+         <a href="download.html">download page.</a>
+      
+</p>
+      
+<p>
+         The Apache POI source code is also available as source artifacts
+         in the <a href="https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.apache.poi%22">Maven Central repository</a>,
+         which may be helpful for those users who make use of POI via Maven
+         and wish to inspect the source (eg when debugging in an IDE).
+      </p>
+    
+    
+<a name="Access+the+Version+Controlled+Source+Code"></a>
+<div class="h3">
+<h3>Access the Version Controlled Source Code<a title="Permanent link" class="headerlink" href="#Access+the+Version+Controlled+Source+Code">#</a>
+</h3>
+</div>
+      
+<p>
+         For general information on connecting to the ASF Subversion, 
+         repositories, see the 
+         <a href="https://www.apache.org/dev/version-control.html">version control page.</a>
+      
+</p>
+
+      
+<p>Apache POI uses <a href="https://subversion.apache.org">Subversion</a> as its version control system,
+      but also has a read-only git mirror
+      </p>
+
+      
+<p>
+<strong>NOTE</strong>: When checking out a subproject using 
+       subversion, either perform a sparse checkout or check out
+       the trunk or a single branch or tag to avoid filling up 
+       your hard-disk and wasting bandwidth.
+      </p>
+
+      
+<ul>
+       
+<li>For read only access to the latest Apache POI code, please use
+        <a href="https://svn.apache.org/repos/asf/poi/trunk/">https://svn.apache.org/repos/asf/poi/trunk/</a>
+</li>
+       
+<li>To browse the svn repository in your web browser, please use
+        <a href="https://svn.apache.org/viewvc/poi/">ViewVC</a>
+</li>
+      
+</ul>
+
+      
+<p>If you are not a <em>Committer</em>, but you want to submit patches 
+       or even request commit privileges, please see our 
+       <a href="guidelines.html">Contribution Guidelines</a> for more 
+       information.</p>
+    
+    
+<a name="Git+access+to+POI+sources"></a>
+<div class="h3">
+<h3>Git access to POI sources<a title="Permanent link" class="headerlink" href="#Git+access+to+POI+sources">#</a>
+</h3>
+</div>
+      
+<p>
+        The master source repository for Apache POI is the Subversion
+        one listed above. To support those users and developers who prefer
+        to use the Git tooling, read-only access to the POI source tree is
+        also available via Git. The Git mirrors normally track SVN to 
+        within a few minutes.
+      </p>
+      
+<p>
+        The official read-only Git repository for Apache POI is available
+        from <a href="https://git.apache.org/">git.apache.org/</a> .
+        The Git Clone URL is: <a href="git://git.apache.org/poi.git">git://git.apache.org/poi.git</a> 
+        and Https Clone URL: <a href="https://git.apache.org/poi.git">https://git.apache.org/poi.git</a> .
+        Please see the <a href="https://git.apache.org/">Git at 
+        Apache</a> page for more details on the service.
+      </p>
+      
+<p>
+        In addition to the <a href="https://git.apache.org/">git.apache.org</a>
+        repository, changes are also mirrored in near-realtime to GitHub.
+        The GitHub repository is available at
+        <a href="https://github.com/apache/poi">https://github.com/apache/poi</a> .
+        Please note that the GitHub repository is read-only, but pull requests sent
+        to it will result in an email being sent to the mailing list. A Git-formatted
+        patch added to Bugzilla is generally preferred though, as it can be tracked
+        along with all the other contributions. Please see the
+        <a href="guidelines.html">contribution guidelines</a> for more 
+        information on getting involved in the project.</p>
+    
+    
+<a name="Using+Git+via+the+SVN-Git+bridge"></a>
+<div class="h3">
+<h3>Using Git via the SVN-Git bridge<a title="Permanent link" class="headerlink" href="#Using+Git+via+the+SVN-Git+bridge">#</a>
+</h3>
+</div>
+        
+<a name="General+information"></a>
+<div class="h4">
+<h4>General information<a title="Permanent link" class="headerlink" href="#General+information">#</a>
+</h4>
+</div>
+      
+<p>
+        Git provides a nice functionality "git-svn" which allows to read the history
+        of a Subversion repository and convert it into a full Git repository. This
+        will keep information from the SVN revisions so that the Git repository can
+        be updated with newer revisions from Subversion as well as allowing to push
+        commits from Git "upstream" into the Subversion repository. See the
+        <a href="https://www.kernel.org/pub/software/scm/git/docs/git-svn.html">
+        official documentation</a> for more details.
+      </p>
+        
+        
+<a name="Set+up+the+repository"></a>
+<div class="h4">
+<h4>Set up the repository<a title="Permanent link" class="headerlink" href="#Set+up+the+repository">#</a>
+</h4>
+</div>
+        
+<p>
+            The git-svn functionality is provided as a set of sub-commands to
+            "git svn". To start retrieving information from SVN and create the
+            initial Git repository run the following command:
+
+        </p>
+            
+<pre class="code">
+            git svn clone https://svn.apache.org/repos/asf/poi/trunk poisvngit --revision <a href="https://svn.apache.org/viewvc?view=revision&revision=1732982">1732982</a>:HEAD
+            </pre>
+        
+<p>
+            Running without <span class="codefrag">--revision from:HEAD</span> will run for a long time and will retrieve the full version history of
+            the Subversion repository. If you need more repository history, change the <span class="codefrag">from</span> revision to an
+            <a href="https://svn.apache.org/viewvc/poi/tags/">earlier release</a> or omit the <span class="codefrag">--revision</span>
+            specifier altogether.
+        </p>
+        
+<p>
+            When this finishes you have a Git repository whose "master" branch
+            mirrors the SVN "trunk".
+            <br>
+            From here you can use the full power of Git, i.e. quick branching,
+            rebasing, merging, ...
+            <br>
+            See below for some common usage hints.
+        </p>
+        
+        
+<a name="Fetching+newer+SVN+revisions"></a>
+<div class="h4">
+<h4>Fetching newer SVN revisions<a title="Permanent link" class="headerlink" href="#Fetching+newer+SVN+revisions">#</a>
+</h4>
+</div>
+        
+<p>
+            In order to fetch the latest SVN revisions, you need to "rebase" onto
+                the SVN trunk:
+        </p>
+            
+<pre class="code">
+            git checkout master
+            git svn rebase
+            </pre>
+        
+<p>
+            This will fetch the latest changes from Subversion and will rebase
+            the master-branch onto them.
+        </p>
+        
+        
+<a name="Pushing+Git+commits+to+Subversion"></a>
+<div class="h4">
+<h4>Pushing Git commits to Subversion<a title="Permanent link" class="headerlink" href="#Pushing+Git+commits+to+Subversion">#</a>
+</h4>
+</div>
+        
+<p>
+            The following command will push all changes on <span class="codefrag">master</span> back to
+            Subversion:
+        </p>
+            
+<pre class="code">
+            git svn dcommit
+            </pre>
+        
+<p>
+            Note that usually all commits on master will be sent to Subversion
+            in one go, so it's similar to a "push" to another Git repository.
+
+            The dcommit may fail if there are newer revisions in Subversion, you
+            will need to run a <span class="codefrag">git svn rebase</span> first in this case.
+        </p>
+        
+        
+<a name="General+usage+guidelines"></a>
+<div class="h4">
+<h4>General usage guidelines<a title="Permanent link" class="headerlink" href="#General+usage+guidelines">#</a>
+</h4>
+</div>
+        
+<p>
+            Although you can use the full power of Git, there are a few
+            things that work well and some things that will get you into
+            trouble:
+        </p>
+        
+<p>
+            You should not develop on master, rather use some branching
+            concept where you do work on sub-branches and only merge/cherry-pick the
+            changes that are ready for being sent upstream.
+            It seems to work better to constantly rebase changes onto the
+            master branch as this will keep the history clean compared to
+            the SVN repository and will avoid sending useless "Merge" commits to
+            Subversion.
+        </p>
+        
+<p>
+            You can keep some changes that are only useful locally by using
+            two branches that are rebased onto each other. E.g.
+            something like the following has proven to work well:
+        </p>
+            
+<pre class="code">
+            master
+                -&gt; localchanges - commits that should not be sent upstream -&gt;
+                    -&gt; workbranch - place for doing development work
+            </pre>
+        
+<p>
+            When things are ready in the workbranch do a
+        </p>
+            
+<pre class="code">
+            git co master
+            git cherry-pick commitid ...
+            </pre>
+        
+<p>
+            to get all the finished commits onto master as preparation for pushing them upstream.
+
+            Then you can <span class="codefrag">git svn dcommit</span> to send the changes upstream
+            and a <span class="codefrag">git svn rebase</span> to get master updated with the newly
+            created SVN revisions.
+
+            Finally do the following to update both branches onto the new SVN head
+        </p>
+            
+<pre class="code">
+            # rebase you local changes onto the latest SVN state
+            git checkout localchanges
+            git rebase master
+
+            # also set the working branch to the latest state from SVN.
+            git checkout workbranch
+            git rebase workbranch
+            </pre>
+        
+<p>
+            Sounds like too much work? Put these steps into a small script and all
+            this will become a simple <span class="codefrag">poiupdate</span> to get all branches
+            rebased onto HEAD from Subversion.
+        </p>
+      
+    
+    
+<a name="Code+metrics+"></a>
+<div class="h3">
+<h3>Code metrics <a title="Permanent link" class="headerlink" href="#Code+metrics+">#</a>
+</h3>
+</div>
+      
+<p>
+        Code quality reports for Apache POI are available on the 
+        <a href="https://analysis.apache.org/dashboard/index/221489">Apache Sonar instance</a>.
+      </p>
+      
+<p>
+        Sonar provides lots of useful numbers and statistics, especially
+        watching the project over time shows how some of the indicators evolve
+        and allows to see which areas need some polishing.
+      </p>
+    
+  
+  
+
+<div id="authors" align="right">by&nbsp;Nick Burch</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2002-2017&nbsp;The Apache Software Foundation. All rights reserved.<br>
+              Apache, Apache POI, and the Apache POI logo are registered trademarks or
+              trademarks of The Apache Software Foundation in the U.S. and/or other countries.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

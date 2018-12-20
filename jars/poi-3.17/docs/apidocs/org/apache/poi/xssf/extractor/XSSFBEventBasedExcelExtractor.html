@@ -1,0 +1,509 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+XSSFBEventBasedExcelExtractor (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="XSSFBEventBasedExcelExtractor (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/XSSFBEventBasedExcelExtractor.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html" title="class in org.apache.poi.xssf.extractor"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="XSSFBEventBasedExcelExtractor.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_org.apache.poi.xssf.extractor.XSSFEventBasedExcelExtractor">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.xssf.extractor</FONT>
+<BR>
+Class XSSFBEventBasedExcelExtractor</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../org/apache/poi/POITextExtractor.html" title="class in org.apache.poi">org.apache.poi.POITextExtractor</A>
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../org/apache/poi/POIXMLTextExtractor.html" title="class in org.apache.poi">org.apache.poi.POIXMLTextExtractor</A>
+          <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html" title="class in org.apache.poi.xssf.extractor">org.apache.poi.xssf.extractor.XSSFEventBasedExcelExtractor</A>
+              <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.xssf.extractor.XSSFBEventBasedExcelExtractor</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Closeable, <A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html" title="interface in org.apache.poi.ss.extractor">ExcelExtractor</A></DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public class <B>XSSFBEventBasedExcelExtractor</B><DT>extends <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html" title="class in org.apache.poi.xssf.extractor">XSSFEventBasedExcelExtractor</A><DT>implements <A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html" title="interface in org.apache.poi.ss.extractor">ExcelExtractor</A></DL>
+</PRE>
+
+<P>
+Implementation of a text extractor or xlsb Excel
+ files that uses SAX-like binary parsing.
+<P>
+
+<P>
+<DL>
+<DT><B>Since:</B></DT>
+  <DD>3.16-beta3</DD>
+</DL>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;<A NAME="nested_classes_inherited_from_class_org.apache.poi.xssf.extractor.XSSFEventBasedExcelExtractor"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Nested classes/interfaces inherited from class org.apache.poi.xssf.extractor.<A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html" title="class in org.apache.poi.xssf.extractor">XSSFEventBasedExcelExtractor</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.SheetTextExtractor.html" title="class in org.apache.poi.xssf.extractor">XSSFEventBasedExcelExtractor.SheetTextExtractor</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFRelation.html" title="class in org.apache.poi.xssf.usermodel">XSSFRelation</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html#SUPPORTED_TYPES">SUPPORTED_TYPES</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html#XSSFBEventBasedExcelExtractor(org.apache.poi.openxml4j.opc.OPCPackage)">XSSFBEventBasedExcelExtractor</A></B>(<A HREF="../../../../../org/apache/poi/openxml4j/opc/OPCPackage.html" title="class in org.apache.poi.openxml4j.opc">OPCPackage</A>&nbsp;container)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html#XSSFBEventBasedExcelExtractor(java.lang.String)">XSSFBEventBasedExcelExtractor</A></B>(java.lang.String&nbsp;path)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html#getText()">getText</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Processes the file and returns the text</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html#main(java.lang.String[])">main</A></B>(java.lang.String[]&nbsp;args)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html#processSheet(org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler, org.apache.poi.xssf.binary.XSSFBStylesTable, org.apache.poi.xssf.binary.XSSFBCommentsTable, org.apache.poi.xssf.binary.XSSFBSharedStringsTable, java.io.InputStream)">processSheet</A></B>(<A HREF="../../../../../org/apache/poi/xssf/eventusermodel/XSSFSheetXMLHandler.SheetContentsHandler.html" title="interface in org.apache.poi.xssf.eventusermodel">XSSFSheetXMLHandler.SheetContentsHandler</A>&nbsp;sheetContentsExtractor,
+             <A HREF="../../../../../org/apache/poi/xssf/binary/XSSFBStylesTable.html" title="class in org.apache.poi.xssf.binary">XSSFBStylesTable</A>&nbsp;styles,
+             <A HREF="../../../../../org/apache/poi/xssf/binary/XSSFBCommentsTable.html" title="class in org.apache.poi.xssf.binary">XSSFBCommentsTable</A>&nbsp;comments,
+             <A HREF="../../../../../org/apache/poi/xssf/binary/XSSFBSharedStringsTable.html" title="class in org.apache.poi.xssf.binary">XSSFBSharedStringsTable</A>&nbsp;strings,
+             java.io.InputStream&nbsp;sheetInputStream)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Processes the given sheet</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html#setFormulasNotResults(boolean)">setFormulasNotResults</A></B>(boolean&nbsp;formulasNotResults)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Should we return the formula itself, and not
+ the result it produces? Default is false
+ This is currently unsupported for xssfb</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html#setHandleHyperlinksInCells(boolean)">setHandleHyperlinksInCells</A></B>(boolean&nbsp;handleHyperlinksInCells)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.poi.xssf.extractor.XSSFEventBasedExcelExtractor"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.poi.xssf.extractor.<A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html" title="class in org.apache.poi.xssf.extractor">XSSFEventBasedExcelExtractor</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#close()">close</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getCoreProperties()">getCoreProperties</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getCustomProperties()">getCustomProperties</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getExtendedProperties()">getExtendedProperties</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getFormulasNotResults()">getFormulasNotResults</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getIncludeCellComments()">getIncludeCellComments</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getIncludeHeadersFooters()">getIncludeHeadersFooters</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getIncludeSheetNames()">getIncludeSheetNames</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getIncludeTextBoxes()">getIncludeTextBoxes</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getLocale()">getLocale</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getPackage()">getPackage</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#processSheet(org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler, org.apache.poi.xssf.model.StylesTable, org.apache.poi.xssf.model.CommentsTable, org.apache.poi.xssf.eventusermodel.ReadOnlySharedStringsTable, java.io.InputStream)">processSheet</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#setConcatenatePhoneticRuns(boolean)">setConcatenatePhoneticRuns</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#setIncludeCellComments(boolean)">setIncludeCellComments</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#setIncludeHeadersFooters(boolean)">setIncludeHeadersFooters</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#setIncludeSheetNames(boolean)">setIncludeSheetNames</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#setIncludeTextBoxes(boolean)">setIncludeTextBoxes</A>, <A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#setLocale(java.util.Locale)">setLocale</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.poi.POIXMLTextExtractor"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.poi.<A HREF="../../../../../org/apache/poi/POIXMLTextExtractor.html" title="class in org.apache.poi">POIXMLTextExtractor</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/POIXMLTextExtractor.html#checkMaxTextSize(java.lang.StringBuffer, java.lang.String)">checkMaxTextSize</A>, <A HREF="../../../../../org/apache/poi/POIXMLTextExtractor.html#getDocument()">getDocument</A>, <A HREF="../../../../../org/apache/poi/POIXMLTextExtractor.html#getMetadataTextExtractor()">getMetadataTextExtractor</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.poi.POITextExtractor"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class org.apache.poi.<A HREF="../../../../../org/apache/poi/POITextExtractor.html" title="class in org.apache.poi">POITextExtractor</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/POITextExtractor.html#setFilesystem(java.io.Closeable)">setFilesystem</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_org.apache.poi.ss.extractor.ExcelExtractor"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from interface org.apache.poi.ss.extractor.<A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html" title="interface in org.apache.poi.ss.extractor">ExcelExtractor</A></B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html#setIncludeCellComments(boolean)">setIncludeCellComments</A>, <A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html#setIncludeHeadersFooters(boolean)">setIncludeHeadersFooters</A>, <A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html#setIncludeSheetNames(boolean)">setIncludeSheetNames</A></CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="SUPPORTED_TYPES"><!-- --></A><H3>
+SUPPORTED_TYPES</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/xssf/usermodel/XSSFRelation.html" title="class in org.apache.poi.xssf.usermodel">XSSFRelation</A>[] <B>SUPPORTED_TYPES</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="XSSFBEventBasedExcelExtractor(java.lang.String)"><!-- --></A><H3>
+XSSFBEventBasedExcelExtractor</H3>
+<PRE>
+public <B>XSSFBEventBasedExcelExtractor</B>(java.lang.String&nbsp;path)
+                              throws org.apache.xmlbeans.XmlException,
+                                     <A HREF="../../../../../org/apache/poi/openxml4j/exceptions/OpenXML4JException.html" title="class in org.apache.poi.openxml4j.exceptions">OpenXML4JException</A>,
+                                     java.io.IOException</PRE>
+<DL>
+<DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.apache.xmlbeans.XmlException</CODE>
+<DD><CODE><A HREF="../../../../../org/apache/poi/openxml4j/exceptions/OpenXML4JException.html" title="class in org.apache.poi.openxml4j.exceptions">OpenXML4JException</A></CODE>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+<HR>
+
+<A NAME="XSSFBEventBasedExcelExtractor(org.apache.poi.openxml4j.opc.OPCPackage)"><!-- --></A><H3>
+XSSFBEventBasedExcelExtractor</H3>
+<PRE>
+public <B>XSSFBEventBasedExcelExtractor</B>(<A HREF="../../../../../org/apache/poi/openxml4j/opc/OPCPackage.html" title="class in org.apache.poi.openxml4j.opc">OPCPackage</A>&nbsp;container)
+                              throws org.apache.xmlbeans.XmlException,
+                                     <A HREF="../../../../../org/apache/poi/openxml4j/exceptions/OpenXML4JException.html" title="class in org.apache.poi.openxml4j.exceptions">OpenXML4JException</A>,
+                                     java.io.IOException</PRE>
+<DL>
+<DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>org.apache.xmlbeans.XmlException</CODE>
+<DD><CODE><A HREF="../../../../../org/apache/poi/openxml4j/exceptions/OpenXML4JException.html" title="class in org.apache.poi.openxml4j.exceptions">OpenXML4JException</A></CODE>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="main(java.lang.String[])"><!-- --></A><H3>
+main</H3>
+<PRE>
+public static void <B>main</B>(java.lang.String[]&nbsp;args)
+                 throws java.lang.Exception</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.Exception</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setHandleHyperlinksInCells(boolean)"><!-- --></A><H3>
+setHandleHyperlinksInCells</H3>
+<PRE>
+public void <B>setHandleHyperlinksInCells</B>(boolean&nbsp;handleHyperlinksInCells)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setFormulasNotResults(boolean)"><!-- --></A><H3>
+setFormulasNotResults</H3>
+<PRE>
+public void <B>setFormulasNotResults</B>(boolean&nbsp;formulasNotResults)</PRE>
+<DL>
+<DD>Should we return the formula itself, and not
+ the result it produces? Default is false
+ This is currently unsupported for xssfb
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html#setFormulasNotResults(boolean)">setFormulasNotResults</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html" title="interface in org.apache.poi.ss.extractor">ExcelExtractor</A></CODE><DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#setFormulasNotResults(boolean)">setFormulasNotResults</A></CODE> in class <CODE><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html" title="class in org.apache.poi.xssf.extractor">XSSFEventBasedExcelExtractor</A></CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>formulasNotResults</CODE> - <code>true</code> if the formula itself is returned</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="processSheet(org.apache.poi.xssf.eventusermodel.XSSFSheetXMLHandler.SheetContentsHandler, org.apache.poi.xssf.binary.XSSFBStylesTable, org.apache.poi.xssf.binary.XSSFBCommentsTable, org.apache.poi.xssf.binary.XSSFBSharedStringsTable, java.io.InputStream)"><!-- --></A><H3>
+processSheet</H3>
+<PRE>
+public void <B>processSheet</B>(<A HREF="../../../../../org/apache/poi/xssf/eventusermodel/XSSFSheetXMLHandler.SheetContentsHandler.html" title="interface in org.apache.poi.xssf.eventusermodel">XSSFSheetXMLHandler.SheetContentsHandler</A>&nbsp;sheetContentsExtractor,
+                         <A HREF="../../../../../org/apache/poi/xssf/binary/XSSFBStylesTable.html" title="class in org.apache.poi.xssf.binary">XSSFBStylesTable</A>&nbsp;styles,
+                         <A HREF="../../../../../org/apache/poi/xssf/binary/XSSFBCommentsTable.html" title="class in org.apache.poi.xssf.binary">XSSFBCommentsTable</A>&nbsp;comments,
+                         <A HREF="../../../../../org/apache/poi/xssf/binary/XSSFBSharedStringsTable.html" title="class in org.apache.poi.xssf.binary">XSSFBSharedStringsTable</A>&nbsp;strings,
+                         java.io.InputStream&nbsp;sheetInputStream)
+                  throws java.io.IOException,
+                         org.xml.sax.SAXException</PRE>
+<DL>
+<DD>Processes the given sheet
+<P>
+<DD><DL>
+</DL>
+</DD>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE>
+<DD><CODE>org.xml.sax.SAXException</CODE></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getText()"><!-- --></A><H3>
+getText</H3>
+<PRE>
+public java.lang.String <B>getText</B>()</PRE>
+<DL>
+<DD>Processes the file and returns the text
+<P>
+<DD><DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html#getText()">getText</A></CODE> in interface <CODE><A HREF="../../../../../org/apache/poi/ss/extractor/ExcelExtractor.html" title="interface in org.apache.poi.ss.extractor">ExcelExtractor</A></CODE><DT><B>Overrides:</B><DD><CODE><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html#getText()">getText</A></CODE> in class <CODE><A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html" title="class in org.apache.poi.xssf.extractor">XSSFEventBasedExcelExtractor</A></CODE></DL>
+</DD>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>All the text from the document</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/XSSFBEventBasedExcelExtractor.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV CLASS&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/xssf/extractor/XSSFEventBasedExcelExtractor.html" title="class in org.apache.poi.xssf.extractor"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/xssf/extractor/XSSFBEventBasedExcelExtractor.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="XSSFBEventBasedExcelExtractor.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_classes_inherited_from_class_org.apache.poi.xssf.extractor.XSSFEventBasedExcelExtractor">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

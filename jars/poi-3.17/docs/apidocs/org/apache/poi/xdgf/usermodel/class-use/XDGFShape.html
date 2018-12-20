@@ -1,0 +1,664 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+Uses of Class org.apache.poi.xdgf.usermodel.XDGFShape (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Uses of Class org.apache.poi.xdgf.usermodel.XDGFShape (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/poi/xdgf/usermodel//class-useXDGFShape.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="XDGFShape.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<CENTER>
+<H2>
+<B>Uses of Class<br>org.apache.poi.xdgf.usermodel.XDGFShape</B></H2>
+</CENTER>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Packages that use <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xdgf.geom"><B>org.apache.poi.xdgf.geom</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xdgf.usermodel"><B>org.apache.poi.xdgf.usermodel</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xdgf.usermodel.section"><B>org.apache.poi.xdgf.usermodel.section</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xdgf.usermodel.section.geometry"><B>org.apache.poi.xdgf.usermodel.section.geometry</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xdgf.usermodel.shape"><B>org.apache.poi.xdgf.usermodel.shape</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xdgf.geom"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A> in <A HREF="../../../../../../org/apache/poi/xdgf/geom/package-summary.html">org.apache.poi.xdgf.geom</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xdgf/geom/package-summary.html">org.apache.poi.xdgf.geom</A> with parameters of type <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>SplineCollector.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/geom/SplineCollector.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xdgf.usermodel"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A> in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/package-summary.html">org.apache.poi.xdgf.usermodel</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Fields in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/package-summary.html">org.apache.poi.xdgf.usermodel</A> with type parameters of type <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.util.Map&lt;java.lang.Long,<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>XDGFBaseContents.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFBaseContents.html#_shapes">_shapes</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.util.List&lt;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>XDGFBaseContents.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFBaseContents.html#_toplevelShapes">_toplevelShapes</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/package-summary.html">org.apache.poi.xdgf.usermodel</A> that return <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></CODE></FONT></TD>
+<TD><CODE><B>XDGFConnection.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFConnection.html#getFromShape()">getFromShape</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></CODE></FONT></TD>
+<TD><CODE><B>XDGFShape.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html#getMasterShape()">getMasterShape</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></CODE></FONT></TD>
+<TD><CODE><B>XDGFShape.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html#getParentShape()">getParentShape</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></CODE></FONT></TD>
+<TD><CODE><B>XDGFBaseContents.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFBaseContents.html#getShapeById(long)">getShapeById</A></B>(long&nbsp;id)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></CODE></FONT></TD>
+<TD><CODE><B>XDGFShape.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html#getTopmostParentShape()">getTopmostParentShape</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></CODE></FONT></TD>
+<TD><CODE><B>XDGFConnection.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFConnection.html#getToShape()">getToShape</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/package-summary.html">org.apache.poi.xdgf.usermodel</A> that return types with arguments of type <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>XDGFShape.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html#getShapes()">getShapes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Only available if this shape is a shape group, may be null</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Collection&lt;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>XDGFBaseContents.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFBaseContents.html#getShapes()">getShapes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;java.lang.Long,<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>XDGFBaseContents.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFBaseContents.html#getShapesMap()">getShapesMap</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B>XDGFBaseContents.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFBaseContents.html#getTopLevelShapes()">getTopLevelShapes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/package-summary.html">org.apache.poi.xdgf.usermodel</A> with parameters of type <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>XDGFBaseContents.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFBaseContents.html#addToShapeIndex(org.apache.poi.xdgf.usermodel.XDGFShape)">addToShapeIndex</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/package-summary.html">org.apache.poi.xdgf.usermodel</A> with parameters of type <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFConnection.html#XDGFConnection(com.microsoft.schemas.office.visio.x2012.main.ConnectType, org.apache.poi.xdgf.usermodel.XDGFShape, org.apache.poi.xdgf.usermodel.XDGFShape)">XDGFConnection</A></B>(com.microsoft.schemas.office.visio.x2012.main.ConnectType&nbsp;connect,
+               <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;from,
+               <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;to)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html#XDGFShape(org.apache.poi.xdgf.usermodel.XDGFShape, com.microsoft.schemas.office.visio.x2012.main.ShapeSheetType, org.apache.poi.xdgf.usermodel.XDGFBaseContents, org.apache.poi.xdgf.usermodel.XDGFDocument)">XDGFShape</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent,
+          com.microsoft.schemas.office.visio.x2012.main.ShapeSheetType&nbsp;shapeSheet,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFBaseContents.html" title="class in org.apache.poi.xdgf.usermodel">XDGFBaseContents</A>&nbsp;parentPage,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFDocument.html" title="class in org.apache.poi.xdgf.usermodel">XDGFDocument</A>&nbsp;document)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFText.html#XDGFText(com.microsoft.schemas.office.visio.x2012.main.TextType, org.apache.poi.xdgf.usermodel.XDGFShape)">XDGFText</A></B>(com.microsoft.schemas.office.visio.x2012.main.TextType&nbsp;text,
+         <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xdgf.usermodel.section"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A> in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/package-summary.html">org.apache.poi.xdgf.usermodel.section</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/package-summary.html">org.apache.poi.xdgf.usermodel.section</A> with parameters of type <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.awt.geom.Path2D.Double</CODE></FONT></TD>
+<TD><CODE><B>GeometrySection.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/GeometrySection.html#getPath(org.apache.poi.xdgf.usermodel.XDGFShape)">getPath</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xdgf.usermodel.section.geometry"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A> in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/package-summary.html">org.apache.poi.xdgf.usermodel.section.geometry</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/package-summary.html">org.apache.poi.xdgf.usermodel.section.geometry</A> with parameters of type <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>SplineKnot.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/SplineKnot.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>RelEllipticalArcTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/RelEllipticalArcTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>RelMoveTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/RelMoveTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>MoveTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/MoveTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>PolyLineTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/PolyLineTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>InfiniteLine.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/InfiniteLine.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>Ellipse.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/Ellipse.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>RelLineTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/RelLineTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>RelCubBezTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/RelCubBezTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ArcTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/ArcTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>GeometryRow.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/GeometryRow.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>SplineStart.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/SplineStart.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>RelQuadBezTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/RelQuadBezTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>EllipticalArcTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/EllipticalArcTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>LineTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/LineTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>NURBSTo.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/section/geometry/NURBSTo.html#addToPath(java.awt.geom.Path2D.Double, org.apache.poi.xdgf.usermodel.XDGFShape)">addToPath</A></B>(java.awt.geom.Path2D.Double&nbsp;path,
+          <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;parent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xdgf.usermodel.shape"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A> in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/package-summary.html">org.apache.poi.xdgf.usermodel.shape</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/package-summary.html">org.apache.poi.xdgf.usermodel.shape</A> with parameters of type <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>ShapeTextVisitor.TextAcceptor.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeTextVisitor.TextAcceptor.html#accept(org.apache.poi.xdgf.usermodel.XDGFShape)">accept</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>ShapeDataAcceptor.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeDataAcceptor.html#accept(org.apache.poi.xdgf.usermodel.XDGFShape)">accept</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>ShapeVisitorAcceptor.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeVisitorAcceptor.html#accept(org.apache.poi.xdgf.usermodel.XDGFShape)">accept</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B>ShapeVisitor.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeVisitor.html#accept(org.apache.poi.xdgf.usermodel.XDGFShape)">accept</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.awt.geom.Path2D</CODE></FONT></TD>
+<TD><CODE><B>ShapeDebuggerRenderer.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeDebuggerRenderer.html#drawPath(org.apache.poi.xdgf.usermodel.XDGFShape)">drawPath</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;java.awt.geom.Path2D</CODE></FONT></TD>
+<TD><CODE><B>ShapeRenderer.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeRenderer.html#drawPath(org.apache.poi.xdgf.usermodel.XDGFShape)">drawPath</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ShapeRenderer.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeRenderer.html#drawText(org.apache.poi.xdgf.usermodel.XDGFShape)">drawText</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ShapeTextVisitor.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeTextVisitor.html#visit(org.apache.poi.xdgf.usermodel.XDGFShape, java.awt.geom.AffineTransform, int)">visit</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape,
+      java.awt.geom.AffineTransform&nbsp;globalTransform,
+      int&nbsp;level)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ShapeRenderer.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeRenderer.html#visit(org.apache.poi.xdgf.usermodel.XDGFShape, java.awt.geom.AffineTransform, int)">visit</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape,
+      java.awt.geom.AffineTransform&nbsp;globalTransform,
+      int&nbsp;level)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>abstract &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>ShapeVisitor.</B><B><A HREF="../../../../../../org/apache/poi/xdgf/usermodel/shape/ShapeVisitor.html#visit(org.apache.poi.xdgf.usermodel.XDGFShape, java.awt.geom.AffineTransform, int)">visit</A></B>(<A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel">XDGFShape</A>&nbsp;shape,
+      java.awt.geom.AffineTransform&nbsp;globalTransform,
+      int&nbsp;level)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../org/apache/poi/xdgf/usermodel/XDGFShape.html" title="class in org.apache.poi.xdgf.usermodel"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/poi/xdgf/usermodel//class-useXDGFShape.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="XDGFShape.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

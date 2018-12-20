@@ -1,0 +1,879 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Apache POI - Encryption support</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td width="50%" align="left">
+<div class="groupLogo">
+<a href="https://www.apache.org"><img border="0" class="logoImage" alt="The Apache Software Foundation" src="resources/images/asf_logo.png"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td width="50%" align="right">
+<div align="right" class="projectLogo">
+<a href="https://donate.apache.org/"><img border="0" class="logoImage" alt="Support Apache" src="resources/images/support-asf.png" width="120" height="120" title="Your donation helps The Apache Software Foundation ensure its community-driven software remains available to billions of users at absolutely no cost."></a><a href="https://poi.apache.org/"><img border="0" class="logoImage" alt="Apache POI" src="resources/images/pb-poi.png" width="120" height="120" title="Apache POI - the Java API for Microsoft Documents"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href="https://www.apache.org/">Apache</a> | <a href="https://poi.apache.org/">POI</a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="index.html">Home</a></span> | <script language="Javascript" type="text/javascript">
+function printit() {  
+if (window.print) {
+    window.print() ;  
+} else {
+    var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH="0" HEIGHT="0" CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+    WebBrowser1.ExecWB(6, 2);//Use a 1 vs. a 2 for a prompting dialog box    WebBrowser1.outerHTML = "";  
+}
+}
+</script><script language="Javascript" type="text/javascript">
+var NS = (navigator.appName == "Netscape");
+var VERSION = parseInt(navigator.appVersion);
+if (VERSION > 3) {
+    document.write('  <a title="PRINT this page OUT" href="javascript:printit()">PRINT</a>');
+}
+</script>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Overview</span>
+        
+<div class="menuItem">
+<a href="index.html">Home</a>
+</div>
+        
+<div class="menuItem">
+<a href="download.html">Download</a>
+</div>
+        
+<div class="menuItem">
+<a href="overview.html">Components</a>
+</div>
+        
+<div class="menuItem">
+<a href="text-extraction.html">Text Extraction</a>
+</div>
+        
+<div class="menuItem">
+<span class="menuSelected">Encryption support</span>
+</div>
+        
+<div class="menuItem">
+<a href="casestudies.html">Case Studies</a>
+</div>
+        
+<div class="menuItem">
+<a href="related-projects.html">Related projects</a>
+</div>
+        
+<div class="menuItem">
+<a href="legal.html">Legal</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Help</span>
+        
+<div class="menuItem">
+<a href="apidocs/index.html">Javadocs</a>
+</div>
+        
+<div class="menuItem">
+<a href="faq.html">FAQ</a>
+</div>
+        
+<div class="menuItem">
+<a href="mailinglists.html">Mailing Lists</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://bz.apache.org/bugzilla/buglist.cgi?product=POI">Bug Database</a>
+</div>
+        
+<div class="menuItem">
+<a href="changes.html">Changelog</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Getting Involved</span>
+        
+<div class="menuItem">
+<a href="subversion.html">Subversion Repository</a>
+</div>
+        
+<div class="menuItem">
+<a href="howtobuild.html">How To Build</a>
+</div>
+        
+<div class="menuItem">
+<a href="guidelines.html">Contribution Guidelines</a>
+</div>
+        
+<div class="menuItem">
+<a href="who.html">Who We Are</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Component APIs</span>
+        
+<div class="menuItem">
+<a href="spreadsheet/index.html">Excel (SS=HSSF+XSSF+SXSSF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="slideshow/index.html">PowerPoint (SL=HSLF+XSLF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="document/index.html">Word (WP=HWPF+XWPF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hsmf/index.html">Outlook (HSMF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="diagram/index.html">Visio (HDGF+XDGF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hpbf/index.html">Publisher (HPBF)</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Low-level Component APIs</span>
+        
+<div class="menuItem">
+<a href="poifs/index.html">OLE2 Filesystem (POIFS)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hpsf/index.html">OLE2 Document Props (HPSF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hmef/index.html">TNEF (HMEF) for winmail.dat</a>
+</div>
+        
+<div class="menuItem">
+<a href="oxml4j/index.html">OpenXML4J (OOXML)</a>
+</div>
+        
+<div class="menuItem">
+<a href="logging.html">Logging framework</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Apache Wide</span>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/">Apache Software Foundation</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/licenses/">License</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/foundation/thanks.html">Thanks</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/security/">Security</a>
+</div>
+    
+</div>
+</div>
+</div>
+<form target="_blank" action="https://www.google.com/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap">
+                          Search Apache POI<br>
+<input value="poi.apache.org" name="sitesearch" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="skin/images/spacer.gif" class="spacer"><input name="Search" value="GO" type="submit"></td><td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Apache POI - Encryption support</h1>
+</div>
+<div class="h3">
+  
+
+   
+    
+<a name="Overview"></a>
+<div class="h3">
+<h3>Overview<a title="Permanent link" class="headerlink" href="#Overview">#</a>
+</h3>
+</div>
+    
+<p>Apache POI contains support for reading few variants of encrypted office files: </p>
+    
+<ul>
+        
+<li>Binary formats (.xls, .ppt, .doc, ...)<br>
+        encryption is format-dependent and needs to be implemented per format differently.<br>
+        Use <a href="https://poi.apache.org/apidocs/org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.html">
+        Biff8EncryptionKey</a>.<a href="https://poi.apache.org/apidocs/org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.html#setCurrentUserPassword(java.lang.String)">setCurrentUserPassword</a>(String password)
+        to specify the decryption password before opening the file or (where applicable) before saving.
+        Setting a null password before saving removes the password protection.<br>
+        The password is set in a thread local variable. Do not forget to reset it to null after text extraction.
+        </li>
+        
+<li>XML-based formats (.xlsx, .pptx, .docx, ...)<br>
+        use the same encryption logic over all formats. When encrypted, the zipped files will be
+        stored within an OLE file in the EncryptedPackage stream.<br>
+        If you plan to use POI to actually generate encrypted documents, be aware not to use anything less than
+        agile encryption, because <a href="https://blogs.msdn.com/b/david_leblanc/archive/2010/04/16/don-t-use-office-rc4-encryption-really-just-don-t-do-it.aspx">RC4 is not really secure</a>.
+        Of course you'll need to make sure, that your clients can read the documents,
+        i.e. the various free Excel, Powerpoint, Word viewers have limitations in the cipher or hashing parameters.<br>
+        If you want to use high encryption parameters, you need to install the "Java Cryptography Extension (JCE) Unlimited
+        Strength Jurisdiction Policy Files" for your JRE version
+        (Oracle <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-6-download-429243.html">JDK6</a>,
+        <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html">JDK7</a>,
+        <a href="http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html">JDK8</a>).
+        </li>
+    
+</ul>
+
+    
+<p>Some "write-protected" files are encrypted with the built-in password "VelvetSweatshop", POI can read that files too.</p>
+    
+
+    
+<a name="Supported+feature+matrix"></a>
+<div class="h3">
+<h3>Supported feature matrix<a title="Permanent link" class="headerlink" href="#Supported+feature+matrix">#</a>
+</h3>
+</div>
+
+    
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+        
+<tr class="b">
+            
+<th colspan="1" rowspan="1">Encryption</th>
+            <th colspan="1" rowspan="1">HSSF</th>
+            <th colspan="1" rowspan="1">HSLF</th>
+            <th colspan="1" rowspan="1">HWPF</th>
+        
+</tr>
+        
+<tr class="a">
+            
+<td colspan="1" rowspan="1"><a href="https://msdn.microsoft.com/en-us/library/dd949802(v=office.12).aspx">XOR obfuscation *)</a></td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes (Writing since 3.16)</td>
+            <td class="feature-na" colspan="1" rowspan="1">N/A</td>
+            <td class="feature-no" colspan="1" rowspan="1">No</td>
+        
+</tr>
+        
+<tr class="b">
+            
+<td colspan="1" rowspan="1"><a href="https://msdn.microsoft.com/en-us/library/dd909583(v=office.12).aspx">40-bit RC4 encryption</a></td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes (Writing since 3.16)</td>
+            <td class="feature-na" colspan="1" rowspan="1">N/A</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes (since 3.17)</td>
+        
+</tr>
+        
+<tr class="a">
+            
+<td colspan="1" rowspan="1"><a href="https://msdn.microsoft.com/en-us/library/dd910113(v=office.12).aspx">Office Binary Document RC4 CryptoAPI Encryption</a></td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes (Since 3.16)</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes (since 3.17)</td>
+        
+</tr>
+        
+<tr class="b">
+            
+<th colspan="1" rowspan="1"></th>
+            <th colspan="1" rowspan="1">XSSF</th>
+            <th colspan="1" rowspan="1">XSLF</th>
+            <th colspan="1" rowspan="1">XWPF</th>
+        
+</tr>
+        
+<tr class="a">
+            
+<td colspan="1" rowspan="1"><a href="https://msdn.microsoft.com/en-us/library/dd907466(v=office.12).aspx">Office Binary Document RC4 Encryption **)</a></td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+        
+</tr>
+        
+<tr class="b">
+            
+<td colspan="1" rowspan="1"><a href="https://msdn.microsoft.com/en-us/library/dd906131(v=office.12).aspx">ECMA-376 Standard Encryption</a></td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+        
+</tr>
+        
+<tr class="a">
+            
+<td colspan="1" rowspan="1"><a href="https://msdn.microsoft.com/en-us/library/dd906131(v=office.12).aspx">ECMA-376 Agile Encryption</a></td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+        
+</tr>
+        
+<tr class="b">
+            
+<td colspan="1" rowspan="1"><a href="https://msdn.microsoft.com/en-us/library/ms757845(v=vs.85).aspx">ECMA-376 XML Signature</a></td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+            <td class="feature-yes" colspan="1" rowspan="1">Yes</td>
+        
+</tr>
+    
+</table>
+
+    
+<p>*) the xor encryption is flawed and works only for very small files - see <a href="https://bz.apache.org/bugzilla/show_bug.cgi?id=59857">#59857</a>.
+    </p>
+
+    
+<p>**) the <a href="https://msdn.microsoft.com/en-us/library/cc313071(v=office.12).aspx">MS-OFFCRYPTO</a>
+    documentation only mentions the RC4 (without CryptoAPI) encryption as a "in place" encryption, but
+    apparently there's also a container based method with that key generation logic.
+    </p>
+    
+
+    
+<a name="Binary+formats"></a>
+<div class="h3">
+<h3>Binary formats<a title="Permanent link" class="headerlink" href="#Binary+formats">#</a>
+</h3>
+</div>
+        
+<p>As mentioned above, use
+        <a href="https://poi.apache.org/apidocs/org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.html">
+        Biff8EncryptionKey</a>.<a href="https://poi.apache.org/apidocs/org/apache/poi/hssf/record/crypto/Biff8EncryptionKey.html#setCurrentUserPassword(java.lang.String)">setCurrentUserPassword</a>(String password)
+        to specify the password.</p>
+
+        
+<pre class="code">
+// XOR/RC4 decryption for xls
+Biff8EncryptionKey.setCurrentUserPassword("pass");
+NPOIFSFileSystem fs = new NPOIFSFileSystem(new File("file.xls"), true);
+HSSFWorkbook hwb = new HSSFWorkbook(fs.getRoot(), true);
+Biff8EncryptionKey.setCurrentUserPassword(null);
+        </pre>
+
+        
+<pre class="code">
+// RC4 CryptoApi support ppt - decryption
+Biff8EncryptionKey.setCurrentUserPassword("pass");
+NPOIFSFileSystem fs = new NPOIFSFileSystem(new File("file.ppt"), true);
+HSLFSlideShow hss = new HSLFSlideShow(fs);
+...
+// Option 1: remove password
+Biff8EncryptionKey.setCurrentUserPassword(null);
+OutputStream os = new FileOutputStream("decrypted.ppt");
+hss.write(os);
+os.close();
+...
+// Option 2: change encryption settings (experimental)
+// need to cache data (i.e. read all data) before changing the key size
+PictureData picsExpected[] = hss.getPictures();
+hss.getDocumentSummaryInformation();
+EncryptionInfo ei = hss.getDocumentEncryptionAtom().getEncryptionInfo();
+((CryptoAPIEncryptionHeader)ei.getHeader()).setKeySize(0x78);
+OutputStream os = new FileOutputStream("file_120bit.ppt");
+hss.write(os);
+os.close();
+        </pre>
+    
+
+    
+<a name="XML-based+formats+-+Decryption"></a>
+<div class="h3">
+<h3>XML-based formats - Decryption<a title="Permanent link" class="headerlink" href="#XML-based+formats+-+Decryption">#</a>
+</h3>
+</div>
+    
+<p>XML-based formats are stored in OLE-package stream "EncryptedPackage". Use org.apache.poi.poifs.crypt.Decryptor
+    to decode file:</p>
+
+    
+<pre class="code">
+EncryptionInfo info = new EncryptionInfo(filesystem);
+Decryptor d = Decryptor.getInstance(info);
+
+try {
+    if (!d.verifyPassword(password)) {
+        throw new RuntimeException("Unable to process: document is encrypted");
+    }
+
+    InputStream dataStream = d.getDataStream(filesystem);
+
+    // parse dataStream
+
+} catch (GeneralSecurityException ex) {
+    throw new RuntimeException("Unable to process encrypted document", ex);
+}
+    </pre>
+
+    
+<p>If you want to read file encrypted with build-in password, use Decryptor.DEFAULT_PASSWORD.</p>
+     
+
+     
+<a name="XML-based+formats+-+Encryption"></a>
+<div class="h3">
+<h3>XML-based formats - Encryption<a title="Permanent link" class="headerlink" href="#XML-based+formats+-+Encryption">#</a>
+</h3>
+</div>
+     
+<p>Encrypting a file is similar to the above decryption process. Basically you'll need to choose between
+     <a href="https://poi.apache.org/apidocs/org/apache/poi/poifs/crypt/EncryptionMode.html">binaryRC4, standard and agile encryption</a>,
+     the cryptoAPI mode is used internally and it's direct use would result in an incomplete file.
+     Apart of the CipherMode, the EncryptionInfo class provides further parameters to specify the cipher and
+     hashing algorithm to be used.</p>
+     
+<pre class="code">
+POIFSFileSystem fs = new POIFSFileSystem();
+EncryptionInfo info = new EncryptionInfo(EncryptionMode.agile);
+// EncryptionInfo info = new EncryptionInfo(EncryptionMode.agile, CipherAlgorithm.aes192, HashAlgorithm.sha384, -1, -1, null);
+
+Encryptor enc = info.getEncryptor();
+enc.confirmPassword("foobaa");
+
+// Read in an existing OOXML file
+OPCPackage opc = OPCPackage.open(new File("..."), PackageAccess.READ_WRITE);
+OutputStream os = enc.getDataStream(fs);
+opc.save(os);
+opc.close();
+
+// Write out the encrypted version
+FileOutputStream fos = new FileOutputStream("...");
+fs.writeFilesystem(fos);
+fos.close();
+     </pre>
+     
+
+     
+<a name="XML-based+formats+-+Signing+%28XML+Signature%29"></a>
+<div class="h3">
+<h3>XML-based formats - Signing (XML Signature)<a title="Permanent link" class="headerlink" href="#XML-based+formats+-+Signing+%28XML+Signature%29">#</a>
+</h3>
+</div>
+     
+<p>An Office document can be digital signed by a <a href="https://en.wikipedia.org/wiki/XML_Signature">XML Signature</a>
+     to protect it from unauthorized modifications, i.e. modifications without having the original certificate.
+     The current implementation is based on the 
+     <a href="https://github.com/e-Contract/eid-applet">eID Applet</a> which
+     is dual-licensed to 
+     <a href="https://github.com/e-Contract/eid-applet/blob/master/README.md#7-license">Apache License 2.0 and LGPL v3.0</a>.
+     Instead of using the internal <a href="http://www.jsourcecode.com/class.php?proj=jdk%5Copenjdk&jar=openjdk-6-b14&class=org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory">JDK API</a>
+     this version is based on <a href="https://santuario.apache.org">Apache Santuario</a>.</p>
+     
+<p>The classes have been tested against the following libraries, which need to be included additionally to the
+     <a href="overview.html#components">default dependencies</a>:</p>
+     
+<ul>
+     
+<li>BouncyCastle bcpkix and bcprov (tested against 1.53)</li>
+     
+<li>Apache Santuario "xmlsec" (tested against 2.0.6)</li>
+     
+<li>and slf4j-api (tested against 1.7.12)</li>
+     
+</ul>
+     
+<p>Depending on the <a href="https://poi.apache.org/apidocs/org/apache/poi/poifs/crypt/dsig/SignatureConfig.html">configuration</a>
+     and the activated <a href="https://poi.apache.org/apidocs/org/apache/poi/poifs/crypt/dsig/facets/package-summary.html">facets</a>
+     various <a href="https://en.wikipedia.org/wiki/XAdES">XAdES levels</a> are supported - the support for higher levels (XAdES-T+)
+     depend on supporting services and although the code is adopted, the integration is not well tested ... please support us on
+     integration (testing) with timestamp and revocation (OCSP) services.
+     </p>
+     
+<p>Further test examples can be found in the corresponding <a href="https://svn.apache.org/viewvc/poi/trunk/src/ooxml/testcases/org/apache/poi/poifs/crypt/TestSignatureInfo.java?view=markup">test class</a>.</p>
+     
+
+     
+<a name="Validating+a+signed+office+document"></a>
+<div class="h3">
+<h3>Validating a signed office document<a title="Permanent link" class="headerlink" href="#Validating+a+signed+office+document">#</a>
+</h3>
+</div>
+
+     
+<pre class="code">
+OPCPackage pkg = OPCPackage.open(..., PackageAccess.READ);
+SignatureConfig sic = new SignatureConfig();
+sic.setOpcPackage(pkg);
+SignatureInfo si = new SignatureInfo();
+si.setSignatureConfig(sic);
+boolean isValid = si.verifySignature();
+...
+     </pre>
+     
+
+     
+<a name="Signing+an+office+document"></a>
+<div class="h3">
+<h3>Signing an office document<a title="Permanent link" class="headerlink" href="#Signing+an+office+document">#</a>
+</h3>
+</div>
+
+     
+<a name="Signing+a+file"></a>
+<div class="h4">
+<h4>Signing a file<a title="Permanent link" class="headerlink" href="#Signing+a+file">#</a>
+</h4>
+</div>
+     
+<pre class="code">
+// loading the keystore - pkcs12 is used here, but of course jks &amp; co are also valid
+// the keystore needs to contain a private key and it's certificate having a
+// 'digitalSignature' key usage
+char password[] = "test".toCharArray();
+File file = new File("test.pfx");
+KeyStore keystore = KeyStore.getInstance("PKCS12");
+FileInputStream fis = new FileInputStream(file);
+keystore.load(fis, password);
+fis.close();
+
+// extracting private key and certificate
+String alias = "xyz"; // alias of the keystore entry
+Key key = keystore.getKey(alias, password);
+X509Certificate x509 = (X509Certificate)keystore.getCertificate(alias);
+
+// filling the SignatureConfig entries (minimum fields, more options are available ...)
+SignatureConfig signatureConfig = new SignatureConfig();
+signatureConfig.setKey(keyPair.getPrivate());
+signatureConfig.setSigningCertificateChain(Collections.singletonList(x509));
+OPCPackage pkg = OPCPackage.open(..., PackageAccess.READ_WRITE);
+signatureConfig.setOpcPackage(pkg);
+
+// adding the signature document to the package
+SignatureInfo si = new SignatureInfo();
+si.setSignatureConfig(signatureConfig);
+si.confirmSignature();
+// optionally verify the generated signature
+boolean b = si.verifySignature();
+assert (b);
+// write the changes back to disc
+pkg.close();
+     </pre>
+     
+
+     
+<a name="Signing+a+stream+-+in-memory"></a>
+<div class="h4">
+<h4>Signing a stream - in-memory<a title="Permanent link" class="headerlink" href="#Signing+a+stream+-+in-memory">#</a>
+</h4>
+</div>
+     
+<p>When saving a OOXML document, POI creates missing relations on the fly. Therefore calling the signing method before
+     would result in an invalid signature. Instead of trying to fix all save invocations, the user is asked to save the stream
+     before in a intermediate byte array (stream) and process this stream instead.</p>
+
+     
+<pre class="code">
+// load the key and setup SignatureConfig ... - see "Signing a file"
+
+SignatureInfo si = new SignatureInfo();
+si.setSignatureConfig(signatureConfig);
+
+// populate sample object
+XSSFWorkbook wb = new XSSFWorkbook();
+wb.createSheet().createRow(1).createCell(1).setCellValue("Test");
+ByteArrayOutputStream bos = new ByteArrayOutputStream(100000);
+wb.write(bos);
+wb.close();
+
+// process the
+OPCPackage pkg = OPCPackage.open(new ByteArrayInputStream(bos.toByteArray()));
+
+signatureConfig.setOpcPackage(pkg);
+si.confirmSignature();
+bos.reset();
+pkg.save(bos);
+pkg.close();
+
+// bos now contains the signed ooxml document
+     </pre>
+     
+     
+
+     
+<a name="Encrypting+temporary+files+created+when+unzipping+an+OOXML+document"></a>
+<div class="h3">
+<h3>Encrypting temporary files created when unzipping an OOXML document<a title="Permanent link" class="headerlink" href="#Encrypting+temporary+files+created+when+unzipping+an+OOXML+document">#</a>
+</h3>
+</div>
+       
+<p>For security-conscious environments where data at rest must be stored encrypted,
+       the creation of plaintext temporary files is a grey area.</p>
+
+       
+<p>The code example, written by PJ Fanning, modifies the behavior of SXSSFWorkbook
+       to extract an OOXML spreadsheet zipped container and write the contents to disk using AES
+       encryption.</p>
+
+       
+<p>See <a href="https://svn.apache.org/viewvc/poi/trunk/src/examples/src/org/apache/poi/xssf/streaming/examples/SXSSFWorkbookWithCustomZipEntrySource.java?view=markup">SXSSFWorkbookWithCustomZipEntrySource.java</a>
+       and other <a href="https://svn.apache.org/viewvc?view=revision&revision=1768744">files</a>
+       that are needed for this example.</p>
+     
+
+     
+<a name="Debugging+XML+signature+issues"></a>
+<div class="h3">
+<h3>Debugging XML signature issues<a title="Permanent link" class="headerlink" href="#Debugging+XML+signature+issues">#</a>
+</h3>
+</div>
+       
+<p>Finding the source of a XML signature problem can be sometimes a pain in the ... neck, because
+       the hashing of the canonicalized form is more or less intransparent done in the background.</p>
+
+       
+       
+<p>One of the tripping hazards are <a href="https://stackoverflow.com/questions/36063375">different
+       linebreaks in Windows/Unix</a>, therefore use the non-indent form of the xmls.</p>
+
+       
+<p>The next thing is to compare successful signed documents from Office vs. POIs generated signature,
+       i.e. unzip both files and look for differences. Usually the package relations (*.rels) will be different,
+       and the sig1.xml, core.xml and [Content_Types].xml due to different order of the references.</p>
+
+       
+<p>The package relationsships (*.rels) will be specially handled, i.e. they will be filtered and only
+       a subset will be processed - see <a href="https://www.ecma-international.org/activities/Office%20Open%20XML%20Formats/Draft%20ECMA-376%203rd%20edition,%20March%202011/Office%20Open%20XML%20Part%202%20-%20Open%20Packaging%20Conventions.pdf">13.2.4.24 Relationships Transform Algorithm</a>.</p>
+
+       
+<p>To check the processed files in the canonicalized form, the below UnsyncBufferedOutputStream class needs
+       to be injected/replaced. Put the .class file in separate directory and add the following JVM parameters:</p>
+
+       
+<pre class="code">
+-Djava.io.tmpdir=<em>&lt;custom temp directory&gt;</em>
+-Xbootclasspath/p:<em>&lt;preload dir, which contains /org/apache/xml/security/utils/UnsyncBufferedOutputStream.class&gt;</em>
+-Dorg.apache.poi.util.POILogger=org.apache.poi.util.CommonsLogger
+-Djava.util.logging.config.file=<em>&lt;a dir containing ...&gt;</em>/logging.properties
+       </pre>
+
+       
+<a name="UnsyncBufferedOutputStream%3A"></a>
+<div class="h4">
+<h4>UnsyncBufferedOutputStream:<a title="Permanent link" class="headerlink" href="#UnsyncBufferedOutputStream%3A">#</a>
+</h4>
+</div>
+       
+<pre class="code">
+package org.apache.xml.security.utils;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+public class UnsyncBufferedOutputStream extends OutputStream {
+    static final int size = 8*1024;
+    static int filecnt = 0;
+
+    private int pointer = 0;
+    private final OutputStream out;
+    private final FileOutputStream out2;
+
+    private final byte[] buf;
+
+    public UnsyncBufferedOutputStream(OutputStream out) {
+        buf = new byte[size];
+        this.out = out;
+        synchronized(UnsyncBufferedOutputStream.class) {
+            try {
+                String tmpDir = System.getProperty("java.io.tmpdir");
+                if (tmpDir == null) {
+                    tmpDir = "build";
+                }
+                File f = new File(tmpDir, "unsync-"+filecnt+".xml");
+                out2 = new FileOutputStream(f);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } finally {
+                filecnt++;
+            }
+        }
+    }
+
+    public void write(byte[] arg0) throws IOException {
+        write(arg0, 0, arg0.length);
+    }
+
+    public void write(byte[] arg0, int arg1, int len) throws IOException {
+        int newLen = pointer+len;
+        if (newLen &gt; size) {
+            flushBuffer();
+            if (len &gt; size) {
+                out.write(arg0, arg1,len);
+                out2.write(arg0, arg1,len);
+                return;
+            }
+            newLen = len;
+        }
+        System.arraycopy(arg0, arg1, buf, pointer, len);
+        pointer = newLen;
+    }
+
+    private void flushBuffer() throws IOException {
+        if (pointer &gt; 0) {
+            out.write(buf, 0, pointer);
+            out2.write(buf, 0, pointer);
+        }
+        pointer = 0;
+
+    }
+
+    public void write(int arg0) throws IOException {
+        if (pointer &gt;= size) {
+            flushBuffer();
+        }
+        buf[pointer++] = (byte)arg0;
+
+    }
+
+    public void flush() throws IOException {
+        flushBuffer();
+        out.flush();
+        out2.flush();
+    }
+
+    public void close() throws IOException {
+        flush();
+        out.close();
+        out2.close();
+    }
+
+}
+</pre>
+
+
+     
+<a name="logging.properties"></a>
+<div class="h4">
+<h4>logging.properties<a title="Permanent link" class="headerlink" href="#logging.properties">#</a>
+</h4>
+</div>
+     
+<pre class="code">
+handlers = org.slf4j.bridge.SLF4JBridgeHandler
+.level=ALL
+org.slf4j.bridge.SLF4JBridgeHandler.level=ALL
+     </pre>
+     
+     
+  
+
+  
+
+<div id="authors" align="right">by&nbsp;Maxim Valyanskiy,&nbsp;Andreas Beeker</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2002-2017&nbsp;The Apache Software Foundation. All rights reserved.<br>
+              Apache, Apache POI, and the Apache POI logo are registered trademarks or
+              trademarks of The Apache Software Foundation in the U.S. and/or other countries.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

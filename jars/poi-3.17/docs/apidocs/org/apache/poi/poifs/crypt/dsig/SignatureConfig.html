@@ -1,0 +1,1852 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+SignatureConfig (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="SignatureConfig (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SignatureConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/RevokedCertificateSecurityException.html" title="class in org.apache.poi.poifs.crypt.dsig"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.SignatureConfigurable.html" title="interface in org.apache.poi.poifs.crypt.dsig"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/poi/poifs/crypt/dsig/SignatureConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SignatureConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.poifs.crypt.dsig</FONT>
+<BR>
+Class SignatureConfig</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.poifs.crypt.dsig.SignatureConfig</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>SignatureConfig</B><DT>extends java.lang.Object</DL>
+</PRE>
+
+<P>
+This class bundles the configuration options used for the existing
+ signature facets.
+ Apart of the thread local members (e.g. opc-package) most values will probably be constant, so
+ it might be configured centrally (e.g. by spring)
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;interface</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.SignatureConfigurable.html" title="interface in org.apache.poi.poifs.crypt.dsig">SignatureConfig.SignatureConfigurable</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#SignatureConfig()">SignatureConfig</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#addSignatureFacet(org.apache.poi.poifs.crypt.dsig.facets.SignatureFacet)">addSignatureFacet</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/facets/SignatureFacet.html" title="class in org.apache.poi.poifs.crypt.dsig.facets">SignatureFacet</A>&nbsp;signatureFacet)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getCanonicalizationMethod()">getCanonicalizationMethod</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getDigestAlgo()">getDigestAlgo</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getDigestMethodUri()">getDigestMethodUri</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getDigestMethodUri(org.apache.poi.poifs.crypt.HashAlgorithm)">getDigestMethodUri</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A>&nbsp;digestAlgo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Date</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getExecutionTime()">getExecutionTime</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;byte[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getHashMagic()">getHashMagic</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each digest method has its own IV (initial vector)</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.security.PrivateKey</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getKey()">getKey</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.crypto.dsig.keyinfo.KeyInfoFactory</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getKeyInfoFactory()">getKeyInfoFactory</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.Map&lt;java.lang.String,java.lang.String&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getNamespacePrefixes()">getNamespacePrefixes</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/openxml4j/opc/OPCPackage.html" title="class in org.apache.poi.openxml4j.opc">OPCPackage</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getOpcPackage()">getOpcPackage</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getPackageSignatureId()">getPackageSignatureId</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.security.Provider</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getProvider()">getProvider</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This method tests the existence of xml signature provider in the following order:
+ 
+ the class pointed to by the system property "jsr105Provider"
+ the Santuario xmlsec provider
+ the JDK xmlsec provider
+ 
+ 
+ For signing the classes are linked against the Santuario xmlsec, so this might
+ only work for validation (not tested).</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getProxyUrl()">getProxyUrl</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/RevocationDataService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">RevocationDataService</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getRevocationDataService()">getRevocationDataService</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getSignatureDescription()">getSignatureDescription</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/facets/SignatureFacet.html" title="class in org.apache.poi.poifs.crypt.dsig.facets">SignatureFacet</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getSignatureFacets()">getSignatureFacets</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.crypto.dsig.XMLSignatureFactory</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getSignatureFactory()">getSignatureFactory</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;org.w3c.dom.events.EventListener</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getSignatureMarshalListener()">getSignatureMarshalListener</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getSignatureMethodUri()">getSignatureMethodUri</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/SignaturePolicyService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">SignaturePolicyService</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getSignaturePolicyService()">getSignaturePolicyService</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.util.List&lt;java.security.cert.X509Certificate&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getSigningCertificateChain()">getSigningCertificateChain</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getTspDigestAlgo()">getTspDigestAlgo</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getTspPass()">getTspPass</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getTspRequestPolicy()">getTspRequestPolicy</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TimeStampService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">TimeStampService</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getTspService()">getTspService</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getTspUrl()">getTspUrl</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getTspUser()">getTspUser</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TimeStampServiceValidator.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">TimeStampServiceValidator</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getTspValidator()">getTspValidator</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;javax.xml.crypto.URIDereferencer</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getUriDereferencer()">getUriDereferencer</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getUserAgent()">getUserAgent</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getXadesCanonicalizationMethod()">getXadesCanonicalizationMethod</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getXadesDigestAlgo()">getXadesDigestAlgo</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getXadesRole()">getXadesRole</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getXadesSignatureId()">getXadesSignatureId</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected &nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#init(boolean)">init</A></B>(boolean&nbsp;onlyValidation)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inits and checks the config object.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#isIncludeEntireCertificateChain()">isIncludeEntireCertificateChain</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#isIncludeIssuerSerial()">isIncludeIssuerSerial</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#isIncludeKeyValue()">isIncludeKeyValue</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#isTspOldProtocol()">isTspOldProtocol</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#isXadesIssuerNameNoReverseOrder()">isXadesIssuerNameNoReverseOrder</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make sure the DN is encoded using the same order as present
+ within the certificate.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;boolean</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#isXadesSignaturePolicyImplied()">isXadesSignaturePolicyImplied</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>protected static
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" SUMMARY="">
+<TR ALIGN="right" VALIGN="">
+<TD NOWRAP><FONT SIZE="-1">
+<CODE>&lt;T&gt; T</CODE></FONT></TD>
+</TR>
+</TABLE>
+</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#nvl(T, T)">nvl</A></B>(T&nbsp;value,
+    T&nbsp;defaultValue)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;helper method for null/default value handling</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setCanonicalizationMethod(java.lang.String)">setCanonicalizationMethod</A></B>(java.lang.String&nbsp;canonicalizationMethod)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setDigestAlgo(org.apache.poi.poifs.crypt.HashAlgorithm)">setDigestAlgo</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A>&nbsp;digestAlgo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setExecutionTime(java.util.Date)">setExecutionTime</A></B>(java.util.Date&nbsp;executionTime)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setIncludeEntireCertificateChain(boolean)">setIncludeEntireCertificateChain</A></B>(boolean&nbsp;includeEntireCertificateChain)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setIncludeIssuerSerial(boolean)">setIncludeIssuerSerial</A></B>(boolean&nbsp;includeIssuerSerial)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setIncludeKeyValue(boolean)">setIncludeKeyValue</A></B>(boolean&nbsp;includeKeyValue)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setKey(java.security.PrivateKey)">setKey</A></B>(java.security.PrivateKey&nbsp;key)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setKeyInfoFactory(javax.xml.crypto.dsig.keyinfo.KeyInfoFactory)">setKeyInfoFactory</A></B>(javax.xml.crypto.dsig.keyinfo.KeyInfoFactory&nbsp;keyInfoFactory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setNamespacePrefixes(java.util.Map)">setNamespacePrefixes</A></B>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;namespacePrefixes)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setOpcPackage(org.apache.poi.openxml4j.opc.OPCPackage)">setOpcPackage</A></B>(<A HREF="../../../../../../org/apache/poi/openxml4j/opc/OPCPackage.html" title="class in org.apache.poi.openxml4j.opc">OPCPackage</A>&nbsp;opcPackage)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setPackageSignatureId(java.lang.String)">setPackageSignatureId</A></B>(java.lang.String&nbsp;packageSignatureId)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setProxyUrl(java.lang.String)">setProxyUrl</A></B>(java.lang.String&nbsp;proxyUrl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setRevocationDataService(org.apache.poi.poifs.crypt.dsig.services.RevocationDataService)">setRevocationDataService</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/RevocationDataService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">RevocationDataService</A>&nbsp;revocationDataService)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setSignatureDescription(java.lang.String)">setSignatureDescription</A></B>(java.lang.String&nbsp;signatureDescription)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setSignatureFacets(java.util.List)">setSignatureFacets</A></B>(java.util.List&lt;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/facets/SignatureFacet.html" title="class in org.apache.poi.poifs.crypt.dsig.facets">SignatureFacet</A>&gt;&nbsp;signatureFacets)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setSignatureFactory(javax.xml.crypto.dsig.XMLSignatureFactory)">setSignatureFactory</A></B>(javax.xml.crypto.dsig.XMLSignatureFactory&nbsp;signatureFactory)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setSignatureMarshalListener(org.w3c.dom.events.EventListener)">setSignatureMarshalListener</A></B>(org.w3c.dom.events.EventListener&nbsp;signatureMarshalListener)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setSignaturePolicyService(org.apache.poi.poifs.crypt.dsig.services.SignaturePolicyService)">setSignaturePolicyService</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/SignaturePolicyService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">SignaturePolicyService</A>&nbsp;signaturePolicyService)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setSigningCertificateChain(java.util.List)">setSigningCertificateChain</A></B>(java.util.List&lt;java.security.cert.X509Certificate&gt;&nbsp;signingCertificateChain)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setTspDigestAlgo(org.apache.poi.poifs.crypt.HashAlgorithm)">setTspDigestAlgo</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A>&nbsp;tspDigestAlgo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setTspOldProtocol(boolean)">setTspOldProtocol</A></B>(boolean&nbsp;tspOldProtocol)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setTspPass(java.lang.String)">setTspPass</A></B>(java.lang.String&nbsp;tspPass)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setTspRequestPolicy(java.lang.String)">setTspRequestPolicy</A></B>(java.lang.String&nbsp;tspRequestPolicy)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setTspService(org.apache.poi.poifs.crypt.dsig.services.TimeStampService)">setTspService</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TimeStampService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">TimeStampService</A>&nbsp;tspService)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setTspUrl(java.lang.String)">setTspUrl</A></B>(java.lang.String&nbsp;tspUrl)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setTspUser(java.lang.String)">setTspUser</A></B>(java.lang.String&nbsp;tspUser)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setTspValidator(org.apache.poi.poifs.crypt.dsig.services.TimeStampServiceValidator)">setTspValidator</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TimeStampServiceValidator.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">TimeStampServiceValidator</A>&nbsp;tspValidator)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setUriDereferencer(javax.xml.crypto.URIDereferencer)">setUriDereferencer</A></B>(javax.xml.crypto.URIDereferencer&nbsp;uriDereferencer)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setUserAgent(java.lang.String)">setUserAgent</A></B>(java.lang.String&nbsp;userAgent)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setXadesCanonicalizationMethod(java.lang.String)">setXadesCanonicalizationMethod</A></B>(java.lang.String&nbsp;xadesCanonicalizationMethod)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setXadesDigestAlgo(org.apache.poi.poifs.crypt.HashAlgorithm)">setXadesDigestAlgo</A></B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A>&nbsp;xadesDigestAlgo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setXadesIssuerNameNoReverseOrder(boolean)">setXadesIssuerNameNoReverseOrder</A></B>(boolean&nbsp;xadesIssuerNameNoReverseOrder)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setXadesRole(java.lang.String)">setXadesRole</A></B>(java.lang.String&nbsp;xadesRole)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setXadesSignatureId(java.lang.String)">setXadesSignatureId</A></B>(java.lang.String&nbsp;xadesSignatureId)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#setXadesSignaturePolicyImplied(boolean)">setXadesSignaturePolicyImplied</A></B>(boolean&nbsp;xadesSignaturePolicyImplied)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="SignatureConfig()"><!-- --></A><H3>
+SignatureConfig</H3>
+<PRE>
+public <B>SignatureConfig</B>()</PRE>
+<DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="init(boolean)"><!-- --></A><H3>
+init</H3>
+<PRE>
+protected void <B>init</B>(boolean&nbsp;onlyValidation)</PRE>
+<DL>
+<DD>Inits and checks the config object.
+ If not set previously, complex configuration properties also get 
+ created/initialized via this initialization call.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>onlyValidation</CODE> - if true, only a subset of the properties
+ is initialized, which are necessary for validation. If false,
+ also the other properties needed for signing are been taken care of</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addSignatureFacet(org.apache.poi.poifs.crypt.dsig.facets.SignatureFacet)"><!-- --></A><H3>
+addSignatureFacet</H3>
+<PRE>
+public void <B>addSignatureFacet</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/facets/SignatureFacet.html" title="class in org.apache.poi.poifs.crypt.dsig.facets">SignatureFacet</A>&nbsp;signatureFacet)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signatureFacet</CODE> - the signature facet is appended to facet list</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSignatureFacets()"><!-- --></A><H3>
+getSignatureFacets</H3>
+<PRE>
+public java.util.List&lt;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/facets/SignatureFacet.html" title="class in org.apache.poi.poifs.crypt.dsig.facets">SignatureFacet</A>&gt; <B>getSignatureFacets</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the list of facets, may be empty when the config object is not initialized</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSignatureFacets(java.util.List)"><!-- --></A><H3>
+setSignatureFacets</H3>
+<PRE>
+public void <B>setSignatureFacets</B>(java.util.List&lt;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/facets/SignatureFacet.html" title="class in org.apache.poi.poifs.crypt.dsig.facets">SignatureFacet</A>&gt;&nbsp;signatureFacets)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signatureFacets</CODE> - the new list of facets</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDigestAlgo()"><!-- --></A><H3>
+getDigestAlgo</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A> <B>getDigestAlgo</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the main digest algorithm, defaults to sha-1</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setDigestAlgo(org.apache.poi.poifs.crypt.HashAlgorithm)"><!-- --></A><H3>
+setDigestAlgo</H3>
+<PRE>
+public void <B>setDigestAlgo</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A>&nbsp;digestAlgo)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>digestAlgo</CODE> - the main digest algorithm</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getOpcPackage()"><!-- --></A><H3>
+getOpcPackage</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/poi/openxml4j/opc/OPCPackage.html" title="class in org.apache.poi.openxml4j.opc">OPCPackage</A> <B>getOpcPackage</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the opc package to be used by this thread, stored as thread-local</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setOpcPackage(org.apache.poi.openxml4j.opc.OPCPackage)"><!-- --></A><H3>
+setOpcPackage</H3>
+<PRE>
+public void <B>setOpcPackage</B>(<A HREF="../../../../../../org/apache/poi/openxml4j/opc/OPCPackage.html" title="class in org.apache.poi.openxml4j.opc">OPCPackage</A>&nbsp;opcPackage)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>opcPackage</CODE> - the opc package to be handled by this thread, stored as thread-local</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getKey()"><!-- --></A><H3>
+getKey</H3>
+<PRE>
+public java.security.PrivateKey <B>getKey</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the private key</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setKey(java.security.PrivateKey)"><!-- --></A><H3>
+setKey</H3>
+<PRE>
+public void <B>setKey</B>(java.security.PrivateKey&nbsp;key)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>key</CODE> - the private key</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSigningCertificateChain()"><!-- --></A><H3>
+getSigningCertificateChain</H3>
+<PRE>
+public java.util.List&lt;java.security.cert.X509Certificate&gt; <B>getSigningCertificateChain</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the certificate chain, index 0 is usually the certificate matching
+ the private key</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSigningCertificateChain(java.util.List)"><!-- --></A><H3>
+setSigningCertificateChain</H3>
+<PRE>
+public void <B>setSigningCertificateChain</B>(java.util.List&lt;java.security.cert.X509Certificate&gt;&nbsp;signingCertificateChain)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signingCertificateChain</CODE> - the certificate chain, index 0 should be
+ the certificate matching the private key</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getExecutionTime()"><!-- --></A><H3>
+getExecutionTime</H3>
+<PRE>
+public java.util.Date <B>getExecutionTime</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the time at which the document is signed, also used for the timestamp service.
+ defaults to now</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setExecutionTime(java.util.Date)"><!-- --></A><H3>
+setExecutionTime</H3>
+<PRE>
+public void <B>setExecutionTime</B>(java.util.Date&nbsp;executionTime)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>executionTime</CODE> - sets the time at which the document ought to be signed</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSignaturePolicyService()"><!-- --></A><H3>
+getSignaturePolicyService</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/SignaturePolicyService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">SignaturePolicyService</A> <B>getSignaturePolicyService</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the service to be used for XAdES-EPES properties. There's no default implementation</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSignaturePolicyService(org.apache.poi.poifs.crypt.dsig.services.SignaturePolicyService)"><!-- --></A><H3>
+setSignaturePolicyService</H3>
+<PRE>
+public void <B>setSignaturePolicyService</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/SignaturePolicyService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">SignaturePolicyService</A>&nbsp;signaturePolicyService)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signaturePolicyService</CODE> - the service to be used for XAdES-EPES properties</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getUriDereferencer()"><!-- --></A><H3>
+getUriDereferencer</H3>
+<PRE>
+public javax.xml.crypto.URIDereferencer <B>getUriDereferencer</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the dereferencer used for Reference/@URI attributes, defaults to <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/OOXMLURIDereferencer.html" title="class in org.apache.poi.poifs.crypt.dsig"><CODE>OOXMLURIDereferencer</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setUriDereferencer(javax.xml.crypto.URIDereferencer)"><!-- --></A><H3>
+setUriDereferencer</H3>
+<PRE>
+public void <B>setUriDereferencer</B>(javax.xml.crypto.URIDereferencer&nbsp;uriDereferencer)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>uriDereferencer</CODE> - the dereferencer used for Reference/@URI attributes</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSignatureDescription()"><!-- --></A><H3>
+getSignatureDescription</H3>
+<PRE>
+public java.lang.String <B>getSignatureDescription</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>Gives back the human-readable description of what the citizen
+ will be signing. The default value is "Office OpenXML Document".</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSignatureDescription(java.lang.String)"><!-- --></A><H3>
+setSignatureDescription</H3>
+<PRE>
+public void <B>setSignatureDescription</B>(java.lang.String&nbsp;signatureDescription)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signatureDescription</CODE> - the human-readable description of
+ what the citizen will be signing.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getCanonicalizationMethod()"><!-- --></A><H3>
+getCanonicalizationMethod</H3>
+<PRE>
+public java.lang.String <B>getCanonicalizationMethod</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the default canonicalization method, defaults to INCLUSIVE</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setCanonicalizationMethod(java.lang.String)"><!-- --></A><H3>
+setCanonicalizationMethod</H3>
+<PRE>
+public void <B>setCanonicalizationMethod</B>(java.lang.String&nbsp;canonicalizationMethod)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>canonicalizationMethod</CODE> - the default canonicalization method</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getPackageSignatureId()"><!-- --></A><H3>
+getPackageSignatureId</H3>
+<PRE>
+public java.lang.String <B>getPackageSignatureId</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>The signature Id attribute value used to create the XML signature.
+ Defaults to "idPackageSignature"</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setPackageSignatureId(java.lang.String)"><!-- --></A><H3>
+setPackageSignatureId</H3>
+<PRE>
+public void <B>setPackageSignatureId</B>(java.lang.String&nbsp;packageSignatureId)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>packageSignatureId</CODE> - The signature Id attribute value used to create the XML signature.
+ A <code>null</code> value will trigger an automatically generated signature Id.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTspUrl()"><!-- --></A><H3>
+getTspUrl</H3>
+<PRE>
+public java.lang.String <B>getTspUrl</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the url of the timestamp provider (TSP)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTspUrl(java.lang.String)"><!-- --></A><H3>
+setTspUrl</H3>
+<PRE>
+public void <B>setTspUrl</B>(java.lang.String&nbsp;tspUrl)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>tspUrl</CODE> - the url of the timestamp provider (TSP)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isTspOldProtocol()"><!-- --></A><H3>
+isTspOldProtocol</H3>
+<PRE>
+public boolean <B>isTspOldProtocol</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>if true, uses timestamp-request/response mimetype,
+ if false, timestamp-query/reply mimetype</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTspOldProtocol(boolean)"><!-- --></A><H3>
+setTspOldProtocol</H3>
+<PRE>
+public void <B>setTspOldProtocol</B>(boolean&nbsp;tspOldProtocol)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>tspOldProtocol</CODE> - defines the timestamp-protocol mimetype<DT><B>See Also:</B><DD><A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#isTspOldProtocol()"><CODE>isTspOldProtocol()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTspDigestAlgo()"><!-- --></A><H3>
+getTspDigestAlgo</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A> <B>getTspDigestAlgo</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the hash algorithm to be used for the timestamp entry.
+ Defaults to the hash algorithm of the main entry</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTspDigestAlgo(org.apache.poi.poifs.crypt.HashAlgorithm)"><!-- --></A><H3>
+setTspDigestAlgo</H3>
+<PRE>
+public void <B>setTspDigestAlgo</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A>&nbsp;tspDigestAlgo)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>tspDigestAlgo</CODE> - the algorithm to be used for the timestamp entry.
+ if <code>null</code>, the hash algorithm of the main entry</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProxyUrl()"><!-- --></A><H3>
+getProxyUrl</H3>
+<PRE>
+public java.lang.String <B>getProxyUrl</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the proxy url to be used for all communications.
+ Currently this affects the timestamp service</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setProxyUrl(java.lang.String)"><!-- --></A><H3>
+setProxyUrl</H3>
+<PRE>
+public void <B>setProxyUrl</B>(java.lang.String&nbsp;proxyUrl)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>proxyUrl</CODE> - the proxy url to be used for all communications.
+ Currently this affects the timestamp service</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTspService()"><!-- --></A><H3>
+getTspService</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TimeStampService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">TimeStampService</A> <B>getTspService</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the timestamp service. Defaults to <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TSPTimeStampService.html" title="class in org.apache.poi.poifs.crypt.dsig.services"><CODE>TSPTimeStampService</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTspService(org.apache.poi.poifs.crypt.dsig.services.TimeStampService)"><!-- --></A><H3>
+setTspService</H3>
+<PRE>
+public void <B>setTspService</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TimeStampService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">TimeStampService</A>&nbsp;tspService)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>tspService</CODE> - the timestamp service</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTspUser()"><!-- --></A><H3>
+getTspUser</H3>
+<PRE>
+public java.lang.String <B>getTspUser</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the user id for the timestamp service - currently only basic authorization is supported</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTspUser(java.lang.String)"><!-- --></A><H3>
+setTspUser</H3>
+<PRE>
+public void <B>setTspUser</B>(java.lang.String&nbsp;tspUser)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>tspUser</CODE> - the user id for the timestamp service - currently only basic authorization is supported</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTspPass()"><!-- --></A><H3>
+getTspPass</H3>
+<PRE>
+public java.lang.String <B>getTspPass</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the password for the timestamp service</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTspPass(java.lang.String)"><!-- --></A><H3>
+setTspPass</H3>
+<PRE>
+public void <B>setTspPass</B>(java.lang.String&nbsp;tspPass)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>tspPass</CODE> - the password for the timestamp service</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTspValidator()"><!-- --></A><H3>
+getTspValidator</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TimeStampServiceValidator.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">TimeStampServiceValidator</A> <B>getTspValidator</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the validator for the timestamp service (certificate)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTspValidator(org.apache.poi.poifs.crypt.dsig.services.TimeStampServiceValidator)"><!-- --></A><H3>
+setTspValidator</H3>
+<PRE>
+public void <B>setTspValidator</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/TimeStampServiceValidator.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">TimeStampServiceValidator</A>&nbsp;tspValidator)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>tspValidator</CODE> - the validator for the timestamp service (certificate)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getRevocationDataService()"><!-- --></A><H3>
+getRevocationDataService</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/RevocationDataService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">RevocationDataService</A> <B>getRevocationDataService</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the optional revocation data service used for XAdES-C and XAdES-X-L.
+ When <code>null</code> the signature will be limited to XAdES-T only.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setRevocationDataService(org.apache.poi.poifs.crypt.dsig.services.RevocationDataService)"><!-- --></A><H3>
+setRevocationDataService</H3>
+<PRE>
+public void <B>setRevocationDataService</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/services/RevocationDataService.html" title="interface in org.apache.poi.poifs.crypt.dsig.services">RevocationDataService</A>&nbsp;revocationDataService)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>revocationDataService</CODE> - the optional revocation data service used for XAdES-C and XAdES-X-L.
+ When <code>null</code> the signature will be limited to XAdES-T only.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getXadesDigestAlgo()"><!-- --></A><H3>
+getXadesDigestAlgo</H3>
+<PRE>
+public <A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A> <B>getXadesDigestAlgo</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>hash algorithm used for XAdES. Defaults to the <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getDigestAlgo()"><CODE>getDigestAlgo()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setXadesDigestAlgo(org.apache.poi.poifs.crypt.HashAlgorithm)"><!-- --></A><H3>
+setXadesDigestAlgo</H3>
+<PRE>
+public void <B>setXadesDigestAlgo</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A>&nbsp;xadesDigestAlgo)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>xadesDigestAlgo</CODE> - hash algorithm used for XAdES.
+ When <code>null</code>, defaults to <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.html#getDigestAlgo()"><CODE>getDigestAlgo()</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getUserAgent()"><!-- --></A><H3>
+getUserAgent</H3>
+<PRE>
+public java.lang.String <B>getUserAgent</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the user agent used for http communication (e.g. to the TSP)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setUserAgent(java.lang.String)"><!-- --></A><H3>
+setUserAgent</H3>
+<PRE>
+public void <B>setUserAgent</B>(java.lang.String&nbsp;userAgent)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>userAgent</CODE> - the user agent used for http communication (e.g. to the TSP)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getTspRequestPolicy()"><!-- --></A><H3>
+getTspRequestPolicy</H3>
+<PRE>
+public java.lang.String <B>getTspRequestPolicy</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the asn.1 object id for the tsp request policy.
+ Defaults to <code>1.3.6.1.4.1.13762.3</code></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setTspRequestPolicy(java.lang.String)"><!-- --></A><H3>
+setTspRequestPolicy</H3>
+<PRE>
+public void <B>setTspRequestPolicy</B>(java.lang.String&nbsp;tspRequestPolicy)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>tspRequestPolicy</CODE> - the asn.1 object id for the tsp request policy.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isIncludeEntireCertificateChain()"><!-- --></A><H3>
+isIncludeEntireCertificateChain</H3>
+<PRE>
+public boolean <B>isIncludeEntireCertificateChain</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>true, if the whole certificate chain is included in the signature.
+ When false, only the signer cert will be included</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setIncludeEntireCertificateChain(boolean)"><!-- --></A><H3>
+setIncludeEntireCertificateChain</H3>
+<PRE>
+public void <B>setIncludeEntireCertificateChain</B>(boolean&nbsp;includeEntireCertificateChain)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>includeEntireCertificateChain</CODE> - if true, include the whole certificate chain.
+ If false, only include the signer cert</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isIncludeIssuerSerial()"><!-- --></A><H3>
+isIncludeIssuerSerial</H3>
+<PRE>
+public boolean <B>isIncludeIssuerSerial</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>if true, issuer serial number is included</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setIncludeIssuerSerial(boolean)"><!-- --></A><H3>
+setIncludeIssuerSerial</H3>
+<PRE>
+public void <B>setIncludeIssuerSerial</B>(boolean&nbsp;includeIssuerSerial)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>includeIssuerSerial</CODE> - if true, issuer serial number is included</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isIncludeKeyValue()"><!-- --></A><H3>
+isIncludeKeyValue</H3>
+<PRE>
+public boolean <B>isIncludeKeyValue</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>if true, the key value of the public key (certificate) is included</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setIncludeKeyValue(boolean)"><!-- --></A><H3>
+setIncludeKeyValue</H3>
+<PRE>
+public void <B>setIncludeKeyValue</B>(boolean&nbsp;includeKeyValue)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>includeKeyValue</CODE> - if true, the key value of the public key (certificate) is included</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getXadesRole()"><!-- --></A><H3>
+getXadesRole</H3>
+<PRE>
+public java.lang.String <B>getXadesRole</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the xades role element. If <code>null</code> the claimed role element is omitted.
+ Defaults to <code>null</code></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setXadesRole(java.lang.String)"><!-- --></A><H3>
+setXadesRole</H3>
+<PRE>
+public void <B>setXadesRole</B>(java.lang.String&nbsp;xadesRole)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>xadesRole</CODE> - the xades role element. If <code>null</code> the claimed role element is omitted.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getXadesSignatureId()"><!-- --></A><H3>
+getXadesSignatureId</H3>
+<PRE>
+public java.lang.String <B>getXadesSignatureId</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the Id for the XAdES SignedProperties element.
+ Defaults to <code>idSignedProperties</code></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setXadesSignatureId(java.lang.String)"><!-- --></A><H3>
+setXadesSignatureId</H3>
+<PRE>
+public void <B>setXadesSignatureId</B>(java.lang.String&nbsp;xadesSignatureId)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>xadesSignatureId</CODE> - the Id for the XAdES SignedProperties element.
+ When <code>null</code> defaults to <code>idSignedProperties</code></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isXadesSignaturePolicyImplied()"><!-- --></A><H3>
+isXadesSignaturePolicyImplied</H3>
+<PRE>
+public boolean <B>isXadesSignaturePolicyImplied</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>when true, include the policy-implied block.
+ Defaults to <code>true</code></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setXadesSignaturePolicyImplied(boolean)"><!-- --></A><H3>
+setXadesSignaturePolicyImplied</H3>
+<PRE>
+public void <B>setXadesSignaturePolicyImplied</B>(boolean&nbsp;xadesSignaturePolicyImplied)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>xadesSignaturePolicyImplied</CODE> - when true, include the policy-implied block</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="isXadesIssuerNameNoReverseOrder()"><!-- --></A><H3>
+isXadesIssuerNameNoReverseOrder</H3>
+<PRE>
+public boolean <B>isXadesIssuerNameNoReverseOrder</B>()</PRE>
+<DL>
+<DD>Make sure the DN is encoded using the same order as present
+ within the certificate. This is an Office2010 work-around.
+ Should be reverted back.
+ 
+ XXX: not correct according to RFC 4514.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>when true, the issuer DN is used instead of the issuer X500 principal</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setXadesIssuerNameNoReverseOrder(boolean)"><!-- --></A><H3>
+setXadesIssuerNameNoReverseOrder</H3>
+<PRE>
+public void <B>setXadesIssuerNameNoReverseOrder</B>(boolean&nbsp;xadesIssuerNameNoReverseOrder)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>xadesIssuerNameNoReverseOrder</CODE> - when true, the issuer DN instead of the issuer X500 prinicpal is used</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSignatureMarshalListener()"><!-- --></A><H3>
+getSignatureMarshalListener</H3>
+<PRE>
+public org.w3c.dom.events.EventListener <B>getSignatureMarshalListener</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the event listener which is active while xml structure for
+ the signature is created.
+ Defaults to <A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureMarshalListener.html" title="class in org.apache.poi.poifs.crypt.dsig"><CODE>SignatureMarshalListener</CODE></A></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSignatureMarshalListener(org.w3c.dom.events.EventListener)"><!-- --></A><H3>
+setSignatureMarshalListener</H3>
+<PRE>
+public void <B>setSignatureMarshalListener</B>(org.w3c.dom.events.EventListener&nbsp;signatureMarshalListener)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signatureMarshalListener</CODE> - the event listener watching the xml structure
+ generation for the signature</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getNamespacePrefixes()"><!-- --></A><H3>
+getNamespacePrefixes</H3>
+<PRE>
+public java.util.Map&lt;java.lang.String,java.lang.String&gt; <B>getNamespacePrefixes</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the map of namespace uri (key) to prefix (value)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setNamespacePrefixes(java.util.Map)"><!-- --></A><H3>
+setNamespacePrefixes</H3>
+<PRE>
+public void <B>setNamespacePrefixes</B>(java.util.Map&lt;java.lang.String,java.lang.String&gt;&nbsp;namespacePrefixes)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>namespacePrefixes</CODE> - the map of namespace uri (key) to prefix (value)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="nvl(java.lang.Object,java.lang.Object)"><!-- --></A><A NAME="nvl(T, T)"><!-- --></A><H3>
+nvl</H3>
+<PRE>
+protected static &lt;T&gt; T <B>nvl</B>(T&nbsp;value,
+                           T&nbsp;defaultValue)</PRE>
+<DL>
+<DD>helper method for null/default value handling
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>value</CODE> - <DD><CODE>defaultValue</CODE> - 
+<DT><B>Returns:</B><DD>if value is not null, return value otherwise defaultValue</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getHashMagic()"><!-- --></A><H3>
+getHashMagic</H3>
+<PRE>
+public byte[] <B>getHashMagic</B>()</PRE>
+<DL>
+<DD>Each digest method has its own IV (initial vector)
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the IV depending on the main digest method</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSignatureMethodUri()"><!-- --></A><H3>
+getSignatureMethodUri</H3>
+<PRE>
+public java.lang.String <B>getSignatureMethodUri</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the uri for the signature method, i.e. currently only rsa is
+ supported, so it's the rsa variant of the main digest</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDigestMethodUri()"><!-- --></A><H3>
+getDigestMethodUri</H3>
+<PRE>
+public java.lang.String <B>getDigestMethodUri</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the uri for the main digest</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getDigestMethodUri(org.apache.poi.poifs.crypt.HashAlgorithm)"><!-- --></A><H3>
+getDigestMethodUri</H3>
+<PRE>
+public static java.lang.String <B>getDigestMethodUri</B>(<A HREF="../../../../../../org/apache/poi/poifs/crypt/HashAlgorithm.html" title="enum in org.apache.poi.poifs.crypt">HashAlgorithm</A>&nbsp;digestAlgo)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>digestAlgo</CODE> - the digest algo, currently only sha* and ripemd160 is supported
+<DT><B>Returns:</B><DD>the uri for the given digest</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setSignatureFactory(javax.xml.crypto.dsig.XMLSignatureFactory)"><!-- --></A><H3>
+setSignatureFactory</H3>
+<PRE>
+public void <B>setSignatureFactory</B>(javax.xml.crypto.dsig.XMLSignatureFactory&nbsp;signatureFactory)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>signatureFactory</CODE> - the xml signature factory, saved as thread-local</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getSignatureFactory()"><!-- --></A><H3>
+getSignatureFactory</H3>
+<PRE>
+public javax.xml.crypto.dsig.XMLSignatureFactory <B>getSignatureFactory</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the xml signature factory (thread-local)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setKeyInfoFactory(javax.xml.crypto.dsig.keyinfo.KeyInfoFactory)"><!-- --></A><H3>
+setKeyInfoFactory</H3>
+<PRE>
+public void <B>setKeyInfoFactory</B>(javax.xml.crypto.dsig.keyinfo.KeyInfoFactory&nbsp;keyInfoFactory)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>keyInfoFactory</CODE> - the key factory, saved as thread-local</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getKeyInfoFactory()"><!-- --></A><H3>
+getKeyInfoFactory</H3>
+<PRE>
+public javax.xml.crypto.dsig.keyinfo.KeyInfoFactory <B>getKeyInfoFactory</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the key factory (thread-local)</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getProvider()"><!-- --></A><H3>
+getProvider</H3>
+<PRE>
+public java.security.Provider <B>getProvider</B>()</PRE>
+<DL>
+<DD>This method tests the existence of xml signature provider in the following order:
+ <ul>
+ <li>the class pointed to by the system property "jsr105Provider"</li>
+ <li>the Santuario xmlsec provider</li>
+ <li>the JDK xmlsec provider</li>
+ </ul>
+ 
+ For signing the classes are linked against the Santuario xmlsec, so this might
+ only work for validation (not tested).
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the xml dsig provider</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getXadesCanonicalizationMethod()"><!-- --></A><H3>
+getXadesCanonicalizationMethod</H3>
+<PRE>
+public java.lang.String <B>getXadesCanonicalizationMethod</B>()</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>the cannonicalization method for XAdES-XL signing.
+ Defaults to <code>EXCLUSIVE</code><DT><B>See Also:</B><DD><a href="http://docs.oracle.com/javase/7/docs/api/javax/xml/crypto/dsig/CanonicalizationMethod.html">javax.xml.crypto.dsig.CanonicalizationMethod</a></DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setXadesCanonicalizationMethod(java.lang.String)"><!-- --></A><H3>
+setXadesCanonicalizationMethod</H3>
+<PRE>
+public void <B>setXadesCanonicalizationMethod</B>(java.lang.String&nbsp;xadesCanonicalizationMethod)</PRE>
+<DL>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>xadesCanonicalizationMethod</CODE> - the cannonicalization method for XAdES-XL signing<DT><B>See Also:</B><DD><a href="http://docs.oracle.com/javase/7/docs/api/javax/xml/crypto/dsig/CanonicalizationMethod.html">javax.xml.crypto.dsig.CanonicalizationMethod</a></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/SignatureConfig.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/RevokedCertificateSecurityException.html" title="class in org.apache.poi.poifs.crypt.dsig"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../../org/apache/poi/poifs/crypt/dsig/SignatureConfig.SignatureConfigurable.html" title="interface in org.apache.poi.poifs.crypt.dsig"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../index.html?org/apache/poi/poifs/crypt/dsig/SignatureConfig.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="SignatureConfig.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;FIELD&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

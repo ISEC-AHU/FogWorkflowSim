@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Apache POI - Logging Framework</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td width="50%" align="left">
+<div class="groupLogo">
+<a href="https://www.apache.org"><img border="0" class="logoImage" alt="The Apache Software Foundation" src="resources/images/asf_logo.png"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td width="50%" align="right">
+<div align="right" class="projectLogo">
+<a href="https://donate.apache.org/"><img border="0" class="logoImage" alt="Support Apache" src="resources/images/support-asf.png" width="120" height="120" title="Your donation helps The Apache Software Foundation ensure its community-driven software remains available to billions of users at absolutely no cost."></a><a href="https://poi.apache.org/"><img border="0" class="logoImage" alt="Apache POI" src="resources/images/pb-poi.png" width="120" height="120" title="Apache POI - the Java API for Microsoft Documents"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href="https://www.apache.org/">Apache</a> | <a href="https://poi.apache.org/">POI</a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="selectedTab"><a class="base-selected" href="index.html">Home</a></span> | <script language="Javascript" type="text/javascript">
+function printit() {  
+if (window.print) {
+    window.print() ;  
+} else {
+    var WebBrowser = '<OBJECT ID="WebBrowser1" WIDTH="0" HEIGHT="0" CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></OBJECT>';
+document.body.insertAdjacentHTML('beforeEnd', WebBrowser);
+    WebBrowser1.ExecWB(6, 2);//Use a 1 vs. a 2 for a prompting dialog box    WebBrowser1.outerHTML = "";  
+}
+}
+</script><script language="Javascript" type="text/javascript">
+var NS = (navigator.appName == "Netscape");
+var VERSION = parseInt(navigator.appVersion);
+if (VERSION > 3) {
+    document.write('  <a title="PRINT this page OUT" href="javascript:printit()">PRINT</a>');
+}
+</script>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Overview</span>
+        
+<div class="menuItem">
+<a href="index.html">Home</a>
+</div>
+        
+<div class="menuItem">
+<a href="download.html">Download</a>
+</div>
+        
+<div class="menuItem">
+<a href="overview.html">Components</a>
+</div>
+        
+<div class="menuItem">
+<a href="text-extraction.html">Text Extraction</a>
+</div>
+        
+<div class="menuItem">
+<a href="encryption.html">Encryption support</a>
+</div>
+        
+<div class="menuItem">
+<a href="casestudies.html">Case Studies</a>
+</div>
+        
+<div class="menuItem">
+<a href="related-projects.html">Related projects</a>
+</div>
+        
+<div class="menuItem">
+<a href="legal.html">Legal</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Help</span>
+        
+<div class="menuItem">
+<a href="apidocs/index.html">Javadocs</a>
+</div>
+        
+<div class="menuItem">
+<a href="faq.html">FAQ</a>
+</div>
+        
+<div class="menuItem">
+<a href="mailinglists.html">Mailing Lists</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://bz.apache.org/bugzilla/buglist.cgi?product=POI">Bug Database</a>
+</div>
+        
+<div class="menuItem">
+<a href="changes.html">Changelog</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Getting Involved</span>
+        
+<div class="menuItem">
+<a href="subversion.html">Subversion Repository</a>
+</div>
+        
+<div class="menuItem">
+<a href="howtobuild.html">How To Build</a>
+</div>
+        
+<div class="menuItem">
+<a href="guidelines.html">Contribution Guidelines</a>
+</div>
+        
+<div class="menuItem">
+<a href="who.html">Who We Are</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Component APIs</span>
+        
+<div class="menuItem">
+<a href="spreadsheet/index.html">Excel (SS=HSSF+XSSF+SXSSF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="slideshow/index.html">PowerPoint (SL=HSLF+XSLF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="document/index.html">Word (WP=HWPF+XWPF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hsmf/index.html">Outlook (HSMF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="diagram/index.html">Visio (HDGF+XDGF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hpbf/index.html">Publisher (HPBF)</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Low-level Component APIs</span>
+        
+<div class="menuItem">
+<a href="poifs/index.html">OLE2 Filesystem (POIFS)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hpsf/index.html">OLE2 Document Props (HPSF)</a>
+</div>
+        
+<div class="menuItem">
+<a href="hmef/index.html">TNEF (HMEF) for winmail.dat</a>
+</div>
+        
+<div class="menuItem">
+<a href="oxml4j/index.html">OpenXML4J (OOXML)</a>
+</div>
+        
+<div class="menuItem">
+<span class="menuSelected">Logging framework</span>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Apache Wide</span>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/">Apache Software Foundation</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/licenses/">License</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/foundation/thanks.html">Thanks</a>
+</div>
+        
+<div class="menuItem">
+<a href="https://www.apache.org/security/">Security</a>
+</div>
+    
+</div>
+</div>
+</div>
+<form target="_blank" action="https://www.google.com/search" method="get">
+<table summary="search" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td nowrap="nowrap">
+                          Search Apache POI<br>
+<input value="poi.apache.org" name="sitesearch" type="hidden"><input size="10" name="q" id="query" type="text"><img height="1" width="5" alt="" src="skin/images/spacer.gif" class="spacer"><input name="Search" value="GO" type="submit"></td><td><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td colspan="3"><img height="7" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td>
+</tr>
+<tr>
+<td class="bottom-left-thick"></td><td bgcolor="#a5b6c6"><img height="1" width="1" alt="" src="skin/images/spacer.gif" class="spacer"></td><td class="bottom-right-thick"></td>
+</tr>
+</table>
+</form>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Apache POI - Logging Framework</h1>
+</div>
+<div class="h3">
+    
+
+    
+        
+<a name="Introduction"></a>
+<div class="h3">
+<h3>Introduction<a title="Permanent link" class="headerlink" href="#Introduction">#</a>
+</h3>
+</div>
+            
+            
+<p>
+                POI uses a custom logging framework which allows to configure where logs are sent to.
+            </p>
+            
+<p>
+                Logging in POI is used only as a debugging mechanism, not a normal runtime
+                logging system.  Logging on level debug/info is ONLY for autopsie type debugging, and should
+                NEVER be enabled on a production system.
+            </p>
+            
+<p>
+                The framework is extensible so that you can send log messages to any logging framework
+                that your application uses.
+            </p>
+            
+<p>
+                A number of default logging implementations are supported by POI out-of-the-box and can be selected via a
+                system property.
+            </p>
+        
+        
+<a name="Enable+logging"></a>
+<div class="h3">
+<h3>Enable logging<a title="Permanent link" class="headerlink" href="#Enable+logging">#</a>
+</h3>
+</div>
+        
+<p>
+            By default, logging is disabled in POI. Sometimes it might be useful
+            to enable logging to see some debug messages printed out which can
+            help in analyzing problems.
+        </p>
+        
+<p>
+            You can select the logging framework by setting the system property <em>org.apache.poi.util.POILogger</em> during application startup or by calling System.setProperty():
+        </p>
+        
+<pre class="code">
+            System.setProperty("org.apache.poi.util.POILogger", "org.apache.poi.util.CommonsLogger" );
+        </pre>
+        
+<p>
+            Note: You need to call <em>setProperty()</em> before any POI functionality is invoked as the logger is only initialized during startup.
+        </p>
+        
+        
+<a name="Available+logger+implementations"></a>
+<div class="h3">
+<h3>Available logger implementations<a title="Permanent link" class="headerlink" href="#Available+logger+implementations">#</a>
+</h3>
+</div>
+            
+<p>
+                The following logger implementations are provided by POI:
+            </p>
+            
+<table class="ForrestTable" cellspacing="1" cellpadding="4">
+            
+<tr class="b">
+                
+<th colspan="1" rowspan="1">Class</th>
+                <th colspan="1" rowspan="1">Type</th>
+            
+</tr>
+            
+<tr class="a">
+                
+<td colspan="1" rowspan="1">org.apache.poi.util.SystemOutLogger</td>
+                <td colspan="1" rowspan="1">Sends log output to the system console</td>
+            
+</tr>
+            
+<tr class="b">
+                
+<td colspan="1" rowspan="1">org.apache.poi.util.NullLogger</td>
+                <td colspan="1" rowspan="1">Default logger, does not log anything</td>
+            
+</tr>
+            
+<tr class="a">
+                
+<td colspan="1" rowspan="1">org.apache.poi.util.CommonsLogger</td>
+                <td colspan="1" rowspan="1">Allows to use <a href="https://commons.apache.org/proper/commons-logging/">Apache Commons Logging</a> for logging. This can use JDK1.4 logging,
+                    log4j, logkit, ...</td>
+            
+</tr>
+            
+<tr class="b">
+                
+<td colspan="1" rowspan="1">org.apache.poi.util.DummyPOILogger</td>
+                <td colspan="1" rowspan="1">Simple logger which will keep all log-lines in memory for later analysis. Used primarily for testing. Note: this may cause a memory leak if used in production application!</td>
+            
+</tr>
+            
+</table>
+        
+        
+<a name="Sending+logs+to+a+different+log+framework"></a>
+<div class="h3">
+<h3>Sending logs to a different log framework<a title="Permanent link" class="headerlink" href="#Sending+logs+to+a+different+log+framework">#</a>
+</h3>
+</div>
+            
+<p>
+                You can send logs to other logging frameworks by implementing the interface <em>org.apache.poi.util.POILogger</em>.
+            </p>
+        
+        
+<a name="Implementation+details"></a>
+<div class="h3">
+<h3>Implementation details<a title="Permanent link" class="headerlink" href="#Implementation+details">#</a>
+</h3>
+</div>
+            
+<p>
+                Every class uses a <span class="codefrag">POILogger</span> to log, and gets it using a static method
+                of the <span class="codefrag">POILogFactory</span> .
+            </p>
+            
+<p>
+                Each class in POI can log using a <span class="codefrag">POILogger</span>, which is an abstract class.
+                We decided to make our own logging facade because:</p>
+            
+<ol>
+                
+<li>we need to log many values and we put many methods in this class to facilitate the
+                    programmer, without having him write string concatenations;</li>
+                
+<li>we need to be able to use POI without any logger package present.</li>
+            
+</ol>
+        
+    
+    
+
+<div id="authors" align="right">by&nbsp;Dominik Stadler</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2002-2017&nbsp;The Apache Software Foundation. All rights reserved.<br>
+              Apache, Apache POI, and the Apache POI logo are registered trademarks or
+              trademarks of The Apache Software Foundation in the U.S. and/or other countries.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

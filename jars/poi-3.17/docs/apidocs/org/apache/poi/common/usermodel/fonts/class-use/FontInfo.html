@@ -1,0 +1,525 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+Uses of Interface org.apache.poi.common.usermodel.fonts.FontInfo (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="Uses of Interface org.apache.poi.common.usermodel.fonts.FontInfo (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../../index.html?org/apache/poi/common/usermodel/fonts//class-useFontInfo.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="FontInfo.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<CENTER>
+<H2>
+<B>Uses of Interface<br>org.apache.poi.common.usermodel.fonts.FontInfo</B></H2>
+</CENTER>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Packages that use <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.hslf.record"><B>org.apache.poi.hslf.record</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.hslf.usermodel"><B>org.apache.poi.hslf.usermodel</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.hwmf.record"><B>org.apache.poi.hwmf.record</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.sl.draw"><B>org.apache.poi.sl.draw</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.sl.usermodel"><B>org.apache.poi.sl.usermodel</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><A HREF="#org.apache.poi.xslf.usermodel"><B>org.apache.poi.xslf.usermodel</B></A></TD>
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.hslf.record"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A> in <A HREF="../../../../../../../org/apache/poi/hslf/record/package-summary.html">org.apache.poi.hslf.record</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../org/apache/poi/hslf/record/package-summary.html">org.apache.poi.hslf.record</A> with parameters of type <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/hslf/usermodel/HSLFFontInfo.html" title="class in org.apache.poi.hslf.usermodel">HSLFFontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>FontCollection.</B><B><A HREF="../../../../../../../org/apache/poi/hslf/record/FontCollection.html#addFont(org.apache.poi.common.usermodel.fonts.FontInfo)">addFont</A></B>(<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add font with the given FontInfo configuration to the font collection.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.hslf.usermodel"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A> in <A HREF="../../../../../../../org/apache/poi/hslf/usermodel/package-summary.html">org.apache.poi.hslf.usermodel</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Classes in <A HREF="../../../../../../../org/apache/poi/hslf/usermodel/package-summary.html">org.apache.poi.hslf.usermodel</A> that implement <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../org/apache/poi/hslf/usermodel/HSLFFontInfo.html" title="class in org.apache.poi.hslf.usermodel">HSLFFontInfo</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Represents a Font used in a presentation.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../org/apache/poi/hslf/usermodel/HSLFFontInfoPredefined.html" title="enum in org.apache.poi.hslf.usermodel">HSLFFontInfoPredefined</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Predefined fonts</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../org/apache/poi/hslf/usermodel/package-summary.html">org.apache.poi.hslf.usermodel</A> with parameters of type <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/hslf/usermodel/HSLFFontInfo.html" title="class in org.apache.poi.hslf.usermodel">HSLFFontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>HSLFSlideShow.</B><B><A HREF="../../../../../../../org/apache/poi/hslf/usermodel/HSLFSlideShow.html#addFont(org.apache.poi.common.usermodel.fonts.FontInfo)">addFont</A></B>(<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a font in this presentation</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>HSLFTextRun.</B><B><A HREF="../../../../../../../org/apache/poi/hslf/usermodel/HSLFTextRun.html#setFontInfo(org.apache.poi.common.usermodel.fonts.FontInfo, org.apache.poi.common.usermodel.fonts.FontGroup)">setFontInfo</A></B>(<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo,
+            <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontGroup.html" title="enum in org.apache.poi.common.usermodel.fonts">FontGroup</A>&nbsp;fontGroup)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Constructors in <A HREF="../../../../../../../org/apache/poi/hslf/usermodel/package-summary.html">org.apache.poi.hslf.usermodel</A> with parameters of type <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../../../org/apache/poi/hslf/usermodel/HSLFFontInfo.html#HSLFFontInfo(org.apache.poi.common.usermodel.fonts.FontInfo)">HSLFFontInfo</A></B>(<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.hwmf.record"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A> in <A HREF="../../../../../../../org/apache/poi/hwmf/record/package-summary.html">org.apache.poi.hwmf.record</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Classes in <A HREF="../../../../../../../org/apache/poi/hwmf/record/package-summary.html">org.apache.poi.hwmf.record</A> that implement <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../../../org/apache/poi/hwmf/record/HwmfFont.html" title="class in org.apache.poi.hwmf.record">HwmfFont</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Font object specifies the attributes of a logical font</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.sl.draw"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A> in <A HREF="../../../../../../../org/apache/poi/sl/draw/package-summary.html">org.apache.poi.sl.draw</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../org/apache/poi/sl/draw/package-summary.html">org.apache.poi.sl.draw</A> that return <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>DrawFontManager.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManager.html#getFallbackFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo)">getFallbackFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+                <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In case the original font doesn't contain a glyph, use the
+ returned fallback font as an alternative</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>DrawFontManagerDefault.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManagerDefault.html#getFallbackFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo)">getFallbackFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+                <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>DrawFontManager.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManager.html#getMappedFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo)">getMappedFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+              <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select a font to be used to paint text</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>DrawFontManagerDefault.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManagerDefault.html#getMappedFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo)">getMappedFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+              <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../org/apache/poi/sl/draw/package-summary.html">org.apache.poi.sl.draw</A> with parameters of type <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.awt.Font</CODE></FONT></TD>
+<TD><CODE><B>DrawFontManager.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManager.html#createAWTFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo, double, boolean, boolean)">createAWTFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+              <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo,
+              double&nbsp;size,
+              boolean&nbsp;bold,
+              boolean&nbsp;italic)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create an AWT font object with the given attributes</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.awt.Font</CODE></FONT></TD>
+<TD><CODE><B>DrawFontManagerDefault.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManagerDefault.html#createAWTFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo, double, boolean, boolean)">createAWTFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+              <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo,
+              double&nbsp;fontSize,
+              boolean&nbsp;bold,
+              boolean&nbsp;italic)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>DrawFontManager.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManager.html#getFallbackFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo)">getFallbackFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+                <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In case the original font doesn't contain a glyph, use the
+ returned fallback font as an alternative</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>DrawFontManagerDefault.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManagerDefault.html#getFallbackFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo)">getFallbackFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+                <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>DrawFontManager.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManager.html#getMappedFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo)">getMappedFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+              <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select a font to be used to paint text</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>DrawFontManagerDefault.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManagerDefault.html#getMappedFont(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo)">getMappedFont</A></B>(java.awt.Graphics2D&nbsp;graphics,
+              <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B>DrawFontManager.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManager.html#mapFontCharset(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo, java.lang.String)">mapFontCharset</A></B>(java.awt.Graphics2D&nbsp;graphics,
+               <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo,
+               java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map text charset depending on font family.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.String</CODE></FONT></TD>
+<TD><CODE><B>DrawFontManagerDefault.</B><B><A HREF="../../../../../../../org/apache/poi/sl/draw/DrawFontManagerDefault.html#mapFontCharset(java.awt.Graphics2D, org.apache.poi.common.usermodel.fonts.FontInfo, java.lang.String)">mapFontCharset</A></B>(java.awt.Graphics2D&nbsp;graphics,
+               <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo,
+               java.lang.String&nbsp;text)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.sl.usermodel"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A> in <A HREF="../../../../../../../org/apache/poi/sl/usermodel/package-summary.html">org.apache.poi.sl.usermodel</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../org/apache/poi/sl/usermodel/package-summary.html">org.apache.poi.sl.usermodel</A> that return <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>TextRun.</B><B><A HREF="../../../../../../../org/apache/poi/sl/usermodel/TextRun.html#getFontInfo(org.apache.poi.common.usermodel.fonts.FontGroup)">getFontInfo</A></B>(<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontGroup.html" title="enum in org.apache.poi.common.usermodel.fonts">FontGroup</A>&nbsp;fontGroup)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get the font info for the given font group</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../org/apache/poi/sl/usermodel/package-summary.html">org.apache.poi.sl.usermodel</A> with parameters of type <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>TextRun.</B><B><A HREF="../../../../../../../org/apache/poi/sl/usermodel/TextRun.html#setFontInfo(org.apache.poi.common.usermodel.fonts.FontInfo, org.apache.poi.common.usermodel.fonts.FontGroup)">setFontInfo</A></B>(<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo,
+            <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontGroup.html" title="enum in org.apache.poi.common.usermodel.fonts">FontGroup</A>&nbsp;fontGroup)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Specifies the font to be used for this text run.</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<A NAME="org.apache.poi.xslf.usermodel"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+Uses of <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A> in <A HREF="../../../../../../../org/apache/poi/xslf/usermodel/package-summary.html">org.apache.poi.xslf.usermodel</A></FONT></TH>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../org/apache/poi/xslf/usermodel/package-summary.html">org.apache.poi.xslf.usermodel</A> that return <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></CODE></FONT></TD>
+<TD><CODE><B>XSLFTextRun.</B><B><A HREF="../../../../../../../org/apache/poi/xslf/usermodel/XSLFTextRun.html#getFontInfo(org.apache.poi.common.usermodel.fonts.FontGroup)">getFontInfo</A></B>(<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontGroup.html" title="enum in org.apache.poi.common.usermodel.fonts">FontGroup</A>&nbsp;fontGroup)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left" COLSPAN="2">Methods in <A HREF="../../../../../../../org/apache/poi/xslf/usermodel/package-summary.html">org.apache.poi.xslf.usermodel</A> with parameters of type <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B>XSLFTextRun.</B><B><A HREF="../../../../../../../org/apache/poi/xslf/usermodel/XSLFTextRun.html#setFontInfo(org.apache.poi.common.usermodel.fonts.FontInfo, org.apache.poi.common.usermodel.fonts.FontGroup)">setFontInfo</A></B>(<A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts">FontInfo</A>&nbsp;fontInfo,
+            <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontGroup.html" title="enum in org.apache.poi.common.usermodel.fonts">FontGroup</A>&nbsp;fontGroup)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../org/apache/poi/common/usermodel/fonts/FontInfo.html" title="interface in org.apache.poi.common.usermodel.fonts"><FONT CLASS="NavBarFont1"><B>Class</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Use</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;PREV&nbsp;
+&nbsp;NEXT</FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../../../index.html?org/apache/poi/common/usermodel/fonts//class-useFontInfo.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="FontInfo.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

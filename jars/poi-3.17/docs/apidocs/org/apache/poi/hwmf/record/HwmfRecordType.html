@@ -1,0 +1,1490 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+HwmfRecordType (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="HwmfRecordType (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HwmfRecordType.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecord.html" title="interface in org.apache.poi.hwmf.record"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfTernaryRasterOp.html" title="enum in org.apache.poi.hwmf.record"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hwmf/record/HwmfRecordType.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HwmfRecordType.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#enum_constant_summary">ENUM CONSTANTS</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#enum_constant_detail">ENUM CONSTANTS</A>&nbsp;|&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.hwmf.record</FONT>
+<BR>
+Enum HwmfRecordType</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by ">java.lang.Enum&lt;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A>&gt;
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.hwmf.record.HwmfRecordType</B>
+</PRE>
+<DL>
+<DT><B>All Implemented Interfaces:</B> <DD>java.io.Serializable, java.lang.Comparable&lt;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A>&gt;</DD>
+</DL>
+<HR>
+<DL>
+<DT><PRE>public enum <B>HwmfRecordType</B><DT>extends java.lang.Enum&lt;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A>&gt;</DL>
+</PRE>
+
+<P>
+Available record types for WMF
+<P>
+
+<P>
+<DL>
+<DT><B>See Also:</B><DD><a href="http://www.symantec.com/avcenter/reference/inside.the.windows.meta.file.format.pdf">Inside the Windows Meta File Format</a></DL>
+<HR>
+
+<P>
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+
+<A NAME="enum_constant_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Enum Constant Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#animatePalette">animatePalette</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#arc">arc</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#bitBlt">bitBlt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#chord">chord</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#createBrushIndirect">createBrushIndirect</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#createFontIndirect">createFontIndirect</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#createPalette">createPalette</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#createPatternBrush">createPatternBrush</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#createPenIndirect">createPenIndirect</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#createRegion">createRegion</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#deleteObject">deleteObject</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#dibBitBlt">dibBitBlt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#dibCreatePatternBrush">dibCreatePatternBrush</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#dibStretchBlt">dibStretchBlt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#ellipse">ellipse</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#eof">eof</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#escape">escape</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#excludeClipRect">excludeClipRect</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#extFloodFill">extFloodFill</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#extTextOut">extTextOut</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#fillRegion">fillRegion</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#floodFill">floodFill</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#frameRegion">frameRegion</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#intersectClipRect">intersectClipRect</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#invertRegion">invertRegion</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#lineTo">lineTo</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#moveTo">moveTo</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#offsetClipRgn">offsetClipRgn</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#offsetViewportOrg">offsetViewportOrg</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#offsetWindowOrg">offsetWindowOrg</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#paintRegion">paintRegion</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#patBlt">patBlt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#pie">pie</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#polygon">polygon</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#polyline">polyline</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#polyPolygon">polyPolygon</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#realizePalette">realizePalette</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#rectangle">rectangle</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#resizePalette">resizePalette</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#restoreDc">restoreDc</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#roundRect">roundRect</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#saveDc">saveDc</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#scaleViewportExt">scaleViewportExt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#scaleWindowExt">scaleWindowExt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#selectClipRegion">selectClipRegion</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#selectObject">selectObject</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#selectPalette">selectPalette</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setBkColor">setBkColor</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setBkMode">setBkMode</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setDibToDev">setDibToDev</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setLayout">setLayout</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setMapMode">setMapMode</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setMapperFlags">setMapperFlags</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setPalEntries">setPalEntries</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setPixel">setPixel</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setPolyFillMode">setPolyFillMode</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setRelabs">setRelabs</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setRop2">setRop2</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setStretchBltMode">setStretchBltMode</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setTextAlign">setTextAlign</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setTextCharExtra">setTextCharExtra</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setTextColor">setTextColor</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setTextJustification">setTextJustification</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setViewportExt">setViewportExt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setViewportOrg">setViewportOrg</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setWindowExt">setWindowExt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#setWindowOrg">setWindowOrg</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#stretchBlt">stretchBlt</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#stretchDib">stretchDib</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#textOut">textOut</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.lang.Class&lt;? extends <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecord.html" title="interface in org.apache.poi.hwmf.record">HwmfRecord</A>&gt;</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#clazz">clazz</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#id">id</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#getById(int)">getById</A></B>(int&nbsp;id)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#valueOf(java.lang.String)">valueOf</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the enum constant of this type with the specified name.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A>[]</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html#values()">values</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns an array containing the constants of this enum type, in
+the order they are declared.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Enum"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Enum</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, compareTo, equals, finalize, getDeclaringClass, hashCode, name, ordinal, toString, valueOf</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>getClass, notify, notifyAll, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ ENUM CONSTANT DETAIL =========== -->
+
+<A NAME="enum_constant_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Enum Constant Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="eof"><!-- --></A><H3>
+eof</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>eof</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="animatePalette"><!-- --></A><H3>
+animatePalette</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>animatePalette</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="arc"><!-- --></A><H3>
+arc</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>arc</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="bitBlt"><!-- --></A><H3>
+bitBlt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>bitBlt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="chord"><!-- --></A><H3>
+chord</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>chord</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="createBrushIndirect"><!-- --></A><H3>
+createBrushIndirect</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>createBrushIndirect</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="createFontIndirect"><!-- --></A><H3>
+createFontIndirect</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>createFontIndirect</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="createPalette"><!-- --></A><H3>
+createPalette</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>createPalette</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="createPatternBrush"><!-- --></A><H3>
+createPatternBrush</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>createPatternBrush</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="createPenIndirect"><!-- --></A><H3>
+createPenIndirect</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>createPenIndirect</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="createRegion"><!-- --></A><H3>
+createRegion</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>createRegion</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="deleteObject"><!-- --></A><H3>
+deleteObject</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>deleteObject</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="dibBitBlt"><!-- --></A><H3>
+dibBitBlt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>dibBitBlt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="dibCreatePatternBrush"><!-- --></A><H3>
+dibCreatePatternBrush</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>dibCreatePatternBrush</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="dibStretchBlt"><!-- --></A><H3>
+dibStretchBlt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>dibStretchBlt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="ellipse"><!-- --></A><H3>
+ellipse</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>ellipse</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="escape"><!-- --></A><H3>
+escape</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>escape</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="excludeClipRect"><!-- --></A><H3>
+excludeClipRect</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>excludeClipRect</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="extFloodFill"><!-- --></A><H3>
+extFloodFill</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>extFloodFill</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="extTextOut"><!-- --></A><H3>
+extTextOut</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>extTextOut</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="fillRegion"><!-- --></A><H3>
+fillRegion</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>fillRegion</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="floodFill"><!-- --></A><H3>
+floodFill</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>floodFill</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="frameRegion"><!-- --></A><H3>
+frameRegion</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>frameRegion</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="intersectClipRect"><!-- --></A><H3>
+intersectClipRect</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>intersectClipRect</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="invertRegion"><!-- --></A><H3>
+invertRegion</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>invertRegion</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="lineTo"><!-- --></A><H3>
+lineTo</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>lineTo</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="moveTo"><!-- --></A><H3>
+moveTo</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>moveTo</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="offsetClipRgn"><!-- --></A><H3>
+offsetClipRgn</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>offsetClipRgn</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="offsetViewportOrg"><!-- --></A><H3>
+offsetViewportOrg</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>offsetViewportOrg</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="offsetWindowOrg"><!-- --></A><H3>
+offsetWindowOrg</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>offsetWindowOrg</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="paintRegion"><!-- --></A><H3>
+paintRegion</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>paintRegion</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="patBlt"><!-- --></A><H3>
+patBlt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>patBlt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="pie"><!-- --></A><H3>
+pie</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>pie</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="polygon"><!-- --></A><H3>
+polygon</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>polygon</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="polyline"><!-- --></A><H3>
+polyline</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>polyline</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="polyPolygon"><!-- --></A><H3>
+polyPolygon</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>polyPolygon</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="realizePalette"><!-- --></A><H3>
+realizePalette</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>realizePalette</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="rectangle"><!-- --></A><H3>
+rectangle</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>rectangle</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="resizePalette"><!-- --></A><H3>
+resizePalette</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>resizePalette</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="restoreDc"><!-- --></A><H3>
+restoreDc</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>restoreDc</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="roundRect"><!-- --></A><H3>
+roundRect</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>roundRect</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="saveDc"><!-- --></A><H3>
+saveDc</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>saveDc</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="scaleViewportExt"><!-- --></A><H3>
+scaleViewportExt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>scaleViewportExt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="scaleWindowExt"><!-- --></A><H3>
+scaleWindowExt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>scaleWindowExt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="selectClipRegion"><!-- --></A><H3>
+selectClipRegion</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>selectClipRegion</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="selectObject"><!-- --></A><H3>
+selectObject</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>selectObject</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="selectPalette"><!-- --></A><H3>
+selectPalette</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>selectPalette</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setBkColor"><!-- --></A><H3>
+setBkColor</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setBkColor</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setBkMode"><!-- --></A><H3>
+setBkMode</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setBkMode</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setDibToDev"><!-- --></A><H3>
+setDibToDev</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setDibToDev</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setLayout"><!-- --></A><H3>
+setLayout</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setLayout</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setMapMode"><!-- --></A><H3>
+setMapMode</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setMapMode</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setMapperFlags"><!-- --></A><H3>
+setMapperFlags</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setMapperFlags</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setPalEntries"><!-- --></A><H3>
+setPalEntries</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setPalEntries</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setPixel"><!-- --></A><H3>
+setPixel</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setPixel</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setPolyFillMode"><!-- --></A><H3>
+setPolyFillMode</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setPolyFillMode</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setRelabs"><!-- --></A><H3>
+setRelabs</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setRelabs</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setRop2"><!-- --></A><H3>
+setRop2</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setRop2</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setStretchBltMode"><!-- --></A><H3>
+setStretchBltMode</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setStretchBltMode</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setTextAlign"><!-- --></A><H3>
+setTextAlign</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setTextAlign</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setTextCharExtra"><!-- --></A><H3>
+setTextCharExtra</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setTextCharExtra</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setTextColor"><!-- --></A><H3>
+setTextColor</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setTextColor</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setTextJustification"><!-- --></A><H3>
+setTextJustification</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setTextJustification</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setViewportExt"><!-- --></A><H3>
+setViewportExt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setViewportExt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setViewportOrg"><!-- --></A><H3>
+setViewportOrg</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setViewportOrg</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setWindowExt"><!-- --></A><H3>
+setWindowExt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setWindowExt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="setWindowOrg"><!-- --></A><H3>
+setWindowOrg</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>setWindowOrg</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="stretchBlt"><!-- --></A><H3>
+stretchBlt</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>stretchBlt</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="stretchDib"><!-- --></A><H3>
+stretchDib</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>stretchDib</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="textOut"><!-- --></A><H3>
+textOut</H3>
+<PRE>
+public static final <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>textOut</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="id"><!-- --></A><H3>
+id</H3>
+<PRE>
+public final int <B>id</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+<HR>
+
+<A NAME="clazz"><!-- --></A><H3>
+clazz</H3>
+<PRE>
+public final java.lang.Class&lt;? extends <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecord.html" title="interface in org.apache.poi.hwmf.record">HwmfRecord</A>&gt; <B>clazz</B></PRE>
+<DL>
+<DL>
+</DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="values()"><!-- --></A><H3>
+values</H3>
+<PRE>
+public static <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A>[] <B>values</B>()</PRE>
+<DL>
+<DD>Returns an array containing the constants of this enum type, in
+the order they are declared.  This method may be used to iterate
+over the constants as follows:
+<pre>
+for (HwmfRecordType c : HwmfRecordType.values())
+&nbsp;   System.out.println(c);
+</pre>
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>an array containing the constants of this enum type, in
+the order they are declared</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="valueOf(java.lang.String)"><!-- --></A><H3>
+valueOf</H3>
+<PRE>
+public static <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>valueOf</B>(java.lang.String&nbsp;name)</PRE>
+<DL>
+<DD>Returns the enum constant of this type with the specified name.
+The string must match <I>exactly</I> an identifier used to declare an
+enum constant in this type.  (Extraneous whitespace characters are 
+not permitted.)
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>name</CODE> - the name of the enum constant to be returned.
+<DT><B>Returns:</B><DD>the enum constant with the specified name
+<DT><B>Throws:</B>
+<DD><CODE>java.lang.IllegalArgumentException</CODE> - if this enum type has no constant
+with the specified name
+<DD><CODE>java.lang.NullPointerException</CODE> - if the argument is null</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getById(int)"><!-- --></A><H3>
+getById</H3>
+<PRE>
+public static <A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecordType.html" title="enum in org.apache.poi.hwmf.record">HwmfRecordType</A> <B>getById</B>(int&nbsp;id)</PRE>
+<DL>
+<DD><DL>
+</DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/HwmfRecordType.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfRecord.html" title="interface in org.apache.poi.hwmf.record"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/hwmf/record/HwmfTernaryRasterOp.html" title="enum in org.apache.poi.hwmf.record"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/hwmf/record/HwmfRecordType.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="HwmfRecordType.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;NESTED&nbsp;|&nbsp;<A HREF="#enum_constant_summary">ENUM CONSTANTS</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#enum_constant_detail">ENUM CONSTANTS</A>&nbsp;|&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>

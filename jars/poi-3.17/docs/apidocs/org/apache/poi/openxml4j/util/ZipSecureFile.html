@@ -1,0 +1,1276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<HEAD>
+<TITLE>
+ZipSecureFile (POI API Documentation)
+</TITLE>
+
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../../../../stylesheet.css" TITLE="Style">
+
+<SCRIPT type="text/javascript">
+function windowTitle()
+{
+    if (location.href.indexOf('is-external=true') == -1) {
+        parent.document.title="ZipSecureFile (POI API Documentation)";
+    }
+}
+</SCRIPT>
+<NOSCRIPT>
+</NOSCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="white" onload="windowTitle();">
+<HR>
+
+
+<!-- ========= START OF TOP NAVBAR ======= -->
+<A NAME="navbar_top"><!-- --></A>
+<A HREF="#skip-navbar_top" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_top_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ZipSecureFile.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/openxml4j/util/ZipInputStreamZipEntrySource.FakeZipEntry.html" title="class in org.apache.poi.openxml4j.util"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.ThresholdInputStream.html" title="class in org.apache.poi.openxml4j.util"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/openxml4j/util/ZipSecureFile.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ZipSecureFile.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_top"></A>
+<!-- ========= END OF TOP NAVBAR ========= -->
+
+<HR>
+<!-- ======== START OF CLASS DATA ======== -->
+<H2>
+<FONT SIZE="-1">
+org.apache.poi.openxml4j.util</FONT>
+<BR>
+Class ZipSecureFile</H2>
+<PRE>
+java.lang.Object
+  <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by ">java.util.zip.ZipFile
+      <IMG SRC="../../../../../resources/inherit.gif" ALT="extended by "><B>org.apache.poi.openxml4j.util.ZipSecureFile</B>
+</PRE>
+<HR>
+<DL>
+<DT><PRE>public class <B>ZipSecureFile</B><DT>extends java.util.zip.ZipFile</DL>
+</PRE>
+
+<P>
+This class wraps a <CODE>ZipFile</CODE> in order to check the
+ entries for <a href="https://en.wikipedia.org/wiki/Zip_bomb">zip bombs</a>
+ while reading the archive.
+ If a <CODE>ZipInputStream</CODE> is directly used, the wrapper
+ can be applied via <A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#addThreshold(java.io.InputStream)"><CODE>addThreshold(InputStream)</CODE></A>.
+ The alert limits can be globally defined via <A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#setMaxEntrySize(long)"><CODE>setMaxEntrySize(long)</CODE></A>
+ and <A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#setMinInflateRatio(double)"><CODE>setMinInflateRatio(double)</CODE></A>.
+<P>
+
+<P>
+<HR>
+
+<P>
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+
+<A NAME="nested_class_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Nested Class Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;class</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.ThresholdInputStream.html" title="class in org.apache.poi.openxml4j.util">ZipSecureFile.ThresholdInputStream</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<!-- =========== FIELD SUMMARY =========== -->
+
+<A NAME="field_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Field Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENATT">CENATT</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENATX">CENATX</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENCOM">CENCOM</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENCRC">CENCRC</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENDSK">CENDSK</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENEXT">CENEXT</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENFLG">CENFLG</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENHDR">CENHDR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENHOW">CENHOW</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENLEN">CENLEN</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENNAM">CENNAM</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENOFF">CENOFF</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENSIG">CENSIG</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENSIZ">CENSIZ</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENTIM">CENTIM</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENVEM">CENVEM</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#CENVER">CENVER</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ENDCOM">ENDCOM</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ENDHDR">ENDHDR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ENDOFF">ENDOFF</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ENDSIG">ENDSIG</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ENDSIZ">ENDSIZ</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ENDSUB">ENDSUB</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ENDTOT">ENDTOT</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#EXTCRC">EXTCRC</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#EXTHDR">EXTHDR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#EXTLEN">EXTLEN</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#EXTSIG">EXTSIG</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#EXTSIZ">EXTSIZ</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCCRC">LOCCRC</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCEXT">LOCEXT</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCFLG">LOCFLG</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCHDR">LOCHDR</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCHOW">LOCHOW</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCLEN">LOCLEN</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCNAM">LOCNAM</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCSIG">LOCSIG</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCSIZ">LOCSIZ</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCTIM">LOCTIM</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;int</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#LOCVER">LOCVER</A></B></CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="fields_inherited_from_class_java.util.zip.ZipFile"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Fields inherited from class java.util.zip.ZipFile</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>OPEN_DELETE, OPEN_READ</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+
+<A NAME="constructor_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Constructor Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ZipSecureFile(java.io.File)">ZipSecureFile</A></B>(java.io.File&nbsp;file)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ZipSecureFile(java.io.File, int)">ZipSecureFile</A></B>(java.io.File&nbsp;file,
+              int&nbsp;mode)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#ZipSecureFile(java.lang.String)">ZipSecureFile</A></B>(java.lang.String&nbsp;name)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+</TABLE>
+&nbsp;
+<!-- ========== METHOD SUMMARY =========== -->
+
+<A NAME="method_summary"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="2"><FONT SIZE="+2">
+<B>Method Summary</B></FONT></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;<A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.ThresholdInputStream.html" title="class in org.apache.poi.openxml4j.util">ZipSecureFile.ThresholdInputStream</A></CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#addThreshold(java.io.InputStream)">addThreshold</A></B>(java.io.InputStream&nbsp;zipIS)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>&nbsp;java.io.InputStream</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#getInputStream(java.util.zip.ZipEntry)">getInputStream</A></B>(java.util.zip.ZipEntry&nbsp;entry)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns an input stream for reading the contents of the specified
+ zip file entry.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#getMaxEntrySize()">getMaxEntrySize</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the current maximum allowed uncompressed file size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;long</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#getMaxTextSize()">getMaxTextSize</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the current maximum allowed text size.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;double</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#getMinInflateRatio()">getMinInflateRatio</A></B>()</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Returns the current minimum compression rate that is used.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#setMaxEntrySize(long)">setMaxEntrySize</A></B>(long&nbsp;maxEntrySize)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the maximum file size of a single zip entry.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#setMaxTextSize(long)">setMaxTextSize</A></B>(long&nbsp;maxTextSize)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the maximum number of characters of text that are
+ extracted before an exception is thrown during extracting
+ text from documents.</TD>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD ALIGN="right" VALIGN="top" WIDTH="1%"><FONT SIZE="-1">
+<CODE>static&nbsp;void</CODE></FONT></TD>
+<TD><CODE><B><A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.html#setMinInflateRatio(double)">setMinInflateRatio</A></B>(double&nbsp;ratio)</CODE>
+
+<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sets the ratio between de- and inflated bytes to detect zipbomb.</TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.util.zip.ZipFile"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.util.zip.ZipFile</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>close, entries, finalize, getEntry, getName, size</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;<A NAME="methods_inherited_from_class_java.lang.Object"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#EEEEFF" CLASS="TableSubHeadingColor">
+<TH ALIGN="left"><B>Methods inherited from class java.lang.Object</B></TH>
+</TR>
+<TR BGCOLOR="white" CLASS="TableRowColor">
+<TD><CODE>clone, equals, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</CODE></TD>
+</TR>
+</TABLE>
+&nbsp;
+<P>
+
+<!-- ============ FIELD DETAIL =========== -->
+
+<A NAME="field_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Field Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="LOCSIG"><!-- --></A><H3>
+LOCSIG</H3>
+<PRE>
+public static final long <B>LOCSIG</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCSIG">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="EXTSIG"><!-- --></A><H3>
+EXTSIG</H3>
+<PRE>
+public static final long <B>EXTSIG</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.EXTSIG">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENSIG"><!-- --></A><H3>
+CENSIG</H3>
+<PRE>
+public static final long <B>CENSIG</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENSIG">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="ENDSIG"><!-- --></A><H3>
+ENDSIG</H3>
+<PRE>
+public static final long <B>ENDSIG</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.ENDSIG">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCHDR"><!-- --></A><H3>
+LOCHDR</H3>
+<PRE>
+public static final int <B>LOCHDR</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCHDR">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="EXTHDR"><!-- --></A><H3>
+EXTHDR</H3>
+<PRE>
+public static final int <B>EXTHDR</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.EXTHDR">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENHDR"><!-- --></A><H3>
+CENHDR</H3>
+<PRE>
+public static final int <B>CENHDR</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENHDR">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="ENDHDR"><!-- --></A><H3>
+ENDHDR</H3>
+<PRE>
+public static final int <B>ENDHDR</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.ENDHDR">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCVER"><!-- --></A><H3>
+LOCVER</H3>
+<PRE>
+public static final int <B>LOCVER</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCVER">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCFLG"><!-- --></A><H3>
+LOCFLG</H3>
+<PRE>
+public static final int <B>LOCFLG</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCFLG">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCHOW"><!-- --></A><H3>
+LOCHOW</H3>
+<PRE>
+public static final int <B>LOCHOW</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCHOW">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCTIM"><!-- --></A><H3>
+LOCTIM</H3>
+<PRE>
+public static final int <B>LOCTIM</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCTIM">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCCRC"><!-- --></A><H3>
+LOCCRC</H3>
+<PRE>
+public static final int <B>LOCCRC</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCCRC">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCSIZ"><!-- --></A><H3>
+LOCSIZ</H3>
+<PRE>
+public static final int <B>LOCSIZ</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCSIZ">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCLEN"><!-- --></A><H3>
+LOCLEN</H3>
+<PRE>
+public static final int <B>LOCLEN</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCLEN">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCNAM"><!-- --></A><H3>
+LOCNAM</H3>
+<PRE>
+public static final int <B>LOCNAM</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCNAM">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="LOCEXT"><!-- --></A><H3>
+LOCEXT</H3>
+<PRE>
+public static final int <B>LOCEXT</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.LOCEXT">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="EXTCRC"><!-- --></A><H3>
+EXTCRC</H3>
+<PRE>
+public static final int <B>EXTCRC</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.EXTCRC">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="EXTSIZ"><!-- --></A><H3>
+EXTSIZ</H3>
+<PRE>
+public static final int <B>EXTSIZ</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.EXTSIZ">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="EXTLEN"><!-- --></A><H3>
+EXTLEN</H3>
+<PRE>
+public static final int <B>EXTLEN</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.EXTLEN">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENVEM"><!-- --></A><H3>
+CENVEM</H3>
+<PRE>
+public static final int <B>CENVEM</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENVEM">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENVER"><!-- --></A><H3>
+CENVER</H3>
+<PRE>
+public static final int <B>CENVER</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENVER">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENFLG"><!-- --></A><H3>
+CENFLG</H3>
+<PRE>
+public static final int <B>CENFLG</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENFLG">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENHOW"><!-- --></A><H3>
+CENHOW</H3>
+<PRE>
+public static final int <B>CENHOW</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENHOW">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENTIM"><!-- --></A><H3>
+CENTIM</H3>
+<PRE>
+public static final int <B>CENTIM</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENTIM">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENCRC"><!-- --></A><H3>
+CENCRC</H3>
+<PRE>
+public static final int <B>CENCRC</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENCRC">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENSIZ"><!-- --></A><H3>
+CENSIZ</H3>
+<PRE>
+public static final int <B>CENSIZ</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENSIZ">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENLEN"><!-- --></A><H3>
+CENLEN</H3>
+<PRE>
+public static final int <B>CENLEN</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENLEN">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENNAM"><!-- --></A><H3>
+CENNAM</H3>
+<PRE>
+public static final int <B>CENNAM</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENNAM">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENEXT"><!-- --></A><H3>
+CENEXT</H3>
+<PRE>
+public static final int <B>CENEXT</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENEXT">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENCOM"><!-- --></A><H3>
+CENCOM</H3>
+<PRE>
+public static final int <B>CENCOM</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENCOM">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENDSK"><!-- --></A><H3>
+CENDSK</H3>
+<PRE>
+public static final int <B>CENDSK</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENDSK">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENATT"><!-- --></A><H3>
+CENATT</H3>
+<PRE>
+public static final int <B>CENATT</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENATT">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENATX"><!-- --></A><H3>
+CENATX</H3>
+<PRE>
+public static final int <B>CENATX</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENATX">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="CENOFF"><!-- --></A><H3>
+CENOFF</H3>
+<PRE>
+public static final int <B>CENOFF</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.CENOFF">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="ENDSUB"><!-- --></A><H3>
+ENDSUB</H3>
+<PRE>
+public static final int <B>ENDSUB</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.ENDSUB">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="ENDTOT"><!-- --></A><H3>
+ENDTOT</H3>
+<PRE>
+public static final int <B>ENDTOT</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.ENDTOT">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="ENDSIZ"><!-- --></A><H3>
+ENDSIZ</H3>
+<PRE>
+public static final int <B>ENDSIZ</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.ENDSIZ">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="ENDOFF"><!-- --></A><H3>
+ENDOFF</H3>
+<PRE>
+public static final int <B>ENDOFF</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.ENDOFF">Constant Field Values</A></DL>
+</DL>
+<HR>
+
+<A NAME="ENDCOM"><!-- --></A><H3>
+ENDCOM</H3>
+<PRE>
+public static final int <B>ENDCOM</B></PRE>
+<DL>
+<DL>
+<DT><B>See Also:</B><DD><A HREF="../../../../../constant-values.html#org.apache.poi.openxml4j.util.ZipSecureFile.ENDCOM">Constant Field Values</A></DL>
+</DL>
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+
+<A NAME="constructor_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Constructor Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="ZipSecureFile(java.io.File, int)"><!-- --></A><H3>
+ZipSecureFile</H3>
+<PRE>
+public <B>ZipSecureFile</B>(java.io.File&nbsp;file,
+                     int&nbsp;mode)
+              throws java.util.zip.ZipException,
+                     java.io.IOException</PRE>
+<DL>
+<DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.util.zip.ZipException</CODE>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+<HR>
+
+<A NAME="ZipSecureFile(java.io.File)"><!-- --></A><H3>
+ZipSecureFile</H3>
+<PRE>
+public <B>ZipSecureFile</B>(java.io.File&nbsp;file)
+              throws java.util.zip.ZipException,
+                     java.io.IOException</PRE>
+<DL>
+<DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.util.zip.ZipException</CODE>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+<HR>
+
+<A NAME="ZipSecureFile(java.lang.String)"><!-- --></A><H3>
+ZipSecureFile</H3>
+<PRE>
+public <B>ZipSecureFile</B>(java.lang.String&nbsp;name)
+              throws java.util.zip.ZipException,
+                     java.io.IOException</PRE>
+<DL>
+<DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.util.zip.ZipException</CODE>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DL>
+
+<!-- ============ METHOD DETAIL ========== -->
+
+<A NAME="method_detail"><!-- --></A>
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
+<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+<TH ALIGN="left" COLSPAN="1"><FONT SIZE="+2">
+<B>Method Detail</B></FONT></TH>
+</TR>
+</TABLE>
+
+<A NAME="setMinInflateRatio(double)"><!-- --></A><H3>
+setMinInflateRatio</H3>
+<PRE>
+public static void <B>setMinInflateRatio</B>(double&nbsp;ratio)</PRE>
+<DL>
+<DD>Sets the ratio between de- and inflated bytes to detect zipbomb.
+ It defaults to 1% (= 0.01d), i.e. when the compression is better than
+ 1% for any given read package part, the parsing will fail indicating a 
+ Zip-Bomb.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>ratio</CODE> - the ratio between de- and inflated bytes to detect zipbomb</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMinInflateRatio()"><!-- --></A><H3>
+getMinInflateRatio</H3>
+<PRE>
+public static double <B>getMinInflateRatio</B>()</PRE>
+<DL>
+<DD>Returns the current minimum compression rate that is used.
+ 
+ See setMinInflateRatio() for details.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>The min accepted compression-ratio.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setMaxEntrySize(long)"><!-- --></A><H3>
+setMaxEntrySize</H3>
+<PRE>
+public static void <B>setMaxEntrySize</B>(long&nbsp;maxEntrySize)</PRE>
+<DL>
+<DD>Sets the maximum file size of a single zip entry. It defaults to 4GB,
+ i.e. the 32-bit zip format maximum.
+ 
+ This can be used to limit memory consumption and protect against 
+ security vulnerabilities when documents are provided by users.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>maxEntrySize</CODE> - the max. file size of a single zip entry</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMaxEntrySize()"><!-- --></A><H3>
+getMaxEntrySize</H3>
+<PRE>
+public static long <B>getMaxEntrySize</B>()</PRE>
+<DL>
+<DD>Returns the current maximum allowed uncompressed file size.
+ 
+ See setMaxEntrySize() for details.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>The max accepted uncompressed file size.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="setMaxTextSize(long)"><!-- --></A><H3>
+setMaxTextSize</H3>
+<PRE>
+public static void <B>setMaxTextSize</B>(long&nbsp;maxTextSize)</PRE>
+<DL>
+<DD>Sets the maximum number of characters of text that are
+ extracted before an exception is thrown during extracting
+ text from documents.
+ 
+ This can be used to limit memory consumption and protect against 
+ security vulnerabilities when documents are provided by users.
+<P>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>maxTextSize</CODE> - the max. file size of a single zip entry</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getMaxTextSize()"><!-- --></A><H3>
+getMaxTextSize</H3>
+<PRE>
+public static long <B>getMaxTextSize</B>()</PRE>
+<DL>
+<DD>Returns the current maximum allowed text size.
+ 
+ See setMaxTextSize() for details.
+<P>
+<DD><DL>
+
+<DT><B>Returns:</B><DD>The max accepted text size.</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="getInputStream(java.util.zip.ZipEntry)"><!-- --></A><H3>
+getInputStream</H3>
+<PRE>
+public java.io.InputStream <B>getInputStream</B>(java.util.zip.ZipEntry&nbsp;entry)
+                                   throws java.io.IOException</PRE>
+<DL>
+<DD>Returns an input stream for reading the contents of the specified
+ zip file entry.
+
+ <p> Closing this ZIP file will, in turn, close all input
+ streams that have been returned by invocations of this method.
+<P>
+<DD><DL>
+<DT><B>Overrides:</B><DD><CODE>getInputStream</CODE> in class <CODE>java.util.zip.ZipFile</CODE></DL>
+</DD>
+<DD><DL>
+<DT><B>Parameters:</B><DD><CODE>entry</CODE> - the zip file entry
+<DT><B>Returns:</B><DD>the input stream for reading the contents of the specified
+ zip file entry.
+<DT><B>Throws:</B>
+<DD><CODE>java.util.zip.ZipException</CODE> - if a ZIP format error has occurred
+<DD><CODE>java.io.IOException</CODE> - if an I/O error has occurred
+<DD><CODE>java.lang.IllegalStateException</CODE> - if the zip file has been closed</DL>
+</DD>
+</DL>
+<HR>
+
+<A NAME="addThreshold(java.io.InputStream)"><!-- --></A><H3>
+addThreshold</H3>
+<PRE>
+public static <A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.ThresholdInputStream.html" title="class in org.apache.poi.openxml4j.util">ZipSecureFile.ThresholdInputStream</A> <B>addThreshold</B>(java.io.InputStream&nbsp;zipIS)
+                                                       throws java.io.IOException</PRE>
+<DL>
+<DD><DL>
+
+<DT><B>Throws:</B>
+<DD><CODE>java.io.IOException</CODE></DL>
+</DD>
+</DL>
+<!-- ========= END OF CLASS DATA ========= -->
+<HR>
+
+
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<A NAME="navbar_bottom"><!-- --></A>
+<A HREF="#skip-navbar_bottom" title="Skip navigation links"></A>
+<TABLE BORDER="0" WIDTH="100%" CELLPADDING="1" CELLSPACING="0" SUMMARY="">
+<TR>
+<TD COLSPAN=2 BGCOLOR="#EEEEFF" CLASS="NavBarCell1">
+<A NAME="navbar_bottom_firstrow"><!-- --></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="3" SUMMARY="">
+  <TR ALIGN="center" VALIGN="top">
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../overview-summary.html"><FONT CLASS="NavBarFont1"><B>Overview</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-summary.html"><FONT CLASS="NavBarFont1"><B>Package</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#FFFFFF" CLASS="NavBarCell1Rev"> &nbsp;<FONT CLASS="NavBarFont1Rev"><B>Class</B></FONT>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="class-use/ZipSecureFile.html"><FONT CLASS="NavBarFont1"><B>Use</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="package-tree.html"><FONT CLASS="NavBarFont1"><B>Tree</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../deprecated-list.html"><FONT CLASS="NavBarFont1"><B>Deprecated</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../index-all.html"><FONT CLASS="NavBarFont1"><B>Index</B></FONT></A>&nbsp;</TD>
+  <TD BGCOLOR="#EEEEFF" CLASS="NavBarCell1">    <A HREF="../../../../../help-doc.html"><FONT CLASS="NavBarFont1"><B>Help</B></FONT></A>&nbsp;</TD>
+  </TR>
+</TABLE>
+</TD>
+<TD ALIGN="right" VALIGN="top" ROWSPAN=3><EM>
+</EM>
+</TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+&nbsp;<A HREF="../../../../../org/apache/poi/openxml4j/util/ZipInputStreamZipEntrySource.FakeZipEntry.html" title="class in org.apache.poi.openxml4j.util"><B>PREV CLASS</B></A>&nbsp;
+&nbsp;<A HREF="../../../../../org/apache/poi/openxml4j/util/ZipSecureFile.ThresholdInputStream.html" title="class in org.apache.poi.openxml4j.util"><B>NEXT CLASS</B></A></FONT></TD>
+<TD BGCOLOR="white" CLASS="NavBarCell2"><FONT SIZE="-2">
+  <A HREF="../../../../../index.html?org/apache/poi/openxml4j/util/ZipSecureFile.html" target="_top"><B>FRAMES</B></A>  &nbsp;
+&nbsp;<A HREF="ZipSecureFile.html" target="_top"><B>NO FRAMES</B></A>  &nbsp;
+&nbsp;<SCRIPT type="text/javascript">
+  <!--
+  if(window==top) {
+    document.writeln('<A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>');
+  }
+  //-->
+</SCRIPT>
+<NOSCRIPT>
+  <A HREF="../../../../../allclasses-noframe.html"><B>All Classes</B></A>
+</NOSCRIPT>
+
+
+</FONT></TD>
+</TR>
+<TR>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+  SUMMARY:&nbsp;<A HREF="#nested_class_summary">NESTED</A>&nbsp;|&nbsp;<A HREF="#field_summary">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_summary">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_summary">METHOD</A></FONT></TD>
+<TD VALIGN="top" CLASS="NavBarCell3"><FONT SIZE="-2">
+DETAIL:&nbsp;<A HREF="#field_detail">FIELD</A>&nbsp;|&nbsp;<A HREF="#constructor_detail">CONSTR</A>&nbsp;|&nbsp;<A HREF="#method_detail">METHOD</A></FONT></TD>
+</TR>
+</TABLE>
+<A NAME="skip-navbar_bottom"></A>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+<HR>
+
+                <i>Copyright 2017 The Apache Software Foundation or
+        its licensors, as applicable.</i>
+            
+</BODY>
+</HTML>
