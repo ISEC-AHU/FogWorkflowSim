@@ -5,7 +5,7 @@ A Toolkit for Modeling and Simulation of workflow scheduling in Internet of Thin
  * Developer member:Xuejun Li,Xiao Liu,Lingmin Fan,Lina Gong
 
 # FogWorkflowSim User Tutorial
- Access from <A href="https://github.com/CCIS_AHU/FogWorkflowSim/usertutorial">https://github.com/CCIS_AHU/FogWorkflowSim/usertutorial</A>
+ Access from <A href="https://github.com/CCIS-AHU/FogWorkflowSim/tree/master/usertutorial">https://github.com/CCIS-AHU/FogWorkflowSim/tree/master/usertutorial</A>
 
 ## IMPORTANT
 Please check the `improv` branch for latest changes. Master branch has been left intact until complete testing.
