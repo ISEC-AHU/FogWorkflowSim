@@ -55,7 +55,7 @@ git pull origin master
 21.	You C, Huang K, Chae H, et al. Energy-Efficient Resource Allocation for Mobile-Edge Computation Offloading[J]. IEEE Transactions on Wireless Communications, 2017, 16(3): 1397-1411.
 22.	Yim H, Seo D, Jung H, et al. Description and Classification for Facilitating Interoperability of Heterogeneous Data/Events/Services in the Internet of Things[J]. Neurocomputing, 2017, 256: 13-22.
 23.	Marozzo F, Talia D, Trunfio P. A Workflow Management System for Scalable Data Mining on Clouds[J]. IEEE Transactions on Services Computing, 2018, 11(3): 480-492.
-24.Calheiros R, Ranjan R, Beloglazov A, et al. CloudSim: a Toolkit for Modeling and Simulation of Cloud Computing Environments and Evaluation of Resource Provisioning Algorithms[J]. Software: Practice and experience, 2011, 41(1): 23-50.
+24. Calheiros R, Ranjan R, Beloglazov A, et al. CloudSim: a Toolkit for Modeling and Simulation of Cloud Computing Environments and Evaluation of Resource Provisioning Algorithms[J]. Software: Practice and experience, 2011, 41(1): 23-50.
 25.	Gupta H, Vahid A, Ghosh S, et al. iFogSim: A Toolkit for Modeling and Simulation of Resource Management Techniques in the Internet of Things, Edge and Fog computing environments[J]. Software: Practice and Experience, 2017, 47(9): 1275-1296.
 26.	Juve G. WorkflowGenerator. Available from: https://confluence.pegasus.isi.edu/display/pegasus/WorkflowGenerator, Access on 2018-12-25.
 27.	Batista B, Morais N, Kuehne B, et al. Heuristic Performance Evaluation for Load Balancing in Cloud[C]. 2018 International Conference on High Performance Computing & Simulation (HPCS). IEEE, 2018: 593-600.
