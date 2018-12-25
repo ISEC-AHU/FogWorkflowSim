@@ -57,7 +57,7 @@ git pull origin master
 23.	Marozzo F, Talia D, Trunfio P. A Workflow Management System for Scalable Data Mining on Clouds[J]. IEEE Transactions on Services Computing, 2018, 11(3): 480-492.
 24.Calheiros R, Ranjan R, Beloglazov A, et al. CloudSim: a Toolkit for Modeling and Simulation of Cloud Computing Environments and Evaluation of Resource Provisioning Algorithms[J]. Software: Practice and experience, 2011, 41(1): 23-50.
 25.	Gupta H, Vahid A, Ghosh S, et al. iFogSim: A Toolkit for Modeling and Simulation of Resource Management Techniques in the Internet of Things, Edge and Fog computing environments[J]. Software: Practice and Experience, 2017, 47(9): 1275-1296.
-26.	Juve G. WorkflowGenerator. Available from: https://confluence.pegasus.isi.edu/display/ pegasus/WorkflowGenerator, Access on 2018-12-25.
+26.	Juve G. WorkflowGenerator. Available from: https://confluence.pegasus.isi.edu/display/pegasus/WorkflowGenerator, Access on 2018-12-25.
 27.	Batista B, Morais N, Kuehne B, et al. Heuristic Performance Evaluation for Load Balancing in Cloud[C]. 2018 International Conference on High Performance Computing & Simulation (HPCS). IEEE, 2018: 593-600.
 28.	Chen L, Liu S, Li B, et al. Scheduling Jobs Across Geo-Distributed Datacenters with Max-Min Fairness[J]. IEEE Transactions on Network Science and Engineering, 2018: 1-14.
 29.Alam A, Zulkernine M, Haque A. A Reliability-Based Resource Allocation Approach for Cloud Computing[C]. 2017 IEEE 7th International Symposium on Cloud and Service Computing (SC2). IEEE, 2017: 249-252.
