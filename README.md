@@ -60,7 +60,7 @@ git pull origin master
 26.	Juve G. WorkflowGenerator. Available from: https://confluence.pegasus.isi.edu/display/pegasus/WorkflowGenerator, Access on 2018-12-25.
 27.	Batista B, Morais N, Kuehne B, et al. Heuristic Performance Evaluation for Load Balancing in Cloud[C]. 2018 International Conference on High Performance Computing & Simulation (HPCS). IEEE, 2018: 593-600.
 28.	Chen L, Liu S, Li B, et al. Scheduling Jobs Across Geo-Distributed Datacenters with Max-Min Fairness[J]. IEEE Transactions on Network Science and Engineering, 2018: 1-14.
-29.Alam A, Zulkernine M, Haque A. A Reliability-Based Resource Allocation Approach for Cloud Computing[C]. 2017 IEEE 7th International Symposium on Cloud and Service Computing (SC2). IEEE, 2017: 249-252.
+29. Alam A, Zulkernine M, Haque A. A Reliability-Based Resource Allocation Approach for Cloud Computing[C]. 2017 IEEE 7th International Symposium on Cloud and Service Computing (SC2). IEEE, 2017: 249-252.
 30.	Yang H, Wang Y, Quek T. Delay Analysis of Random Scheduling and Round Robin in Small Cell Networks[J]. IEEE Wireless Communications Letters, 2018, 7(6): 978-981.
 31.	Verma A, Kaushal S. A Hybrid Multi-Objective Particle Swarm Optimization for Scientific Workflow Scheduling[J]. Parallel Computing, 2017, 62: 1-19.
 32.	Cao S, Tao X, Hou Y, et al. An Energy-Optimal Offloading Algorithm of Mobile Computing based on HetNets[C]. 2015 International Conference on Connected Vehicles and Expo (ICCVE). IEEE, 2015: 254-258.
