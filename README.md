@@ -1,8 +1,11 @@
 # FogWorkflowSim
 A Toolkit for Modeling and Simulation of workflow scheduling in Internet of Things, Edge and Fog Computing Environments
 # Developer
- * Developer organization:CCIS laboratory, School of Computer Science and Technology, Anhui University, Hefei, China
- * Developer member:Xuejun Li,Xiao Liu,Lingmin Fan,Lina Gong
+ * Developer organization:
+ 1. School of Information Technology, Deakin University, Geelong, Australia
+ 2. CCIS laboratory, School of Computer Science and Technology, Anhui University, Hefei, China
+ 
+ * Developer member: Xiao Liu, Xuejun Li, Lingmin Fan, Lina Gong
 
 # FogWorkflowSim User Tutorial
  Access from <A href="https://github.com/CCIS-AHU/FogWorkflowSim/tree/master/usertutorial">https://github.com/CCIS-AHU/FogWorkflowSim/tree/master/usertutorial</A>
