@@ -28,8 +28,7 @@ git remote add origin https://github.com/CCIS_AHU/FogWorkflowSim
 ```
 git pull origin master
 ```
-* Include the JARs (except the CloudSim ones) to your Eclipse project.  
-* Run the example files (e.g. VRGame.java) to get started.
+* Run the example files (e.g. MainUI.java) to get started.
 
 # References
 1.	Li S, Da X, Zhao S. 5G Internet of Things: A survey[J]. Journal of Industrial Information Integration, 2018, 10: 1-9.
