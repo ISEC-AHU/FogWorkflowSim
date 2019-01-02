@@ -31,37 +31,42 @@ git pull origin master
 * Run the example files (e.g. MainUI.java) to get started.
 
 # References
-1.	Li S, Da X, Zhao S. 5G Internet of Things: A survey[J]. Journal of Industrial Information Integration, 2018, 10: 1-9.
-2.	Li Y, Chen M, Dai W, et al. Energy Optimization with Dynamic Task Scheduling Mobile Cloud Computing[J]. IEEE Systems Journal, 2017, 11(1): 96-105.
-3.	Chiang M, Ha S, Chih-Lin I, et al. Clarifying Fog Computing and Networking: 10 Questions and Answers[J]. IEEE Communications Magazine, 2017, 55(4): 18-20.
-4.	Carvalho G, Woungang I, Anpalagan A, et al. Intercloud and HetNet for Mobile Cloud Computing in 5G Systems: Design Issues, Challenges, and Optimization[J]. IEEE Network, 2017, 31(3): 80-89.
-5.	Hu P, Dhelim S, Ning H, et al. Survey on Fog Computing: Architecture, Key Technologies, Applications and Open Issues[J]. Journal of Network and Computer Applications, 2017, 98: 27-42.
-6.	Ouaddah A, Mousannif H, Elkalam A, et al. Access Control in the Internet of Things: Big Challenges and New Opportunities[J]. Computer Networks, 2017, 112: 237-262.
-7.	Perera C, Qin Y, Estrella J, et al. Fog Computing for Sustainable Smart Cities: A Survey[J]. ACM Computing Surveys (CSUR), 2017, 50(3): 1-43.
-8.	Chen T, Ling Q, Shen Y, et al. Heterogeneous Online Learning for “Thing-Adaptive” Fog Computing in IoT[J]. IEEE Internet of Things Journal, 2018: 1-13.
-9.	Chiang M, Ha S, Chih-Lin I, et al. Fog Computing and Networking: Part 1 [Guest Editorial][J]. IEEE Communications Magazine, 2017, 55(4): 16-17.
-10.	Ku Y, Lin D, Lee C, et al. 5G Radio Access Network Design with the Fog Paradigm: Confluence of Communications and Computing[J]. IEEE Communications Magazine, 2017, 55(4): 46-52.
-11.	Mouradian C, Naboulsi D, Yangui S, et al. A Comprehensive Survey on Fog Computing: State-of-the-Art and Research Challenges[J]. IEEE Communications Surveys & Tutorials, 2017, 20(1): 416-464.
-12.	Mutlag A, Ghani M, Arunkumar N, et al. Enabling Technologies for Fog Computing in Healthcare IoT Systems[J]. Future Generation Computer Systems, 2019, 90: 62-78.
-13.	Zhang H, Zhang Y, Gu Y, et al. A Hierarchical Game Framework for Resource Management in Fog Computing[J]. IEEE Communications Magazine, 2017, 55(8): 52-57.
-14.	Iotti N, Picone M, Cirani S, et al. Improving Quality of Experience in Future Wireless Access Networks Through Fog Computing[J]. IEEE Internet Computing, 2017, 2017 (2): 26-33.
-15.	Aazam M, Zeadally S, Harras K. Offloading in Fog Computing for IoT: Review, Enabling Technologies, and Research Opportunities[J]. Future Generation Computer Systems, 2018, 87: 278-289.
-16.	Mukherjee M, Shu L, Wang D. Survey of Fog Computing: Fundamental, Network Applications, and Research Challenges[J]. IEEE Communications Surveys & Tutorials, 2018, 20(3): 1826-1857.
-17.	Aazam M, Zeadally S, Harras K. Fog Computing Architecture, Evaluation, and Future Research Directions[J]. IEEE Communications Magazine, 2018, 56(5): 46-52.
-18.	Liu L, Chang Z, Guo X, et al. Multiobjective Optimization for Computation Offloading in Fog Computing[J]. IEEE Internet of Things Journal, 2018, 5(1): 283-294.
-19.	Du J, Zhao L, Feng J, et al. Computation Offloading and Resource Allocation in Mixed Fog/Cloud Computing Systems with Min-Max Fairness Guarantee[J]. IEEE Transactions on Communications, 2018, 66(4): 1594-1608.
-20.	Wang C, Liang C, Yu F, et al. Computation Offloading and Resource Allocation in Wireless Cellular Networks with Mobile Edge Computing[J]. IEEE Transactions on Wireless Communications, 2017, 16(8): 4924-4938.
-21.	You C, Huang K, Chae H, et al. Energy-Efficient Resource Allocation for Mobile-Edge Computation Offloading[J]. IEEE Transactions on Wireless Communications, 2017, 16(3): 1397-1411.
-22.	Yim H, Seo D, Jung H, et al. Description and Classification for Facilitating Interoperability of Heterogeneous Data/Events/Services in the Internet of Things[J]. Neurocomputing, 2017, 256: 13-22.
-23.	Marozzo F, Talia D, Trunfio P. A Workflow Management System for Scalable Data Mining on Clouds[J]. IEEE Transactions on Services Computing, 2018, 11(3): 480-492.
-24. Calheiros R, Ranjan R, Beloglazov A, et al. CloudSim: a Toolkit for Modeling and Simulation of Cloud Computing Environments and Evaluation of Resource Provisioning Algorithms[J]. Software: Practice and experience, 2011, 41(1): 23-50.
-25.	Gupta H, Vahid A, Ghosh S, et al. iFogSim: A Toolkit for Modeling and Simulation of Resource Management Techniques in the Internet of Things, Edge and Fog computing environments[J]. Software: Practice and Experience, 2017, 47(9): 1275-1296.
-26.	Juve G. WorkflowGenerator. Available from: https://confluence.pegasus.isi.edu/display/pegasus/WorkflowGenerator, Access on 2018-12-25.
-27.	Batista B, Morais N, Kuehne B, et al. Heuristic Performance Evaluation for Load Balancing in Cloud[C]. 2018 International Conference on High Performance Computing & Simulation (HPCS). IEEE, 2018: 593-600.
-28.	Chen L, Liu S, Li B, et al. Scheduling Jobs Across Geo-Distributed Datacenters with Max-Min Fairness[J]. IEEE Transactions on Network Science and Engineering, 2018: 1-14.
-29. Alam A, Zulkernine M, Haque A. A Reliability-Based Resource Allocation Approach for Cloud Computing[C]. 2017 IEEE 7th International Symposium on Cloud and Service Computing (SC2). IEEE, 2017: 249-252.
-30.	Yang H, Wang Y, Quek T. Delay Analysis of Random Scheduling and Round Robin in Small Cell Networks[J]. IEEE Wireless Communications Letters, 2018, 7(6): 978-981.
-31.	Verma A, Kaushal S. A Hybrid Multi-Objective Particle Swarm Optimization for Scientific Workflow Scheduling[J]. Parallel Computing, 2017, 62: 1-19.
-32.	Cao S, Tao X, Hou Y, et al. An Energy-Optimal Offloading Algorithm of Mobile Computing based on HetNets[C]. 2015 International Conference on Connected Vehicles and Expo (ICCVE). IEEE, 2015: 254-258.
-33.	Netjinda N, Sirinaovakul B, Achalakul T. Cost Optimal Scheduling in IaaS for Dependent Workload with Particle Swarm Optimization[J]. The Journal of Supercomputing, 2014, 68(3): 1579-1603.
-34.	Hallawi H, Mehnen J, He H. Multi-Capacity Combinatorial Ordering GA in Application to Cloud Resources Allocation and Efficient Virtual Machines Consolidation[J]. Future Generation Computer Systems, 2017, 69: 1-10.
+1.	S.C. Li, L.D. Xu and S.S. Zhao, "5G Internet of Things: A Survey," J. Industrial Information Integration, vol. 10, no. 1, pp. 1-9, Jun. 2018.
+2.	Y.B. Li, M. Chen, W.Y. Dai and M.K. Qiu, "Energy Optimization with Dynamic Task Scheduling Mobile Cloud Computing," J. IEEE Systems Journal, vol. 11, no. 1, pp. 96-105, Jun. 2017.
+3.	M. Chiang, S. Ha, C. I, F. Risso and T. Zhang, "Clarifying Fog Computing and Networking: 10 Questions and Answers," J. IEEE Communications Magazine, vol. 55, no. 4, pp. 18-20, Apr. 2017.
+4.	G.H.S. Carvalho, I. Woungang, A. Anpalagan, M. Jaseemuddin and E. Hossain, "Intercloud and HetNet for Mobile Cloud Computing in 5G Systems: Design Issues, Challenges, and Optimization," J. IEEE Network, vol. 31, no. 3, pp. 80-89, May 2017.
+5.	P.F. Hu, S. Dhelim, H.S. Ning and T. Qiu, "Survey on Fog Computing: Architecture, Key Technologies, Applications and Open Issues," J. Journal of Network and Computer Applications, vol. 98, no. 11, pp. 27-42, Nov. 2017.
+6.	A. Ouaddah, H. Mousannif, A.A. Elkalam and A.A. Ouahman, "Access Control in the Internet of Things: Big Challenges and New Opportunities," J. Computer Networks, vol. 112, no. 1, pp. 237-262, Jan. 2017.
+7.	C. Perera, Y.R. Qin, J.C. Estrella, S. Reiff-Marganiec and A.V. Vasilakos, "Fog Computing for Sustainable Smart Cities: A Survey," J. ACM Computing Surveys, vol. 50, no. 3, pp. 1-43, Oct. 2017.
+8.	T. Chen, Q. Ling, Y.N. Shen and G.B. Giannakis, "Heterogeneous Online Learning for “Thing-Adaptive” Fog Computing in IoT," J. IEEE Internet of Things Journal, preprint, 26 Jul. 2018, doi:10.1109/JIOT.2018.2860281.
+9.	M. Chiang, S. Ha, C. I, F. Risso and T. Zhang, "Fog Computing and Networking: Part 1 [Guest Editorial]," J. IEEE Communications Magazine, vol. 55, no. 4, pp. 16-17, Apr. 2017.
+10.	Y. Ku, D. Lin, C. Lee, P. Hsieh, H. Wei, C. Chou and A. Pang, "5G Radio Access Network Design with the Fog Paradigm: Confluence of Communications and Computing," J. IEEE Communications Magazine, vol. 55, no. 4, pp. 46-52, Apr. 2017.
+11.	C. Mouradian, D. Naboulsi, S. Yangui, R.H. Glitho, M.J. Morrow and P.A. Polakos, "A Comprehensive Survey on Fog Computing: State-of-the-Art and Research Challenges," J. IEEE Communications Surveys & Tutorials, vol. 20, no. 1, pp. 416-464, Nov. 2017.
+12.	A.A. Mutlag, M.K.A. Ghani, N. Arunkumar, M.A. Mohammed and O. Mohd, "Enabling Technologies for Fog Computing in Healthcare IoT Systems," J. Future Generation Computer Systems, vol. 90, no. 1, pp. 62-78, Jan. 2019.
+13.	H.Q. Zhang, Y.R. Zhang, Y.N. Gu, D. Niyato and Z. Han, "A Hierarchical Game Framework for Resource Management in Fog Computing," J. IEEE Communications Magazine, vol. 55, no. 8, pp. 52-57, Aug. 2017.
+14.	N. Iotti, M. Picone, S. Cirani and G. Ferrari, "Improving Quality of Experience in Future Wireless Access Networks Through Fog Computing," J. IEEE Internet Computing, vol. 2017, no. 2, pp. 26-33, Mar. 2017.
+15.	M. Aazam, S. Zeadally and K.A. Harras, "Offloading in Fog Computing for IoT: Review, Enabling Technologies, and Research Opportunities," J. Future Generation Computer Systems, vol. 87, no. 10, pp. 278-289, Oct. 2018.
+16.	M. Mukherjee, L. Shu and D. Wang, "Survey of Fog Computing: Fundamental, Network Applications, and Research Challenges," J. IEEE Communications Surveys & Tutorials, vol. 20, no. 3, pp. 1826-1857, Mar. 2018.
+17.	M. Aazam, S. Zeadally and K.A. Harras, "Fog Computing Architecture, Evaluation, and Future Research Directions," J. IEEE Communications Magazine, vol. 56, no. 5, pp. 46-52, May 2018.
+18.	L.Q. Liu, Z. Chang, X.J. Guo, S.W. Mao and T. Ristaniemi, "Multiobjective Optimization for Computation Offloading in Fog Computing," J. IEEE Internet of Things Journal, vol. 5, no. 1, pp. 283-294, Dec. 2018.
+19.	J.B. Du, L.Q. Zhao, J. Feng and X.L. Chu, "Computation Offloading and Resource Allocation in Mixed Fog/Cloud Computing Systems with Min-Max Fairness Guarantee," IEEE Trans. Communications, vol. 66, no. 4, pp. 1594-1608, Dec. 2018, doi:10.1109/TCOMM.2017.2787700.
+20.	C.M. Wang, C.C. Liang, F.R. Yu, Q.B. Chen and L. Tang, "Computation Offloading and Resource Allocation in Wireless Cellular Networks with Mobile Edge Computing," IEEE Trans. Wireless Communications, vol. 16, no. 8, pp. 4924-4938, May 2017, doi:10.1109/TWC.2017.2703901.
+21.	C.S. You, K.B. Huang, H. Chae and B. Kim, "Energy-Efficient Resource Allocation for Mobile-Edge Computation Offloading," IEEE Trans. Wireless Communications, vol. 16, no. 3, pp. 1397-1411, Dec. 2017, doi:10.1109/TWC.2016.2633522.
+22.	H. Yim, D. Seo, H. Jung, M. Back, I. Kim and K. Lee, "Description and Classification for Facilitating Interoperability of Heterogeneous Data/Events/Services in the Internet of Things," J. Neurocomputing, vol. 256, no. 9, pp. 13-22, Sep. 2017.
+23.	F. Marozzo, D. Talia and P. Trunfio, "A Workflow Management System for Scalable Data Mining on Clouds," IEEE Trans. Services Computing, vol. 11, no. 3, pp. 480-492, Jul. 2018, doi:10.1109/TSC.2016.2589243.
+24.	R.N. Calheiros, R. Ranjan, A. Beloglazov, C.A.F.D. Rose and R. Buyya, "CloudSim: a Toolkit for Modeling and Simulation of Cloud Computing Environments and Evaluation of Resource Provisioning Algorithms," J. Software: Practice and experience, vol. 41, no. 1, pp. 23-50, Aug. 2011.
+25.	H. Gupta, A.V. Dastjerdi, S.K. Ghosh and R. Buyya, "iFogSim: A Toolkit for Modeling and Simulation of Resource Management Techniques in the Internet of Things, Edge and Fog computing environments," J. Software: Practice and Experience, vol. 47, no. 9, pp. 1275-1296, Jun. 2017.
+26.	J. Yan, Y. Yang and G.K. Raikundalia, "Towards incompletely specified process support in swindew–a peer-to-peer based workflow system," Proc. International Conf on Computer Supported Cooperative Work in Design, pp. 328-338, May 2004, doi:10.1007/11568421_33.
+27.	D. Cao, X. Liu and Y. Yang, "Novel client-cloud architecture for scalable instance-intensive workflow systems," Proc. International Conf. on Web Information Systems Engineering, pp. 270-284, Oct. 2013, doi:10.1007/978-3-642-41154-0_20.
+28.	W.W. Chen and E. Deelman, "WorkflowSim: A Toolkit for Simulating Scientific Workflows in Distributed Environments," Proc. IEEE International Conf. on E-science, pp. 1-8, Jan. 2012, doi:10.1109/eScience.2012.6404430.
+29.	C. Sonmez, A. Ozgovde and C. Ersoy, "Edgecloudsim: An Environment for Performance Evaluation of Edge Computing Systems," IEEE Trans. Emerging Telecommunications Technologies, vol. 29, no. 11, pp. 1-17, Aug. 2018, doi:10.1002/ett.3493.
+30.	G. Juve. "WorkflowGenerator," Pegasus, https://confluence.pegasus.isi.edu/display/pegasus/WorkflowGenerator.html. 2018.
+31.	P. Mach and Z. Becvar, "Mobile Edge Computing: A Survey on Architecture and Computation Offloading," J. IEEE Communications Surveys & Tutorials, vol. 19, no. 3, pp. 1628-1656, Mar. 2017.
+32.	B.G. Batista, N.B. Morais, B.T. Kuehne, R.M.D. Frinhani, D.M.L. Filho and M.L.M. Peixoto, "Heuristic Performance Evaluation for Load Balancing in Cloud," Proc. IEEE International Conf. on High Performance Computing & Simulation, pp. 593-600, Nov. 2018, doi:10.1109/HPCS.2018.00099.
+33.	L. Chen, S.H. Liu, B.C. Li and B. Li, "Scheduling Jobs Across Geo-Distributed Datacenters with Max-Min Fairness," IEEE Trans. Network Science and Engineering, preprint, 25 Jan. 2018, doi:10.1109/TNSE.2018.2795580.
+34.	A.B.M.B. Alam, M. Zulkernine and A. Haque, "A Reliability-Based Resource Allocation Approach for Cloud Computing," Proc. IEEE seventh International Symposium on Cloud and Service Computing, pp. 249-252, Mar. 2017, doi:10.1109/SC2.2017.46.
+35.	H.H. Yang, Y. Wang and T.Q.S. Quek, "Response Analysis of Random Scheduling and Round Robin in Small Cell Networks," J. IEEE Wireless Communications Letters, vol. 7, no. 6, pp. 978-981, Jun. 2018.
+36.	A. Verma and S. Kaushal, "A Hybrid Multi-Objective Particle Swarm Optimization for Scientific Workflow Scheduling," J. Parallel Computing, vol. 62, no. 6, pp. 1-19, Jun. 2017.
+37.	N. Netjinda, B. Sirinaovakul and T. Achalakul, "Cost Optimal Scheduling in IaaS for Dependent Workload with Particle Swarm Optimization," J. The Journal of Supercomputing, vol. 68, no. 3, pp. 1579-1603, Jun. 2014.
+38.	H. Hallawi, J. Mehnen and H.M. He, "Multi-Capacity Combinatorial Ordering GA in Application to Cloud Resources Allocation and Efficient Virtual Machines Consolidation," J. Future Generation Computer Systems, vol. 69, no. 4, pp. 1-10, Apr. 2017.
+39.	S.W. Cao, X.F. Tao, Y.Z. Hou and Q.M. Cui, "An Energy-Optimal Offloading Algorithm of Mobile Computing based on HetNets," Proc. IEEE International Conf. on Connected Vehicles and Expo, pp. 254-258, Apr. 2015.
