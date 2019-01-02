@@ -9,6 +9,7 @@
 package org.cloudbus.cloudsim;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -342,7 +343,8 @@ public class DatacenterBroker extends SimEntity {
 		for(int id : datacenterId){
 			index=0;
 			String datacenterName = CloudSim.getEntityName(id);
-			limitVms = ((Datacenter) CloudSim.getEntity(id)).getHostList().size();
+			Datacenter datacenter = (Datacenter) CloudSim.getEntity(id);
+			limitVms = datacenter.getHostList().size();
 			while(limitVms>index){
 				Vm vm = getVmList().get(requestedVms);
 				if (!getVmsToDatacentersMap().containsKey(vm.getId())) {

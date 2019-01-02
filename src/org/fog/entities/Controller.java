@@ -86,6 +86,7 @@ public class Controller extends SimEntity{
 	@Override
 	public void startEntity() {
 
+//		Log.printLine("Starting FogWorkflowSim version 1.0");
 		//send(getId(), Config.RESOURCE_MANAGE_INTERVAL, FogEvents.CONTROLLER_RESOURCE_MANAGE);
 		
 		//send(getId(), Config.MAX_SIMULATION_TIME, FogEvents.STOP_SIMULATION);
@@ -196,6 +197,7 @@ public class Controller extends SimEntity{
 	{
 		Log.printLine();
 		Log.printLine("==========================================");
+		System.out.println("算法运行"+wfEngine.algorithmTime+"ms");
 		System.out.println("Execution Time = "+TotalExecutionTime);
 		printPowerDetails();
 		printCostDetails();
@@ -253,7 +255,7 @@ public class Controller extends SimEntity{
 			if(!CloudSim.getEntity(datacenterId).getName().contains("m")){
 				if(id == datacenterId) {
 					//cost+=job.getProcessingCost();
-					double c = job.getActualCPUTime()* vm.getHost().getTotalMips() * fogdevice.getRatePerMips()/1000;
+					double c = job.getActualCPUTime()* vm.getHost().getTotalMips()/vm.getMips() * fogdevice.getRatePerMips();
 					//费用 = 执行时间 * 计算资源使用量 * 每单位计算量每单位时间的计算费用
 					job.setProcessingCost(c);
 					cost += c;

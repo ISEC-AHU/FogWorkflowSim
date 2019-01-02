@@ -66,6 +66,9 @@ public class FogDevice extends PowerDatacenter {
 	public double ExecutionTime;
 	private int level;
 	
+	/**
+	 * the cost of the computing resource
+	 */
 	protected double ratePerMips;
 	
 	protected double totalCost;

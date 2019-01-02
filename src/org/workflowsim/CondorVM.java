@@ -197,25 +197,25 @@ public class CondorVM extends PowerVm {
      */
     public final void setState(int tag) {
         this.state = tag;
-        double timenow = CloudSim.clock();
-        double idletime = 0.0 , executiontime = 0.0;
-        flag = true;
-        if(timenow !=0 ){//&& getHost().getDatacenter().getName().contains("m")){
-        	//System.out.println("检测手机上虚拟机是空闲还是负载状态");
-        	//System.out.println("timenow "+timenow+" Vm #"+getId()); 
-        	if(tag == WorkflowSimTags.VM_STATUS_IDLE){
-        		 setlastUtilizationUpdateTime(timenow);
-        		 executiontime = getExecutionTime() + timenow - getlastIdleTime();
-        		 setExecutionTime(executiontime);
-        		 //System.out.println("此时状态更新为空闲，执行时间更新为："+executiontime);
-        	 }
-        	 else if(tag == WorkflowSimTags.VM_STATUS_BUSY){
-        		 setlastIdleTime(timenow);
-        		 idletime = getIdleTime() + timenow - getlastUtilizationUpdateTime();
-        		 setIdleTime(idletime);
-        		 //System.out.println("此时状态更新为负载，空闲时间更新为："+idletime);
-        	 }
-        }
+//        double timenow = CloudSim.clock();
+//        double idletime = 0.0 , executiontime = 0.0;
+//        flag = true;
+//        if(timenow !=0 ){//&& getHost().getDatacenter().getName().contains("m")){
+//        	//System.out.println("检测手机上虚拟机是空闲还是负载状态");
+//        	//System.out.println("timenow "+timenow+" Vm #"+getId()); 
+//        	if(tag == WorkflowSimTags.VM_STATUS_IDLE){
+//        		 setlastUtilizationUpdateTime(timenow);
+//        		 executiontime = getExecutionTime() + timenow - getlastIdleTime();
+//        		 setExecutionTime(executiontime);
+//        		 //System.out.println("此时状态更新为空闲，执行时间更新为："+executiontime);
+//        	 }
+//        	 else if(tag == WorkflowSimTags.VM_STATUS_BUSY){
+//        		 setlastIdleTime(timenow);
+//        		 idletime = getIdleTime() + timenow - getlastUtilizationUpdateTime();
+//        		 setIdleTime(idletime);
+//        		 //System.out.println("此时状态更新为负载，空闲时间更新为："+idletime);
+//        	 }
+//        }
     }
 
     /**

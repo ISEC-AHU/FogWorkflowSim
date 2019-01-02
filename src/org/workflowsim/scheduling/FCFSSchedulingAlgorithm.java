@@ -35,7 +35,6 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
     @Override
     public void run() {
 
-
         for (Iterator it = getCloudletList().iterator(); it.hasNext();) {
             Cloudlet cloudlet = (Cloudlet) it.next();
             boolean stillHasVm = false;
@@ -46,6 +45,7 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
                     stillHasVm = true;
                     vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
                     cloudlet.setVmId(vm.getId());
+                    System.out.println("vm"+vm.getId()+".mips: "+vm.getMips()+"  host: "+vm.getHost().getId());
                     getScheduledList().add(cloudlet);
                     break;
                 }

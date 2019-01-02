@@ -2,7 +2,7 @@
 <GA>
  <Population_Size>50</Population_Size>
  <Number_of_Iterations>100</Number_of_Iterations>
- <Cross_Probability>0.8</Cross_Probability>
- <Mutation_Probability>0.1</Mutation_Probability>
+ <Cross_Rate>0.8</Cross_Rate>
+ <Mutation_Rate>0.1</Mutation_Rate>
  <Repeated_experiment>100</Repeated_experiment>
 </GA>

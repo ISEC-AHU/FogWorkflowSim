@@ -1,10 +1,12 @@
 package org.fog.entities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
 import org.cloudbus.cloudsim.Cloudlet;
+import org.cloudbus.cloudsim.Host;
 import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.CloudSim;
@@ -36,6 +38,10 @@ public class FogBroker extends PowerDatacenterBroker{
      * The workflow engine id associated with this workflow algorithm.
      */
     private int workflowEngineId;
+    /**
+     * the start time of algorithm
+     */
+    public long startTime;
     public static int count=0;//初始化时，计数当前根据哪个粒子来为job分配虚拟机
     public static int count2=0;//更新粒子时，计数当前根据哪个粒子来为job分配虚拟机
     public static int initIndexForGA=0;
@@ -284,7 +290,9 @@ public class FogBroker extends PowerDatacenterBroker{
 
         BaseSchedulingAlgorithm scheduler = getScheduler(Parameters.getSchedulingAlgorithm());
         scheduler.setCloudletList(getCloudletList());
-        scheduler.setVmList(getVmsCreatedList());
+        List<? extends Vm> vmlist = getVmsCreatedList();
+        Collections.reverse(vmlist);
+        scheduler.setVmList(vmlist);
 
         try {
             scheduler.run();
@@ -317,6 +325,7 @@ public class FogBroker extends PowerDatacenterBroker{
     	List<Cloudlet> cloudletList=getCloudletList();
     	List<CondorVM> vmList=getVmsCreatedList();
     	if(PsoScheduling.initFlag==0) {
+    		startTime = System.currentTimeMillis();
     		WorkflowEngine engine = (WorkflowEngine)CloudSim.getEntity(workflowEngineId);
     		PsoScheduling.init(engine.jobList.size(),getVmList().size());
     	}
@@ -404,6 +413,7 @@ public class FogBroker extends PowerDatacenterBroker{
     	List<Cloudlet> cloudletList=getCloudletList();
     	List<CondorVM> vmList=getVmsCreatedList();
     	if(GASchedulingAlgorithm.initFlag==0) {
+    		startTime = System.currentTimeMillis();
     		WorkflowEngine engine = (WorkflowEngine)CloudSim.getEntity(workflowEngineId);
     		GASchedulingAlgorithm.initPopsRandomly(engine.jobList.size(),getVmList().size());
     	}

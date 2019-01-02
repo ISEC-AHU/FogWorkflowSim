@@ -37,6 +37,8 @@ import org.workflowsim.scheduling.GASchedulingAlgorithm;
 import org.workflowsim.scheduling.PsoScheduling;
 import org.workflowsim.utils.Parameters;
 
+import com.sun.javafx.scene.traversal.Algorithm;
+
 /**
  * WorkflowEngine represents a engine acting on behalf of a user. It hides VM
  * management, as vm creation, submission of cloudlets to this VMs and
@@ -46,7 +48,7 @@ import org.workflowsim.utils.Parameters;
  * @since WorkflowSim Toolkit 1.0
  * @date Apr 9, 2013
  */
-public final class WorkflowEngine extends SimEntity {
+public class WorkflowEngine extends SimEntity {
 
     /**
      * The job list.
@@ -92,6 +94,19 @@ public final class WorkflowEngine extends SimEntity {
     private List<Integer> schedulerId;
     private List<FogBroker> scheduler;
     private int controllerId;
+    
+    /**
+     * the end time of algorithm
+     */
+    public long endTime;
+    /**
+     * the excution time of algorithm
+     */
+    public long algorithmTime;
+    /**
+     * the deadline for workflow
+     */
+    public double DeadLine;
 
     /**
      * Created a new WorkflowEngine object.
@@ -420,6 +435,9 @@ public final class WorkflowEngine extends SimEntity {
     	        			PsoScheduling.gbest_schedule=PsoScheduling.pbest_schedule.get(i);
     	        		}
     	        	}
+    	        	//记录pso结束时间
+    	        	endTime = System.currentTimeMillis();
+    	        	algorithmTime = endTime - getScheduler(0).startTime;
     	        	
     	        	startlastSchedule=1;
     	        	caculatefitness();
@@ -447,6 +465,11 @@ public final class WorkflowEngine extends SimEntity {
     	double cost = controller.TotalCost;
     	//System.out.println("controller.time = "+controller.TotalExecutionTime);
     	//System.out.println("clock = "+CloudSim.clock());
+    	
+    	if(time > DeadLine){
+    		energy = 10*energy*(time/DeadLine);
+    		cost = 10*cost*(time/DeadLine);
+    	}
     	
     	double[] a ={time,energy,cost};
     	indicators.add(a);
@@ -672,6 +695,10 @@ public final class WorkflowEngine extends SimEntity {
                					 init();
                        			 sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
                				 }else {
+               					 //记录ga结束时间
+               					endTime = System.currentTimeMillis();
+                	        	algorithmTime = endTime - getScheduler(0).startTime;
+                	        	
                					 findBestSchedule=1;//去按照最优的调度方案执行
                					 init();
                        			 sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
@@ -973,6 +1000,9 @@ public final class WorkflowEngine extends SimEntity {
     }
     public void setcontrollerId(int controllerId) {
         this.controllerId = controllerId;
+    }
+    public void setDeadLine(double DeadLine) {
+        this.DeadLine = DeadLine;
     }
 
     public static void clearFlag() {
