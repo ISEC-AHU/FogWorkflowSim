@@ -124,9 +124,11 @@ public class FogDevice extends PowerDatacenter {
 		int hostId = FogUtils.generateEntityId();
 		long storage = 1000000; // host storage
 		int bw = 10000;
+		double costPerMips = 0.1;
 
 		PowerHost host = new PowerHost(
 				hostId,
+				costPerMips,
 				new RamProvisionerSimple(ram),
 				new BwProvisionerOverbooking(bw),
 				storage,
@@ -596,6 +598,7 @@ public class FogDevice extends PowerDatacenter {
      */
     protected double processDataStageInForComputeJob(List<FileItem> requiredFiles, Job job) throws Exception {
         double time = 0.0;
+        Controller controller = (Controller)CloudSim.getEntity(controllerId);
         for (FileItem file : requiredFiles) {
             //The input file is not an output File 
             if (file.isRealInputFile(requiredFiles)) {
@@ -620,9 +623,10 @@ public class FogDevice extends PowerDatacenter {
                         //Storage storage = getStorageList().get(0);
                         
                         time += file.getSize() / (double) Consts.MILLION / maxRate;*/
-                    	
-                        Controller controller = (Controller)CloudSim.getEntity(controllerId);
-                        time += file.getSize() / 1000 / controller.getmobile().getUplinkBandwidth();
+                        if(getId() == controller.getcloud().getId())
+                        	time += file.getSize() / controller.parameter / controller.WAN_Bandwidth;
+                        else if(getId() == controller.getFogNode().getId())
+                        	time += file.getSize() / controller.parameter / controller.LAN_Bandwidth;
                         break;
                     case LOCAL:
                         int vmId = job.getVmId();
@@ -803,5 +807,12 @@ public class FogDevice extends PowerDatacenter {
 				vm.ExecutionTime=0.0;
 			}
 		}
+	}
+	
+	public double getAverageMips(){
+		double total = 0;
+		for(Host host : getHostList())
+			total += host.getTotalMips();
+		return total / getHostList().size();
 	}
 }

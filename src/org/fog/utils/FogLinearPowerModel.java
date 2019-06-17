@@ -63,7 +63,7 @@ public class FogLinearPowerModel implements PowerModel {
 	 * 
 	 * @return the max power
 	 */
-	protected double getMaxPower() {
+	public double getMaxPower() {
 		return maxPower;
 	}
 

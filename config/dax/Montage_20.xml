@@ -7,7 +7,7 @@
   <job id="ID00000" namespace="Montage" name="mProjectPP" version="1.0" runtime="13.45">
     <uses file="region.hdr" link="input" register="true" transfer="true" optional="false" type="data" size="304"/>
     <uses file="2mass-atlas-ID00000s-jID00000.fits" link="input" register="true" transfer="true" optional="false" type="data" size="4222080"/>
-    <uses file="p2mass-atlas-ID00000s-jID00000.fits" link="output" register="false" transfer="false" optional="false" type="data" size="4149775"/>
+    <uses file="p2mass-atlas-ID00000s-jID00000.fits" link="output" register="false" transfer="false" optional="false" type="data" size="4149775"></uses>
     <uses file="p2mass-atlas-ID00000s-jID00000_area.fits" link="output" register="false" transfer="false" optional="false" type="data" size="4149775"/>
   </job>
   <job id="ID00001" namespace="Montage" name="mProjectPP" version="1.0" runtime="13.86">
@@ -95,7 +95,7 @@
     <uses file="fits.tbl" link="output" register="false" transfer="false" optional="false" type="data" size="1259"/>
   </job>
   <job id="ID00011" namespace="Montage" name="mBgModel" version="1.0" runtime="0.77">
-    <uses file="pimages.tbl" link="input" register="true" transfer="true" optional="false" type="data" size="670"/>
+    <uses file="pimages.tbl" link="input" register="true" transfer="true" optional="false" type="data" size="670"></uses>
     <uses file="fits.tbl" link="input" register="false" transfer="false" optional="false" type="data" size="1259"/>
     <uses file="corrections.tbl" link="output" register="false" transfer="false" optional="false" type="data" size="212"/>
   </job>

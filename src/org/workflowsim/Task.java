@@ -20,6 +20,7 @@ import java.util.List;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.Consts;
 import org.cloudbus.cloudsim.UtilizationModelFull;
+import org.workflowsim.utils.Parameters.FileType;
 
 /**
  * Task is an extention to Cloudlet in CloudSim. It supports the implementation
@@ -302,6 +303,23 @@ public class Task extends Cloudlet {
     public long initlength() {
     	super.setCloudletLength(runlength);
     	return runlength;
+    }
+    
+    public List<FileItem> getInputFileList() {
+    	List<FileItem> InputFileList = new ArrayList<FileItem>();
+    	for(FileItem file : getFileList()){
+    		if(file.getType() == FileType.INPUT)
+    			InputFileList.add(file);
+    	}
+    	return InputFileList;
+    }
+    public List<FileItem> getOutputFileList() {
+    	List<FileItem> OutputFileList = new ArrayList<FileItem>();
+    	for(FileItem file : getFileList()){
+    		if(file.getType() == FileType.OUTPUT)
+    			OutputFileList.add(file);
+    	}
+    	return OutputFileList;
     }
 
     /**

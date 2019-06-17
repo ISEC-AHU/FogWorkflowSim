@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EnvironmentSetting>
+	<Cloud name="cloud" hostnum="5" bandwidth="40">
+		<host name="host-1" MIPS="3100" cost="0.5"></host>
+		<host name="host-2" MIPS="3200" cost="0.6"></host>
+		<host name="host-3" MIPS="3300" cost="0.7"></host>
+		<host name="host-4" MIPS="3400" cost="0.8"></host>
+		<host name="host-5" MIPS="3500" cost="0.9"></host></Cloud>
+	<FogNode name="fog" hostnum="5" bandwidth="100">
+		<host name="host-1" MIPS="2100" cost="0.1"></host>
+		<host name="host-2" MIPS="2200" cost="0.2"></host>
+		<host name="host-3" MIPS="2300" cost="0.3"></host>
+		<host name="host-4" MIPS="2400" cost="0.4"></host>
+		<host name="host-5" MIPS="2500" cost="0.5"></host></FogNode>
+	<EndDevice name="cloud" hostnum="5" bandwidth="0">
+		<host name="host-1" MIPS="1000" cost="0"></host>
+		<host name="host-2" MIPS="1000" cost="0"></host>
+		<host name="host-3" MIPS="1000" cost="0"></host>
+		<host name="host-4" MIPS="1000" cost="0"></host>
+		<host name="host-5" MIPS="1000" cost="0"></host></EndDevice>
+</EnvironmentSetting>

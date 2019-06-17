@@ -28,9 +28,11 @@ public class FogEntityFactory {
 		int ram = 2048; // host memory (MB)
 		long storage = 1000000; // host storage
 		int bw = 10000;
+		double costPerMips = 0.1;
 
 		PowerHost host = new PowerHost(
 				hostId,
+				costPerMips,
 				new RamProvisionerSimple(ram),
 				new BwProvisionerOverbooking(bw),
 				storage,

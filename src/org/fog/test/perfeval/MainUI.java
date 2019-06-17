@@ -1,5 +1,6 @@
 package org.fog.test.perfeval;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -25,6 +26,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.Formatter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -73,6 +75,9 @@ import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
 import org.fog.entities.Controller;
 import org.fog.entities.FogDevice;
 import org.fog.entities.FogDeviceCharacteristics;
+import org.fog.offloading.OffloadingStrategyAllinCloud;
+import org.fog.offloading.OffloadingStrategyAllinFog;
+import org.fog.offloading.OffloadingStrategySimple;
 import org.fog.utils.FogLinearPowerModel;
 import org.fog.utils.FogUtils;
 import org.workflowsim.CondorVM;
@@ -100,7 +105,7 @@ import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
 /**
- * The MainUI of FogWorkflowSim 1.0
+ * The MainUI of FogWorkflowSim 2.0
  * 
  * @since FogWorkflowSim Toolkit 1.0
  * @author Lingmin Fan
@@ -109,29 +114,32 @@ import jxl.write.biff.RowsExceededException;
 
 @SuppressWarnings("serial")
 public class MainUI extends JFrame {
-	String [] algrithmStr=new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA"};
-	String [] objectiveStr=new String[]{"Time","Energy","Cost"};
-	String [] inputTypeStr=new String[]{"Montage","CyberShake","Epigenomics","Inspiral","Sipht"};
-	String [] nodeSizeStr=new String[]{};
-	String [] cloudNumStr=new String[]{null,"1","2","3","4","5"};
-	String [] edgeNumStr=new String[]{null,"1","2","3","4","5"};
-	String [] mobileNumStr=new String[]{null,"1","2","3","4","5"};
-	static String[] columnNames = {"Job ID", "Task ID", "STATUS", "Data center ID", "VM ID", 
+	final static String[] algrithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA"};
+	final static String[] objectiveStr = new String[]{"Time","Energy","Cost"};
+	final static String[] inputTypeStr = new String[]{"Montage","CyberShake","Epigenomics","Inspiral","Sipht"};
+	final static String[] nodeSizeStr = new String[]{};
+	final static String[] cloudNumStr = new String[]{null,"1","2","3","4","5"};
+	final static String[] edgeNumStr = new String[]{null,"1","2","3","4","5"};
+	final static String[] mobileNumStr = new String[]{null,"1","2","3","4","5"};
+	final static String[] strategyStr = new String[]{null,"All-in-Fog","All-in-Cloud","Simple"};
+	final static String[] columnNames = {"Job ID", "Task ID", "STATUS", "Data center ID", "VM ID", 
 			"Time","Start Time","Finish Time","Depth","Cost","Parents"};//表头元素
-	private JComboBox inputTypeCb = new JComboBox(inputTypeStr);
-	private JComboBox nodeSizeCb = new JComboBox(nodeSizeStr);//任务个数
-	private JComboBox cloudNumCb = new JComboBox(cloudNumStr);
-	private JComboBox edgeNumCb = new JComboBox(edgeNumStr);
-	private JComboBox mobileNumCb = new JComboBox(mobileNumStr);
+	private static JComboBox inputTypeCb = new JComboBox(inputTypeStr);
+	private static JComboBox nodeSizeCb = new JComboBox(nodeSizeStr);//任务个数
+	private static JComboBox cloudNumCb = new JComboBox(cloudNumStr);
+	private static JComboBox edgeNumCb = new JComboBox(edgeNumStr);
+	private static JComboBox mobileNumCb = new JComboBox(mobileNumStr);
+	private static JComboBox StrategyCb = new JComboBox(strategyStr);
 	
-	private JButton stnBtn;
-	private JButton cmpBtn;
+	private final static JButton stnBtn = new JButton("Start Simulation");
+	private final static JButton cmpBtn = new JButton("Compare");
 	
 	static boolean Flag = true;//表示需要画图
+	static boolean Flag1 = true;//判断FogEnvironmentUI需不需要重新绘制
     static List<FogDevice> fogDevices = new ArrayList<FogDevice>();
-    List<Double[]> record=new ArrayList<Double[]>();
-	static int numOfDepts = 1;
-	static int numOfMobilesPerDept = 1;
+    static List<Double[]> record=new ArrayList<Double[]>();
+	final static int numOfDepts = 1;
+	final static int numOfMobilesPerDept = 1;
 	static int nodeSize;
 
 	private static WorkflowEngine wfEngine;
@@ -140,19 +148,19 @@ public class MainUI extends JFrame {
 	/**
 	 * Main Panel
 	 */
-	private JPanel contentPane;
+	private static JPanel contentPane;
 
 	/**
 	 * Fog Computing environment Panel
 	 */
-	private final JPanel panel_3 = new JPanel();
-	private final JPanel panel = new JPanel();
-	private JPanel cloudPanel = new JPanel();
-	private JPanel fogPanel = new JPanel();
-	private JPanel mobilePanel = new JPanel();
-	private int cloudNum;
-	private int fogServerNum;
-	private int mobileNum;
+	private final static JPanel panel_3 = new JPanel();
+	private final static JPanel panel = new JPanel();
+	private final static JPanel cloudPanel = new JPanel();
+	private final static JPanel fogPanel = new JPanel();
+	private final static JPanel mobilePanel = new JPanel();
+	private static int cloudNum;
+	private static int fogServerNum;
+	private static int mobileNum;
 	
 	/**
 	 * Algorithm & Objective Panel
@@ -168,37 +176,38 @@ public class MainUI extends JFrame {
 	private final JRadioButton rdbtnTime = new JRadioButton("Time",true);
 	private final JRadioButton rdbtnEnergy = new JRadioButton("Energy");
 	private final JRadioButton rdbtnCost = new JRadioButton("Cost");
-	ButtonGroup g1 = new ButtonGroup(); //分组进行单选
-	private String scheduler_method;
-	private String optimize_objective;
+	static ButtonGroup g1 = new ButtonGroup(); //分组进行单选
+	private static String scheduler_method;
+	private static String optimize_objective;
 	
 	/**
 	 * Workflow Panel
 	 */
 	private final JPanel panel_1 = new JPanel();
 	private final JCheckBox userdefined = new JCheckBox("Custom");
-	private JTextField filepath = new JTextField();
+	private static JTextField filepath = new JTextField();
 	private final JButton selectfile = new JButton("Select File");
-	private String daxPath;
-	private File XMLFile;
-	public JTextField inputDL;
+	private static String daxPath;
+	private static File XMLFile;
+	public static JTextField inputDL;
 	
 	/**
 	 * Output Area
 	 */
 	private static JScrollPane scrollPane = new JScrollPane();
 	private final JLabel lblOutputResultDisplay = new JLabel("Output result display area");
-	private JLabel lblTime = new JLabel("");//display algorithm time
+	private static JLabel lblTime = new JLabel("");//display algorithm time
 	private static HashMap<String, Object[][]> outputs= new LinkedHashMap<String, Object[][]>();
 	private static HashMap<String, Long> TimeMap= new LinkedHashMap<String, Long>();
 	private static JTable table;
 	private static JComboBox selectdisplay = new JComboBox();
 	private final JButton exresult = new JButton("Export");
-	
 	/**
 	 * Algorithm parameters setting Frame
 	 */
-	static SettingUI Settingframe;//算法参数设置小窗口
+	static AlgorithmsSettingUI Settingframe;//算法参数设置小窗口
+	static FogEnvironmentUI FEframe;
+
 	
 	/**
 	 * Launch the application.
@@ -209,7 +218,8 @@ public class MainUI extends JFrame {
 				try {
 					MainUI frame = new MainUI();
 					frame.setVisible(true);
-					Settingframe = new SettingUI();
+					Settingframe = new AlgorithmsSettingUI();
+					FEframe = new FogEnvironmentUI();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -236,7 +246,6 @@ public class MainUI extends JFrame {
 		initA_OPanel();
 		initWorkflowPanel();
 		
-		stnBtn = new JButton("Start Simulation");
 		stnBtn.setFont(new Font("Consolas", Font.PLAIN, 12));
 		stnBtn.setBounds(10, 245, 153, 45);
 		stnBtn.addActionListener(new JMHandler());
@@ -278,18 +287,26 @@ public class MainUI extends JFrame {
 		g1.add(rdbtnEnergy);
 		g1.add(rdbtnCost);
 		
-		cmpBtn = new JButton("Compare");
+		StrategyCb.setBounds(180, 39, 92, 21);
+		panel_2.add(StrategyCb);
+		
+		JLabel lblStrategy = new JLabel("Offloading Strategys:");
+		lblStrategy.setForeground(Color.BLACK);
+		lblStrategy.setFont(new Font("Consolas", Font.PLAIN, 12));
+		lblStrategy.setBounds(10, 40, 147, 20);
+		panel_2.add(lblStrategy);
+		
 		cmpBtn.setFont(new Font("Consolas", Font.PLAIN, 12));
 		cmpBtn.setBounds(170, 245, 153, 45);
 		cmpBtn.addActionListener(new JMHandler());
 		contentPane.add(cmpBtn);
 		
 		lblOutputResultDisplay.setFont(new Font("Consolas", Font.BOLD, 13));
-		lblOutputResultDisplay.setBounds(250, 300, 202, 15);
+		lblOutputResultDisplay.setBounds(150, 300, 202, 15);
 		contentPane.add(lblOutputResultDisplay);
 		selectdisplay.setFont(new Font("Consolas", Font.PLAIN, 12));
 		
-		selectdisplay.setBounds(450, 297, 100, 20);
+		selectdisplay.setBounds(350, 297, 100, 20);
 		contentPane.add(selectdisplay);
 		exresult.setFont(new Font("Consolas", Font.PLAIN, 12));
 		
@@ -331,11 +348,11 @@ public class MainUI extends JFrame {
 				}
 			}
 		});
-		exresult.setBounds(490, 245, 153, 45);
+		exresult.setBounds(505, 245, 138, 45);
 //		exresult.setEnabled(false);
 		contentPane.add(exresult);
 		
-		JButton btnNewButton = new JButton("Setting");
+		JButton btnNewButton = new JButton("Algorithms Setting");
 		btnNewButton.setFont(new Font("Consolas", Font.PLAIN, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -343,10 +360,10 @@ public class MainUI extends JFrame {
 				Settingframe.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(330, 245, 153, 45);
+		btnNewButton.setBounds(330, 245, 168, 45);
 		contentPane.add(btnNewButton);
 		
-		lblTime.setBounds(560, 297, 188, 18);
+		lblTime.setBounds(460, 297, 188, 18);
 		contentPane.add(lblTime);
 		
 		inputTypeCb.addItemListener(new ItemListener() {
@@ -439,29 +456,43 @@ public class MainUI extends JFrame {
 		panel.add(cloudNumCb);
 		cloudNumCb.addItemListener(new JMHandler());
 		InputLimit(cloudNumCb);
-		cloudNumCb.setSelectedItem("3");
+		cloudNumCb.setSelectedItem("1");
 		
 		lblNumberOfEdge.setFont(new Font("Consolas", Font.PLAIN, 12));
-		lblNumberOfEdge.setBounds(10, 75, 188, 20);
+		lblNumberOfEdge.setBounds(10, 60, 188, 20);
 		lblNumberOfEdge.setForeground(Color.BLACK);
 		panel.add(lblNumberOfEdge);
 		edgeNumCb.setFont(new Font("Consolas", Font.PLAIN, 12));
-		edgeNumCb.setBounds(200, 71, 75, 28);
+		edgeNumCb.setBounds(200, 56, 75, 28);
 		panel.add(edgeNumCb);
 		edgeNumCb.addItemListener(new JMHandler());
 		InputLimit(edgeNumCb);
-		edgeNumCb.setSelectedItem("2");
+		edgeNumCb.setSelectedItem("1");
 		
 		lblNumberOfMobile.setFont(new Font("Consolas", Font.PLAIN, 12));
-		lblNumberOfMobile.setBounds(10, 136, 188, 20);
+		lblNumberOfMobile.setBounds(10, 106, 188, 20);
 		lblNumberOfMobile.setForeground(Color.BLACK);
 		panel.add(lblNumberOfMobile);
 		mobileNumCb.setFont(new Font("Consolas", Font.PLAIN, 12));
-		mobileNumCb.setBounds(200, 132, 75, 28);
+		mobileNumCb.setBounds(200, 102, 75, 28);
 		panel.add(mobileNumCb);
 		mobileNumCb.addItemListener(new JMHandler());
 		InputLimit(mobileNumCb);
-		mobileNumCb.setSelectedItem("3");
+		mobileNumCb.setSelectedItem("1");
+		
+		Button view = new Button("More Details");
+		view.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Flag1) {
+					FEframe.initUI(cloudNum, fogServerNum, mobileNum);
+					Flag1 = false;
+				}
+				//FEframe.setFogDevices(cloudNum, fogServerNum, mobileNum, DCHostMipsMap);
+				FEframe.setVisible(true);
+			}
+		});
+		view.setBounds(10, 135, 100, 35);
+		panel.add(view);
 		
 		cloudPanel.setBounds(311, 10, 317, 65);
 		panel_3.add(cloudPanel);
@@ -483,77 +514,77 @@ public class MainUI extends JFrame {
 	}
 	
 	private void initA_OPanel() {
-		JLabel lblAlgorithm = new JLabel("Algorithms:");
+		JLabel lblAlgorithm = new JLabel("Scheduling Algorithms:");
 		JLabel lblObjective = new JLabel("Objective:");
-		JLabel lblAlgorithmSelection = new JLabel("Algorithms & Objective");
+		JLabel lblAlgorithmSelection = new JLabel("Strategy & Algorithms & Objective");
 		panel_2.setBackground(Color.WHITE);
-		panel_2.setBounds(656, 9, 318, 141);
+		panel_2.setBounds(656, 9, 318, 171);
 		
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		lblAlgorithm.setFont(new Font("Consolas", Font.PLAIN, 12));
-		lblAlgorithm.setBounds(10, 35, 78, 20);
+		lblAlgorithm.setBounds(10, 65, 166, 20);
 		lblAlgorithm.setForeground(Color.BLACK);
 		
 		panel_2.add(lblAlgorithm);
 		lblObjective.setFont(new Font("Consolas", Font.PLAIN, 12));
-		lblObjective.setBounds(10, 115, 78, 20);
+		lblObjective.setBounds(10, 145, 78, 20);
 		lblObjective.setForeground(Color.BLACK);
 		
 		panel_2.add(lblObjective);
 		lblAlgorithmSelection.setFont(new Font("Consolas", Font.BOLD, 16));
-		lblAlgorithmSelection.setBounds(66, 8, 210, 25);
+		lblAlgorithmSelection.setBounds(10, 8, 298, 25);
 		panel_2.add(lblAlgorithmSelection);
 		
 		chckbxMinmin.setFont(new Font("Consolas", Font.PLAIN, 12));
 		chckbxMinmin.setBackground(Color.WHITE);
-		chckbxMinmin.setBounds(10, 61, 68, 23);
+		chckbxMinmin.setBounds(10, 91, 68, 23);
 		CheckBoxList.add(chckbxMinmin);
 		panel_2.add(chckbxMinmin);
 		
 		chckbxMaxmin.setFont(new Font("Consolas", Font.PLAIN, 12));
 		chckbxMaxmin.setBackground(Color.WHITE);
-		chckbxMaxmin.setBounds(82, 61, 75, 23);
+		chckbxMaxmin.setBounds(82, 91, 75, 23);
 		CheckBoxList.add(chckbxMaxmin);
 		panel_2.add(chckbxMaxmin);
 		
 		chckbxFcfs.setFont(new Font("Consolas", Font.PLAIN, 12));
 		chckbxFcfs.setBackground(Color.WHITE);
-		chckbxFcfs.setBounds(154, 61, 56, 23);
+		chckbxFcfs.setBounds(154, 91, 56, 23);
 		CheckBoxList.add(chckbxFcfs);
 		panel_2.add(chckbxFcfs);
 		
 		chckbxRoundrobin.setFont(new Font("Consolas", Font.PLAIN, 12));
 		chckbxRoundrobin.setBackground(Color.WHITE);
-		chckbxRoundrobin.setBounds(212, 61, 105, 23);
+		chckbxRoundrobin.setBounds(212, 91, 105, 23);
 		CheckBoxList.add(chckbxRoundrobin);
 		panel_2.add(chckbxRoundrobin);
 		
 		chckbxPso.setFont(new Font("Consolas", Font.PLAIN, 12));
 		chckbxPso.setBackground(Color.WHITE);
-		chckbxPso.setBounds(10, 86, 56, 23);
+		chckbxPso.setBounds(10, 116, 56, 23);
 		CheckBoxList.add(chckbxPso);
 		panel_2.add(chckbxPso);
 		
 		chckbxGa.setFont(new Font("Consolas", Font.PLAIN, 12));
 		chckbxGa.setBackground(Color.WHITE);
-		chckbxGa.setBounds(82, 86, 68, 23);
+		chckbxGa.setBounds(82, 116, 68, 23);
 		CheckBoxList.add(chckbxGa);
 		panel_2.add(chckbxGa);
 		
 		rdbtnTime.setFont(new Font("Consolas", Font.PLAIN, 12));
 		rdbtnTime.setBackground(Color.WHITE);
-		rdbtnTime.setBounds(89, 114, 68, 23);
+		rdbtnTime.setBounds(89, 144, 68, 23);
 		panel_2.add(rdbtnTime);
 		
 		rdbtnEnergy.setFont(new Font("Consolas", Font.PLAIN, 12));
 		rdbtnEnergy.setBackground(Color.WHITE);
-		rdbtnEnergy.setBounds(154, 114, 68, 23);
+		rdbtnEnergy.setBounds(154, 144, 68, 23);
 		panel_2.add(rdbtnEnergy);
 		
 		rdbtnCost.setFont(new Font("Consolas", Font.PLAIN, 12));
 		rdbtnCost.setBackground(Color.WHITE);
-		rdbtnCost.setBounds(226, 114, 68, 23);
+		rdbtnCost.setBounds(226, 144, 68, 23);
 		panel_2.add(rdbtnCost);
 	}
 
@@ -564,7 +595,7 @@ public class MainUI extends JFrame {
 		JLabel lblDeadline = new JLabel("Deadline:");
 		inputDL = new JTextField();
 		panel_1.setBackground(Color.WHITE);
-		panel_1.setBounds(656, 155, 318, 135);
+		panel_1.setBounds(656, 185, 318, 130);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -587,12 +618,12 @@ public class MainUI extends JFrame {
 		lblWorkflowSetting.setFont(new Font("Consolas", Font.BOLD, 16));
 		lblWorkflowSetting.setBounds(86, 10, 159, 21);
 		panel_1.add(lblWorkflowSetting);
-		nodeSizeCb.setFont(new Font("Consolas", Font.PLAIN, 12));
 		
+		nodeSizeCb.setFont(new Font("Consolas", Font.PLAIN, 12));
 		nodeSizeCb.setBounds(252, 39, 56, 21);
 		panel_1.add(nodeSizeCb);
-		userdefined.setFont(new Font("Consolas", Font.PLAIN, 12));
 		
+		userdefined.setFont(new Font("Consolas", Font.PLAIN, 12));
 		userdefined.setBackground(Color.WHITE);
 		userdefined.setBounds(6, 69, 67, 23);
 		panel_1.add(userdefined);
@@ -726,7 +757,7 @@ public class MainUI extends JFrame {
 		            			List<Double[]> repeats = new ArrayList<Double[]>();
 		            			List<Long> times = new ArrayList<Long>();
 		            			for(int i = 0; i < repeat; i++){
-		            				System.out.println("---------------------------第"+(i+1)+"次pso--------------------------");
+		            				System.out.println("---------------------------For the "+(i+1)+" pso--------------------------");
 		            				long time = StartAlgorithm();
 		            				repeats.add(record.get((record.size()-1)));
 		            				record.remove(record.size()-1);
@@ -739,14 +770,17 @@ public class MainUI extends JFrame {
 		            			algomean[2] = mean[1];System.out.println("Average energy consumption = "+mean[1]);
 		            			algomean[3] = mean[2];System.out.println("Average cost = "+mean[2]);
 		            			record.add(algomean);
-		            			long averageTime = GetAverageTime(times);
+		            			if(wfEngine.getoffloadingEngine().getOffloadingStrategy() != null)
+		            				System.out.println("Average offloading Strategy time = " + wfEngine.getAverageOffloadingTime());
+		            			long averageTime = GetAverageTime(times);times=null;
+		            			System.out.println("Average "+scheduler_method+" algorithm execution time = " + averageTime);
 		            			displayTime(averageTime);
-		            			System.out.println("画 "+scheduler_method+" 迭代图");
+		            			System.out.println("Drawing "+scheduler_method+" iteration figure......");
 		            			showDialog("Drawing", "information");
 		            			Flag = false;
 			            		drawplot(wfEngine.iterateNum, wfEngine.updatebest, "Iterations", optimize_objective);
 			            		Flag = true;
-			            		System.out.println("画完");
+			            		System.out.println("Finished drawing");
 		            		}
 		            	}
 		            	else if(scheduler_method.equals("GA")){
@@ -759,27 +793,30 @@ public class MainUI extends JFrame {
 		            			List<Double[]> repeats = new ArrayList<Double[]>();
 		            			List<Long> times = new ArrayList<Long>();
 		            			for(int i = 0; i < repeat; i++){
-		            				System.out.println("---------------------------第"+(i+1)+"次ga--------------------------");
+		            				System.out.println("---------------------------For the "+(i+1)+" ga--------------------------");
 		            				long time = StartAlgorithm();
 		            				repeats.add(record.get((record.size()-1)));
 		            				record.remove(record.size()-1);
 		            				times.add(time);
 		            			}
-		            			Double[] mean = GetMean(repeats);
+		            			Double[] mean = GetMean(repeats);repeats=null;
 		            			Double[] algomean = new Double[4];
 		            			algomean[0] = getAlgorithm(scheduler_method);System.out.println(scheduler_method+":");
 		            			algomean[1] = mean[0];System.out.println("Average task execution time = "+mean[0]);
 		            			algomean[2] = mean[1];System.out.println("Average energy consumption = "+mean[1]);
 		            			algomean[3] = mean[2];System.out.println("Average cost = "+mean[2]);
 		            			record.add(algomean);
-		            			long averageTime = GetAverageTime(times);
+		            			if(wfEngine.getoffloadingEngine().getOffloadingStrategy() != null)
+		            				System.out.println("Average offloading Strategy time = " + wfEngine.getAverageOffloadingTime());
+		            			long averageTime = GetAverageTime(times);times=null;
+		            			System.out.println("Average "+scheduler_method+" algorithm execution time = " + averageTime);
 		            			displayTime(averageTime);
-		            			System.out.println("画 "+scheduler_method+" 迭代图");
+		            			System.out.println("Drawing "+scheduler_method+" iteration figure......");
 		            			showDialog("Drawing", "information");
 		            			Flag = false;
 			            		drawplot(wfEngine.iterateNum, wfEngine.updatebest, "Iterations", optimize_objective);
 			            		Flag = true;
-			            		System.out.println("画完");
+			            		System.out.println("Finished drawing");
 		            		}
 		            	}
 		            	else{//其他算法只支持优化时间
@@ -820,7 +857,7 @@ public class MainUI extends JFrame {
 			            			List<Double[]> repeats = new ArrayList<Double[]>();
 			            			List<Long> times = new ArrayList<Long>();
 			            			for(int i = 0; i < repeat; i++){
-			            				System.out.println("---------------------------第"+(i+1)+"次pso--------------------------");
+			            				System.out.println("---------------------------For the "+(i+1)+" pso--------------------------");
 			            				long time = StartAlgorithm();
 			            				repeats.add(record.get((record.size()-1)));
 			            				record.remove(record.size()-1);
@@ -834,6 +871,7 @@ public class MainUI extends JFrame {
 			            			algomean[3] = mean[2];System.out.println("Average cost = "+mean[2]);
 			            			record.add(algomean);
 			            			long averageTime = GetAverageTime(times);
+			            			System.out.println("Average "+scheduler_method+" algorithm execution time = " + averageTime);
 			            			displayTime(averageTime);
 			            		}
 			            	}
@@ -850,7 +888,7 @@ public class MainUI extends JFrame {
 			            			List<Double[]> repeats = new ArrayList<Double[]>();
 			            			List<Long> times = new ArrayList<Long>();
 			            			for(int i = 0; i < repeat; i++){
-			            				System.out.println("---------------------------第"+(i+1)+"次ga--------------------------");
+			            				System.out.println("---------------------------For the "+(i+1)+" ga--------------------------");
 			            				long time = StartAlgorithm();
 			            				repeats.add(record.get((record.size()-1)));
 			            				record.remove(record.size()-1);
@@ -864,6 +902,7 @@ public class MainUI extends JFrame {
 			            			algomean[3] = mean[2];System.out.println("Average cost = "+mean[2]);
 			            			record.add(algomean);
 			            			long averageTime = GetAverageTime(times);
+			            			System.out.println("Average "+scheduler_method+" algorithm execution time = " + averageTime);
 			            			displayTime(averageTime);
 			            		}
 			            	}
@@ -879,11 +918,11 @@ public class MainUI extends JFrame {
 		            	}
 	            	}
 	            	if(!record.isEmpty()){
-	            		System.out.println("画算法对比柱状图");
+	            		System.out.println("Drawing algorithms comparison bar......");
 	            		showDialog("Drawing", "information");
 	            		drawbar(record);
 	            		Flag = true;
-	            		System.out.println("画完");
+	            		System.out.println("Finished drawing");
 	            	}
 	            }
 	        }
@@ -891,12 +930,14 @@ public class MainUI extends JFrame {
 	        public void itemStateChanged(ItemEvent e){
 	        if(e.getItemSelectable() == mobileNumCb) {
 	    		if(e.getStateChange() == ItemEvent.SELECTED){
+	    			Flag1 = true;
 	    			mobilePanel.removeAll();
 	    			String itemSize = (String) e.getItem();
-	    			for(int i=0;i<(int)Integer.parseInt(itemSize);i++) {
-    					ImageIcon icon =new ImageIcon(getClass().getResource("/images/mobile.jpg"));
+	    			mobileNum = Integer.parseInt(itemSize);
+	    			for(int i = 0; i < mobileNum; i++) {
+    					ImageIcon icon = new ImageIcon(getClass().getResource("/images/mobile.jpg"));
     					icon.setImage(icon.getImage().getScaledInstance(30, 50, Image.SCALE_DEFAULT));
-    					JLabel jLabel=new JLabel(icon); 
+    					JLabel jLabel = new JLabel(icon); 
     					mobilePanel.add(jLabel);
     					validate();
     					repaint();
@@ -904,12 +945,14 @@ public class MainUI extends JFrame {
 	    		}
 	        }else if(e.getItemSelectable() == edgeNumCb) {
 	        		if(e.getStateChange() == ItemEvent.SELECTED){
+	        			Flag1 = true;
 		    			fogPanel.removeAll();
 		    			String itemSize = (String) e.getItem();
-		    			for(int i=0;i<Integer.parseInt(itemSize);i++) {
-	    					ImageIcon icon =new ImageIcon(getClass().getResource("/images/fogServer.jpg"));
+		    			fogServerNum = Integer.parseInt(itemSize);
+		    			for(int i = 0; i < fogServerNum; i++) {
+	    					ImageIcon icon = new ImageIcon(getClass().getResource("/images/fogServer.jpg"));
 	    					icon.setImage(icon.getImage().getScaledInstance(40, 50, Image.SCALE_DEFAULT));
-	    					JLabel jLabel=new JLabel(icon); 
+	    					JLabel jLabel = new JLabel(icon); 
 	    					fogPanel.add(jLabel);
 	    					validate();
 	    					repaint();
@@ -918,20 +961,14 @@ public class MainUI extends JFrame {
 	        		
 	        	}else if(e.getItemSelectable() == cloudNumCb){
 	        		if(e.getStateChange() == ItemEvent.SELECTED){
+	        			Flag1 = true;
 		    			cloudPanel.removeAll();
 		    			String itemSize = (String) e.getItem();
-		    			for(int i=0;i<Integer.parseInt(itemSize);i++) {
-	    					ImageIcon icon =new ImageIcon(getClass().getResource("/images/cloudServer.jpg"));
+		    			cloudNum = Integer.parseInt(itemSize);
+		    			for(int i = 0; i < cloudNum; i++) {
+	    					ImageIcon icon = new ImageIcon(getClass().getResource("/images/cloudServer.jpg"));
 	    					icon.setImage(icon.getImage().getScaledInstance(40, 50, Image.SCALE_DEFAULT));
 	    					JLabel jLabel = new JLabel(icon);
-//	    					JTextField jtext = new JTextField("1.60");
-//	    					jtext.setSize(70, 20);
-//	    					JPanel jPanel = new JPanel();
-////	    					jPanel.setLayout(new GridLayout(2,1));
-//	    					jPanel.setVisible(true);
-//	    					jPanel.add(jLabel);
-//	    					jPanel.add(jtext);
-//	    					cloudPanel.add(jPanel);
 	    					cloudPanel.add(jLabel);
 	    					validate();
 	    					repaint();
@@ -1014,29 +1051,55 @@ public class MainUI extends JFrame {
 	             * Create a WorkflowEngine.
 	             */
 	            wfEngine = wfPlanner.getWorkflowEngine();
+	            /**
+	             * Set a offloading Strategy for OffloadingEngine
+	             */
+	            if(StrategyCb.getSelectedItem() == null)
+	            	wfEngine.getoffloadingEngine().setOffloadingStrategy(null);
+	            else{
+	            	switch (StrategyCb.getSelectedItem().toString()) {
+	            	case "All-in-Fog":
+						wfEngine.getoffloadingEngine().setOffloadingStrategy(new OffloadingStrategyAllinFog());
+						break;
+	            	case "All-in-Cloud":
+						wfEngine.getoffloadingEngine().setOffloadingStrategy(new OffloadingStrategyAllinCloud());
+						break;
+					case "Simple":
+						wfEngine.getoffloadingEngine().setOffloadingStrategy(new OffloadingStrategySimple());
+						break;
+					default:
+						wfEngine.getoffloadingEngine().setOffloadingStrategy(null);
+						break;
+					}
+	            }
+	            /**
+	             * Set a deadline of workflow for WorkflowEngine
+	             */
 	            wfEngine.setDeadLine(deadline);
 	            /**
 	             * Create a list of VMs.The userId of a vm is basically the id of
 	             * the scheduler that controls this vm.
 	             */
 	            List<CondorVM> vmlist0 = createVM(wfEngine.getSchedulerId(0), Parameters.getVmNum(), hostlist);
-
+	            hostlist = null;//清空，释放内存
 	            /**
 	             * Submits this list of vms to this WorkflowEngine.
 	             */
 	            wfEngine.submitVmList(vmlist0, 0);
+	            vmlist0 = null;
 
 	            controller = new Controller("master-controller", fogDevices, wfEngine);
 	            
 	            /**
 	             * Binds the data centers with the scheduler.
 	             */
+	            List<PowerHost> list;
 	            for(FogDevice fogdevice:controller.getFogDevices()){
 	            	wfEngine.bindSchedulerDatacenter(fogdevice.getId(), 0);
-	            	List<PowerHost> list = fogdevice.getHostList();  //输出设备上的主机
+	            	list = fogdevice.getHostList();  //输出设备上的主机
 	            	System.out.println(fogdevice.getName()+": ");
 	            	for (PowerHost host : list){
-	            		System.out.print(host.getId()+":"+host.getTotalMips()+",  ");
+	            		System.out.print(host.getId()+":Mips("+host.getTotalMips()+"),"+"cost("+host.getcostPerMips()+")  ");
 	            	}
 	            	System.out.println();
 	            }
@@ -1064,15 +1127,28 @@ public class MainUI extends JFrame {
 	
 	private void createFogDevices(int userId, String appId) {
 			
-			double GHzList[] = {1.6};//云中的主机
 			double ratePerMips = 0.96;
-			double cost = 5.0; // the cost of using processing in this resource每秒的花费
 			double costPerMem = 0.05; // the cost of using memory in this resource
 			double costPerStorage = 0.1; // the cost of using storage in this resource
 			double costPerBw = 0.2;//每带宽的花费
 			
-			FogDevice cloud = createFogDevice("cloud", cloudNum, GHzToMips(1.6), 
-					40000, 100, 10000, 0, ratePerMips, 16*103, 16*83.25,cost,costPerMem,costPerStorage,costPerBw); // creates the fog device Cloud at the apex of the hierarchy with level=0
+			List<Long> GHzList = new ArrayList<>();//云中的主机
+			List<Double> CostList = new ArrayList<>();
+			for(JTextField textField : FEframe.DCMipsMap.get("cloud")){
+				if(textField.getText().isEmpty())
+					GHzList.add((long)10000);
+				else
+					GHzList.add(Long.valueOf(textField.getText()));
+			}
+			for(JTextField textField : FEframe.DCCostMap.get("cloud")){
+				if(textField.getText().isEmpty())
+					CostList.add(0.96);
+				else
+					CostList.add(Double.valueOf(textField.getText()));
+			}
+			cloudNumCb.setSelectedItem(String.valueOf(GHzList.size()));
+			FogDevice cloud = createFogDevice("cloud", GHzList.size(), GHzList, CostList,
+					40000, 100, 10000, 0, ratePerMips, 16*103, 16*83.25,costPerMem,costPerStorage,costPerBw); // creates the fog device Cloud at the apex of the hierarchy with level=0
 			cloud.setParentId(-1);
 			
 			fogDevices.add(cloud);
@@ -1085,12 +1161,27 @@ public class MainUI extends JFrame {
 		private  FogDevice addFogNode(String id, int userId, String appId, int parentId){
 			
 			double ratePerMips = 0.48;
-			double cost = 3.0; // the cost of using processing in this resource每秒的花费
 			double costPerMem = 0.05; // the cost of using memory in this resource
 			double costPerStorage = 0.1; // the cost of using storage in this resource
 			double costPerBw = 0.1;//每带宽的花费
 			
-			FogDevice dept = createFogDevice("d-"+id, fogServerNum, GHzToMips(1.3), 4000, 10000, 10000, 1, ratePerMips, 700, 30,cost,costPerMem,costPerStorage,costPerBw);
+			List<Long> GHzList = new ArrayList<>();//雾中的主机
+			List<Double> CostList = new ArrayList<>();
+			for(JTextField textField : FEframe.DCMipsMap.get("fog")){
+				if(textField.getText().isEmpty())
+					GHzList.add((long)5000);
+				else
+					GHzList.add(Long.valueOf(textField.getText()));
+			}
+			for(JTextField textField : FEframe.DCCostMap.get("fog")){
+				if(textField.getText().isEmpty())
+					CostList.add(0.48);
+				else
+					CostList.add(Double.valueOf(textField.getText()));
+			}
+			edgeNumCb.setSelectedItem(String.valueOf(GHzList.size()));
+			FogDevice dept = createFogDevice("f-"+id, GHzList.size(), GHzList, CostList,
+					4000, 10000, 10000, 1, ratePerMips, 700, 30,costPerMem,costPerStorage,costPerBw);
 			fogDevices.add(dept);
 			dept.setParentId(parentId);
 			dept.setUplinkLatency(4); // latency of connection between gateways and server is 4 ms
@@ -1104,12 +1195,22 @@ public class MainUI extends JFrame {
 		}
 		
 		private  FogDevice addMobile(String id, int userId, String appId, int parentId){
-			double cost = 6.0; // the cost of using processing in this resource每秒的花费
 			double costPerMem = 0.05; // the cost of using memory in this resource
 			double costPerStorage = 0.1; // the cost of using storage in this resource
 			double costPerBw = 0.3;//每带宽的花费
-			FogDevice mobile = createFogDevice("m-"+id, mobileNum, GHzToMips(1.0), 20*1024, 40*1024,
-					                                     270, 3, 0, 700, 30,cost,costPerMem,costPerStorage,costPerBw);
+			
+			List<Long> GHzList = new ArrayList<>();
+			List<Double> CostList = new ArrayList<>();
+			for(JTextField textField : FEframe.DCMipsMap.get("mobile")){
+				CostList.add(0.0);
+				if(textField.getText().isEmpty())
+					GHzList.add((long)1000);
+				else
+					GHzList.add(Long.valueOf(textField.getText()));
+			}
+			mobileNumCb.setSelectedItem(String.valueOf(GHzList.size()));
+			FogDevice mobile = createFogDevice("m-"+id, GHzList.size(), GHzList, CostList,
+					10000, 20*1024, 40*1024, 3, 0, 700, 30,costPerMem,costPerStorage,costPerBw);
 			mobile.setParentId(parentId);
 			return mobile;
 		}
@@ -1118,7 +1219,8 @@ public class MainUI extends JFrame {
 		 * Creates a vanilla fog device
 		 * @param nodeName name of the device to be used in simulation
 		 * @param hostnum the number of the host of device
-		 * @param mips MIPS
+		 * @param mips the list of host'MIPS
+		 * @param costPerMips the list of host'cost per mips
 		 * @param ram RAM
 		 * @param upBw uplink bandwidth (Kbps)
 		 * @param downBw downlink bandwidth (Kbps)
@@ -1128,8 +1230,10 @@ public class MainUI extends JFrame {
 		 * @param idlePower(mW)
 		 * @return
 		 */
-		private FogDevice createFogDevice(String nodeName, int hostnum, long mips,
-				int ram, long upBw, long downBw, int level, double ratePerMips, double busyPower, double idlePower,double cost,double costPerMem,double costPerStorage,double costPerBw) {
+		private FogDevice createFogDevice(String nodeName, int hostnum, List<Long> mips, List<Double> costPerMips,
+				int ram, long upBw, long downBw, int level, double ratePerMips, 
+				double busyPower, double idlePower,
+				double costPerMem,double costPerStorage,double costPerBw) {
 			
 			List<Host> hostList = new ArrayList<Host>();
 
@@ -1137,14 +1241,14 @@ public class MainUI extends JFrame {
 			{
 				List<Pe> peList = new ArrayList<Pe>();
 				// Create PEs and add these into a list.
-				peList.add(new Pe(0, new PeProvisionerSimple(mips))); // need to store Pe id and MIPS Rating
-				//peList.add(new Pe(1, new PeProvisionerSimple(mips)));
+				peList.add(new Pe(0, new PeProvisionerSimple(mips.get(i)))); // need to store Pe id and MIPS Rating
 				int hostId = FogUtils.generateEntityId();
 				long storage = 1000000; // host storage
 				int bw = 10000;
 
 				PowerHost host = new PowerHost(
 						hostId,
+						costPerMips.get(i),
 						new RamProvisionerSimple(ram),
 						new BwProvisionerSimple(bw),
 						storage,
@@ -1161,8 +1265,8 @@ public class MainUI extends JFrame {
 			String os = "Linux"; // operating system
 			String vmm = "Xen";
 			double time_zone = 10.0; // time zone this resource located
-			/*double cost = 3.0; // the cost of using processing in this resource每秒的花费
-			double costPerMem = 0.05; // the cost of using memory in this resource
+			double cost = 3.0; // the cost of using processing in this resource每秒的花费
+			/*double costPerMem = 0.05; // the cost of using memory in this resource
 			double costPerStorage = 0.1; // the cost of using storage in this resource
 			double costPerBw = 0.1; // the cost of using bw in this resource每带宽的花费*/
 			LinkedList<Storage> storageList = new LinkedList<Storage>();
@@ -1290,6 +1394,49 @@ public class MainUI extends JFrame {
 	        selectdisplay.setSelectedItem(algorithm);
 	    }
 	    
+	    protected static void printJobList(List<Job> list) {
+	    	@SuppressWarnings("resource")
+			Formatter formatter = new Formatter(System.out);
+	    	String indent = "    ";
+	        Log.printLine();
+	        Log.printLine("========== OUTPUT ==========");
+	        formatter.format("%-8s\t%-12s\t%-8s\t%-17s\t%-10s\t%-8s\t%-12s\t%-13s\t%-10s\t%-10s\n","Job ID","Task ID","STATUS",
+	        		"Data center ID","VM ID","Time","Start Time","Finish Time","Depth","Cost");
+	        DecimalFormat dft = new DecimalFormat("###.##");
+	        
+
+	        for (Job job : list) {
+	        	formatter.format("  %-8d\t",job.getCloudletId());
+	            //Log.print(indent + job.getCloudletId() + indent + indent);
+	            if (job.getClassType() == ClassType.STAGE_IN.value) {
+	            	formatter.format("%-10s\t","Stage-in");
+	                //Log.print("Stage-in");
+	            }
+	            for (Task task : job.getTaskList()) {
+	            	formatter.format("%-10d\t",task.getCloudletId());
+	                //Log.print(task.getCloudletId() + ",");
+	            }
+	            //Log.print(indent);
+
+	            if (job.getCloudletStatus() == Cloudlet.SUCCESS) {
+	            	formatter.format(" SUCCESS\t%-16s\t%-9d\t%-10.2f\t%-12.2f\t%-13.2f\t%-8d\t%-12.2f\t",
+	            			job.getResourceName(job.getResourceId()),job.getVmId(),
+	            			job.getActualCPUTime(),job.getExecStartTime(),
+	            			job.getFinishTime(),job.getDepth(),job.getProcessingCost());
+	            	@SuppressWarnings("unchecked")
+					List<Task> l = job.getParentList();
+	            	for(Task task : l)
+	            		System.out.print(task.getCloudletId()+",");
+	            	System.out.println();
+	            } else if (job.getCloudletStatus() == Cloudlet.FAILED) {
+	                Log.print("FAILED");
+	                Log.printLine(indent + indent + job.getResourceId() + indent + indent + indent + job.getVmId()
+	                        + indent + indent + indent + dft.format(job.getActualCPUTime())
+	                        + indent + indent + dft.format(job.getExecStartTime()) + indent + indent + indent
+	                        + dft.format(job.getFinishTime()) + indent + indent + indent + job.getDepth());
+	            }
+	        }
+	    }
 	    /**
 	     * 导出jtable的model到excel
 	     * @param table 要导出的jtable
@@ -1394,7 +1541,6 @@ public class MainUI extends JFrame {
 				wfEngine.clearFlag();
 				fogDevices.removeAll(fogDevices);  //清除对象列表
 				FogUtils.set1();
-				String[] columnNames = {"Job ID", "Task ID", "STATUS", "Data center ID", "VM ID", "Time", "Start Time", "Finish Time", "Depth", "Cost", "Parents"};
 			    Object[][] rowData = {};
 			    
 			    // 创建一个表格，指定 所有行数据 和 表头
@@ -1434,42 +1580,6 @@ public class MainUI extends JFrame {
 		    return files;
 		}
 		
-//		/**
-//		 * 获得所输入的pso参数设置
-//		 * @return 获取成功返回true 未输入返回false
-//		 */
-//		public boolean getpsosetting(){
-//			try{
-//				PsoScheduling.particleNum = Integer.valueOf(particleNum.getText());
-//				PsoScheduling.iterateNum = Integer.valueOf(psoiterate.getText());
-//				PsoScheduling.c1 = Double.valueOf(c1.getText());
-//				PsoScheduling.c2 = Double.valueOf(c2.getText());
-//				PsoScheduling.w = Double.valueOf(weight.getText());
-//				wfEngine.fitness = new double[PsoScheduling.particleNum];
-//				wfEngine.fitness2 = new double[PsoScheduling.particleNum];
-//			}catch (Exception e) {
-//				return false;
-//			}
-//			return true;
-//		}
-//		
-//		/**
-//		 * 获得所输入的ga参数设置
-//		 * @return 获取成功返回true 未输入返回false
-//		 */
-//		public boolean getgasetting(){
-//			try{
-//				GASchedulingAlgorithm.popsize = Integer.valueOf(populationsize.getText());
-//				GASchedulingAlgorithm.gmax = Integer.valueOf(gaiterate.getText());
-//				GASchedulingAlgorithm.crossoverProb = Double.valueOf(cross.getText());
-//				GASchedulingAlgorithm.mutationRate = Double.valueOf(mutate.getText());
-//				wfEngine.fitnessForGA = new double[GASchedulingAlgorithm.popsize];
-//			}catch (Exception e) {
-//				return false;
-//			}
-//			return true;
-//		}
-		
 		/**
 		 * 针对某个算法进行仿真模拟并记录仿真结果
 		 */
@@ -1494,12 +1604,6 @@ public class MainUI extends JFrame {
         		daxPath="config/dax/"+inputTypeCb.getSelectedItem()+"_"+nodeSizeCb.getSelectedItem()+".xml";
         		nodeSize = Integer.parseInt((String) nodeSizeCb.getSelectedItem());
         	}
-        	String cloudNum1=(String)cloudNumCb.getSelectedItem();
-        	cloudNum=Integer.parseInt(cloudNum1);
-        	String fogServerNum1=(String)edgeNumCb.getSelectedItem();
-        	fogServerNum=Integer.parseInt(fogServerNum1);
-        	String mobileNum1=(String)mobileNumCb.getSelectedItem();
-        	mobileNum=Integer.parseInt(mobileNum1);
         	double deadline = Double.MAX_VALUE;
         	if(!inputDL.getText().isEmpty())
         		deadline = Double.valueOf(inputDL.getText()).doubleValue();
@@ -1509,6 +1613,7 @@ public class MainUI extends JFrame {
             CloudSim.stopSimulation();
             Log.enable();
             printJobList(scheduler_method, outputList0);
+//            printJobList(outputList0);
             controller.print();
             Double[] a = {getAlgorithm(scheduler_method),controller.TotalExecutionTime,controller.TotalEnergy,controller.TotalCost};
             record.add(a);
@@ -1636,5 +1741,4 @@ public class MainUI extends JFrame {
 					}
 				}
 		}
-		
 }

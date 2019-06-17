@@ -46,6 +46,7 @@ public class FogBroker extends PowerDatacenterBroker{
     public static int count2=0;//更新粒子时，计数当前根据哪个粒子来为job分配虚拟机
     public static int initIndexForGA=0;
     public static int tempChildrenIndex=0;
+    private static List<CondorVM> scheduledVmList;
     /**
      * Created a new WorkflowScheduler object.
      *
@@ -57,6 +58,7 @@ public class FogBroker extends PowerDatacenterBroker{
      */
 	public FogBroker(String name) throws Exception {
 		super(name);
+		scheduledVmList = new ArrayList<CondorVM>();
 	}
 
     /**
@@ -89,6 +91,8 @@ public class FogBroker extends PowerDatacenterBroker{
      */
     @Override
     public void processEvent(SimEvent ev) {
+//    	if(CloudSim.clock()>40)
+//    	System.out.println(CloudSim.clock()+":"+CloudSim.getEntityName(ev.getSource())+"-> FogScheduler = "+ev.getTag());
         switch (ev.getTag()) {
             // Resource characteristics request
             case CloudSimTags.RESOURCE_CHARACTERISTICS_REQUEST:
@@ -301,6 +305,8 @@ public class FogBroker extends PowerDatacenterBroker{
             e.printStackTrace();
         }
 
+        WorkflowEngine wfEngine = (WorkflowEngine) CloudSim.getEntity(workflowEngineId);
+        Controller controller = wfEngine.getController();
         List<Cloudlet> scheduledList = scheduler.getScheduledList();
         for (Cloudlet cloudlet : scheduledList) {
             int vmId = cloudlet.getVmId();
@@ -308,6 +314,14 @@ public class FogBroker extends PowerDatacenterBroker{
             if (Parameters.getOverheadParams().getQueueDelay() != null) {
                 delay = Parameters.getOverheadParams().getQueueDelay(cloudlet);
             }
+//            Job job = (Job) cloudlet;
+//            if(job.getoffloading() != controller.getmobile().getId()){
+//            	if(job.getoffloading() != controller.getcloud().getId())
+//            		delay = job.getInputsize() / controller.parameter / controller.WAN_Bandwidth;
+//            	else
+//            		delay = job.getInputsize() / controller.parameter / controller.LAN_Bandwidth;
+//            }
+//            System.out.println(cloudlet.getCloudletId()+".submit delay : "+delay);
             schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
         }
         getCloudletList().removeAll(scheduledList);
@@ -422,7 +436,8 @@ public class FogBroker extends PowerDatacenterBroker{
     	for(int i=0;i<cloudletList.size();i++) {
     		int cloudletId=cloudletList.get(i).getCloudletId();
     		int vmId=schedules.get(initIndexForGA)[cloudletId];
-    		cloudletList.get(i).setVmId(vmId);
+    		int scheduledVmId = ChooseVm(cloudletList.get(i), vmId);
+    		cloudletList.get(i).setVmId(scheduledVmId);
     		//setVmState(vmId);
     		scheduledList.add(cloudletList.get(i));
     	}
@@ -451,7 +466,8 @@ public class FogBroker extends PowerDatacenterBroker{
     	for(int i=0;i<cloudletList.size();i++) {
     		int cloudletId=cloudletList.get(i).getCloudletId();
     		int vmId=schedules.get(tempChildrenIndex)[cloudletId];
-    		cloudletList.get(i).setVmId(vmId);
+    		int scheduledVmId = ChooseVm(cloudletList.get(i), vmId);
+    		cloudletList.get(i).setVmId(scheduledVmId);
     		//setVmState(vmId);
     		scheduledList.add(cloudletList.get(i));
     	}
@@ -476,7 +492,8 @@ public class FogBroker extends PowerDatacenterBroker{
     	for(int i=0;i<cloudletList.size();i++) {
     		int cloudletId=cloudletList.get(i).getCloudletId();
     		int vmId=GASchedulingAlgorithm.gbestSchedule[cloudletId];
-    		cloudletList.get(i).setVmId(vmId);
+    		int scheduledVmId = ChooseVm(cloudletList.get(i), vmId);
+    		cloudletList.get(i).setVmId(scheduledVmId);
     		//setVmState(vmId);
     		scheduledList.add(cloudletList.get(i));
     	}
@@ -519,10 +536,19 @@ public class FogBroker extends PowerDatacenterBroker{
         vm.setState(WorkflowSimTags.VM_STATUS_IDLE);
         vm.setlastUtilizationUpdateTime(CloudSim.clock());
 
+        WorkflowEngine wfEngine = (WorkflowEngine) CloudSim.getEntity(workflowEngineId);
+        Controller controller = wfEngine.getController();
         double delay = 0.0;
         if (Parameters.getOverheadParams().getPostDelay() != null) {
             delay = Parameters.getOverheadParams().getPostDelay(job);
         }
+//        if(job.getoffloading() != controller.getmobile().getId()){
+//        	if(job.getoffloading() != controller.getcloud().getId())
+//        		delay = job.getOutputsize() / controller.parameter / controller.WAN_Bandwidth;
+//        	else
+//        		delay = job.getOutputsize() / controller.parameter / controller.LAN_Bandwidth;
+//        }
+//        System.out.println(cloudlet.getCloudletId()+".return delay : "+delay);
         schedule(this.workflowEngineId, delay, CloudSimTags.CLOUDLET_RETURN, cloudlet);
 
         cloudletsSubmitted--;
@@ -610,5 +636,58 @@ public class FogBroker extends PowerDatacenterBroker{
 				vm2.setState(WorkflowSimTags.VM_STATUS_BUSY);
 			}
 		}
+	}
+    
+    /**
+     * 根据任务卸载决策的结果，对智能算法所生成的虚拟机编号进行转换
+     * @param cloudlet 任务
+     * @param vmId 智能算法生成的虚拟机编号
+     * @return 根据卸载决策结果所选择的虚拟机编号
+     */
+    private int ChooseVm(Cloudlet cloudlet, int vmId) {
+    	List<CondorVM> list = new ArrayList<CondorVM>();
+    	int chooseVmId = -1;
+    	Job job = (Job) cloudlet;
+    	if(job.getoffloading() == -1){
+//    		Log.printLine("没有进行卸载决策");
+    		return vmId;
+    	}
+    	else{
+    		for(Vm vm : getVmList()){
+        		CondorVM cvm = (CondorVM) vm;
+            	if(job.getoffloading() == cvm.getHost().getDatacenter().getId())
+            		list.add(cvm);
+            }
+    		for(Vm vm : list){
+    			if(vmId == vm.getId()){
+    				//Log.printLine("GA----job"+job.getCloudletId()+":"+vmId+"=>"+CloudSim.getEntityName(job.getoffloading())+":"+vmId);
+    				return vmId;
+    			}
+    		}
+    		chooseVmId = list.get(0).getId() + vmId % list.size();
+//    		System.out.println("GA----job"+job.getCloudletId()+":"+vmId+"=>"+CloudSim.getEntityName(job.getoffloading())+":"+chooseVmId);
+    	}
+    	list.clear();
+		return chooseVmId;
+	}
+    
+    /**
+     * 根据任务卸载决策的结果得到相应数据中心的虚拟机列表
+     * @param cloudlet 任务
+     * @return 决策后相应数据中心的虚拟机列表
+     */
+    private List<CondorVM> getScheduledVmList(Cloudlet cloudlet) {
+    	Job job = (Job) cloudlet;
+    	if(job.getoffloading() == -1){
+    		Log.printLine("没有进行卸载决策");
+    		return getVmList();
+    	}
+    	List<CondorVM> list = new ArrayList<CondorVM>();
+    	for(Vm vm : getVmList()){
+    		CondorVM cvm = (CondorVM) vm;
+        	if(job.getoffloading() == cvm.getHost().getDatacenter().getId())
+        		list.add(cvm);
+        }
+    	return list;
 	}
 }

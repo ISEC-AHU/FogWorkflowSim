@@ -45,7 +45,7 @@ public class PowerHost extends HostDynamicWorkload {
 	
 	protected double lastUtilizationUpdateTime;
 	protected double lastUtilization;
-	
+	protected double costPerMips;
 	public double energyConsumption;
 	public double ExecutionTime;
 	public double IdleTime;
@@ -62,6 +62,7 @@ public class PowerHost extends HostDynamicWorkload {
 	 */
 	public PowerHost(
 			int id,
+			double cost,
 			RamProvisioner ramProvisioner,
 			BwProvisioner bwProvisioner,
 			long storage,
@@ -70,6 +71,7 @@ public class PowerHost extends HostDynamicWorkload {
 			PowerModel powerModel) {
 		super(id, ramProvisioner, bwProvisioner, storage, peList, vmScheduler);
 		setPowerModel(powerModel);
+		costPerMips = cost;
 		energyConsumption = 0.0;
 		ExecutionTime = 0.0;
 		IdleTime = 0.0;
@@ -152,6 +154,10 @@ public class PowerHost extends HostDynamicWorkload {
 	 */
 	public PowerModel getPowerModel() {
 		return powerModel;
+	}
+	
+	public double getcostPerMips() {
+		return costPerMips;
 	}
 	
 	public double updateEnergyConsumption() {

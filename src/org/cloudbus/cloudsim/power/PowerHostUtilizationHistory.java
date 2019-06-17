@@ -53,7 +53,7 @@ public class PowerHostUtilizationHistory extends PowerHost {
 			List<? extends Pe> peList,
 			VmScheduler vmScheduler,
 			PowerModel powerModel) {
-		super(id, ramProvisioner, bwProvisioner, storage, peList, vmScheduler, powerModel);
+		super(id, 0, ramProvisioner, bwProvisioner, storage, peList, vmScheduler, powerModel);
 	}
 
 	/**

@@ -19,5 +19,7 @@
 	<classpathentry kind="lib" path="jars/jgoodies-forms-1.8.0.jar"/>
 	<classpathentry kind="lib" path="jars/miglayout15-swing.jar"/>
 	<classpathentry kind="lib" path="jars/jxl.jar"/>
+	<classpathentry kind="lib" path="jars/kmeans.jar"/>
+	<classpathentry kind="lib" path="jars/plottest.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

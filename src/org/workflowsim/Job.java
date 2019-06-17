@@ -35,6 +35,13 @@ public class Job extends Task {
      */
     private List<Task> taskList;
     private double Processingcost;
+    private int offloading;// 数字代表数据中心编号,-1表示未进行卸载决策
+    private double Inputsize;//需要终端设备发送的输入文件大小
+    private double Outputsize;//输出到终端设备的文件大小
+    /**
+     * by Fan
+     */
+    private double FileSize;
 
     /**
      * Allocates a new Job object. The job length should be greater than or
@@ -54,6 +61,9 @@ public class Job extends Task {
         super(jobId, jobLength);
         this.taskList = new ArrayList<>();
         setProcessingCost(0.0);
+        setoffloading(-1);//-1表示未进行卸载决策
+        setInputsize(0);
+        setOutputsize(0);
     }
 
     /**
@@ -102,5 +112,29 @@ public class Job extends Task {
     }
     public void setProcessingCost(double cost){
     	this.Processingcost = cost;
+    }
+    public int getoffloading(){
+    	return offloading;
+    }
+    public void setoffloading(int id){
+    	this.offloading = id;
+    }
+    public double getInputsize(){
+    	return Inputsize;
+    }
+    public void setInputsize(double size){
+    	this.Inputsize = size;
+    }
+    public double getOutputsize(){
+    	return Outputsize;
+    }
+    public void setOutputsize(double size){
+    	this.Outputsize = size;
+    }
+    public double getFileSize(){
+    	return FileSize;
+    }
+    public void setFileSize(double size){
+    	this.FileSize = size;
     }
 }

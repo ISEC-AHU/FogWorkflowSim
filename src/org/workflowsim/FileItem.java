@@ -15,6 +15,7 @@
  */
 package org.workflowsim;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.workflowsim.utils.Parameters.FileType;
 

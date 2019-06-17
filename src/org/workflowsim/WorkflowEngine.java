@@ -31,13 +31,12 @@ import org.cloudbus.cloudsim.core.SimEntity;
 import org.cloudbus.cloudsim.core.SimEvent;
 import org.fog.entities.Controller;
 import org.fog.entities.FogBroker;
+import org.fog.entities.OffloadingEngine;
 import org.fog.utils.FogEvents;
 import org.workflowsim.reclustering.ReclusteringEngine;
 import org.workflowsim.scheduling.GASchedulingAlgorithm;
 import org.workflowsim.scheduling.PsoScheduling;
 import org.workflowsim.utils.Parameters;
-
-import com.sun.javafx.scene.traversal.Algorithm;
 
 /**
  * WorkflowEngine represents a engine acting on behalf of a user. It hides VM
@@ -72,8 +71,9 @@ public class WorkflowEngine extends SimEntity {
     public static double fitnessForGATempChildren[]=new double[4];
     public static int findBestSchedule=0;
     public int iterateNum=0;
-	public ArrayList<double[]> indicators =new ArrayList<double[]>();
-	public ArrayList<Double> updatebest =new ArrayList<Double>();
+	public static ArrayList<double[]> indicators =new ArrayList<double[]>();
+	public static ArrayList<Double> updatebest =new ArrayList<Double>();
+	public static List<Long> offloadingTimes = new ArrayList<>();
 	
     /**
      * The job submitted list.
@@ -94,6 +94,7 @@ public class WorkflowEngine extends SimEntity {
     private List<Integer> schedulerId;
     private List<FogBroker> scheduler;
     private int controllerId;
+    private static OffloadingEngine offloadingEngine;
     
     /**
      * the end time of algorithm
@@ -135,6 +136,10 @@ public class WorkflowEngine extends SimEntity {
 
         for (int i = 0; i < schedulers; i++) {
             //FogBroker wfs = new FogBroker(name + "_Scheduler_" + i);
+            
+            offloadingEngine = new OffloadingEngine("OffloadingEngine", null);
+            offloadingEngine.setWorkflowEngine(this);
+            
             FogBroker wfs = new FogBroker("FogScheduler");
             getSchedulers().add(wfs);
             getSchedulerIds().add(wfs.getId());
@@ -188,6 +193,8 @@ public class WorkflowEngine extends SimEntity {
      */
     @Override
     public void processEvent(SimEvent ev) {
+//    	if(CloudSim.clock()>40)
+//    	System.out.println(CloudSim.clock()+":"+CloudSim.getEntityName(ev.getSource())+"-> WorkflowEngine = "+ev.getTag());
         switch (ev.getTag()) {
             // Resource characteristics request
             case CloudSimTags.RESOURCE_CHARACTERISTICS_REQUEST:
@@ -278,9 +285,13 @@ public class WorkflowEngine extends SimEntity {
     protected void processJobSubmit(SimEvent ev) {
         List<? extends Cloudlet> list = (List) ev.getData();
         setJobsList(list);
-        for(Object job1:getJobsList()) {
-        	Job job=(Job)job1;//
+        for(Object job1 : getJobsList()) {
+        	Job job=(Job)job1;
         	jobList.add(job);
+        }
+        if(getoffloadingEngine().getOffloadingStrategy() != null){
+        	long offloadingTime = getoffloadingEngine().run(jobList, DeadLine);
+        	offloadingTimes.add(offloadingTime);
         }
     }
 
@@ -323,148 +334,131 @@ public class WorkflowEngine extends SimEntity {
      * @post $none
      */
     protected void processJobReturnForPSO(SimEvent ev) throws Exception {
-        Job job = (Job) ev.getData();
+    	Job job = (Job) ev.getData();
         if (job.getCloudletStatus() == Cloudlet.FAILED) {
             // Reclusteringengine will add retry job to jobList
         	System.out.println("failed");
             int newId = getJobsList().size() + getJobsSubmittedList().size();
             getJobsList().addAll(ReclusteringEngine.process(job, newId));
         }
-     
         getJobsReceivedList().add(job);
         jobsSubmitted--;
-        	if(getJobsList().isEmpty() && jobsSubmitted == 0) {
-        		//System.out.println("-------------------------------------------");
-        		 if(index1!=PsoScheduling.particleNum) {
-        			 already=1;
-        			//处理完了一个粒子（初始化得到的粒子 ）
-                 	FogBroker.count++;
-                 	fitness[index1++]=caculatefitness();
-                 	
-                 	init();
-                    if(index1==PsoScheduling.particleNum) {
-    	        		init();
-                    	updateFlag=1;
-                    	updateFlag2=1;
-                 	}
-                   
-                 	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
-                 	
-        		 }else if(indexForUpdate!=PsoScheduling.particleNum) {
-     	        	//处理完了所有的初始化得到的粒子,并且处理完了一个粒子（update后得到的粒子 ）
-        			 int gbestIndex=0;
-        			 for(int i=0;i<index1;i++) {
-        				 if(fitness[i]<PsoScheduling.gbest_fitness) {
-        					 PsoScheduling.gbest_fitness=fitness[i];
-        					 gbestIndex=i;
-        				 }
-        			 }
-        			 PsoScheduling.gbest_schedule=PsoScheduling.pbest_schedule.get(gbestIndex);//更新全局最优的调度方案
-        			 
-        			 List<int[]> list2=new ArrayList<int[]>();
-        			 list2=PsoScheduling.pbest_schedule;
-        			 
-        			 FogBroker.count2++;
-    	        	fitness2[indexForUpdate++]=caculatefitness();
-    	        	
-    	        	if(FogBroker.count2!=PsoScheduling.particleNum&&PsoScheduling.iterateNum>iterateNum) {
-    	        		init();
-    	        		sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
-    	        	}
-     		    }
-        		 
-             if(index1==PsoScheduling.particleNum&&indexForUpdate==PsoScheduling.particleNum) {
+        
+        if(getJobsList().isEmpty() && jobsSubmitted == 0) {
+    		//System.out.println("-------------------------------------------");
+        	if(index1 != PsoScheduling.particleNum) {
+        		already = 1;
+    			//处理完了一个粒子（初始化得到的粒子 ）
+             	FogBroker.count++;
+             	fitness[index1++] = caculatefitness();
+             	init();
+                if(index1 == PsoScheduling.particleNum) {
+	        		init();
+                	updateFlag = 1;
+                	updateFlag2 = 1;
+             	}
+             	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
+    		}
+        	else if(indexForUpdate != PsoScheduling.particleNum) {
+ 	        	//处理完了所有的初始化得到的粒子,并且处理完了一个粒子（update后得到的粒子 ）
+        		int gbestIndex = 0;
+    			for(int i = 0; i < index1; i++) {
+    				if(fitness[i] < PsoScheduling.gbest_fitness) {
+    					 PsoScheduling.gbest_fitness = fitness[i];
+    					 gbestIndex = i;
+    				}
+    			}
+    			PsoScheduling.gbest_schedule = PsoScheduling.pbest_schedule.get(gbestIndex);//更新全局最优的调度方案
+    			
+    			FogBroker.count2++;
+	        	fitness2[indexForUpdate++] = caculatefitness();
+	        	if(FogBroker.count2 != PsoScheduling.particleNum && PsoScheduling.iterateNum > iterateNum) {
+	        		init();
+	        		sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
+	        	}
+ 		    }
+            if(index1 == PsoScheduling.particleNum && indexForUpdate == PsoScheduling.particleNum) {
  	        	//处理完了所有的初始化得到的粒子、update后得到的粒子
-            	   if(PsoScheduling.iterateNum>iterateNum) {
-     		    	     for(int i=0;i<PsoScheduling.particleNum;i++) { 
-     		    	    	 //更新个体最优
-    	        		   if(fitness[i]>fitness2[i]) {
-    	        			int schedule1[]=PsoScheduling.pbest_schedule.get(i);
-    	        			int schedule2[]=PsoScheduling.newSchedules.get(i);
-    	        			for(int j=0;j<schedule1.length;j++) {
-    	        				schedule1[j]=schedule2[j];
-    	        			}
-    	        			PsoScheduling.pbest_fitness[i]=fitness2[i]; 
-    	        		}else {
-    	        			PsoScheduling.pbest_fitness[i]=fitness[i];
-    	        		}
-    	        	}
-    	        	fitness=PsoScheduling.pbest_fitness;
-    	        	for(int i=0;i<PsoScheduling.particleNum;i++) {  //更新全局最优
-    	        		if(PsoScheduling.pbest_fitness[i]<PsoScheduling.gbest_fitness) {
-    	        			//index1=i;
-    	        			PsoScheduling.gbest_fitness=PsoScheduling.pbest_fitness[i];
-    	        			PsoScheduling.gbest_schedule=PsoScheduling.pbest_schedule.get(i);
-    	        		}
-    	        	}
-    	        	iterateNum++;
-    	        	
-    	        	//System.out.println("第"+iterateNum+"次迭代后:");
-    	        	//System.out.println("======最优的适应度gbest_fitness为:========"+PsoScheduling.gbest_fitness);
-    	        	updatebest.add(PsoScheduling.gbest_fitness);
-//    	        	printindicators(PsoScheduling.gbest_fitness);
-    	        	
-    	        	if(PsoScheduling.iterateNum!=iterateNum) {
-    	        		indexForUpdate=0;
-    	        		FogBroker.count2=0;
-    	        		Controller controller = (Controller) CloudSim.getEntity(this.getcontrollerId());
-        	        	controller.updateExecutionTime();
+            	if(PsoScheduling.iterateNum > iterateNum) {
+            		for(int i = 0; i < PsoScheduling.particleNum; i++) { 
+            			//更新个体最优
+            			if(fitness[i] > fitness2[i]) {
+            				int schedule1[] = PsoScheduling.pbest_schedule.get(i);
+            				int schedule2[] = PsoScheduling.newSchedules.get(i);
+            				for(int j = 0; j < schedule1.length; j++)
+            					schedule1[j] = schedule2[j];
+            				PsoScheduling.pbest_fitness[i] = fitness2[i]; 
+            			}
+            			else
+            				PsoScheduling.pbest_fitness[i]=fitness[i];
+	        		}
+            		fitness = PsoScheduling.pbest_fitness;
+            		for(int i = 0; i < PsoScheduling.particleNum; i++) {  //更新全局最优
+            			if(PsoScheduling.pbest_fitness[i] < PsoScheduling.gbest_fitness) {
+            				//index1=i;
+            				PsoScheduling.gbest_fitness = PsoScheduling.pbest_fitness[i];
+            				PsoScheduling.gbest_schedule = PsoScheduling.pbest_schedule.get(i);
+            			}
+            		}
+            		iterateNum++;
+            		System.out.println("After "+iterateNum+" iterations:");
+            		System.out.println("======gbest_fitness:========"+PsoScheduling.gbest_fitness);
+            		updatebest.add(PsoScheduling.gbest_fitness);
+//	              	printindicators(PsoScheduling.gbest_fitness);
+            		
+            		if(PsoScheduling.iterateNum != iterateNum) {
+    	        		indexForUpdate = 0;
+    	        		FogBroker.count2 = 0;
+    	        		getController().updateExecutionTime();
         	        	init(); 
-         		    	updateFlag2=1;
+         		    	updateFlag2 = 1;
          		    	PsoScheduling.newSchedules.removeAll(PsoScheduling.newSchedules);
          		    	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
     	        	}
-     		     }
-     		   /* if(PsoScheduling.iterateNum!=0) {
-     		    	
-     		    }*/
-    		 }
-               
-        	   if(startlastSchedule==1) {
-   	        	   double f = caculatefitness();
-        		   System.out.println("最后一次运行的结果："+f);
-        		   for (int i = 0; i < getSchedulerIds().size(); i++) {
-                       sendNow(getSchedulerId(i), CloudSimTags.END_OF_SIMULATION, null);
-                   }
-        		 }
-        	   
-    		   if(PsoScheduling.iterateNum==iterateNum&&startlastSchedule==0) {
-    			   
-    	        	for(int i=0;i<PsoScheduling.particleNum;i++) {
-    	        		if(PsoScheduling.pbest_fitness[i]==PsoScheduling.gbest_fitness) {
-    	        			PsoScheduling.gbest_schedule=PsoScheduling.pbest_schedule.get(i);
-    	        		}
-    	        	}
-    	        	//记录pso结束时间
-    	        	endTime = System.currentTimeMillis();
-    	        	algorithmTime = endTime - getScheduler(0).startTime;
-    	        	
-    	        	startlastSchedule=1;
-    	        	caculatefitness();
-    	        	init();
-    	        
-    	        	//sendNow(this.getSchedulerId(0), CloudSimTags.CLOUDLET_SUBMIT, submittedList);
-    	        	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
-    		 }
-     		  
-        }else {
-        	updateFlag2=0;
+            	}
+            }
+            if(startlastSchedule == 1) {
+            	double f = caculatefitness();
+            	System.out.println("The last result : "+f);
+            	for (int i = 0; i < getSchedulerIds().size(); i++) {
+                    sendNow(getSchedulerId(i), CloudSimTags.END_OF_SIMULATION, null);
+                }
+     		}
+            if(PsoScheduling.iterateNum == iterateNum && startlastSchedule == 0) {
+            	for(int i = 0; i < PsoScheduling.particleNum; i++) {
+            		if(PsoScheduling.pbest_fitness[i] == PsoScheduling.gbest_fitness) {
+            			PsoScheduling.gbest_schedule = PsoScheduling.pbest_schedule.get(i);
+            		}
+            	}
+            	//记录pso结束时间
+            	endTime = System.currentTimeMillis();
+            	algorithmTime = endTime - getScheduler(0).startTime;
+            	
+            	startlastSchedule = 1;
+            	caculatefitness();
+            	init();
+            	//sendNow(this.getSchedulerId(0), CloudSimTags.CLOUDLET_SUBMIT, submittedList);
+            	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
+            }
+        }
+        else{
+        	updateFlag2 = 0;
         	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
         }
-        		 
-        	//sendNow(getSchedulerId(0), CloudSimTags.END_OF_SIMULATION, null);
-        	//sendNow(getcontrollerId(), FogEvents.STOP_SIMULATION,null);
-        	
+//      sendNow(getSchedulerId(0), CloudSimTags.END_OF_SIMULATION, null);
+//    	sendNow(getcontrollerId(), FogEvents.STOP_SIMULATION,null);
     }
+    
     public double caculatefitness(){
-//    	System.out.println("-------------------------------------------");
     	Controller controller = (Controller) CloudSim.getEntity(this.getcontrollerId());
     	controller.updateExecutionTime();
     	double energy = controller.TotalEnergy;  //单位J焦
     	double time = controller.TotalExecutionTime;
     	double cost = controller.TotalCost;
-    	//System.out.println("controller.time = "+controller.TotalExecutionTime);
-    	//System.out.println("clock = "+CloudSim.clock());
+//    	System.out.println("controller.time = "+controller.TotalExecutionTime);
+//    	System.out.println("------------------------------------------------------------------");
+//    	System.out.println("clock = "+CloudSim.clock());
+//    	System.out.println("------------------------------------------------------------------");
     	
     	if(time > DeadLine){
     		energy = 10*energy*(time/DeadLine);
@@ -544,10 +538,11 @@ public class WorkflowEngine extends SimEntity {
 			 job.setTaskFinishTime(-1.0);
 			 job.setExecStartTime(0);
 			 job.setVmId(-1);
+			 job.setInputsize(0);
+			 job.setOutputsize(0);
 		 }
 		
-		 Controller controller = (Controller) CloudSim.getEntity(this.getcontrollerId());
-		 controller.clear();
+		 getController().clear();
 		 
 		 for(Vm vm:getAllVmList()) {
 			 vm.getCloudletScheduler().clear();
@@ -557,159 +552,137 @@ public class WorkflowEngine extends SimEntity {
 		 getJobsReceivedList().removeAll(getJobsReceivedList());
 //		 if(getJobsReceivedList().isEmpty())
 //			 System.out.println("jobsReceivedList已清空");
-   }
+	}
     
     protected void processJobReturnForGA(SimEvent ev) throws Exception {
-
-        Job job = (Job) ev.getData();
+    	Job job = (Job) ev.getData();
         if (job.getCloudletStatus() == Cloudlet.FAILED) {
             // Reclusteringengine will add retry job to jobList
             int newId = getJobsList().size() + getJobsSubmittedList().size();
             getJobsList().addAll(ReclusteringEngine.process(job, newId));
         }
-     
         getJobsReceivedList().add(job);
         jobsSubmitted--;
-       
-        	if(getJobsList().isEmpty() && jobsSubmitted == 0) {
-        		if(findBestSchedule==1) {
-        			Controller controller = (Controller) CloudSim.getEntity(this.getcontrollerId());
-    	        	controller.updateExecutionTime();
-        			sendNow(getSchedulerId(0), CloudSimTags.END_OF_SIMULATION, null);
-        		}
-        		 if(initIndexForGA!=GASchedulingAlgorithm.popsize) {
-        			//处理完了一个粒子（初始化得到的粒子 ）
-        			already=1;
-                 	FogBroker.initIndexForGA++;
-                 	fitnessForGA[initIndexForGA++]=caculatefitness();
-                 	init();
-                    if(initIndexForGA==GASchedulingAlgorithm.popsize) {
-                    	gaFlag=1;
-                    	gaFlag2=0;
-                    	double totalFitness=0;
-                    	double bestFitness=Double.MAX_VALUE;
-                    	int bestIndex=0;
-           			 for(int i=0;i<fitnessForGA.length;i++) {
-           				 totalFitness+=fitnessForGA[i];
-           				 if(bestFitness>fitnessForGA[i]) {
-           					 bestFitness=fitnessForGA[i];
-           					 bestIndex=i;
-           				 }
-           			 }
-           			
-           			 GASchedulingAlgorithm.bestParent=GASchedulingAlgorithm.schedules.get(bestIndex);//父代中最好的染色体
-           			 GASchedulingAlgorithm.bestParentFitness=bestFitness;//父代中最好的适应度值
-           			 
-           			GASchedulingAlgorithm.gbestSchedule=GASchedulingAlgorithm.bestParent;
-           			if(iterateNum!=0) {
-//           				System.out.println("========第"+iterateNum+"次迭代的最优适应度值为："+bestFitness);
-           				updatebest.add(bestFitness);
-           				
-           			}
-           			 for(int i=0;i<fitnessForGA.length;i++)
-           				{
-           					GASchedulingAlgorithm.probs.put(i,fitnessForGA[i]/totalFitness);//每个染色体被选中的概率
-           				}
-           			 GASchedulingAlgorithm.getSegments();
-    	        		init();
-                 	}
-                   
-                 	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
-                 	
-        		 }else if(tempChildrenIndex!=4&&findBestSchedule==0){
-        			 
-        			 gaFlag2=1;
-        			 
-        			 fitnessForGATempChildren[tempChildrenIndex++]=caculatefitness();
-        			 FogBroker.tempChildrenIndex++;
-        			 if(tempChildrenIndex==4) {
-        				 gaFlag2=0;
-            			 tempChildrenIndex=0;
-            			 FogBroker.tempChildrenIndex=0;
-            			 if(fitnessForGATempChildren[0] < fitnessForGATempChildren[1]) {
-            				 GASchedulingAlgorithm.fitness.add(fitnessForGATempChildren[0]);
-            				 GASchedulingAlgorithm.children.add(GASchedulingAlgorithm.tempChildren.get(0));
-            			 }else {
-            				 GASchedulingAlgorithm.fitness.add(fitnessForGATempChildren[1]);
-            				 GASchedulingAlgorithm.children.add(GASchedulingAlgorithm.tempChildren.get(1));
-            			 }
-            			 
-            			 if(fitnessForGATempChildren[2] < fitnessForGATempChildren[3]) {
-            				 GASchedulingAlgorithm.fitness.add(fitnessForGATempChildren[2]);
-            				 GASchedulingAlgorithm.children.add(GASchedulingAlgorithm.tempChildren.get(2));
-            			 }else {
-            				 GASchedulingAlgorithm.fitness.add(fitnessForGATempChildren[3]);
-            				 GASchedulingAlgorithm.children.add(GASchedulingAlgorithm.tempChildren.get(3));
-            			 }
-            			 
-            			 GASchedulingAlgorithm.tempChildren.removeAll(GASchedulingAlgorithm.tempChildren);
-        			 }
-        			 
-        				if(GASchedulingAlgorithm.children.size()!=GASchedulingAlgorithm.popsize) {
-               			 init();
-               			 sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
-               			 }else if(findBestSchedule==0){
-               				 //完成了一次进化
-               				 
-               				 if(GASchedulingAlgorithm.gmax!=iterateNum) {
-               					double bestFitness=Double.MAX_VALUE;//子代中最好的适应度值
-               					double worstFitness=0;//子代中最坏的适应度值
-              					 int worstIndex=0;
-              					 for(int i=0;i<GASchedulingAlgorithm.fitness.size();i++) {
-              						 if(bestFitness>GASchedulingAlgorithm.fitness.get(i)) {
-              							 bestFitness=GASchedulingAlgorithm.fitness.get(i);
-              						 }
-              						 if(worstFitness<GASchedulingAlgorithm.fitness.get(i)) {
-              							worstFitness=GASchedulingAlgorithm.fitness.get(i);
-              							worstIndex=i;
-              						 }
-              					 }
-              					iterateNum++;
-              					
-              					GASchedulingAlgorithm.fitness.removeAll(GASchedulingAlgorithm.fitness);
-               					 
-               					 GASchedulingAlgorithm.schedules.removeAll(GASchedulingAlgorithm.schedules);
-               					 GASchedulingAlgorithm.probSegments=new HashMap<Integer,double[]>();
-               					 GASchedulingAlgorithm.probs=new HashMap<Integer,Double>();
-               					 GASchedulingAlgorithm.tempParents.removeAll(GASchedulingAlgorithm.tempParents);
-               					 for(int i=0;i<GASchedulingAlgorithm.children.size();i++) {
-               						 if(i==worstIndex) {
-               							GASchedulingAlgorithm.schedules.add(GASchedulingAlgorithm.bestParent); //用父代中最好的染色体替换掉子代中最差的染色体
-               						 }else {
-               							GASchedulingAlgorithm.schedules.add(GASchedulingAlgorithm.children.get(i));
-               						 }
-               						 
-               					 }
-               					
-               					 GASchedulingAlgorithm.children.removeAll(GASchedulingAlgorithm.children);
-               					/*
-               					 * 重置参数，以便执行下一次迭代
-               					 * （进化前，需要计算每个染色体被选中的概率，故设置了这些参数）
-               					 */
-               					 initIndexForGA=0;
-               					 FogBroker.initIndexForGA=0;
-               					 tempChildrenIndex=0;
-               					 FogBroker.tempChildrenIndex=0;
-               					 gaFlag=0;
-               					 gaFlag2=0;	
-               					 init();
-                       			 sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
-               				 }else {
-               					 //记录ga结束时间
-               					endTime = System.currentTimeMillis();
-                	        	algorithmTime = endTime - getScheduler(0).startTime;
-                	        	
-               					 findBestSchedule=1;//去按照最优的调度方案执行
-               					 init();
-                       			 sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
-               				 }
-               				 
-               			 }
-        		 }
-        }else {
-        	gaFlag2=1;
-        	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
-        }
+        if(getJobsList().isEmpty() && jobsSubmitted == 0) {
+    		if(findBestSchedule == 1) {
+    			//按照最优调度方案去执行的结果，然后结束本次仿真
+    			getController().updateExecutionTime();
+    			sendNow(getSchedulerId(0), CloudSimTags.END_OF_SIMULATION, null);
+    		}
+    		if(initIndexForGA != GASchedulingAlgorithm.popsize) {
+    			//处理完了一个粒子（初始化得到的粒子 ）
+    			already = 1;
+             	FogBroker.initIndexForGA++;
+             	fitnessForGA[initIndexForGA++] = caculatefitness();
+             	init();
+                if(initIndexForGA == GASchedulingAlgorithm.popsize) {
+                	gaFlag = 1;
+                	gaFlag2 = 0;
+                	double totalFitness = 0;
+                	double bestFitness = Double.MAX_VALUE;
+                	int bestIndex = 0;
+                	for(int i = 0; i < fitnessForGA.length; i++) {
+                		totalFitness += fitnessForGA[i];
+                		if(bestFitness > fitnessForGA[i]) {
+          					 bestFitness = fitnessForGA[i];
+          					 bestIndex = i;
+          				}
+                	}
+                	GASchedulingAlgorithm.bestParent = GASchedulingAlgorithm.schedules.get(bestIndex);//父代中最好的染色体
+          			GASchedulingAlgorithm.bestParentFitness = bestFitness;//父代中最好的适应度值
+          			GASchedulingAlgorithm.gbestSchedule = GASchedulingAlgorithm.bestParent;
+//          			System.out.println("=======================================================第"+iterateNum+"次迭代前的最优适应度值bestFitness为："+bestFitness);
+      				updatebest.add(bestFitness);
+          			for(int i = 0; i < fitnessForGA.length; i++)
+       					GASchedulingAlgorithm.probs.put(i, fitnessForGA[i] / totalFitness);//每个染色体被选中的概率
+          			GASchedulingAlgorithm.getSegments();
+          			init();
+             	}
+             	sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
+            }
+    		else if(tempChildrenIndex != 4 && findBestSchedule == 0){
+    			gaFlag2 = 1;
+    			fitnessForGATempChildren[tempChildrenIndex++] = caculatefitness();
+    			FogBroker.tempChildrenIndex++;
+    			if(tempChildrenIndex == 4) {
+    				gaFlag2 = 0;
+    				tempChildrenIndex = 0;
+    				FogBroker.tempChildrenIndex = 0;
+    				if(fitnessForGATempChildren[0] < fitnessForGATempChildren[1]) {
+    					GASchedulingAlgorithm.fitness.add(fitnessForGATempChildren[0]);
+    					GASchedulingAlgorithm.children.add(GASchedulingAlgorithm.tempChildren.get(0));
+    				}else {
+    					GASchedulingAlgorithm.fitness.add(fitnessForGATempChildren[1]);
+    					GASchedulingAlgorithm.children.add(GASchedulingAlgorithm.tempChildren.get(1));
+    				}
+    				if(fitnessForGATempChildren[2] < fitnessForGATempChildren[3]) {
+    					GASchedulingAlgorithm.fitness.add(fitnessForGATempChildren[2]);
+    					GASchedulingAlgorithm.children.add(GASchedulingAlgorithm.tempChildren.get(2));
+    				}else {
+    					GASchedulingAlgorithm.fitness.add(fitnessForGATempChildren[3]);
+    					GASchedulingAlgorithm.children.add(GASchedulingAlgorithm.tempChildren.get(3));
+    				}
+    				GASchedulingAlgorithm.tempChildren.removeAll(GASchedulingAlgorithm.tempChildren);
+    			}
+    			if(GASchedulingAlgorithm.children.size() != GASchedulingAlgorithm.popsize) {
+    				init();
+    				sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
+          		}
+    			else if(findBestSchedule == 0){
+    				//完成了一次进化
+    				if(GASchedulingAlgorithm.gmax != iterateNum) {
+    					double bestFitness = Double.MAX_VALUE;//子代中最好的适应度值
+      					double worstFitness = 0;//子代中最坏的适应度值
+      					int worstIndex = 0;
+      					for(int i = 0; i < GASchedulingAlgorithm.fitness.size(); i++) {
+      						if(bestFitness > GASchedulingAlgorithm.fitness.get(i))
+      							bestFitness = GASchedulingAlgorithm.fitness.get(i);
+      						if(worstFitness < GASchedulingAlgorithm.fitness.get(i)) {
+    							worstFitness = GASchedulingAlgorithm.fitness.get(i);
+    							worstIndex = i;
+    						}
+    					}
+     					iterateNum++;
+     					GASchedulingAlgorithm.fitness.removeAll(GASchedulingAlgorithm.fitness);
+     					GASchedulingAlgorithm.schedules.removeAll(GASchedulingAlgorithm.schedules);
+     					GASchedulingAlgorithm.probSegments = new HashMap<Integer,double[]>();
+     					GASchedulingAlgorithm.probs = new HashMap<Integer,Double>();
+     					GASchedulingAlgorithm.tempParents.removeAll(GASchedulingAlgorithm.tempParents);
+     					for(int i = 0; i < GASchedulingAlgorithm.children.size(); i++) {
+     						if(i == worstIndex)
+     							//用父代中最好的染色体替换掉子代中最差的染色体
+     							GASchedulingAlgorithm.schedules.add(GASchedulingAlgorithm.bestParent);
+     						else
+     							GASchedulingAlgorithm.schedules.add(GASchedulingAlgorithm.children.get(i));
+     					}
+      					GASchedulingAlgorithm.children.removeAll(GASchedulingAlgorithm.children);
+      					/*
+      					 * 重置参数，以便执行下一次迭代
+      					 * （进化前，需要计算每个染色体被选中的概率，故设置了这些参数）
+      					 */
+      					initIndexForGA = 0;
+      					FogBroker.initIndexForGA = 0;
+      					tempChildrenIndex = 0;
+      					FogBroker.tempChildrenIndex = 0;
+      					gaFlag = 0;
+      					gaFlag2 = 0;
+      					init();
+      					sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
+      				}else {
+      					//记录ga结束时间
+      					endTime = System.currentTimeMillis();
+      					algorithmTime = endTime - getScheduler(0).startTime;
+//      					System.out.println("*************************************************************************按照最优调度方案执行");
+      					findBestSchedule = 1;//去按照最优的调度方案执行
+      					init();
+      					sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null); 
+      				}
+    			}
+    		 }
+    	}else {
+    		gaFlag2 = 1;
+    		sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
+    	}
     }
 
     /**
@@ -778,6 +751,7 @@ public class WorkflowEngine extends SimEntity {
                  * submit.如果这个未提交的任务的父任务都已经提交，那么就提交这个任务
                  */
                 if (flag) {
+                	
                     List submittedList = allocationList.get(job.getUserId());
                     submittedList.add(job);
                     jobsSubmitted++;
@@ -1004,9 +978,23 @@ public class WorkflowEngine extends SimEntity {
     public void setDeadLine(double DeadLine) {
         this.DeadLine = DeadLine;
     }
+    public OffloadingEngine getoffloadingEngine(){
+    	return offloadingEngine;
+    }
+    public Controller getController(){
+    	Controller controller = (Controller) CloudSim.getEntity(this.getcontrollerId());
+    	return controller;
+    }
+    public double getAverageOffloadingTime(){
+    	double sum = 0.0;
+    	for(long time : offloadingTimes)
+    		sum += time;
+    	return sum / offloadingTimes.size();
+    }
 
     public static void clearFlag() {
     	jobList.removeAll(jobList);
+    	offloadingTimes.clear();
     	startlastSchedule=0;
     	updateFlag=0;
     	startlastSchedule=0;
