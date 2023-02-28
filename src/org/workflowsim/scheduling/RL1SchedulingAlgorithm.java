@@ -1,5 +1,6 @@
 package org.workflowsim.scheduling;
 
+import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.workflowsim.*;
 
@@ -42,6 +43,9 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
         return null;
     }
 
+    /**
+     * Scheduler regarding the constraints
+     */
     @Override
     public void run() {
 
@@ -62,29 +66,14 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
                 Task cloudlet = (Task)next;
                 TSPTask task_info = (TSPTask)next.getTaskList().get(0);
 
-                //the new scheduler begin
-//                System.out.println("Clock: " + CloudSim.clock() +" Task Submission "+task_info.getTimeSubmission());
-
                 if (CloudSim.clock() >= task_info.getTimeSubmission() && TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
-//                if (TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
-//                if (CloudSim.clock() >= task_info.getTimeSubmission()) {
-                    //the new scheduler end
-                    boolean stillHasVm = false;
 
-                    for (Iterator itc = getNotMobileVmList().iterator(); itc.hasNext(); ) { //VM list
-                        CondorVM vm = (CondorVM) itc.next();
-                        if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
-                            stillHasVm = true;
-                            vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
-                            cloudlet.setVmId(vm.getId());
-                            getScheduledList().add(cloudlet);
-                            TSPJobManager.addTaskRunning(task_info);
-                            still_need_placement = false;
-                            break;
-                        }
-                    }
+                    boolean stillHasVm = placer(cloudlet, task_info);
+
                     //no vm available
-                    if (!stillHasVm) {
+                    if (stillHasVm) {
+                        still_need_placement = false;
+                    }else{
                         break;
                     }
                 }
@@ -126,29 +115,42 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
             Object[] next_executable_job = TSPJobManager.getNextAvailableJobs(cloudletList, CloudSim.clock());
 
             CloudSim.clock = (Double)next_executable_job[0];
+            System.out.println(((ArrayList<Job>)next_executable_job[1]).size());
 
             for (Iterator it = ((ArrayList<Job>)next_executable_job[1]).iterator(); it.hasNext();) {
+                Job next=(Job)it.next();
+                Task cloudlet = (Task)next;
+                TSPTask task_info = (TSPTask)next.getTaskList().get(0);
 
-                Task cloudlet = (Task) it.next();
+                if (CloudSim.clock() >= task_info.getTimeSubmission() && TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
+                    boolean stillHasVm = placer(cloudlet, task_info);
 
-                boolean stillHasVm = false;
-
-                for (Iterator itc = getNotMobileVmList().iterator(); itc.hasNext();) { //VM list
-                    CondorVM vm = (CondorVM) itc.next();
-                    if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
-                        stillHasVm = true;
-                        vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
-                        cloudlet.setVmId(vm.getId());
-                        getScheduledList().add(cloudlet);
+                    //no vm available
+                    if (!stillHasVm) {
                         break;
                     }
                 }
-
-                //no vm available
-                if (!stillHasVm) {
-                    break;
-                }
             }
         }
+    }
+
+    /**
+     * Placer regarding the availability
+     */
+    public boolean placer(Cloudlet cloudlet, TSPTask task_info){
+        boolean stillHasVm = false;
+
+        for (Iterator itc = getNotMobileVmList().iterator(); itc.hasNext(); ) { //VM list
+            CondorVM vm = (CondorVM) itc.next();
+            if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
+                stillHasVm = true;
+                vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
+                cloudlet.setVmId(vm.getId());
+                getScheduledList().add(cloudlet);
+                TSPJobManager.addTaskRunning(task_info);
+                break;
+            }
+        }
+        return stillHasVm;
     }
 }

@@ -78,6 +78,7 @@ public class TSPJobManager {
         jobs.get(task.getJob_id()).addTasksRunning(task);
 
         //restringing the execution for the end of the scheduling restrictions
+        task.setTimeStartProcessing(CloudSim.clock);
         executing_task.add(task);
     }
 
@@ -104,6 +105,7 @@ public class TSPJobManager {
                     next_finish_time = executing_task.get(i).getTaskFinishTime();
                 }
             }
+            return next_finish_time;
         }
         return next_finish_time;
     }
@@ -118,10 +120,26 @@ public class TSPJobManager {
                 jobs.add((Job)cloudletList.get(i));
             }
         }
+
         return jobs;
     }
 
+    private static double getFutureJobsTime(List cloudletList){
+        double time = Double.MAX_VALUE;
+
+        for (int i=0; i < cloudletList.size(); i++){
+            Job job = (Job)cloudletList.get(i);
+            TSPTask task_info = (TSPTask)job.getTaskList().get(0);
+            if (task_info.getTimeSubmission() <= time){
+                time = task_info.getTimeSubmission();
+            }
+        }
+
+        return time;
+    }
+
     public static Object[] getNextAvailableJobs(List cloudletList, double clock){
+
         ArrayList<Job> next_available_jobs_to_income = getAvailableJobs(cloudletList, clock);
 
         if (!next_available_jobs_to_income.isEmpty()){
@@ -129,8 +147,12 @@ public class TSPJobManager {
         }
 
         double next_finish_time =  getNextFinishTime();
-        releaseFinishedTasks(next_finish_time);
+        double future_jobs_time = getFutureJobsTime(cloudletList);
 
-        return getNextAvailableJobs(cloudletList, next_finish_time);
+        double new_time = Math.min(next_finish_time, future_jobs_time);
+
+        releaseFinishedTasks(new_time);
+
+        return getNextAvailableJobs(cloudletList, new_time);
     }
 }

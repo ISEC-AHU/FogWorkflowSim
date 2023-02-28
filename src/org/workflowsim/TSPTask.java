@@ -15,7 +15,6 @@
  */
 package org.workflowsim;
 
-import org.cloudbus.cloudsim.core.CloudSim;
 import org.workflowsim.utils.Parameters.FileType;
 
 import java.util.ArrayList;
@@ -46,6 +45,7 @@ public class TSPTask extends Task {
     private long storage;
     private long time_submission;
     private long time_deadline_final;
+    private double time_start_processing;
 
     public int getJob_id() {
         return job_id;
@@ -443,6 +443,14 @@ public class TSPTask extends Task {
     			OutputFileList.add(file);
     	}
     	return OutputFileList;
+    }
+
+    public double getTimeStartProcessing() {
+        return time_start_processing;
+    }
+
+    public void setTimeStartProcessing(double time_start_processing) {
+        this.time_start_processing = time_start_processing;
     }
 
     /**

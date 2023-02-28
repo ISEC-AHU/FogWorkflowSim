@@ -17,6 +17,7 @@ package org.workflowsim;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.Log;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -358,7 +359,14 @@ public final class TSPWorkflowParser { //ver donde se usa para ver porque si lee
                     //task creation
                     TSPTask task = new TSPTask(taskId, task_job_id, task_id, mi, ram, storage, time_submission, time_deadline_final, priority_no);
                     task.setUserId(userId);
-                    this.getTaskList().add(task);
+
+                    //searching the position for keeping the submission order
+                    int i=0;
+                    while (i < this.getTaskList().size() && task.getTimeSubmission() > ((TSPTask)this.getTaskList().get(i)).getTimeSubmission()){
+                        i++;
+                    }
+
+                    this.getTaskList().add(i, task);
 
                     //going to th next task
                     task_info = task_reader.readNext();
@@ -376,6 +384,7 @@ public final class TSPWorkflowParser { //ver donde se usa para ver porque si lee
         } catch (CsvValidationException e) {
             e.printStackTrace();
         }
+
     }
 
 
