@@ -23,7 +23,6 @@ import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.predicates.Predicate;
 import org.cloudbus.cloudsim.core.predicates.PredicateAny;
 import org.cloudbus.cloudsim.core.predicates.PredicateNone;
-import org.workflowsim.utils.Parameters;
 
 /**
  * This class extends the CloudSimCore to enable network simulation in CloudSim. Also, it disables
@@ -503,18 +502,6 @@ public class CloudSim {
 		e.startEntity();
 	}
 
-
-	private static boolean has_pending_tasks=true;
-
-	public static boolean getHasPendingTasks() {
-		return CloudSim.has_pending_tasks;
-	}
-
-	public static void setHasPendingTasks(boolean has_pendingTasks) {
-		CloudSim.has_pending_tasks = has_pendingTasks;
-	}
-
-
 	/**
 	 * Internal method used to run one tick of the simulation. This method should <b>not</b> be
 	 * called in simulations.
@@ -561,16 +548,11 @@ public class CloudSim {
 			future.removeAll(toRemove);
 
 		} else {
-			if (Parameters.getIsTsp() && CloudSim.has_pending_tasks){
-				queue_empty = false;
-				running = true;
-			}else{
-				queue_empty = true;
-				running = false;
-				printMessage("Simulation: No more future events");
-			}
-
+			queue_empty = true;
+			running = false;
+			printMessage("Simulation: No more future events");
 		}
+
 		return queue_empty;
 	}
 
