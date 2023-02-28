@@ -81,11 +81,11 @@ public class TSPJobManager {
         executing_task.add(task);
     }
 
-    public static void releaseFinishedTasks(){
+    public static void releaseFinishedTasks(double time){
         Stack<TSPTask> finished_tasks = new Stack<TSPTask>();
 
         for (TSPTask task: executing_task) {
-            if (task.getTaskFinishTime() != -1 && task.getTaskFinishTime() >= CloudSim.clock){
+            if (task.getTaskFinishTime() != -1 && task.getTaskFinishTime() >= time){
                 jobs.get(task.getJob_id()).removeTasksRunning(task);
                 finished_tasks.push(task);
             }
@@ -94,9 +94,43 @@ public class TSPJobManager {
         while (!finished_tasks.isEmpty()){
             executing_task.remove(finished_tasks.pop());
         }
-
-
     }
 
+    private static double getNextFinishTime(){
+        double next_finish_time = Double.MAX_VALUE;
+        if (executing_task.size() > 0){
+            for (int i=0; i < executing_task.size(); i++){
+                if (executing_task.get(i).getTaskFinishTime() != -1 &&  executing_task.get(i).getTaskFinishTime() < next_finish_time){
+                    next_finish_time = executing_task.get(i).getTaskFinishTime();
+                }
+            }
+        }
+        return next_finish_time;
+    }
 
+    private static ArrayList<Job> getAvailableJobs(List cloudletList, double clock){
+        ArrayList<Job> jobs = new ArrayList<>();
+
+        for (int i=0; i < cloudletList.size(); i++){
+            Job job = (Job)cloudletList.get(i);
+            TSPTask task_info = (TSPTask)job.getTaskList().get(0);
+            if (task_info.getTimeSubmission() <= clock && canRunTask(task_info.getJob_id(), task_info.getTask_id())){
+                jobs.add((Job)cloudletList.get(i));
+            }
+        }
+        return jobs;
+    }
+
+    public static Object[] getNextAvailableJobs(List cloudletList, double clock){
+        ArrayList<Job> next_available_jobs_to_income = getAvailableJobs(cloudletList, clock);
+
+        if (!next_available_jobs_to_income.isEmpty()){
+            return new Object[]{clock, next_available_jobs_to_income};
+        }
+
+        double next_finish_time =  getNextFinishTime();
+        releaseFinishedTasks(next_finish_time);
+
+        return getNextAvailableJobs(cloudletList, next_finish_time);
+    }
 }
