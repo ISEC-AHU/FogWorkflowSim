@@ -16,9 +16,6 @@ import java.util.stream.Collectors;
 public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
 
 
-    private int v_job_id = -1;
-    private Object v_job = null;
-
     public RL1SchedulingAlgorithm()
     {
         super();
@@ -52,7 +49,15 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
     @Override
     public void run() {
 
-        for (Iterator it = getCloudletList().iterator(); it.hasNext();) { //Task list
+        TSPJobManager.releaseFinishedTasks();
+
+        List cloudletList = getCloudletList();
+
+        CloudSim.setHasPendingTasks(cloudletList.size() > 0);
+
+//        System.out.println(cloudletList.size());
+
+        for (Iterator it = cloudletList.iterator(); it.hasNext();) { //Task list
 
             Job next=(Job)it.next();
 
@@ -64,8 +69,8 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
                 //the new scheduler begin
 
 //                if (CloudSim.clock() >= task_info.getTimeSubmission()) {
-//                if (TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
-                if (true) {
+                if (TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
+//                if (true) {
                     //the new scheduler end
                     boolean stillHasVm = false;
 
@@ -76,7 +81,7 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
                             vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
                             cloudlet.setVmId(vm.getId());
                             getScheduledList().add(cloudlet);
-                            TSPJobManager.addTaskRunning(task_info.getJob_id(), task_info.getTask_id());
+                            TSPJobManager.addTaskRunning(task_info);
                             break;
                         }
                     }

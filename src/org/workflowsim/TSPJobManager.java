@@ -15,6 +15,8 @@
  */
 package org.workflowsim;
 
+import org.cloudbus.cloudsim.core.CloudSim;
+
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -63,19 +65,38 @@ public class TSPJobManager {
         return jobs.size();
     }
 
-    public static void addTaskRunning(Integer job_id, Integer task_id){
-        jobs.get(job_id).addTasksRunning(task_id);
-    }
-
-    public static void removeTaskRunning(Integer job_id, Integer task_id){
-        jobs.get(job_id).removeTasksRunning(task_id);
-    }
-
     public static boolean canRunTask(Integer job_id, Integer task_id){
         return jobs.get(job_id).canRunTask(task_id);
     }
 
 
+    // for task finishing control
+    private static ArrayList<TSPTask> executing_task = new ArrayList<>();
+
+    public static void addTaskRunning(TSPTask task){
+        //restringing the execution for considering scheduling restrictions
+        jobs.get(task.getJob_id()).addTasksRunning(task);
+
+        //restringing the execution for the end of the scheduling restrictions
+        executing_task.add(task);
+    }
+
+    public static void releaseFinishedTasks(){
+        Stack<TSPTask> finished_tasks = new Stack<TSPTask>();
+
+        for (TSPTask task: executing_task) {
+            if (task.getTaskFinishTime() != -1 && task.getTaskFinishTime() >= CloudSim.clock){
+                jobs.get(task.getJob_id()).removeTasksRunning(task);
+                finished_tasks.push(task);
+            }
+        }
+
+        while (!finished_tasks.isEmpty()){
+            executing_task.remove(finished_tasks.pop());
+        }
+
+
+    }
 
 
 }

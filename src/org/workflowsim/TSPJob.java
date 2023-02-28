@@ -34,13 +34,13 @@ public class TSPJob {
     private int max_parallel_executable_tasks;
     private ArrayList<ArrayList<Integer>> tasks_which_can_run_in_parallel;
 
-    public LinkedList<Integer> tasks_running;
+    public LinkedList<TSPTask> tasks_running;
     public int tasks_running_quantity;
 
     public TSPJob(int max_parallel_executable_tasks, ArrayList<ArrayList<Integer>> tasks_which_can_run_in_parallel) {
         this.max_parallel_executable_tasks = max_parallel_executable_tasks;
         this.tasks_which_can_run_in_parallel = tasks_which_can_run_in_parallel;
-        this.tasks_running = new LinkedList<Integer>();
+        this.tasks_running = new LinkedList<TSPTask>();
         this.tasks_running_quantity = 0;
     }
 
@@ -60,22 +60,22 @@ public class TSPJob {
         this.tasks_which_can_run_in_parallel = tasks_which_can_run_in_parallel;
     }
 
-    public LinkedList<Integer> getTasks_running() {
+    public LinkedList<TSPTask> getTasks_running() {
         return tasks_running;
     }
 
-    public void addTasksRunning(int id) {
-        this.tasks_running.add(id);
+    public void addTasksRunning(TSPTask task) {
+        this.tasks_running.add(task);
         this.tasks_running_quantity+=1;
     }
 
-    public void removeTasksRunning(int id) {
-        this.tasks_running.remove(id);
+    public void removeTasksRunning(TSPTask task) {
+        this.tasks_running.remove(task);
         this.tasks_running_quantity-=1;
     }
 
-    public boolean checkTasksRunning(int id) {
-        return this.tasks_running.contains(id);
+    public boolean checkTasksRunning(TSPTask task) {
+        return this.tasks_running.contains(task);
     }
 
     public boolean canRunTask(int id) {//[[0],[1,2],[3,4,5,8,11],[6,9,10],[7,17],[12],[13,15],[14,19],[16],[18],[20]]
@@ -85,8 +85,8 @@ public class TSPJob {
 
         for (ArrayList<Integer> tasks: this.tasks_which_can_run_in_parallel) {
             if (tasks.contains(id)){
-                for (Integer task_running_id: this.tasks_running) {
-                    if (!tasks.contains(task_running_id)){
+                for (TSPTask task_running: this.tasks_running) {
+                    if (!tasks.contains(task_running.getTask_id())){
                         return false;
                     }
                 }

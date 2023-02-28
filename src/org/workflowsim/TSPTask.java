@@ -15,6 +15,7 @@
  */
 package org.workflowsim;
 
+import org.cloudbus.cloudsim.core.CloudSim;
 import org.workflowsim.utils.Parameters.FileType;
 
 import java.util.ArrayList;
