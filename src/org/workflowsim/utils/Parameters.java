@@ -27,30 +27,37 @@ import org.cloudbus.cloudsim.Log;
  * @date Apr 9, 2013
  */
 public class Parameters {
+    private static boolean is_tsp=false;
 
-    
+    public static void setIsTsp(boolean is_tsp) {
+        Parameters.is_tsp = is_tsp;
+    }
+
+    public static boolean getIsTsp() {
+        return Parameters.is_tsp;
+    }
+
     /*
      * Scheduling Algorithm (Local Scheduling Algorithm)
      */
 
     public enum SchedulingAlgorithm {
-
         MAXMIN, MINMIN, MCT, DATA, PSO,
-        STATIC, FCFS, ROUNDROBIN, INVALID, GA
+        STATIC, FCFS, ROUNDROBIN, INVALID, GA, RL1
     }
-    
+
     public enum Optimization{//优化目标
-    	Time, Energy,Cost
+        Time, Energy,Cost
     }
-    
+
     /**
      * Planning Algorithm (Global Scheduling Algorithm)
-     * 
+     *
      */
     public enum PlanningAlgorithm{
         INVALID, RANDOM, HEFT, DHEFT
     }
-    
+
     /**
      * File Type
      */
@@ -61,7 +68,7 @@ public class Parameters {
             this.value = fType;
         }
     }
-    
+
     /**
      * File Type
      */
@@ -72,7 +79,7 @@ public class Parameters {
             this.value = cType;
         }
     }
-    
+
     /**
      * The cost model
      * DATACENTER: specify the cost per data center
@@ -85,25 +92,25 @@ public class Parameters {
             this.value = model;
         }
     }
-    
-    /** 
+
+    /**
      * Source Host (submit host)
      */
     public static String SOURCE = "source";
-    
+
     public static final int BASE = 0;
-    
+
     /**
      * Scheduling mode
      */
     private static SchedulingAlgorithm schedulingAlgorithm;
     private static Optimization optimization;
-    
+
     /**
      * Planning mode
      */
     private static PlanningAlgorithm planningAlgorithm;
-    
+
     /**
      * Reducer mode
      */
@@ -116,7 +123,7 @@ public class Parameters {
      * The physical path to DAX file
      */
     private static String daxPath;
-    
+
     /**
      * The physical path to DAX files
      */
@@ -153,33 +160,33 @@ public class Parameters {
      * Deadline of a workflow
      */
     private static long deadline;
-    
+
     /**
      * the bandwidth from one vm to one vm
      */
     private static double[][] bandwidths;
-    
-    
+
+
     /**
      * The maximum depth. It is inited manually and used in FailureGenerator
      */
     private static int maxDepth;
-    
+
     /**
      * Invalid String
      */
     private static final String INVALID = "Invalid";
-    
+
     /**
      * The scale of runtime. Multiple runtime by this
      */
     private static double runtime_scale = 1.0;
-    
+
     /**
      * The default cost model is based on datacenter, similar to CloudSim
      */
     private static CostModel costModel = CostModel.DATACENTER;
-    
+
     /**
      * A static function so that you can specify them in any place
      *
@@ -214,7 +221,7 @@ public class Parameters {
         deadline = dl;
         maxDepth = 0;
     }
-    
+
     /**
      * A static function so that you can specify them in any place
      *
@@ -261,7 +268,7 @@ public class Parameters {
         return oParams;
     }
 
-    
+
 
     /**
      * Gets the reducer mode
@@ -278,7 +285,7 @@ public class Parameters {
         }
     }
 
-   
+
 
     /**
      * Gets the DAX path
@@ -313,7 +320,7 @@ public class Parameters {
         return datasizePath;
     }
 
-    
+
     /**
      * Gets the vm number
      *
@@ -325,16 +332,16 @@ public class Parameters {
         return vmNum;
     }
 
-    
+
     /**
      * Gets the cost model
-     * 
+     *
      * @return costModel
      */
     public static CostModel getCostModel(){
         return costModel;
     }
-    
+
     /**
      * Sets the vm number
      *
@@ -361,15 +368,15 @@ public class Parameters {
     public static SchedulingAlgorithm getSchedulingAlgorithm() {
         return schedulingAlgorithm;
     }
-    
+
     public static Optimization getOptimization() {
         return optimization;
     }
-    
+
     /**
      * Gets the planning method
      * @return the planning method
-     * 
+     *
      */
     public static PlanningAlgorithm getPlanningAlgorithm() {
         return planningAlgorithm;
@@ -390,9 +397,9 @@ public class Parameters {
      * Gets the deadline
      */
     public static long getDeadline(){
-    	return deadline;
+        return deadline;
     }
-    
+
     /**
      * Gets the maximum depth
      * @return the maxDepth
@@ -400,7 +407,7 @@ public class Parameters {
     public static int getMaxDepth(){
         return maxDepth;
     }
-    
+
     /**
      * Sets the maximum depth
      * @param depth the maxDepth
@@ -408,15 +415,15 @@ public class Parameters {
     public static void setMaxDepth(int depth){
         maxDepth = depth;
     }
-    
+
     /**
      * Sets the runtime scale
-     * @param scale 
+     * @param scale
      */
     public static void setRuntimeScale(double scale){
         runtime_scale = scale;
     }
-    
+
     /**
      * Sets the cost model
      * @param model
@@ -424,18 +431,18 @@ public class Parameters {
     public static void setCostModel(CostModel model){
         costModel = model;
     }
-    
+
     /**
      * Gets the runtime scale
-     * @return 
+     * @return
      */
     public static double getRuntimeScale(){
         return runtime_scale;
     }
-    
+
     /**
      * Gets the dax paths
-     * @return 
+     * @return
      */
     public static List<String> getDAXPaths() {
         return daxPaths;

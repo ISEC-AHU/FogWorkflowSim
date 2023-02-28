@@ -32,6 +32,7 @@ import org.cloudbus.cloudsim.core.SimEvent;
 import org.fog.entities.Controller;
 import org.fog.entities.FogBroker;
 import org.fog.entities.OffloadingEngine;
+import org.fog.entities.TSPFogBroker;
 import org.fog.utils.FogEvents;
 import org.workflowsim.reclustering.ReclusteringEngine;
 import org.workflowsim.scheduling.GASchedulingAlgorithm;
@@ -139,8 +140,13 @@ public class WorkflowEngine extends SimEntity {
             
             offloadingEngine = new OffloadingEngine("OffloadingEngine", null);
             offloadingEngine.setWorkflowEngine(this);
-            
-            FogBroker wfs = new FogBroker("FogScheduler");
+
+			FogBroker wfs;
+			if (Parameters.getIsTsp()){
+				wfs = new TSPFogBroker("MyFogScheduler");
+			}else {
+				wfs = new FogBroker("FogScheduler");				
+			}
             getSchedulers().add(wfs);
             getSchedulerIds().add(wfs.getId());
             wfs.setWorkflowEngineId(this.getId());
@@ -229,6 +235,7 @@ public class WorkflowEngine extends SimEntity {
 				case STATIC:
 				case DATA:
 				case ROUNDROBIN:
+				case RL1:
 					processJobReturn(ev);
 					break;
 				default:

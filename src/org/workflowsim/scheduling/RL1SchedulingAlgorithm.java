@@ -64,8 +64,8 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
                 //the new scheduler begin
 
 //                if (CloudSim.clock() >= task_info.getTimeSubmission()) {
-                if (TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
-//                if (true) {
+//                if (TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
+                if (true) {
                     //the new scheduler end
                     boolean stillHasVm = false;
 
