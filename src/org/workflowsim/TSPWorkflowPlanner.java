@@ -1,4 +1,5 @@
 /**
+ * TSP: to be defined
  * Copyright 2012-2013 University Of Southern California
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -29,14 +30,11 @@ import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.Parameters.PlanningAlgorithm;
 
 /**
- * WorkflowPlanner supports dynamic planning. In the future we will have global
- * and static algorithm here. The WorkflowSim starts from WorkflowPlanner. It
- * picks up a planning algorithm based on the configuration
+ * Since the WorkflowPlanner is defined as "final" this class replaces the WorkflowPlanner class for TSP problems.
+ * The only difference from WorkflowPlanner is that TSPWorkflowParser is used instead of TSPWorkflowParser, and TSPClusteringEngine instead of ClusteringEngine.
  *
- * @author Weiwei Chen
- * @since WorkflowSim Toolkit 1.0
- * @date Apr 9, 2013
- *
+ * @since TSP Extension 1.0
+ * @author Julio Corona
  */
 public final class TSPWorkflowPlanner extends SimEntity {
 

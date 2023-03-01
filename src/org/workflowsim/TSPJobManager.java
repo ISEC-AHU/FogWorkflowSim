@@ -21,21 +21,24 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 /**
- The Job concept in the TSP extension is very far from the one used in WorkflowSim.
- In this case, it refers to the restrictions for the execution of the tasks that are
- defined in the jobs dataset. This class helps to control the jobs execution
+ This class allows dealing with the task execution restrictions specified on the jobs
  *
  * @author Julio Corona
  * @since WorkflowSim Toolkit 1.0 's TSP extension
- * @date Jan 24, 2023
  */
 public class TSPJobManager {
 
-    private static Map<Integer, TSPJob> jobs = new HashMap<Integer, TSPJob>();
+    /**
+     * Dictionary to store the execution status of each job
+     */
+    private static Map<Integer, TSPJob> jobs = new HashMap<>();
 
-    public static void addTSPJob(Integer job_id, TSPJob tsp_job){
-        jobs.put(job_id, tsp_job);
-    }
+    /**
+     * Create a new job
+     * @param job_id the job id
+     * @param max_parallel_executable_tasks the maximum number of tasks can be executed simultaneously in this job
+     * @param tasks_which_can_run_in_parallel the task list can be executed simultaneously in this job
+     */
 
     public static void createTSPJob(Integer job_id, String max_parallel_executable_tasks,  String tasks_which_can_run_in_parallel){
         String[] task_id_list = tasks_which_can_run_in_parallel.substring(2, tasks_which_can_run_in_parallel.length() - 2).split(Pattern.quote("],["));
@@ -57,37 +60,45 @@ public class TSPJobManager {
         jobs.put(job_id, tsp_job);
     }
 
-    public static TSPJob getTSPJob(Integer job_id){
-        return jobs.get(job_id);
-    }
-
-    public static int getTSPJobQuantity(){
-        return jobs.size();
-    }
-
+    /**
+     * Check if a task can be executed
+     * @param job_id the task's job id
+     * @param task_id the task id
+     * @return true if it can be executed, false otherwise
+     */
     public static boolean canRunTask(Integer job_id, Integer task_id){
         return jobs.get(job_id).canRunTask(task_id);
     }
 
 
-    // for task finishing control
+    /**
+     * List of all running tasks
+     */
     private static ArrayList<TSPTask> executing_task = new ArrayList<>();
 
+    /**
+     * Add a task to the list of running tasks
+     * @param task the task to be added
+     */
     public static void addTaskRunning(TSPTask task){
         //restringing the execution for considering scheduling restrictions
-        jobs.get(task.getJob_id()).addTasksRunning(task);
+        jobs.get(task.getJobId()).addTasksRunning(task);
 
         //restringing the execution for the end of the scheduling restrictions
         task.setTimeStartProcessing(CloudSim.clock);
         executing_task.add(task);
     }
 
+    /**
+     * Review the list of tasks that have already finished and delete them from the list of tasks in progress
+     * @param time the simulation time
+     */
     public static void releaseFinishedTasks(double time){
         Stack<TSPTask> finished_tasks = new Stack<TSPTask>();
 
         for (TSPTask task: executing_task) {
             if (task.getTaskFinishTime() != -1 && task.getTaskFinishTime() >= time){
-                jobs.get(task.getJob_id()).removeTasksRunning(task);
+                jobs.get(task.getJobId()).removeTasksRunning(task);
                 finished_tasks.push(task);
             }
         }
@@ -97,6 +108,9 @@ public class TSPJobManager {
         }
     }
 
+    /**
+     * Returns the next time when one of the tasks that are running will end
+     */
     private static double getNextFinishTime(){
         double next_finish_time = Double.MAX_VALUE;
         if (executing_task.size() > 0){
@@ -110,13 +124,19 @@ public class TSPJobManager {
         return next_finish_time;
     }
 
+    /**
+     * Returns the next list of jobs that will be ready to be executed at a given clock time
+     * @param cloudletList The list of jobs pending to be executed
+     * @param clock the clock time
+     * @return the list of jobs ready to be executed
+     */
     private static ArrayList<Job> getAvailableJobs(List cloudletList, double clock){
         ArrayList<Job> jobs = new ArrayList<>();
 
         for (int i=0; i < cloudletList.size(); i++){
             Job job = (Job)cloudletList.get(i);
             TSPTask task_info = (TSPTask)job.getTaskList().get(0);
-            if (task_info.getTimeSubmission() <= clock && canRunTask(task_info.getJob_id(), task_info.getTask_id())){
+            if (task_info.getTimeSubmission() <= clock && canRunTask(task_info.getJobId(), task_info.getTaskId())){
                 jobs.add((Job)cloudletList.get(i));
             }
         }
@@ -124,6 +144,10 @@ public class TSPJobManager {
         return jobs;
     }
 
+    /**
+     * Returns the next time when one of the pending jobs will arrive
+     * @param cloudletList the list of pending jobs
+     */
     private static double getFutureJobsTime(List cloudletList){
         double time = Double.MAX_VALUE;
 
@@ -134,10 +158,16 @@ public class TSPJobManager {
                 time = task_info.getTimeSubmission();
             }
         }
-
         return time;
     }
 
+    /**
+     * Returns the next jobs that will be able to be executed either due to their submission time or due to simulation
+     * restrictions
+     * @param cloudletList the list of pending jobs
+     * @param clock the clock time
+     * @return the time of the next availability and the list of available jobs
+     */
     public static Object[] getNextAvailableJobs(List cloudletList, double clock){
 
         ArrayList<Job> next_available_jobs_to_income = getAvailableJobs(cloudletList, clock);

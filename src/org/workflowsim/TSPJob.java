@@ -19,65 +19,71 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- The Job concept in the TSP extension is very far from the one used in WorkflowSim.
+ The Job concept in the TSP extension is far from the one used in WorkflowSim.
  In this case, it refers to the restrictions for the execution of the tasks that are
  defined in the jobs dataset. This class represents a job.
  *
  * @author Julio Corona
  * @since WorkflowSim Toolkit 1.0 's TSP extension
- * @date Jan 24, 2023
  */
 public class TSPJob {
-    /*
-     * The list of tasks a job has. It is the only difference between Job and Task.
+    /**
+     * Maximum number of tasks can be executed simultaneously
      */
     private int max_parallel_executable_tasks;
+
+    /**
+     * Task list can be executed simultaneously
+     */
     private ArrayList<ArrayList<Integer>> tasks_which_can_run_in_parallel;
 
-    public LinkedList<TSPTask> tasks_running;
+    /**
+     * List of tasks that are running at a certain time
+     */
+    private LinkedList<TSPTask> tasks_running;
+
+    /**
+     * Quantity of tasks that are running at a certain time
+     */
     public int tasks_running_quantity;
 
+    /**
+     * Creates a new entity
+     * @param max_parallel_executable_tasks Maximum number of tasks can be executed simultaneously
+     * @param tasks_which_can_run_in_parallel Task list can be executed simultaneously
+     */
     public TSPJob(int max_parallel_executable_tasks, ArrayList<ArrayList<Integer>> tasks_which_can_run_in_parallel) {
         this.max_parallel_executable_tasks = max_parallel_executable_tasks;
         this.tasks_which_can_run_in_parallel = tasks_which_can_run_in_parallel;
-        this.tasks_running = new LinkedList<TSPTask>();
+        this.tasks_running = new LinkedList<>();
         this.tasks_running_quantity = 0;
     }
 
-    public int getMaxParallelExecutableTasks() {
-        return max_parallel_executable_tasks;
-    }
-
-    public void setMaxParallelExecutableTasks(int max_parallel_executable_tasks) {
-        this.max_parallel_executable_tasks = max_parallel_executable_tasks;
-    }
-
-    public ArrayList<ArrayList<Integer>> getTasksWhichCanRunInParallel() {
-        return tasks_which_can_run_in_parallel;
-    }
-
-    public void setTasksWhichCanRunInParallel(ArrayList<ArrayList<Integer>> tasks_which_can_run_in_parallel) {
-        this.tasks_which_can_run_in_parallel = tasks_which_can_run_in_parallel;
-    }
-
-    public LinkedList<TSPTask> getTasks_running() {
-        return tasks_running;
-    }
-
+    /**
+     * Add a task to the list of running tasks
+     * @param task the task to be added
+     */
     public void addTasksRunning(TSPTask task) {
         this.tasks_running.add(task);
         this.tasks_running_quantity+=1;
     }
 
+    /**
+     * Remove a task to the list of running tasks
+     * @param task the task to be removed
+     */
     public void removeTasksRunning(TSPTask task) {
         this.tasks_running.remove(task);
         this.tasks_running_quantity-=1;
     }
 
-    public boolean checkTasksRunning(TSPTask task) {
-        return this.tasks_running.contains(task);
-    }
-
+    /**
+     * It determines if a task can be executed or not taking into account the number of tasks that are being executed
+     * and the parallelism restrictions between them.
+     *
+     * @param id the id of the task to check if it can be executed
+     * @return true in the task can be executed, else false
+     */
     public boolean canRunTask(int id) {//[[0],[1,2],[3,4,5,8,11],[6,9,10],[7,17],[12],[13,15],[14,19],[16],[18],[20]]
         if (this.tasks_running_quantity >= this.max_parallel_executable_tasks) {
             return false;
@@ -86,7 +92,7 @@ public class TSPJob {
         for (ArrayList<Integer> tasks: this.tasks_which_can_run_in_parallel) {
             if (tasks.contains(id)){
                 for (TSPTask task_running: this.tasks_running) {
-                    if (!tasks.contains(task_running.getTask_id())){
+                    if (!tasks.contains(task_running.getTaskId())){
                         return false;
                     }
                 }

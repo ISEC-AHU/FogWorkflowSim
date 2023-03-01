@@ -1,4 +1,5 @@
 /**
+ * TSP: to be defined
  * Copyright 2012-2013 University Of Southern California
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -21,106 +22,231 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Task is an extention to Cloudlet in CloudSim. It supports the implementation
- * of dependencies between tasks, which includes a list of parent tasks and a
- * list of child tasks that it has. In WorkflowSim, the Workflow Engine assure
- * that a task is released to the scheduler (ready to run) when all of its
- * parent tasks have completed successfully
+ * Since the Task class has many private attributes, this class extends from the Task class for TSP problems, adding the
+ * new properties derived from the TSP scenario while keeping the rest of the Task code the same.
  *
- * @author Weiwei Chen
- * @since WorkflowSim Toolkit 1.0
- * @date Apr 9, 2013
+ * @since TSP Extension 1.0
+ * @author Julio Corona
  */
 public class TSPTask extends Task {
 
-
-
-    /*
-     * The list of TSP tasks properties
+    /**
+     * The job id of this task
      */
     private int job_id;
-    private int task_id; //taskId
-    private long mi;    //taskLength
+
+    /**
+     * The id of this task
+     */
+    private int task_id;
+
+    /**
+     * The number of millions of instructions (MI) for this task
+     */
+    private long mi;
+
+    /**
+     * The amount of RAM needed by this task
+     */
     private long ram;
+
+    /**
+     * The amount of Storage needed by this task
+     */
     private long storage;
+
+    /**
+     * The submission time of this task
+     */
     private long time_submission;
+
+    /**
+     * The maximum time to execute this task
+     */
     private long time_deadline_final;
+
+    /**
+     * The timestamp when the task started executing
+     */
     private double time_start_processing;
 
-    public int getJob_id() {
+    /**
+     * The priority of the task
+     */
+
+    private int priority_no;
+
+    /**
+     * Gets the job id of the task
+     *
+     * @return job id of the task
+     */
+    public int getJobId() {
         return job_id;
     }
 
-    public void setJob_id(int job_id) {
-        this.job_id = job_id;
-    }
-
-    public int getTask_id() {
+    /**
+     * Gets the id of the task
+     *
+     * @return id of the task
+     */
+    public int getTaskId() {
         return task_id;
     }
 
-    public void setTask_id(int task_id) {
-        this.task_id = task_id;
-    }
-
+    /**
+     * Gets the millions of instructions number of the task
+     *
+     * @return the millions of instructions number of the task
+     */
     public long getMi() {
         return mi;
     }
 
+    /**
+     * Sets the millions of instructions number of the task
+     *
+     * @param mi the millions of instructions number
+     */
     public void setMi(long mi) {
         this.mi = mi;
     }
 
+    /**
+     * Gets the amount of RAM needed by the task
+     *
+     * @return the amount of RAM needed by the task
+     */
     public long getRam() {
         return ram;
     }
 
+    /**
+     * Sets the amount of RAM needed by the task
+     *
+     * @param ram amount of RAM needed by the task
+     */
     public void setRam(long ram) {
         this.ram = ram;
     }
 
+    /**
+     * Gets the amount of storage needed by the task
+     *
+     * @return the amount of storage needed by the task
+     */
     public long getStorage() {
         return storage;
     }
 
+    /**
+     * Sets the amount of storage needed by the task
+     *
+     * @param storage amount of storage needed by the task
+     */
     public void setStorage(long storage) {
         this.storage = storage;
     }
 
+    /**
+     * Gets the submission time of this task
+     *
+     * @return the submission time of this task
+     */
     public long getTimeSubmission() {
         return time_submission;
     }
 
+    /**
+     * Sets the submission time of this task
+     *
+     * @param time_submission submission time of this task
+     */
     public void setTimeSubmission(long time_submission) {
         this.time_submission = time_submission;
     }
 
+    /**
+     * Gets the maximum time to execute this task
+     *
+     * @return the maximum time to execute this task
+     */
     public long getTimeDeadlineFinal() {
         return time_deadline_final;
     }
 
+    /**
+     * Sets the maximum time to execute this task
+     *
+     * @param time_deadline_final maximum time to execute this task
+     */
     public void setTimeDeadlineFinal(long time_deadline_final) {
         this.time_deadline_final = time_deadline_final;
     }
 
+    /**
+     * Gets the priority of this task
+     *
+     * @return the priority of this task
+     */
     public int getPriorityNo() {
         return priority_no;
     }
 
+    /**
+     * Sets the priority of this task
+     *
+     * @param priority_no priority of this task
+     */
     public void setPriorityNo(int priority_no) {
         this.priority_no = priority_no;
     }
 
-    public long getTimeSp() {
-        return time_sp;
+    /**
+     * Creates a new entity
+     * @param taskId the global id of the task
+     * @param job_id job id of the task
+     * @param task_id id of the task
+     * @param mi millions of instructions number of the task
+     * @param ram amount of RAM needed by the task
+     * @param storage amount of storage needed by the task
+     * @param time_submission submission time of this task
+     * @param time_deadline_final maximum time to execute this task
+     * @param priority_no priority of this task
+     */
+
+    public TSPTask(
+            final int taskId,
+            final int job_id,
+            final int task_id,
+            final long mi,
+            final long ram,
+            final long storage,
+            final long time_submission,
+            final long time_deadline_final,
+            final int priority_no) {
+
+        super(taskId, mi);
+
+
+        this.childList = new ArrayList<>();
+        this.parentList = new ArrayList<>();
+        this.fileList = new ArrayList<>();
+        this.impact = 0.0;
+        this.taskFinishTime = -1.0;
+
+        this.runlength = mi;
+        this.task_id = task_id;
+        this.job_id=job_id;
+        this.ram=ram;
+        this.storage=storage;
+        this.time_submission=time_submission;
+        this.time_deadline_final=time_deadline_final;
+        this.priority_no=priority_no;
     }
 
-    public void setTimeSp(long time_sp) {
-        this.time_sp = time_sp;
-    }
 
-    private int priority_no;
-    private long time_sp;
+    /* So far the extension for TSP. From here on, the code specified in FogWorkFlowSim's Task is maintained */
 
     /*
      * The list of parent tasks.
@@ -160,73 +286,6 @@ public class TSPTask extends Task {
      */
     private double taskFinishTime;
     private long runlength;
-
-    /**
-     * Allocates a new Task object. The task length should be greater than or
-     * equal to 1.
-     *
-     * @param taskId the unique ID of this Task
-     * @param taskLength the length or size (in MI) of this task to be executed
-     * in a PowerDatacenter
-     * @pre taskId >= 0
-     * @pre taskLength >= 0.0
-     * @post $none
-     */
-    public TSPTask(
-            final int taskId,
-            final long taskLength) {
-        /**
-         * We do not use cloudletFileSize and cloudletOutputSize here. We have
-         * added a list to task and thus we don't need a cloudletFileSize or
-         * cloudletOutputSize here The utilizationModelCpu, utilizationModelRam,
-         * and utilizationModelBw are just set to be the default mode. You can
-         * change it for your own purpose.
-         */
-        super(taskId, taskLength);
-
-        this.runlength = taskLength;
-        this.childList = new ArrayList<>();
-        this.parentList = new ArrayList<>();
-        this.fileList = new ArrayList<>();
-        this.impact = 0.0;
-        this.taskFinishTime = -1.0;
-    }
-
-    public TSPTask(
-            final int taskId,
-            final int job_id,
-            final int task_id,
-            final long mi,
-            final long ram,
-            final long storage,
-            final long time_submission,
-            final long time_deadline_final,
-            final int priority_no) {
-        /**
-         * We do not use cloudletFileSize and cloudletOutputSize here. We have
-         * added a list to task and thus we don't need a cloudletFileSize or
-         * cloudletOutputSize here The utilizationModelCpu, utilizationModelRam,
-         * and utilizationModelBw are just set to be the default mode. You can
-         * change it for your own purpose.
-         */
-        super(taskId, mi);
-
-
-        this.childList = new ArrayList<>();
-        this.parentList = new ArrayList<>();
-        this.fileList = new ArrayList<>();
-        this.impact = 0.0;
-        this.taskFinishTime = -1.0;
-
-        this.runlength = mi;
-        this.task_id = task_id;
-        this.job_id=job_id;
-        this.ram=ram;
-        this.storage=storage;
-        this.time_submission=time_submission;
-        this.time_deadline_final=time_deadline_final;
-        this.priority_no=priority_no;
-    }
 
     /**
      * Sets the type of the task

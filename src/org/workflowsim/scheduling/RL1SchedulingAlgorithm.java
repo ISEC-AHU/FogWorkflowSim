@@ -69,7 +69,7 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
                 Task cloudlet = (Task)next;
                 TSPTask task_info = (TSPTask)next.getTaskList().get(0);
 
-                if (CloudSim.clock() >= task_info.getTimeSubmission() && TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
+                if (CloudSim.clock() >= task_info.getTimeSubmission() && TSPJobManager.canRunTask(task_info.getJobId(), task_info.getTaskId())) {
 
                     boolean stillHasVm = placer(cloudlet, task_info);
 
@@ -108,14 +108,13 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
             Object[] next_executable_job = TSPJobManager.getNextAvailableJobs(cloudletList, CloudSim.clock());
 
             CloudSim.clock = (Double)next_executable_job[0];
-            System.out.println(((ArrayList<Job>)next_executable_job[1]).size());
 
             for (Iterator it = ((ArrayList<Job>)next_executable_job[1]).iterator(); it.hasNext();) {
                 Job next=(Job)it.next();
                 Task cloudlet = (Task)next;
                 TSPTask task_info = (TSPTask)next.getTaskList().get(0);
 
-                if (CloudSim.clock() >= task_info.getTimeSubmission() && TSPJobManager.canRunTask(task_info.getJob_id(), task_info.getTask_id())) {
+                if (CloudSim.clock() >= task_info.getTimeSubmission() && TSPJobManager.canRunTask(task_info.getJobId(), task_info.getTaskId())) {
                     boolean stillHasVm = placer(cloudlet, task_info);
 
                     //no vm available
