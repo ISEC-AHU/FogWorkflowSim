@@ -20,7 +20,12 @@ import org.workflowsim.WorkflowEngine;
 import org.workflowsim.utils.Parameters.FileType;
 
 /**
- * TSPController contains the evaluating indicators library, which can calculate each indicator.
+ * By extending from Controller this class contains the evaluating indicators library, which can calculate each indicator.
+ *
+ * This extension includes to calculate the indicators also in the fog and cloud layers of the simulation.
+ *
+ * Due to the presence of several private attributes in the Controller class, this extension preserves the original code
+ * and documents the differences starting with "TSP modification".
  *
  * @since TSP Extension 1.0
  * @author Julio Corona
@@ -69,6 +74,13 @@ public class TSPController extends Controller{
     final double parameter = 10000;//计算传输数据的传输时间的调整参数
     int count1=0, count2=0, count3=0;
 
+    /**
+     * TSP modification: just the name change
+     * Creates a new entity.
+     * @param name the name to be associated with this entity
+     * @param fogDevices the list of fog devices
+     * @param Engine the workflow engine associated with this entity
+     */
     public TSPController(String name, List<FogDevice> fogDevices , WorkflowEngine Engine) {
         super(name, fogDevices, Engine);
         for(FogDevice fogDevice : fogDevices){
@@ -125,13 +137,18 @@ public class TSPController extends Controller{
         System.out.println("Total network usage = "+NetworkUsageMonitor.getNetworkUsage()/Config.MAX_SIMULATION_TIME);
     }
 
+    /**
+     * TSP modification: Extended to also show energy and execution time
+     */
     private void printCostDetails(){
         System.out.println("Total Energy = "+TotalEnergy);
         System.out.println("Total Cost = "+TotalCost);
         System.out.println("Total Execution Time = "+TotalExecutionTime);
     }
 
-    // TSP Change: updated to compute energy in all network layers (not only mobile)
+    /**
+     * TSP modification: Updated to calculate the energy by layers (not only mobile)
+     */
     public void updateExecutionTime() {
         double time = 0.0;
         double energy = 0.0;
@@ -139,13 +156,12 @@ public class TSPController extends Controller{
         double WAN_sendInput = 0, WAN_sendOutput = 0;
         double LAN_sendInput = 0, LAN_sendOutput = 0;
 
-        //getmobile().setEnergyConsumption(getMobileEnergy()); old code
-
-        //TSP code Begin
+        //TSP modification begin
+        //getmobile().setEnergyConsumption(getMobileEnergy());
         for(FogDevice dev : getFogDevices()) {
             dev.setEnergyConsumption(getDeviceEnergy(dev));//updating the energy consumption
         }
-        //TSP code End
+        //TSP code end
 
         List<Job> jobList = wfEngine.getJobsReceivedList();
 
@@ -209,7 +225,10 @@ public class TSPController extends Controller{
         TotalCost = cost;
     }
 
-    //TSP new method for compute de total energy consumption
+    /**
+     * TSP modification: new function to calculate the total energy consumption
+     * @return the total energy consumed
+     */
     private double getTotalEnergyConsumption() {
         double totalEnergy = 0;
         for(FogDevice dev : getFogDevices()) {
@@ -331,7 +350,12 @@ public class TSPController extends Controller{
         return cost;
     }
 
-    // TSP Renamed and redone from 'getMobileEnergy'
+    /**
+     * TSP modification: This method replace the "getMobileEnergy" method to calculate the energy for the
+     * specified device, instead of only doing it in the mobile layer.
+     * @param dev the specified fog device (layer)
+     * @return the energy consumed by the specified device
+     */
     public double getDeviceEnergy(FogDevice dev){
         double energy = 0;
         double executiontime = 0;

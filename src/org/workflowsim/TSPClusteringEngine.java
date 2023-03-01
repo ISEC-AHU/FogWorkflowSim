@@ -1,4 +1,5 @@
 /**
+ * TSP: to be defined
  * Copyright 2012-2013 University Of Southern California
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -19,11 +20,7 @@ import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEntity;
 import org.cloudbus.cloudsim.core.SimEvent;
-import org.workflowsim.clustering.TSPBasicClustering;
-import org.workflowsim.clustering.BlockClustering;
-import org.workflowsim.clustering.HorizontalClustering;
-import org.workflowsim.clustering.VerticalClustering;
-import org.workflowsim.clustering.balancing.BalancedClustering;
+import org.workflowsim.clustering.BasicClustering;
 import org.workflowsim.utils.ClusteringParameters;
 import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.Parameters.ClassType;
@@ -33,13 +30,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ClusteringEngine is an optional component of WorkflowSim and it merges tasks
- * into jobs
+ * Since the ClusteringEngine is defined as "final" this class replaces the ClusteringEngine class for TSP problems.
+ * This extension preserves the original code and documents the differences starting with "TSP modification".
  *
- * @author Weiwei Chen
- * @since WorkflowSim Toolkit 1.0
- * @date Apr 9, 2013
- *
+ * @since TSP Extension 1.0
+ * @author Julio Corona
  */
 public final class TSPClusteringEngine extends SimEntity {
 
@@ -66,7 +61,7 @@ public final class TSPClusteringEngine extends SimEntity {
     /**
      * The clustering engine to use
      */
-    protected TSPBasicClustering engine;
+    protected BasicClustering engine;
     /**
      * The WorkflowEngineId of the WorkflowEngine
      */
@@ -128,6 +123,7 @@ public final class TSPClusteringEngine extends SimEntity {
     }
 
     /**
+     * TSP modification: there is no possibility of clustering
      * Processes events available for this ClusteringEngine.
      *
      * @pre ev != null
@@ -141,7 +137,7 @@ public final class TSPClusteringEngine extends SimEntity {
         ClusteringParameters params = Parameters.getClusteringParameters();
 
         //no clustering
-        this.engine = new TSPBasicClustering();
+        this.engine = new BasicClustering();
         engine.setTaskList(getTaskList());
         engine.run();
         setJobList(engine.getJobList());

@@ -18,6 +18,14 @@ import org.workflowsim.utils.Parameters.SchedulingAlgorithm;
 
 import java.util.*;
 
+/**
+ * By extending from FogBroker this class add the TSP schedulers.
+ * Due to the presence of several private attributes in the Controller class, this extension preserves the original code
+ * and documents the differences starting with "TSP modification".
+ *
+ * @since TSP Extension 1.0
+ * @author Julio Corona
+ */
 public class TSPFogBroker extends FogBroker {
 
     /**
@@ -25,6 +33,11 @@ public class TSPFogBroker extends FogBroker {
      */
     private int workflowEngineId;
 
+    /**
+     * TSP modification: just the name change
+     * Creates a new entity.
+     * @param name name to be associated with this entity
+     */
     public TSPFogBroker(String name) throws Exception {
         super(name);
     }
@@ -120,7 +133,9 @@ public class TSPFogBroker extends FogBroker {
                     case MCT:
                     case STATIC:
                     case DATA:
+                    //TSP modification begin
                     case RL1:
+                    //TSP code end
                     case ROUNDROBIN:
                         processCloudletUpdate(ev);
                         break;
@@ -187,9 +202,11 @@ public class TSPFogBroker extends FogBroker {
             case ROUNDROBIN:
                 algorithm = new RoundRobinSchedulingAlgorithm();
                 break;
+            //TSP modification begin
             case RL1:
                 algorithm = new RL1SchedulingAlgorithm();
                 break;
+            //TSP code end
             default:
                 algorithm = new StaticSchedulingAlgorithm();
                 break;

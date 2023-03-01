@@ -5,9 +5,9 @@ Sim extension log:
 - To find the placement place
 - To avoid the placement in mobile layer
 - To add a new fog device to simulate the gateway and leave it out of the scheduling
-- Simulate the scheduling & placement time //Postponed
-- Change data source (including the new features) //HERE
-- Add the new schedulers
+- Simulate the scheduling & placement time
+- Change data source (including the new features)
+- Add the new schedulers //HERE
 
 
 

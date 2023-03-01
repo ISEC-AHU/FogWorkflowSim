@@ -6,16 +6,14 @@ import org.cloudbus.cloudsim.power.PowerHost;
 import org.cloudbus.cloudsim.provisioners.BwProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
-import org.fog.entities.Controller;
 import org.fog.entities.FogDevice;
 import org.fog.entities.FogDeviceCharacteristics;
 import org.fog.entities.TSPController;
-import org.fog.offloading.OffloadingStrategyAllinCloud;
-import org.fog.offloading.OffloadingStrategyAllinFog;
-import org.fog.offloading.OffloadingStrategySimple;
 import org.fog.utils.FogLinearPowerModel;
 import org.fog.utils.FogUtils;
-import org.workflowsim.*;
+import org.workflowsim.CondorVM;
+import org.workflowsim.TSPWorkflowPlanner;
+import org.workflowsim.WorkflowEngine;
 import org.workflowsim.utils.ClusteringParameters;
 import org.workflowsim.utils.OverheadParameters;
 import org.workflowsim.utils.Parameters;
@@ -23,13 +21,17 @@ import org.workflowsim.utils.ReplicaCatalog;
 
 import java.io.File;
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
 
-//Baseline paper http://www.csjournals.com/IJEE/PDF10-2/107.%20Sanju.pdf
-
+/**
+ * This test class simulates a task scheduling and placement application with a cloud device and a heterogeneous fog
+ * layer made up of several devices. The dataset used is publicly available at https://zenodo.org/record/4667690#.Y_8o8B_P1PY.
+ *
+ * @since TSP Extension 1.0
+ * @author Julio Corona
+ */
 public class TSPApp {
 
-    /* Environment setup */
+    /** Environment setup **/
 
     // Cloud setup
     static int numCloudDevices = 1;
@@ -57,7 +59,7 @@ public class TSPApp {
     static double latency_gateway_cloudNode  = 50;
 
     // Scheduling setup
-    final static String[] algorithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","RL1"};
+    final static String[] algorithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA","RL1"};
     final static String scheduler_method="RL1";
 
     final static String StrategyCb="All-in-Fog"; //"All-in-Fog","All-in-Cloud","Simple"
@@ -65,7 +67,7 @@ public class TSPApp {
 
     final static String taskPath ="datasets/50k";
 
-    /* Simulation variables */
+    /** Simulation variables **/
 
     // Default variables
     final static int numDepths = 1; //num depths in the fog layer
@@ -385,7 +387,6 @@ public class TSPApp {
 
         simulate(deadline);
         CloudSim.startSimulation();
-//        List<Job> outputList0 = wfEngine.getJobsReceivedList();
         CloudSim.stopSimulation();
         Log.enable();
         controller.print();

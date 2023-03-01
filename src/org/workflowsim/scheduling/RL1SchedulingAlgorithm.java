@@ -10,6 +10,12 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * Temporal template with FCFS algorithm for the TSP problem. In the next release this will be updated to be a Reinforcement Learning Agent.
+ *
+ * @since TSP Extension 1.0
+ * @author Julio Corona
+ */
 public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
 
 
@@ -18,11 +24,9 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
         super();
     }
 
-    private final List<Boolean> hasChecked = new ArrayList<>();
-
     /**
      * Return the list of devices available for placement
-     * @return
+     * @return the list of fog and cloud devices
      */
     public List getNotMobileVmList() {
         Predicate<CondorVM> byLayer = vm -> !vm.getHost().getDatacenter().getName().startsWith("m");
@@ -31,7 +35,7 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
 
     /**
      * Return the simulated gateway device
-     * @return
+     * @return the mobile device
      */
     public CondorVM getGatewayVm(){
         for (Iterator itc = getVmList().iterator(); itc.hasNext();) { //VM list
@@ -54,14 +58,13 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
         List cloudletList = getCloudletList();
 
         //auxiliary variable to know if the clock needs to be moved in case placement is not done
-        boolean still_need_placement = !cloudletList.isEmpty();
+        boolean some_task_was_scheduled = !cloudletList.isEmpty();
 
         for (Iterator it = cloudletList.iterator(); it.hasNext();) { //Task list
 
             Job next=(Job)it.next();
 
-            //if the task is a TSP task
-
+            //if the job has a TSP task
             if (next.getTaskList().size() > 0){
                 Task cloudlet = (Task)next;
                 TSPTask task_info = (TSPTask)next.getTaskList().get(0);
@@ -72,45 +75,35 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
 
                     //no vm available
                     if (stillHasVm) {
-                        still_need_placement = false;
+                        some_task_was_scheduled = false;
                     }else{
                         break;
                     }
                 }
             }
-            //else, the job is the empty workflowsim's job, and the allocation it's the default FCFS
+            //else, the job is the first WorkflowSim's job, and the allocation is in the gateway device
             else{
                 Task cloudlet = (Task) next;
 
-                boolean stillHasVm = false;
-
-                for (Iterator itc = getNotMobileVmList().iterator(); itc.hasNext();) { //VM list
-                    CondorVM vm = (CondorVM) itc.next();
-                    if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
-                        stillHasVm = true;
-                        vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
-                        cloudlet.setVmId(vm.getId());
-                        getScheduledList().add(cloudlet);
-                        still_need_placement = false;
-                        break;
-                    }
-                }
-
-                //no vm available
-                if (!stillHasVm) {
+                CondorVM vm = getGatewayVm();
+                if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
+                    vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
+                    cloudlet.setVmId(vm.getId());
+                    getScheduledList().add(cloudlet);
+                    some_task_was_scheduled = false;
                     break;
                 }
             }
         }
 
-        if (still_need_placement){
+        if (some_task_was_scheduled){
 
-            /**
-             * next_executable_job structure
-             * [
-             *  double: the clock on which jobs can be executed
-             *  ArrayList<Job>: the list of jobs that can be processed
-             * ]
+            /*
+              next_executable_job structure
+              [
+               double: the clock on which jobs can be executed
+               ArrayList<Job>: the list of jobs that can be processed
+              ]
               */
             Object[] next_executable_job = TSPJobManager.getNextAvailableJobs(cloudletList, CloudSim.clock());
 
