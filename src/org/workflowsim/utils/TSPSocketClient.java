@@ -71,10 +71,8 @@ public class TSPSocketClient {
             // waiting for the response
             return in.readUTF();
         }
-        catch (IOException i) {
-            System.err.println(i);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        catch (IOException | JSONException i) {
+            i.printStackTrace();
         }
         return "ERROR if reaches this point";
     }
@@ -105,21 +103,50 @@ public class TSPSocketClient {
 
             return Integer.parseInt(content);
         }
-        catch (IOException i) {
-            System.err.println(i);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        catch (IOException | JSONException i) {
+            i.printStackTrace();
         }
         return -1;
     }
 
     /**
-     * Send the new task after the decision
+     * Save the placement reward
+     * @param cloudletId the task cloudlet id
+     * @param reward the reward for RL agents
+     * @return the server result
+     */
+    public static String saveReward(int cloudletId, Double reward){
+
+        try {
+            // sends the info to the socket
+            JSONObject json = new JSONObject();
+            json.put("action", "retrain");
+
+            JSONObject data = new JSONObject();
+            data.put("cloudletId", cloudletId);
+            data.put("reward", reward);
+
+            json.put("data", data);
+            out.write(json.toString());
+            out.flush();
+
+            // waiting for the response
+            return in.readUTF();
+        }
+        catch (IOException | JSONException i) {
+            i.printStackTrace();
+        }
+
+        return "saveReward reached a undesirable point";
+    }
+
+    /**
+     * Send the new state for retraining the RL model
      * @param cloudletId the task cloudlet id
      * @param state the simulation's environment information
      * @return the number of the server to place the task
      */
-    public static String saveTheNewStateAfterDecision(int cloudletId, Long[] state){
+    public static String retrain(int cloudletId, Long[] state){
         try {
             // sends the info to the socket
             JSONObject json = new JSONObject();
@@ -136,47 +163,10 @@ public class TSPSocketClient {
             // waiting for the response
             return in.readUTF();
         }
-        catch (IOException i) {
-            System.err.println(i);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        catch (IOException | JSONException i) {
+            i.printStackTrace();
         }
         return "saveTheNewStateAfterDecision reached a undesirable point";
-    }
-
-
-    /**
-     * Retrain the RL agent
-     * @param cloudletId the task cloudlet id
-     * @param reward the reward for RL agents
-     * @return the number of the server to place the task
-     */
-    public static int retrain(int cloudletId, Double reward){
-
-        try {
-            // sends the info to the socket
-            JSONObject json = new JSONObject();
-            json.put("action", "retrain");
-
-            JSONObject data = new JSONObject();
-            data.put("cloudletId", cloudletId);
-            data.put("reward", reward);
-
-            json.put("data", data);
-            out.write(json.toString());
-            out.flush();
-
-            // waiting for the response
-            String content= in.readUTF();
-
-            return Integer.parseInt(content);
-        }
-        catch (IOException i) {
-            System.err.println(i);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return -1;
     }
 
     /**

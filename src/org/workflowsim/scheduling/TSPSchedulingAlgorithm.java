@@ -157,12 +157,15 @@ public class TSPSchedulingAlgorithm extends BaseSchedulingAlgorithm {
             getScheduledList().add(cloudlet);
             TSPJobManager.addTaskRunning(taskInfo);
 
+            //compute the decision's reward and save it
+            double reward = taskInfo.getMi() / vm.getMips();
+            TSPSocketClient.saveReward(taskInfo.getCloudletId(), reward);
+
             if (last_task != null){
                 //updating the placer information
-                TSPSocketClient.saveTheNewStateAfterDecision(last_task.getCloudletId(), state);
+                TSPSocketClient.retrain(last_task.getCloudletId(), state);
+                last_task = taskInfo;
             }
-
-
         }
 
         return stillHasVm;
