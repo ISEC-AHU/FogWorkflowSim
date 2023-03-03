@@ -68,14 +68,8 @@ public class TSPTask extends Task {
     /**
      * The timestamp when the task started executing
      */
+
     private double time_start_processing;
-
-    /**
-     * The priority of the task
-     */
-
-    private int priority_no;
-
     /**
      * Gets the job id of the task
      *
@@ -185,24 +179,6 @@ public class TSPTask extends Task {
     }
 
     /**
-     * Gets the priority of this task
-     *
-     * @return the priority of this task
-     */
-    public int getPriorityNo() {
-        return priority_no;
-    }
-
-    /**
-     * Sets the priority of this task
-     *
-     * @param priority_no priority of this task
-     */
-    public void setPriorityNo(int priority_no) {
-        this.priority_no = priority_no;
-    }
-
-    /**
      * Creates a new entity
      * @param taskId the global id of the task
      * @param job_id job id of the task
@@ -212,7 +188,7 @@ public class TSPTask extends Task {
      * @param storage amount of storage needed by the task
      * @param time_submission submission time of this task
      * @param time_deadline_final maximum time to execute this task
-     * @param priority_no priority of this task
+     * @param priority priority of this task
      */
 
     public TSPTask(
@@ -224,7 +200,7 @@ public class TSPTask extends Task {
             final long storage,
             final long time_submission,
             final long time_deadline_final,
-            final int priority_no) {
+            final int priority) {
 
         super(taskId, mi);
 
@@ -242,7 +218,7 @@ public class TSPTask extends Task {
         this.storage=storage;
         this.time_submission=time_submission;
         this.time_deadline_final=time_deadline_final;
-        this.priority_no=priority_no;
+        this.priority=priority;
     }
 
 

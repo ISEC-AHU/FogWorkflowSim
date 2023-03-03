@@ -32,8 +32,8 @@ public class DefaultApp {
     final static int numOfDepts = 1;
     final static int numOfMobilesPerDept = 1;
 
-    final static String[] algrithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA","RL1"};
-    final static String scheduler_method="RL1";
+    final static String[] algrithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA","TSP"};
+    final static String scheduler_method="TSP";
 
     final static String StrategyCb="All-in-Fog"; //"All-in-Fog","All-in-Cloud","Simple"
     final static String optimize_objective="Time"; //"Time","Energy","Cost"

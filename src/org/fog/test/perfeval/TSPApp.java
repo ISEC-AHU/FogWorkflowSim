@@ -14,10 +14,7 @@ import org.fog.utils.FogUtils;
 import org.workflowsim.CondorVM;
 import org.workflowsim.TSPWorkflowPlanner;
 import org.workflowsim.WorkflowEngine;
-import org.workflowsim.utils.ClusteringParameters;
-import org.workflowsim.utils.OverheadParameters;
-import org.workflowsim.utils.Parameters;
-import org.workflowsim.utils.ReplicaCatalog;
+import org.workflowsim.utils.*;
 
 import java.io.File;
 import java.util.*;
@@ -35,16 +32,22 @@ public class TSPApp {
 
     // Cloud setup
     static int numCloudDevices = 1;
-    //{MIPS, RAM (MB), Upload bandwidth (Mbps), Download bandwidth (Mbps), Storage (MB), Busy power, Idle power}
-    static double[] cloudNodeFeatures = new double[]{93440, 16000, 200, 200, 120000, 367, 172};
+    //{MIPS, RAM (MB), Storage (MB), Busy power, Idle power}
+    static double[] cloudNodeFeatures = new double[]{93440, 16000, 120000, 367, 172};
+    static int cloudNodesUploadBandwidth  = 200;
+    static int cloudNodesDownloadBandwidth  = 200;
 
     // Fog setup
     static int numFogDevices = 4;
     //{MIPS, Busy power, Idle power}
-    static double[][] fogNodesFeatures = new double[][]{
+    static double[][] availableFogNodesFeatures = new double[][]{
             {3720, 117, 86},
             {5320, 135, 93.7}
     };
+    static double[][] fogNodesFeatures;
+
+
+
     static int fogNodesRamQuantity = 4000;
     static int fogNodesUploadBandwidth  = 100;
     static int fogNodesDownloadBandwidth  = 100;
@@ -59,8 +62,8 @@ public class TSPApp {
     static double latency_gateway_cloudNode  = 50;
 
     // Scheduling setup
-    final static String[] algorithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA","RL1"};
-    final static String scheduler_method="RL1";
+    final static String[] algorithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA","TSP"};
+    final static String scheduler_method="TSP";
 
     final static String StrategyCb="All-in-Fog"; //"All-in-Fog","All-in-Cloud","Simple"
     final static String optimize_objective="Energy"; //"Time","Energy","Cost"
@@ -80,6 +83,15 @@ public class TSPApp {
 
     public static void simulate(double deadline) {
         System.out.println("Starting simulation...");
+
+       fogNodesFeatures = new double[numFogDevices][];
+
+        Random generator = new Random(42);
+
+       for (int i=0; i < TSPApp.numFogDevices; i++){
+           int random =generator.nextInt(2);
+           fogNodesFeatures[i]=new double[]{availableFogNodesFeatures[random][0], fogNodesRamQuantity, fogNodesStorage, availableFogNodesFeatures[random][1], availableFogNodesFeatures[random][2]};
+       }
 
         try {
             //Log.disable();
@@ -226,7 +238,7 @@ public class TSPApp {
         }
 
         FogDevice cloud = createFogDevice("cloud", GHzList.size(), GHzList, CostList,
-                (int) cloudNodeFeatures[1], (long) cloudNodeFeatures[2], (long) cloudNodeFeatures[3], 0, ratePerMips, cloudNodeFeatures[5], cloudNodeFeatures[6], costPerMem,costPerStorage,costPerBw, (long) cloudNodeFeatures[4]); // creates the fog device Cloud at the apex of the hierarchy with level=0
+                (int) cloudNodeFeatures[1], cloudNodesDownloadBandwidth, cloudNodesUploadBandwidth, 0, ratePerMips, cloudNodeFeatures[3], cloudNodeFeatures[4], costPerMem,costPerStorage,costPerBw, (long) cloudNodeFeatures[2]);
         cloud.setParentId(-1);
 
         fogDevices.add(cloud);
@@ -236,23 +248,33 @@ public class TSPApp {
     }
 
     private static FogDevice addFogNode(String id, int userId, String appId, int parentId){
-        Random generator = new Random(42);
-        double[] fogNodeFeatures = fogNodesFeatures[generator.nextInt(2)];
+
         double ratePerMips = 0.48;
         double costPerMem = 0.05; // the cost of using memory in this resource
         double costPerStorage = 0.1; // the cost of using storage in this resource
         double costPerBw = 0.1;
 
+        //{MIPS, RAM (MB), Storage (MB), Busy power, Idle power}
+
         List<Long> GHzList = new ArrayList<>();
+        List<Long> RamList = new ArrayList<>();
+        List<Long> StorageList = new ArrayList<>();
+        List<Long> BPowerList = new ArrayList<>();
+        List<Long> IPowerList = new ArrayList<>();
         List<Double> CostList = new ArrayList<>();
 
         for (int i = 0; i < numFogDevices; i++){ //setup fog capacities
-            GHzList.add((long)fogNodeFeatures[0]);
+            GHzList.add((long)fogNodesFeatures[i][0]);
+            RamList.add((long)fogNodesFeatures[i][1]);
+            StorageList.add((long)fogNodesFeatures[i][2]);
+            BPowerList.add((long)fogNodesFeatures[i][3]);
+            IPowerList.add((long)fogNodesFeatures[i][4]);
             CostList.add(0.48);
         }
 
-        FogDevice dept = createFogDevice("f-"+id, GHzList.size(), GHzList, CostList,
-                fogNodesRamQuantity, fogNodesUploadBandwidth, fogNodesDownloadBandwidth, 1, ratePerMips, fogNodeFeatures[1], fogNodeFeatures[2],costPerMem,costPerStorage,costPerBw,fogNodesStorage);
+        FogDevice dept = createFogDevice("f-"+id, numFogDevices, GHzList, CostList,
+                RamList, fogNodesUploadBandwidth, fogNodesDownloadBandwidth, 1, ratePerMips, BPowerList, IPowerList, costPerMem, costPerStorage, costPerBw, StorageList);
+
         fogDevices.add(dept);
         dept.setParentId(parentId);
         dept.setUplinkLatency(latency_gateway_fogNode); // latency of connection between gateways and server is 4 ms
@@ -356,6 +378,78 @@ public class TSPApp {
         return fogdevice;
     }
 
+    /**
+     * Creates a vanilla fog device
+     * @param nodeName name of the device to be used in simulation
+     * @param hostnum the number of the host of device
+     * @param mips the list of host'MIPS
+     * @param costPerMips the list of host'cost per mips
+     * @param rams the list of RAM
+     * @param upBw uplink bandwidth (Kbps)
+     * @param downBw downlink bandwidth (Kbps)
+     * @param level hierarchy level of the device
+     * @param ratePerMips cost rate per MIPS used
+     * @param busyPowers(mW) the list of busy powers
+     * @param idlePowers(mW) the list of idle powers
+     * @return
+     */
+    private static FogDevice createFogDevice(String nodeName, int hostnum, List<Long> mips, List<Double> costPerMips,
+                                             List<Long> rams, long upBw, long downBw, int level, double ratePerMips,
+                                             List<Long> busyPowers, List<Long> idlePowers,
+                                      double costPerMem,double costPerStorage,double costPerBw,List<Long>  storages) {
+
+        List<Host> hostList = new ArrayList<Host>();
+
+        for ( int i = 0 ;i < hostnum; i++ )
+        {
+            List<Pe> peList = new ArrayList<Pe>();
+            // Create PEs and add these into a list.
+            peList.add(new Pe(0, new PeProvisionerSimple(mips.get(i)))); // need to store Pe id and MIPS Rating
+            int hostId = FogUtils.generateEntityId();
+            int bw = 10000;
+
+            PowerHost host = new PowerHost(
+                    hostId,
+                    costPerMips.get(i),
+                    new RamProvisionerSimple(Math.toIntExact(rams.get(i))),
+                    new BwProvisionerSimple(bw),
+                    storages.get(i),
+                    peList,
+                    new VmSchedulerTimeShared(peList),
+                    new FogLinearPowerModel(busyPowers.get(i), idlePowers.get(i))
+            );
+
+            hostList.add(host);
+        }
+
+        // Create a DatacenterCharacteristics object
+        String arch = "x86"; // system architecture
+        String os = "Linux"; // operating system
+        String vmm = "Xen";
+        double time_zone = 10.0; // time zone this resource located
+        double cost = 3.0; // the cost of using processing in this resource每秒的花费
+        LinkedList<Storage> storageList = new LinkedList<Storage>();
+
+        FogDeviceCharacteristics characteristics = new FogDeviceCharacteristics(
+                arch, os, vmm, hostList, time_zone, cost, costPerMem,
+                costPerStorage, costPerBw);
+
+        FogDevice fogdevice = null;
+
+        // Finally, we need to create a storage object.
+        try {
+            HarddriveStorage s1 = new HarddriveStorage(nodeName, 1e12);
+            storageList.add(s1);
+            fogdevice = new FogDevice(nodeName, characteristics,
+                    new VmAllocationPolicySimple(hostList), storageList, 10, upBw, downBw, 0, ratePerMips); //TSP Comment. This is the layer placement class
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        fogdevice.setLevel(level);
+        return fogdevice;
+    }
+
     protected static List<CondorVM> createVM(int userId, int vms, List<? extends Host> devicelist) {
         //Creates a container to store VMs. This list is passed to the broker later
         LinkedList<CondorVM> list = new LinkedList<>();
@@ -380,8 +474,9 @@ public class TSPApp {
 
     public static void main(String[] args) {
         System.out.println("Starting TestApplication...");
-
-        System.out.println("Optimization objective : "+optimize_objective);
+        TSPSocketClient.openConnection("127.0.0.1", 5000);
+//        TSPEnvHelper.init(numCloudDevices + numFogDevices);
+        System.out.println("Sending server setup.. " + TSPSocketClient.sendSeversSetup(TSPApp.cloudNodeFeatures, TSPApp.fogNodesFeatures));
 
         double deadline = Double.MAX_VALUE;
 
@@ -393,8 +488,9 @@ public class TSPApp {
         Double[] a = {getAlgorithm(scheduler_method),controller.TotalExecutionTime,controller.TotalEnergy,controller.TotalCost};
         record.add(a);
         long time = wfEngine.algorithmTime;
-
         System.out.println("Algorithm Time: "+time);
+
+        TSPSocketClient.closeConnection();
     }
 
 

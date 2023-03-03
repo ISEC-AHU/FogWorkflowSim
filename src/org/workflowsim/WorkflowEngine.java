@@ -235,7 +235,7 @@ public class WorkflowEngine extends SimEntity {
 				case STATIC:
 				case DATA:
 				case ROUNDROBIN:
-				case RL1:
+				case TSP:
 					processJobReturn(ev);
 					break;
 				default:

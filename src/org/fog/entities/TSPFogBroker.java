@@ -40,6 +40,7 @@ public class TSPFogBroker extends FogBroker {
      */
     public TSPFogBroker(String name) throws Exception {
         super(name);
+
     }
 
     /**
@@ -134,7 +135,7 @@ public class TSPFogBroker extends FogBroker {
                     case STATIC:
                     case DATA:
                     //TSP modification begin
-                    case RL1:
+                    case TSP:
                     //TSP code end
                     case ROUNDROBIN:
                         processCloudletUpdate(ev);
@@ -203,8 +204,8 @@ public class TSPFogBroker extends FogBroker {
                 algorithm = new RoundRobinSchedulingAlgorithm();
                 break;
             //TSP modification begin
-            case RL1:
-                algorithm = new RL1SchedulingAlgorithm();
+            case TSP:
+                algorithm = new TSPSchedulingAlgorithm();
                 break;
             //TSP code end
             default:

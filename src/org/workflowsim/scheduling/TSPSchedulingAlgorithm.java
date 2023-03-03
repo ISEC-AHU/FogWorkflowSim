@@ -3,6 +3,9 @@ package org.workflowsim.scheduling;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.workflowsim.*;
+import org.workflowsim.utils.TSPEnvHelper;
+import org.workflowsim.utils.TSPJobManager;
+import org.workflowsim.utils.TSPSocketClient;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,15 +14,15 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
- * Temporal template with FCFS algorithm for the TSP problem. In the next release this will be updated to be a Reinforcement Learning Agent.
+ * Temporal template with FCFS algorithm for the TSP problem
  *
  * @since TSP Extension 1.0
  * @author Julio Corona
  */
-public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
+public class TSPSchedulingAlgorithm extends BaseSchedulingAlgorithm {
 
 
-    public RL1SchedulingAlgorithm()
+    public TSPSchedulingAlgorithm()
     {
         super();
     }
@@ -126,23 +129,45 @@ public class RL1SchedulingAlgorithm  extends BaseSchedulingAlgorithm {
         }
     }
 
+    private TSPTask last_task = null;
+
     /**
      * Placer regarding the availability
      */
-    public boolean placer(Cloudlet cloudlet, TSPTask task_info){
+    public boolean placer(Cloudlet cloudlet, TSPTask taskInfo){
+
+        //list of fog and cloud devices
+        List not_mobile_list = getNotMobileVmList();
+
+        //parses the task and the device status to a vector
+        Long[] state = TSPEnvHelper.parseState(taskInfo, not_mobile_list);
+
+        //call the placement agent
+        int action = TSPSocketClient.askForDecision(taskInfo.getCloudletId(), state);
+
+        System.out.println("Action received from Python:" + action);
+
         boolean stillHasVm = false;
 
-        for (Iterator itc = getNotMobileVmList().iterator(); itc.hasNext(); ) { //VM list
-            CondorVM vm = (CondorVM) itc.next();
-            if (vm.getState() == WorkflowSimTags.VM_STATUS_IDLE) {
-                stillHasVm = true;
-                vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
-                cloudlet.setVmId(vm.getId());
-                getScheduledList().add(cloudlet);
-                TSPJobManager.addTaskRunning(task_info);
-                break;
+        if (action != -1){
+            stillHasVm = true;
+            CondorVM vm = (CondorVM) not_mobile_list.get(action);
+            vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
+            cloudlet.setVmId(vm.getId());
+            getScheduledList().add(cloudlet);
+            TSPJobManager.addTaskRunning(taskInfo);
+
+            if (last_task != null){
+                //updating the placer information
+                TSPSocketClient.saveTheNewStateAfterDecision(last_task.getCloudletId(), state);
             }
+
+
         }
+
         return stillHasVm;
     }
+
+
+
 }

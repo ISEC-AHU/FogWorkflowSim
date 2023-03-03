@@ -18,22 +18,13 @@ package org.workflowsim;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import org.cloudbus.cloudsim.Cloudlet;
-import org.cloudbus.cloudsim.Log;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
 import org.workflowsim.utils.Parameters;
-import org.workflowsim.utils.Parameters.FileType;
-import org.workflowsim.utils.ReplicaCatalog;
+import org.workflowsim.utils.TSPJobManager;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-import java.util.regex.Pattern;
 
 /**
  * Since the WorkflowParser is defined as "final" this class replaces the WorkflowParser class for TSP problems.

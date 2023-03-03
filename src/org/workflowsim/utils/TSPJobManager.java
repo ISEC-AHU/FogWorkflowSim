@@ -13,9 +13,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.workflowsim;
+package org.workflowsim.utils;
 
 import org.cloudbus.cloudsim.core.CloudSim;
+import org.workflowsim.Job;
+import org.workflowsim.TSPJob;
+import org.workflowsim.TSPTask;
 
 import java.util.*;
 import java.util.regex.Pattern;
