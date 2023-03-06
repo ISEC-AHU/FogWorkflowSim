@@ -161,7 +161,7 @@ public final class TSPWorkflowParser {
                     long ram = Long.parseLong(task_info[4]);
                     long storage = Long.parseLong(task_info[5]);
                     long time_submission = job_time_submission + Long.parseLong(task_info[7]);
-                    long time_deadline_final = Long.parseLong(task_info[9]);
+                    long time_deadline_final = time_submission + Long.parseLong(task_info[9]);
                     int priority_no = Integer.parseInt(task_info[17]);
 
                     //task creation

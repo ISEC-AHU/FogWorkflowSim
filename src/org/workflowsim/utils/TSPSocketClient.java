@@ -56,6 +56,7 @@ public class TSPSocketClient {
      */
     public static String sendSeversSetup(double[] cloudNodeFeatures, double[][] fogNodesFeatures){
         try {
+
             // sends the info to the socket
             JSONObject json = new JSONObject();
             json.put("action", "setup");
@@ -63,6 +64,14 @@ public class TSPSocketClient {
             JSONObject data = new JSONObject();
             data.put("cloud", new JSONArray(cloudNodeFeatures));
             data.put("fog", new JSONArray(fogNodesFeatures));
+
+            switch (Parameters.getTspPlacementAlgorithm()){
+                case FIFO: data.put("placement", "FIFO"); break;
+                case RANDOM: data.put("placement", "RANDOM"); break;
+                case ROUNDROBIN: data.put("placement", "ROUNDROBIN"); break;
+                case RLv1: data.put("placement", "RLv1"); break;
+                case RLv2: data.put("placement", "RLv2"); break;
+            }
 
             json.put("data", data);
             out.write(json.toString());
@@ -88,7 +97,7 @@ public class TSPSocketClient {
         try {
             // sends the info to the socket
             JSONObject json = new JSONObject();
-            json.put("action", "inference");
+            json.put("action", "ask_decision");
 
             JSONObject data = new JSONObject();
             data.put("cloudletId", cloudletId);
@@ -120,7 +129,7 @@ public class TSPSocketClient {
         try {
             // sends the info to the socket
             JSONObject json = new JSONObject();
-            json.put("action", "retrain");
+            json.put("action", "save_reward");
 
             JSONObject data = new JSONObject();
             data.put("cloudletId", cloudletId);
@@ -150,7 +159,7 @@ public class TSPSocketClient {
         try {
             // sends the info to the socket
             JSONObject json = new JSONObject();
-            json.put("action", "steep");
+            json.put("action", "retrain");
 
             JSONObject data = new JSONObject();
             data.put("cloudletId", cloudletId);

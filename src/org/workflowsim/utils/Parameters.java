@@ -46,6 +46,29 @@ public class Parameters {
         STATIC, FCFS, ROUNDROBIN, INVALID, GA, TSP
     }
 
+
+    /**
+     * List of available placement strategies for TSP
+     */
+    public enum TSPPlacementAlgorithm {
+        FIFO, RANDOM, ROUNDROBIN, RLv1, RLv2,
+    }
+
+    public static TSPPlacementAlgorithm getTspPlacementAlgorithm() {
+        return tspPlacementAlgorithm;
+    }
+
+    public static void setTspPlacementAlgorithm(TSPPlacementAlgorithm tspPlacementAlgorithm) {
+        Parameters.tspPlacementAlgorithm = tspPlacementAlgorithm;
+    }
+
+    /**
+     * Placement mode
+     */
+    private static TSPPlacementAlgorithm tspPlacementAlgorithm;
+
+
+
     public enum Optimization{//优化目标
         Time, Energy,Cost
     }

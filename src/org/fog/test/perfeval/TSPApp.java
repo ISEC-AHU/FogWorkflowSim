@@ -59,14 +59,13 @@ public class TSPApp {
     // Links latencies setup
     static double latency_mobile_gateway  = 20;
     static double latency_gateway_fogNode  = 50;
-    static double latency_gateway_cloudNode  = 50;
 
     // Scheduling setup
     final static String[] algorithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA","TSP"};
-    final static String scheduler_method="TSP";
+    final static String schedulerMethod ="TSP";
+    final static Parameters.TSPPlacementAlgorithm placementAlgorithm =Parameters.TSPPlacementAlgorithm.RLv1;
 
-    final static String StrategyCb="All-in-Fog"; //"All-in-Fog","All-in-Cloud","Simple"
-    final static String optimize_objective="Energy"; //"Time","Energy","Cost"
+    final static String optimize_objective="Time"; //"Time","Energy"   Not used in TSP just now
 
     final static String taskPath ="datasets/50k";
 
@@ -124,10 +123,16 @@ public class TSPApp {
              * algorithm should be INVALID such that the planner would not
              * override the result of the scheduler
              */
-            Parameters.SchedulingAlgorithm sch_method =Parameters.SchedulingAlgorithm.valueOf(scheduler_method);
+            Parameters.SchedulingAlgorithm sch_method =Parameters.SchedulingAlgorithm.valueOf(schedulerMethod);
             Parameters.Optimization opt_objective = Parameters.Optimization.valueOf(optimize_objective);
             Parameters.PlanningAlgorithm pln_method = Parameters.PlanningAlgorithm.INVALID;
             ReplicaCatalog.FileSystem file_system = ReplicaCatalog.FileSystem.SHARED;
+
+            /**
+             * Setting the placement strategy
+             */
+            Parameters.setTspPlacementAlgorithm(placementAlgorithm);
+
             /**
              * No overheads
              */
@@ -474,20 +479,21 @@ public class TSPApp {
 
     public static void main(String[] args) {
         System.out.println("Starting TestApplication...");
-        TSPSocketClient.openConnection("127.0.0.1", 5000);
-//        TSPEnvHelper.init(numCloudDevices + numFogDevices);
-        System.out.println("Sending server setup.. " + TSPSocketClient.sendSeversSetup(TSPApp.cloudNodeFeatures, TSPApp.fogNodesFeatures));
-
         double deadline = Double.MAX_VALUE;
 
         simulate(deadline);
+
+        TSPSocketClient.openConnection("127.0.0.1", 5000);
+        System.out.println("Sending server setup.. " + TSPSocketClient.sendSeversSetup(cloudNodeFeatures, fogNodesFeatures));
+
         CloudSim.startSimulation();
         CloudSim.stopSimulation();
         Log.enable();
         controller.print();
-        Double[] a = {getAlgorithm(scheduler_method),controller.TotalExecutionTime,controller.TotalEnergy,controller.TotalCost};
+        Double[] a = {getAlgorithm(schedulerMethod),controller.TotalExecutionTime,controller.TotalEnergy,controller.TotalCost};
         record.add(a);
         long time = wfEngine.algorithmTime;
+        TSPJobManager.printTaskExceededDeadlineQuantities();
         System.out.println("Algorithm Time: "+time);
 
         TSPSocketClient.closeConnection();

@@ -37,6 +37,11 @@ public class TSPJobManager {
     private static Map<Integer, TSPJob> jobs = new HashMap<>();
 
     /**
+     * Dictionary to store the quantity of task exceeding the deadline
+     */
+    private static Map<Integer, Integer> deadline_exceeded = new HashMap<>();
+
+    /**
      * Create a new job
      * @param job_id the job id
      * @param max_parallel_executable_tasks the maximum number of tasks can be executed simultaneously in this job
@@ -70,6 +75,7 @@ public class TSPJobManager {
      * @return true if it can be executed, false otherwise
      */
     public static boolean canRunTask(Integer job_id, Integer task_id){
+
         return jobs.get(job_id).canRunTask(task_id);
     }
 
@@ -188,4 +194,30 @@ public class TSPJobManager {
 
         return getNextAvailableJobs(cloudletList, new_time);
     }
+
+    /**
+     * Count the tasks that exceeded its deadline
+     * @param taskPriority the task priority
+     */
+
+    public static void registerTaskExceedingDeadline(int taskPriority){
+        if (deadline_exceeded.containsKey(taskPriority)){
+            deadline_exceeded.replace(taskPriority, deadline_exceeded.get(taskPriority) + 1);
+        }else
+        {
+            deadline_exceeded.put(taskPriority, 0);
+        }
+    }
+
+    public static void printTaskExceededDeadlineQuantities(){
+        System.out.println("Exceeded deadlines:");
+        for (Integer priority: deadline_exceeded.keySet()) {
+            System.out.println("Priority "+ priority + ": " + deadline_exceeded.get(priority));
+        }
+    }
+
+    /**
+     * Auxiliary attribute for know the last executed tasks
+     */
+    public static int last_executed_cloudlet_id = -1;
 }

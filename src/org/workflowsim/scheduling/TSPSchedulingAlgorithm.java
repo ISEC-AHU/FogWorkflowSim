@@ -3,6 +3,7 @@ package org.workflowsim.scheduling;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.workflowsim.*;
+import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.TSPEnvHelper;
 import org.workflowsim.utils.TSPJobManager;
 import org.workflowsim.utils.TSPSocketClient;
@@ -129,8 +130,6 @@ public class TSPSchedulingAlgorithm extends BaseSchedulingAlgorithm {
         }
     }
 
-    private TSPTask last_task = null;
-
     /**
      * Placer regarding the availability
      */
@@ -157,15 +156,34 @@ public class TSPSchedulingAlgorithm extends BaseSchedulingAlgorithm {
             getScheduledList().add(cloudlet);
             TSPJobManager.addTaskRunning(taskInfo);
 
-            //compute the decision's reward and save it
-            double reward = taskInfo.getMi() / vm.getMips();
+            //compute the task's processing time and save it
+            double task_processing_time = taskInfo.getMi() / vm.getMips();
+
+            double reward;
+
+            if (task_processing_time + CloudSim.clock() > taskInfo.getTimeDeadlineFinal()){
+                reward = Float.MIN_VALUE / 2; //penalization
+                TSPJobManager.registerTaskExceedingDeadline(taskInfo.getPriority());
+            }else {
+
+
+                if (Parameters.getOptimization() == Parameters.Optimization.Time){
+                    // for time optimization
+                    reward = task_processing_time - taskInfo.getTimeSubmission();
+                }else{
+                    // for energy optimization
+//                    reward = double  e = job.getActualCPUTime() * powerModel.getPower(vm.getMips()/host.getTotalMips());;//ToDo
+                }
+            }
+
             TSPSocketClient.saveReward(taskInfo.getCloudletId(), reward);
 
-            if (last_task != null){
+            if (TSPJobManager.last_executed_cloudlet_id != -1){
+
                 //updating the placer information
-                TSPSocketClient.retrain(last_task.getCloudletId(), state);
-                last_task = taskInfo;
+                TSPSocketClient.retrain(TSPJobManager.last_executed_cloudlet_id, state);
             }
+            TSPJobManager.last_executed_cloudlet_id = taskInfo.getCloudletId();
         }
 
         return stillHasVm;
