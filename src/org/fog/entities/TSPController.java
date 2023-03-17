@@ -229,7 +229,7 @@ public class TSPController extends Controller{
      * TSP modification: new function to calculate the total energy consumption
      * @return the total energy consumed
      */
-    private double getTotalEnergyConsumption() {
+    public double getTotalEnergyConsumption() {
         double totalEnergy = 0;
         for(FogDevice dev : getFogDevices()) {
             totalEnergy+=dev.getEnergyConsumption();

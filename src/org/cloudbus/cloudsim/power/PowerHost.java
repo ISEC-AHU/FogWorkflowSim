@@ -173,8 +173,8 @@ public class PowerHost extends HostDynamicWorkload {
 				ExecutionTime += vm.ExecutionTime;
 				IdleTime += vm.IdleTime;
 				vm.flag = false;
-				System.out.println("执行时间："+ExecutionTime);
-				System.out.println("空闲时间："+IdleTime);
+//				System.out.println("执行时间："+ExecutionTime);
+//				System.out.println("空闲时间："+IdleTime);
 			}
 		}
 		FogLinearPowerModel powerModel = (FogLinearPowerModel) getPowerModel();

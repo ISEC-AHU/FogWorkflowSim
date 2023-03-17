@@ -68,9 +68,11 @@ public class Parameters {
     private static TSPPlacementAlgorithm tspPlacementAlgorithm;
 
 
-
+    /**
+     * Extended with TaskRunningTime and TaskEnergy objectives for TSP
+     */
     public enum Optimization{//优化目标
-        Time, Energy,Cost
+        Time, AvgTaskCompletionTime, Energy, Cost, TaskRunningTime, TaskEnergy, TaskCompletionTimeAndEnergy
     }
 
     /**
@@ -128,6 +130,21 @@ public class Parameters {
      */
     private static SchedulingAlgorithm schedulingAlgorithm;
     private static Optimization optimization;
+
+    /**
+     * If the penalization its enabled or not
+     */
+    private static boolean deadline_penalization_enabled;
+
+    /**
+     * Priorities minimum and maximum values. Empty for not priorities
+     */
+    private static int priorities_quantity;
+
+    /**
+     * If the tasks' parallelism restrictions defined in the job will be considered or not
+     */
+    private static boolean consider_tasks_parallelism_restrictions;
 
     /**
      * Planning mode
@@ -226,9 +243,9 @@ public class Parameters {
      */
     public static void init(
             int vm, String dax, String runtime, String datasize,
-            OverheadParameters op, ClusteringParameters cp,
-            SchedulingAlgorithm scheduler, Optimization optimization1, PlanningAlgorithm planner, String rMethod,
-            long dl) {
+            OverheadParameters op, ClusteringParameters cp, SchedulingAlgorithm scheduler, Optimization optimization1,
+            PlanningAlgorithm planner, String rMethod, long dl,
+            boolean deadlinePenalizationEnabled, int prioritiesQuantity, boolean considerTasksParallelismRestrictions) {
 
         cParams = cp;
         vmNum = vm;
@@ -243,6 +260,9 @@ public class Parameters {
         reduceMethod = rMethod;
         deadline = dl;
         maxDepth = 0;
+        deadline_penalization_enabled = deadlinePenalizationEnabled;
+        priorities_quantity = prioritiesQuantity;
+        consider_tasks_parallelism_restrictions = considerTasksParallelismRestrictions;
     }
 
     /**
@@ -394,6 +414,33 @@ public class Parameters {
 
     public static Optimization getOptimization() {
         return optimization;
+    }
+
+    /**
+     * Gets if the penalization its enabled or not
+     *
+     * @return if the penalization its enabled or not
+     */
+    public static boolean isDeadlinePenalizationEnabled() {
+        return deadline_penalization_enabled;
+    }
+
+    /**
+     * Gets if the tasks' parallelism restrictions will be enabled or not
+     *
+     * @return if the tasks' parallelism restrictions will be enabled or not
+     */
+    public static boolean getConsiderTasksParallelismRestrictions() {
+        return consider_tasks_parallelism_restrictions;
+    }
+
+    /**
+     * Gets the priorities quantity
+     *
+     * @return the priorities quantity
+     */
+    public static int getPrioritiesQuantity() {
+        return priorities_quantity;
     }
 
     /**

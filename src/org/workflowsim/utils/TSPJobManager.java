@@ -15,10 +15,17 @@
  */
 package org.workflowsim.utils;
 
+import org.cloudbus.cloudsim.Host;
+import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.power.PowerHost;
+import org.fog.entities.FogDevice;
+import org.fog.utils.FogLinearPowerModel;
+import org.workflowsim.CondorVM;
 import org.workflowsim.Job;
 import org.workflowsim.TSPJob;
 import org.workflowsim.TSPTask;
+import sun.misc.VM;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -40,6 +47,24 @@ public class TSPJobManager {
      * Dictionary to store the quantity of task exceeding the deadline
      */
     private static Map<Integer, Integer> deadline_exceeded = new HashMap<>();
+
+    /**
+     * Auxiliary variable for storing the sum of the tasks' completion time
+    */
+
+    private static double total_task_completion_time = 0;
+
+    /**
+     * Auxiliary variable for storing the sum of the tasks' running time
+    */
+
+    private static double total_task_running_time = 0;
+
+    /**
+     * Auxiliary variable for storing quantity of tasks' completed
+    */
+
+    private static double quantity_task_completed = 0;
 
     /**
      * Create a new job
@@ -75,7 +100,6 @@ public class TSPJobManager {
      * @return true if it can be executed, false otherwise
      */
     public static boolean canRunTask(Integer job_id, Integer task_id){
-
         return jobs.get(job_id).canRunTask(task_id);
     }
 
@@ -109,12 +133,49 @@ public class TSPJobManager {
             if (task.getTaskFinishTime() != -1 && task.getTaskFinishTime() >= time){
                 jobs.get(task.getJobId()).removeTasksRunning(task);
                 finished_tasks.push(task);
+
+                System.out.println("Releasing: "+task.getCloudletId());
+                total_task_completion_time += task.getTaskFinishTime();
+                total_task_running_time += task.getTaskFinishTime() - task.getTimeStartProcessing();
+                quantity_task_completed += 1;
             }
         }
 
         while (!finished_tasks.isEmpty()){
             executing_task.remove(finished_tasks.pop());
         }
+    }
+
+    /**
+     * Returns the average time to complete the tasks
+     */
+
+    static public double getAvgTaskCompletionTime(){
+        return total_task_completion_time / quantity_task_completed;
+    }
+
+    /**
+     * Returns the average time to complete the tasks, when the last task is going to be assigned
+     */
+
+    static public double getAvgTaskCompletionTime(double task_completion_time){
+        return (total_task_completion_time + task_completion_time) / (quantity_task_completed + 1);
+    }
+
+    /**
+     * Returns the average time to run the tasks
+     */
+
+    static public double getAvgTaskRunningTime(){
+        return total_task_running_time / quantity_task_completed;
+    }
+
+    /**
+     * Returns the average time to run the tasks, when the last task is going to be assigned
+     */
+
+    static public double getAvgTaskRunningTime(double task_running_time){
+        return (total_task_running_time + task_running_time) / (quantity_task_completed + 1);
     }
 
     /**
@@ -220,4 +281,46 @@ public class TSPJobManager {
      * Auxiliary attribute for know the last executed tasks
      */
     public static int last_executed_cloudlet_id = -1;
+
+
+    /**
+     * List of device's busy time
+     */
+    private static Map<Integer, Double> device_host_busy_time = new HashMap<>();
+
+    /**
+     * Init the device's busy time list
+     * @param fogDevices list of devices
+     */
+    public static void initDevicesBusyTime(List<FogDevice> fogDevices){
+        for (FogDevice fogDevice: fogDevices) {
+            for (Host host: fogDevice.getHostList()) {
+                device_host_busy_time.put(host.getId(), 0.0);
+            }
+        }
+    }
+
+    /**
+     * Update the device's busy time list
+     * @param host_id the device's host id
+     * @param time the task execution time
+     */
+    public static void updateDeviceBusyTime(int host_id, double time){
+        device_host_busy_time.replace(host_id, device_host_busy_time.get(host_id) + time);
+    }
+
+    public static double getEnergyConsumption(List<Vm> vmList){
+        double energy = 0;
+        for (Vm vm: vmList){
+            double busy_time = device_host_busy_time.get(vm.getHost().getId());
+            PowerHost host = (PowerHost)vm.getHost();
+            FogLinearPowerModel powerModel = (FogLinearPowerModel) host.getPowerModel();
+            energy += busy_time * powerModel.getPower(vm.getMips()/host.getTotalMips());
+
+            double idle_time = CloudSim.clock() - busy_time;
+            energy += idle_time * powerModel.getStaticPower();
+        }
+
+        return energy;
+    }
 }

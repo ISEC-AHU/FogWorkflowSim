@@ -62,10 +62,15 @@ public class TSPApp {
 
     // Scheduling setup
     final static String[] algorithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA","TSP"};
-    final static String schedulerMethod ="TSP";
+    final static String schedulerMethod = "TSP";
     final static Parameters.TSPPlacementAlgorithm placementAlgorithm =Parameters.TSPPlacementAlgorithm.RLv1;
 
-    final static String optimize_objective="Time"; //"Time","Energy"   Not used in TSP just now
+    final static String optimize_objective = "TaskCompletionTimeAndEnergy"; //"AvgTaskCompletionTime", "TaskRunningTime", "Energy", "TaskEnergy", "TaskCompletionTimeAndEnergy"
+    final static boolean deadline_penalization_enabled = true;
+    final static int priorities_quantity = 9900; //{0, 9900}. Minimum and maximum value depending on the dataset or empty for non priorities
+
+    final static boolean consider_tasks_parallelism_restrictions = true;
+
 
     final static String taskPath ="datasets/50k";
 
@@ -147,9 +152,8 @@ public class TSPApp {
             /**
              * Initialize static parameters
              */
-            Parameters.init(vmNum, taskPath, null,
-                    null, op, cp, sch_method, opt_objective,
-                    pln_method, null, 0);
+            Parameters.init(vmNum, taskPath, null, null, op, cp, sch_method, opt_objective, pln_method, null, 0,
+                    deadline_penalization_enabled, priorities_quantity, consider_tasks_parallelism_restrictions);
             ReplicaCatalog.init(file_system);
 
             /**
@@ -485,6 +489,8 @@ public class TSPApp {
 
         TSPSocketClient.openConnection("127.0.0.1", 5000);
         System.out.println("Sending server setup.. " + TSPSocketClient.sendSeversSetup(cloudNodeFeatures, fogNodesFeatures));
+
+        TSPJobManager.initDevicesBusyTime(fogDevices);
 
         CloudSim.startSimulation();
         CloudSim.stopSimulation();
