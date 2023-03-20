@@ -43,7 +43,11 @@ public class Parameters {
 
     public enum SchedulingAlgorithm {
         MAXMIN, MINMIN, MCT, DATA, PSO,
-        STATIC, FCFS, ROUNDROBIN, INVALID, GA, TSP
+        STATIC, FCFS, ROUNDROBIN, INVALID, GA,
+        TSP_Placement,
+        TSP_Scheduling,
+        TSP_Scheduling_Placement,
+        TSP_Batch_Schedule_Placement,
     }
 
 
@@ -51,7 +55,9 @@ public class Parameters {
      * List of available placement strategies for TSP
      */
     public enum TSPPlacementAlgorithm {
-        FIFO, RANDOM, ROUNDROBIN, RLv1, RLv2,
+        TS_FIFO, TS_RANDOM, TS_ROUND_ROBIN, TS_DRL,
+        TP_FIFO, TP_RANDOM, TP_ROUND_ROBIN, TP_DRL,
+        TSP_DRL, TSP_DRL_BATCH
     }
 
     public static TSPPlacementAlgorithm getTspPlacementAlgorithm() {
@@ -137,7 +143,7 @@ public class Parameters {
     private static boolean deadline_penalization_enabled;
 
     /**
-     * Priorities minimum and maximum values. Empty for not priorities
+     * quantity of priorities
      */
     private static int priorities_quantity;
 
@@ -244,8 +250,7 @@ public class Parameters {
     public static void init(
             int vm, String dax, String runtime, String datasize,
             OverheadParameters op, ClusteringParameters cp, SchedulingAlgorithm scheduler, Optimization optimization1,
-            PlanningAlgorithm planner, String rMethod, long dl,
-            boolean deadlinePenalizationEnabled, int prioritiesQuantity, boolean considerTasksParallelismRestrictions) {
+            PlanningAlgorithm planner, String rMethod, long dl) {
 
         cParams = cp;
         vmNum = vm;
@@ -259,17 +264,14 @@ public class Parameters {
         planningAlgorithm = planner;
         reduceMethod = rMethod;
         deadline = dl;
-        maxDepth = 0;
-        deadline_penalization_enabled = deadlinePenalizationEnabled;
-        priorities_quantity = prioritiesQuantity;
-        consider_tasks_parallelism_restrictions = considerTasksParallelismRestrictions;
+        maxDepth = 0;;
     }
 
     /**
      * A static function so that you can specify them in any place
      *
      * @param vm, the number of vms
-     * @param dax, the list of DAX paths 
+     * @param dax, the list of DAX paths
      * @param runtime, optional, the runtime file path
      * @param datasize, optional, the datasize file path
      * @param op, overhead parameters
@@ -298,6 +300,46 @@ public class Parameters {
         reduceMethod = rMethod;
         deadline = dl;
         maxDepth = 0;
+    }
+
+    /**
+     * Initializer for TSP problem
+     * @param vm the number of vms
+     * @param dax the DAX path
+     * @param runtime optional, the runtime file path
+     * @param datasize optional, the datasize file path
+     * @param op overhead parameters
+     * @param cp clustering parameters
+     * @param scheduler scheduling mode
+     * @param planner planning mode
+     * @param rMethod reducer mode
+     * @param dl deadline
+     * @param deadlinePenalizationEnabled true if the penalization its enabled
+     * @param prioritiesQuantity quantity of priorities
+     * @param considerTasksParallelismRestrictions true if the tasks' parallelism restrictions defined in the job will be considered
+     */
+    public static void init(
+            int vm, String dax, String runtime, String datasize,
+            OverheadParameters op, ClusteringParameters cp, SchedulingAlgorithm scheduler, Optimization optimization1,
+            PlanningAlgorithm planner, String rMethod, long dl,
+            boolean deadlinePenalizationEnabled, int prioritiesQuantity, boolean considerTasksParallelismRestrictions) {
+
+        cParams = cp;
+        vmNum = vm;
+        daxPath = dax;
+        runtimePath = runtime;
+        datasizePath = datasize;
+
+        oParams = op;
+        schedulingAlgorithm = scheduler;
+        optimization = optimization1;
+        planningAlgorithm = planner;
+        reduceMethod = rMethod;
+        deadline = dl;
+        maxDepth = 0;
+        deadline_penalization_enabled = deadlinePenalizationEnabled;
+        priorities_quantity = prioritiesQuantity;
+        consider_tasks_parallelism_restrictions = considerTasksParallelismRestrictions;
     }
 
     /**

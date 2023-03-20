@@ -66,11 +66,14 @@ public class TSPSocketClient {
             data.put("fog", new JSONArray(fogNodesFeatures));
 
             switch (Parameters.getTspPlacementAlgorithm()){
-                case FIFO: data.put("placement", "FIFO"); break;
-                case RANDOM: data.put("placement", "RANDOM"); break;
-                case ROUNDROBIN: data.put("placement", "ROUNDROBIN"); break;
-                case RLv1: data.put("placement", "RLv1"); break;
-                case RLv2: data.put("placement", "RLv2"); break;
+                case TS_FIFO: data.put("strategy", "TS_FIFO"); break;
+                case TS_RANDOM: data.put("strategy", "TS_RANDOM"); break;
+                case TS_ROUND_ROBIN: data.put("strategy", "TS_ROUND_ROBIN"); break;
+                case TS_DRL: data.put("strategy", "TS_DRL"); break;
+                case TP_FIFO: data.put("strategy", "TP_FIFO"); break;
+                case TP_RANDOM: data.put("strategy", "TP_RANDOM"); break;
+                case TP_ROUND_ROBIN: data.put("strategy", "TP_ROUND_ROBIN"); break;
+                case TP_DRL: data.put("strategy", "TP_DRL"); break;
             }
 
             json.put("data", data);
@@ -89,10 +92,10 @@ public class TSPSocketClient {
     /**
      * Select a server for the placement
      * @param state the simulation's environment information
-     * @param cloudletId the simulation's environment information
-     * @return the number of the server to place the task
+     * @param info the simulation's environment information
+     * @return the action to be done
      */
-    public static int askForDecision(int cloudletId, Long[] state){
+    public static int[] askForDecision(Integer info, Long[] state){
 
         try {
             // sends the info to the socket
@@ -100,7 +103,7 @@ public class TSPSocketClient {
             json.put("action", "ask_decision");
 
             JSONObject data = new JSONObject();
-            data.put("cloudletId", cloudletId);
+            data.put("cloudletId", info);
             data.put("state", new JSONArray(state));
 
             json.put("data", data);
@@ -110,12 +113,13 @@ public class TSPSocketClient {
             // waiting for the response
             String content= in.readUTF();
 
-            return Integer.parseInt(content);
+            return TSPEnvHelper.parseStrArrayToIntArray(content);
         }
         catch (IOException | JSONException i) {
             i.printStackTrace();
+            System.exit(1);
+            return null;
         }
-        return -1;
     }
 
     /**

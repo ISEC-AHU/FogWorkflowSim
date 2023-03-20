@@ -61,10 +61,19 @@ public class TSPApp {
     static double latency_gateway_fogNode  = 50;
 
     // Scheduling setup
-    final static String[] algorithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA","TSP"};
-    final static String schedulerMethod = "TSP";
-    final static Parameters.TSPPlacementAlgorithm placementAlgorithm =Parameters.TSPPlacementAlgorithm.RLv1;
+    final static String[] algorithmStr = new String[]{"MINMIN","MAXMIN","FCFS","ROUNDROBIN","PSO","GA",
+            "TSP_Scheduling",
+            "TSP_Placement",
+            "TSP_Scheduling_Placement",
+            "TSP_Batch_Schedule_Placement"
+    };
 
+    final static String schedulerMethod = "TSP_Placement";
+
+    // Agent selection. This needs to match wit the selected strategy
+    final static Parameters.TSPPlacementAlgorithm placementAlgorithm = Parameters.TSPPlacementAlgorithm.TP_FIFO;
+
+    // Optimization setup
     final static String optimize_objective = "TaskCompletionTimeAndEnergy"; //"AvgTaskCompletionTime", "TaskRunningTime", "Energy", "TaskEnergy", "TaskCompletionTimeAndEnergy"
     final static boolean deadline_penalization_enabled = true;
     final static int priorities_quantity = 9900; //{0, 9900}. Minimum and maximum value depending on the dataset or empty for non priorities
@@ -228,6 +237,12 @@ public class TSPApp {
             return 6.0;
         else if(scheduler_method.equals(algorithmStr[6]))
             return 7.0;
+        else if(scheduler_method.equals(algorithmStr[7]))
+            return 8.0;
+        else if(scheduler_method.equals(algorithmStr[8]))
+            return 9.0;
+        else if(scheduler_method.equals(algorithmStr[9]))
+            return 10.0;
         return null;
     }
 

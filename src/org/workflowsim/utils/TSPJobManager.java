@@ -278,7 +278,7 @@ public class TSPJobManager {
     }
 
     /**
-     * Auxiliary attribute for know the last executed tasks
+     * Auxiliary attribute for know the last executed task
      */
     public static int last_executed_cloudlet_id = -1;
 

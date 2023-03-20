@@ -235,7 +235,10 @@ public class WorkflowEngine extends SimEntity {
 				case STATIC:
 				case DATA:
 				case ROUNDROBIN:
-				case TSP:
+				case TSP_Placement:
+				case TSP_Scheduling:
+				case TSP_Scheduling_Placement:
+				case TSP_Batch_Schedule_Placement:
 					processJobReturn(ev);
 					break;
 				default:

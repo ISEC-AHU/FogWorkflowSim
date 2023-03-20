@@ -135,7 +135,10 @@ public class TSPFogBroker extends FogBroker {
                     case STATIC:
                     case DATA:
                     //TSP modification begin
-                    case TSP:
+                    case TSP_Placement:
+                    case TSP_Scheduling:
+                    case TSP_Scheduling_Placement:
+                    case TSP_Batch_Schedule_Placement:
                     //TSP code end
                     case ROUNDROBIN:
                         processCloudletUpdate(ev);
@@ -204,8 +207,17 @@ public class TSPFogBroker extends FogBroker {
                 algorithm = new RoundRobinSchedulingAlgorithm();
                 break;
             //TSP modification begin
-            case TSP:
+            case TSP_Scheduling:
                 algorithm = new TSPSchedulingAlgorithm();
+                break;
+            case TSP_Placement:
+                algorithm = new TSPPlacementAlgorithm();
+                break;
+            case TSP_Scheduling_Placement:
+                algorithm = new TSPSchedulingAndPlacementAlgorithm();
+                break;
+            case TSP_Batch_Schedule_Placement:
+                algorithm = new TSPBatchSchedulingAndPlacementAlgorithm();
                 break;
             //TSP code end
             default:
