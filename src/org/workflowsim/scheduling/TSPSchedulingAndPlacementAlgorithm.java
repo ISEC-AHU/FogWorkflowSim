@@ -3,6 +3,7 @@ package org.workflowsim.scheduling;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.workflowsim.*;
+import org.workflowsim.utils.TSPDecisionResult;
 import org.workflowsim.utils.TSPEnvHelper;
 import org.workflowsim.utils.TSPJobManager;
 import org.workflowsim.utils.TSPSocketClient;
@@ -24,50 +25,66 @@ public class TSPSchedulingAndPlacementAlgorithm extends TSPBaseStrategyAlgorithm
         super();
     }
 
-    /**
-     * Scheduler regarding the constraints
-     */
-    @Override
-    public void run() {
 
-        System.out.println("Scheduling and Placing...");
+    public double runSteep(boolean isRequired){
+        List cloudletList = getReadyForScheduleCloudletList(isRequired);
 
-        TSPJobManager.releaseFinishedTasks(CloudSim.clock);
+        if (cloudletList.isEmpty()){
+            return -1;
+        }
 
-        List cloudletList = getReadyForScheduleCloudletList();
+        TSPJobManager.releaseFinishedTasks(CloudSim.clock());
+
         List vmList = getNotMobileVmList();
 
-        while (!cloudletList.isEmpty()){
-            //parse the tasks and the devices' status to a vector
-            Long[] state = TSPEnvHelper.parseStateWithTasksAndServers(cloudletList, vmList);
+        Long[] state = TSPEnvHelper.parseStateWithTasksAndServers(cloudletList, getNotMobileVmList());
 
-            int[] action = TSPSocketClient.askForDecision(null, state);
-            System.out.println("Action received from Python:" + Arrays.toString(action));
+        TSPDecisionResult response = TSPSocketClient.askForDecisionWithActionId(TSPJobManager.last_executed_task_no, state);
+        int[] action = response.getAction();
 
-            if (action[0] == -1) { // means there was no server with enough resources for any task
-                break;
-            }
-            else {
-                Cloudlet cloudlet = (Cloudlet) cloudletList.get(action[0]);
-                CondorVM vm = (CondorVM) vmList.get(action[1]);
+        double decision_time = response.getTime();
 
-                //place the task in the vm
-                place(cloudlet, vm);
+//        System.out.println("Action received:" + action[0] + "," + action[1]);
 
-                TSPTask tsp_task = (TSPTask) ((Job) cloudlet).getTaskList().get(0);
-                TSPJobManager.addTaskRunning(tsp_task);
-
-                double reward = getReward(tsp_task, vm);
-
-                System.out.println("Reward " + reward);
-                TSPSocketClient.saveReward(tsp_task.getCloudletId(), reward);
-                if (TSPJobManager.last_executed_cloudlet_id != -1){
-                    //updating the placer information
-                    TSPSocketClient.retrain(TSPJobManager.last_executed_cloudlet_id, state);
-                }
-                TSPJobManager.last_executed_cloudlet_id = tsp_task.getCloudletId();
-            }
+        if (action[0] == -1){ // -1 means there was no server with enough resources for any task
+            return -1;
         }
+
+        Cloudlet cloudlet = (Cloudlet) cloudletList.get(action[0]);
+        TSPTask tsp_task = (TSPTask) ((Job) cloudlet).getTaskList().get(0);
+
+        CondorVM vm = (CondorVM) vmList.get(action[1]);
+
+        double task_start_executing_time = decision_time + TSPEnvHelper.getOffloadingTimeByFogDeviceId(vm.getHost().getDatacenter().getId(), tsp_task.getStorage());
+
+        boolean deadline_exceeded = task_start_executing_time + tsp_task.getMi() / vm.getMips() + CloudSim.clock() > tsp_task.getTimeDeadlineFinal();
+
+        if (deadline_exceeded){
+            TSPJobManager.registerTaskExceedingDeadline(tsp_task.getPriority());
+            getCloudletList().remove(cloudlet);
+        }else {
+            //place the task in the vm
+            place(cloudlet, vm);
+            TSPJobManager.addTaskRunning(cloudlet, tsp_task, decision_time, task_start_executing_time);
+        }
+
+        double reward = getReward(tsp_task, vm, deadline_exceeded, task_start_executing_time);
+
+        TSPSocketClient.saveReward(TSPJobManager.last_executed_task_no, reward);
+        if (TSPJobManager.last_executed_task_no != 0){
+            //updating the placer information
+            TSPSocketClient.retrain(TSPJobManager.last_executed_task_no - 1, state);
+        }
+        TSPJobManager.last_executed_task_no += 1;
+
+//        cloudletList.remove(cloudlet); //Si no funciona descomentar aqui
+
+        // if its required to offload something and this was a deadline then go to the next
+        if (deadline_exceeded && isRequired){
+            return decision_time + runSteep(isRequired);
+        }
+
+        return decision_time;
     }
 
     /**
@@ -76,7 +93,6 @@ public class TSPSchedulingAndPlacementAlgorithm extends TSPBaseStrategyAlgorithm
     public void place(Cloudlet cloudlet, CondorVM vm){
         vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
         cloudlet.setVmId(vm.getId());
-        System.out.println("vm"+vm.getId()+".mips: "+vm.getMips()+"  host: "+vm.getHost().getId());
         getScheduledList().add(cloudlet);
     }
 

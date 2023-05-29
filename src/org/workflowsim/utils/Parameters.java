@@ -54,24 +54,24 @@ public class Parameters {
     /**
      * List of available placement strategies for TSP
      */
-    public enum TSPPlacementAlgorithm {
+    public enum TSPStrategy {
         TS_FIFO, TS_RANDOM, TS_ROUND_ROBIN, TS_DRL,
         TP_FIFO, TP_RANDOM, TP_ROUND_ROBIN, TP_DRL,
         TSP_DRL, TSP_DRL_BATCH
     }
 
-    public static TSPPlacementAlgorithm getTspPlacementAlgorithm() {
-        return tspPlacementAlgorithm;
+    public static TSPStrategy getTSPStrategy() {
+        return tspStrategy;
     }
 
-    public static void setTspPlacementAlgorithm(TSPPlacementAlgorithm tspPlacementAlgorithm) {
-        Parameters.tspPlacementAlgorithm = tspPlacementAlgorithm;
+    public static void setTSPStrategy(TSPStrategy tspStrategy) {
+        Parameters.tspStrategy = tspStrategy;
     }
 
     /**
      * Placement mode
      */
-    private static TSPPlacementAlgorithm tspPlacementAlgorithm;
+    private static TSPStrategy tspStrategy;
 
 
     /**
@@ -151,6 +151,12 @@ public class Parameters {
      * If the tasks' parallelism restrictions defined in the job will be considered or not
      */
     private static boolean consider_tasks_parallelism_restrictions;
+
+
+    /**
+     * If the scheduling/placement time should be considered or not
+     */
+    private static boolean consider_gateway_computation_time;
 
     /**
      * Planning mode
@@ -322,7 +328,7 @@ public class Parameters {
             int vm, String dax, String runtime, String datasize,
             OverheadParameters op, ClusteringParameters cp, SchedulingAlgorithm scheduler, Optimization optimization1,
             PlanningAlgorithm planner, String rMethod, long dl,
-            boolean deadlinePenalizationEnabled, int prioritiesQuantity, boolean considerTasksParallelismRestrictions) {
+            boolean deadlinePenalizationEnabled, int prioritiesQuantity, boolean considerTasksParallelismRestrictions, boolean considerGatewayComputationTime) {
 
         cParams = cp;
         vmNum = vm;
@@ -340,6 +346,7 @@ public class Parameters {
         deadline_penalization_enabled = deadlinePenalizationEnabled;
         priorities_quantity = prioritiesQuantity;
         consider_tasks_parallelism_restrictions = considerTasksParallelismRestrictions;
+        consider_gateway_computation_time = considerGatewayComputationTime;
     }
 
     /**
@@ -474,6 +481,16 @@ public class Parameters {
      */
     public static boolean getConsiderTasksParallelismRestrictions() {
         return consider_tasks_parallelism_restrictions;
+    }
+
+    /**
+     * Gets if the gateway computation time will be considered or not
+     *
+     * @return if the gateway computation time will be considered or not
+     */
+
+    public static boolean getConsiderGatewayComputationTime() {
+        return consider_gateway_computation_time;
     }
 
     /**

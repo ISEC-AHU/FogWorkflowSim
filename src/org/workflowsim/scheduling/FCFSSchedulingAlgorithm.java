@@ -45,7 +45,7 @@ public class FCFSSchedulingAlgorithm extends BaseSchedulingAlgorithm {
                     stillHasVm = true;
                     vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
                     cloudlet.setVmId(vm.getId());
-                    System.out.println("vm"+vm.getId()+".mips: "+vm.getMips()+"  host: "+vm.getHost().getId());
+                    //System.out.println("vm"+vm.getId()+".mips: "+vm.getMips()+"  host: "+vm.getHost().getId());
                     getScheduledList().add(cloudlet);
                     break;
                 }

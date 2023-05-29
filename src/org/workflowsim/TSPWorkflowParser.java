@@ -23,6 +23,7 @@ import org.workflowsim.utils.TSPJobManager;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -151,6 +152,7 @@ public final class TSPWorkflowParser {
                 //reading job's tasks
                 String[] task_info = task_reader.peek();
 
+
                 int task_job_id = Integer.parseInt(task_info[2]);
 
                 while (task_job_id == job_id){
@@ -160,9 +162,11 @@ public final class TSPWorkflowParser {
                     long mi = Long.parseLong(task_info[3]) * (long)Parameters.getRuntimeScale();
                     long ram = Long.parseLong(task_info[4]);
                     long storage = Long.parseLong(task_info[5]);
-                    long time_submission = job_time_submission + Long.parseLong(task_info[7]);
+                    long time_submission = (job_time_submission + Long.parseLong(task_info[7]));
+
                     long time_deadline_final = time_submission + Long.parseLong(task_info[9]);
-                    int priority_no = Integer.parseInt(task_info[17]);
+//                    int priority_no = Integer.parseInt(task_info[17]) + 1;
+                    int priority_no = Math.round(Integer.parseInt(task_info[17]) / 1980) + 1; //Temporal change: priorities_quantity mapped to 5 for the current dataset
 
                     //task creation
                     TSPTask task = new TSPTask(taskId, task_job_id, task_id, mi, ram, storage, time_submission, time_deadline_final, priority_no);
@@ -170,7 +174,7 @@ public final class TSPWorkflowParser {
 
                     //searching the position for keeping the submission order
                     int i=0;
-                    while (i < this.getTaskList().size() && task.getTimeSubmission() > ((TSPTask)this.getTaskList().get(i)).getTimeSubmission()){
+                    while (i < this.getTaskList().size() && task.getArrivalTime() > ((TSPTask)this.getTaskList().get(i)).getArrivalTime()){
                         i++;
                     }
 
@@ -185,6 +189,20 @@ public final class TSPWorkflowParser {
                     }
                 }
             }
+
+            //exporting
+            FileWriter myWriter = new FileWriter("final_dataset.csv");
+            myWriter.write("ID, JOB_ID, J_TASK_ID, MI, RAM, STORAGE, PRIORITY, A_TIME, D_TIME\n");
+
+            for (Task task: this.getTaskList()) {
+                TSPTask tsp_task = (TSPTask) task;
+                myWriter.write(tsp_task.getCloudletId() + "," + tsp_task.getJobId() + "," + tsp_task.getTaskId() + "," + tsp_task.getMi() + "," + tsp_task.getRam() + "," + tsp_task.getStorage() + "," + tsp_task.getPriority() + "," + tsp_task.getArrivalTime() + "," + tsp_task.getTimeDeadlineFinal() + "\n");
+            }
+
+            myWriter.close();
+            System.out.println("Dataset successfully exported");
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

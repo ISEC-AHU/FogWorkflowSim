@@ -15,18 +15,19 @@
  */
 package org.workflowsim.utils;
 
+import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.Host;
+import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.power.PowerHost;
 import org.fog.entities.FogDevice;
 import org.fog.utils.FogLinearPowerModel;
-import org.workflowsim.CondorVM;
 import org.workflowsim.Job;
 import org.workflowsim.TSPJob;
 import org.workflowsim.TSPTask;
-import sun.misc.VM;
 
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -41,30 +42,50 @@ public class TSPJobManager {
     /**
      * Dictionary to store the execution status of each job
      */
-    private static Map<Integer, TSPJob> jobs = new HashMap<>();
+    private static Map<Integer, TSPJob> jobs;
 
     /**
      * Dictionary to store the quantity of task exceeding the deadline
      */
-    private static Map<Integer, Integer> deadline_exceeded = new HashMap<>();
+    private static Map<Integer, Integer> deadline_exceeded;
 
     /**
      * Auxiliary variable for storing the sum of the tasks' completion time
     */
 
-    private static double total_task_completion_time = 0;
+    private static double total_task_completion_time;
+
+    /**
+     * Auxiliary variable for storing the sum of the tasks' completion time including the decision time
+    */
+
+    private static double total_task_completion_time_with_decision;
+
+    public static ArrayList<Double> getTaskCompletionTimeAvgHistory() {
+        return task_completion_time_avg_history;
+    }
+
+    public static double getTaskCompletionTimeAvg() {
+        return task_completion_time_avg_history.get(task_completion_time_avg_history.size()-1);
+    }
+
+    /**
+     * Auxiliary variable for storing the tasks' completion time average
+    */
+
+    private static ArrayList<Double> task_completion_time_avg_history;
 
     /**
      * Auxiliary variable for storing the sum of the tasks' running time
     */
 
-    private static double total_task_running_time = 0;
+    private static double total_task_running_time;
 
     /**
      * Auxiliary variable for storing quantity of tasks' completed
     */
 
-    private static double quantity_task_completed = 0;
+    private static double quantity_task_completed;
 
     /**
      * Create a new job
@@ -107,18 +128,22 @@ public class TSPJobManager {
     /**
      * List of all running tasks
      */
-    private static ArrayList<TSPTask> executing_task = new ArrayList<>();
+    private static ArrayList<TSPTask> executing_task;
 
     /**
      * Add a task to the list of running tasks
      * @param task the task to be added
      */
-    public static void addTaskRunning(TSPTask task){
+
+    public static void addTaskRunning(Cloudlet cloudlet, TSPTask task, double decision_time, double task_start_executing_time){
         //restringing the execution for considering scheduling restrictions
         jobs.get(task.getJobId()).addTasksRunning(task);
 
         //restringing the execution for the end of the scheduling restrictions
-        task.setTimeStartProcessing(CloudSim.clock);
+        task.setDecisionTime(decision_time);
+        cloudlet.setExecStartTime(task_start_executing_time);
+        task.setTimeStartProcessing(task_start_executing_time);
+
         executing_task.add(task);
     }
 
@@ -134,10 +159,14 @@ public class TSPJobManager {
                 jobs.get(task.getJobId()).removeTasksRunning(task);
                 finished_tasks.push(task);
 
-                System.out.println("Releasing: "+task.getCloudletId());
-                total_task_completion_time += task.getTaskFinishTime();
+                total_task_completion_time += task.getTaskFinishTime() - task.getArrivalTime();
+
                 total_task_running_time += task.getTaskFinishTime() - task.getTimeStartProcessing();
                 quantity_task_completed += 1;
+
+                task_completion_time_avg_history.add(getAvgTaskCompletionTime());
+//                task_completion_time_avg_history.add(task.getTaskFinishTime() - task.getArrivalTime() + task.getDecisionTime());
+
             }
         }
 
@@ -205,8 +234,8 @@ public class TSPJobManager {
 
         for (int i=0; i < cloudletList.size(); i++){
             Job job = (Job)cloudletList.get(i);
-            TSPTask task_info = (TSPTask)job.getTaskList().get(0);
-            if (task_info.getTimeSubmission() <= clock && canRunTask(task_info.getJobId(), task_info.getTaskId())){
+            TSPTask tsp_task = (TSPTask)job.getTaskList().get(0);
+            if (tsp_task.getArrivalTime() <= clock  && (!Parameters.getConsiderTasksParallelismRestrictions() || TSPJobManager.canRunTask(tsp_task.getJobId(), tsp_task.getTaskId()))){
                 jobs.add((Job)cloudletList.get(i));
             }
         }
@@ -223,9 +252,9 @@ public class TSPJobManager {
 
         for (int i=0; i < cloudletList.size(); i++){
             Job job = (Job)cloudletList.get(i);
-            TSPTask task_info = (TSPTask)job.getTaskList().get(0);
-            if (task_info.getTimeSubmission() <= time){
-                time = task_info.getTimeSubmission();
+            TSPTask tsp_task = (TSPTask)job.getTaskList().get(0);
+            if (tsp_task.getArrivalTime() <= time  && (!Parameters.getConsiderTasksParallelismRestrictions() || TSPJobManager.canRunTask(tsp_task.getJobId(), tsp_task.getTaskId()))){
+                time = tsp_task.getArrivalTime();
             }
         }
         return time;
@@ -239,8 +268,11 @@ public class TSPJobManager {
      * @return the time of the next availability and the list of available jobs
      */
     public static Object[] getNextAvailableJobs(List cloudletList, double clock){
-
         ArrayList<Job> next_available_jobs_to_income = getAvailableJobs(cloudletList, clock);
+
+        if (clock == Double.MAX_VALUE){
+            return new Object[]{clock, new ArrayList<>()};
+        }
 
         if (!next_available_jobs_to_income.isEmpty()){
             return new Object[]{clock, next_available_jobs_to_income};
@@ -266,33 +298,68 @@ public class TSPJobManager {
             deadline_exceeded.replace(taskPriority, deadline_exceeded.get(taskPriority) + 1);
         }else
         {
-            deadline_exceeded.put(taskPriority, 0);
+            deadline_exceeded.put(taskPriority, 1);
         }
     }
 
-    public static void printTaskExceededDeadlineQuantities(){
-        System.out.println("Exceeded deadlines:");
-        for (Integer priority: deadline_exceeded.keySet()) {
-            System.out.println("Priority "+ priority + ": " + deadline_exceeded.get(priority));
+    public static int getTaskExceedingDeadlineQuantity(){
+        int v=0;
+        for ( Integer value : deadline_exceeded.values() ) {
+            v+=value;
         }
+        return v;
+    }
+
+    public static void printTaskExceededDeadlineQuantities(){
+        Log.printLine("Exceeded deadlines by priorities:");
+        for (Integer priority: deadline_exceeded.keySet()) {
+            Log.printLine("Priority "+ priority + ": " + deadline_exceeded.get(priority));
+        }
+    }
+
+    public static int getQuantityOfExceededDeadline(int priority){
+        if (deadline_exceeded.containsKey(priority)){
+            return deadline_exceeded.get(priority);
+        }
+        return 0;
     }
 
     /**
      * Auxiliary attribute for know the last executed task
      */
-    public static int last_executed_cloudlet_id = -1;
+    public static int last_executed_task_no;
 
 
     /**
      * List of device's busy time
      */
-    private static Map<Integer, Double> device_host_busy_time = new HashMap<>();
+    private static Map<Integer, Double> device_host_busy_time;
 
     /**
-     * Init the device's busy time list
-     * @param fogDevices list of devices
+     * Clean the simulation auxiliary variables before each simulation
      */
-    public static void initDevicesBusyTime(List<FogDevice> fogDevices){
+    public static void initSimulationVariables(double myRealGatewayMIPS, double simulatedGatewayMIPS, List<FogDevice> fogDevices){
+
+        //variables to be used in the simulation
+        jobs = new HashMap<>();
+        deadline_exceeded = new HashMap<>();
+        total_task_completion_time = 0;
+        total_task_completion_time_with_decision = 0;
+        task_completion_time_avg_history = new ArrayList<>();
+        total_task_running_time = 0;
+        quantity_task_completed = 0;
+        executing_task = new ArrayList<>();
+        last_executed_task_no = 0;
+        device_host_busy_time = new HashMap<>();
+        gatewayBusyTimes = new ArrayList<>();
+
+        //variables to be used in the simulation
+        gateway_idle_energy_consumption = -1;
+        gateway_busy_energy_consumption = -1;
+        my_real_gateway_mips = -1;
+        simulated_gateway_mips = -1;
+
+        // init the device's busy time list
         for (FogDevice fogDevice: fogDevices) {
             for (Host host: fogDevice.getHostList()) {
                 device_host_busy_time.put(host.getId(), 0.0);
@@ -322,5 +389,75 @@ public class TSPJobManager {
         }
 
         return energy;
+    }
+
+    /**
+     * Auxiliary var to storing the Gateway utilization for its final consumption
+     */
+    private static ArrayList<Double[]> gatewayBusyTimes;
+
+    public static void registerGatewayBusyTimes(double computation_time, double cpu_percent){
+        gatewayBusyTimes.add(new Double[]{computation_time, cpu_percent});
+    }
+
+    private static double gateway_idle_energy_consumption;
+    private static double gateway_busy_energy_consumption;
+
+    public static double getGatewayEnergyConsumption(double simulationFinalClock, PowerHost host){
+        gateway_busy_energy_consumption = 0;
+        double busy_time = 0;
+
+        FogLinearPowerModel powerModel = (FogLinearPowerModel) host.getPowerModel();
+
+        for (Double[] busyTime: gatewayBusyTimes){
+            double time = busyTime[0];
+            double cpu_percent = busyTime[1];
+
+            if (cpu_percent > 100){ //if there was cpu overclocking, will be considered only at 100%
+                cpu_percent = 100;
+            }
+
+            busy_time+=time;
+            gateway_busy_energy_consumption += time * powerModel.getPower(cpu_percent/100);
+        }
+
+        double idle_time = simulationFinalClock - busy_time;
+
+        gateway_idle_energy_consumption = idle_time * powerModel.getStaticPower();
+
+        return gateway_busy_energy_consumption + gateway_idle_energy_consumption;
+    }
+
+    public static void writeToTxtGatewayBusyTimes(String filePath){
+        try
+        {
+            PrintWriter pr = new PrintWriter(filePath);
+
+            for (Double[] busyTime: gatewayBusyTimes)
+            {
+                pr.println(busyTime[0]);
+            }
+            pr.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("No such file exists.");
+        }
+    }
+
+    public static double getGatewayIdleEnergyConsumption() {
+        return gateway_idle_energy_consumption;
+    }
+
+    public static double getGatewayBusyEnergyConsumption() {
+        return gateway_busy_energy_consumption;
+    }
+
+    private static double my_real_gateway_mips;
+    private static double simulated_gateway_mips;
+
+    public static double parseComputationTime(double computation_time) {
+        return computation_time * my_real_gateway_mips / simulated_gateway_mips;
     }
 }

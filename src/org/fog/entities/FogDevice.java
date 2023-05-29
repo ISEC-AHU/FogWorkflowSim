@@ -248,6 +248,7 @@ public class FogDevice extends PowerDatacenter {
 	 * @return the double
 	 */
 	protected double updateCloudetProcessingWithoutSchedulingFutureEventsForce() {
+
 		double currentTime = CloudSim.clock();
 		double minTime = Double.MAX_VALUE;
 		double timeDiff = currentTime - getLastProcessTime();
@@ -405,7 +406,6 @@ public class FogDevice extends PowerDatacenter {
     @Override
     protected void processCloudletSubmit(SimEvent ev, boolean ack) {
         updateCloudletProcessing();
-       
         try {
             /**
              * cl is actually a job but it is not necessary to cast it to a job
@@ -511,6 +511,7 @@ public class FogDevice extends PowerDatacenter {
      */
     private void updateTaskExecTime(Job job, Vm vm) {
 		double start_time = job.getExecStartTime();
+
         for (Task task : job.getTaskList()) {
             task.setExecStartTime(start_time);
             double task_runtime = task.getCloudletLength() / vm.getMips();

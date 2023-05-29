@@ -7,16 +7,17 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
 import org.cloudbus.cloudsim.lists.VmList;
-import org.workflowsim.CondorVM;
-import org.workflowsim.Job;
-import org.workflowsim.WorkflowEngine;
-import org.workflowsim.WorkflowSimTags;
+import org.workflowsim.*;
 import org.workflowsim.failure.FailureGenerator;
 import org.workflowsim.scheduling.*;
 import org.workflowsim.utils.Parameters;
 import org.workflowsim.utils.Parameters.SchedulingAlgorithm;
+import org.workflowsim.utils.TSPEnvHelper;
+import org.workflowsim.utils.TSPJobManager;
 
 import java.util.*;
+
+import static org.workflowsim.utils.Parameters.TSPStrategy.TSP_DRL_BATCH;
 
 /**
  * By extending from FogBroker this class add the TSP schedulers.
@@ -41,6 +42,7 @@ public class TSPFogBroker extends FogBroker {
     public TSPFogBroker(String name) throws Exception {
         super(name);
 
+//        System.out.println("Broker created");
     }
 
     /**
@@ -109,32 +111,6 @@ public class TSPFogBroker extends FogBroker {
                 break;
             case WorkflowSimTags.CLOUDLET_UPDATE:
                 switch (Parameters.getSchedulingAlgorithm()) {
-                    case PSO:
-                        if(WorkflowEngine.updateFlag==0&&WorkflowEngine.startlastSchedule==0) {
-                            processCloudletUpdateForPSOInit(ev);
-                        }else if(WorkflowEngine.startlastSchedule==0){
-                            processCloudletUpdateForPSOUpdate(ev);
-                        }else {
-                            processCloudletUpdateForPSOGbest(ev);
-                        }
-                        break;
-                    case GA:
-                        if(WorkflowEngine.gaFlag==0&&WorkflowEngine.findBestSchedule==0) {
-                            processCloudletUpdateForGAInit(ev);
-                        }else if(WorkflowEngine.gaFlag==1&&WorkflowEngine.findBestSchedule==0){
-                            processCloudletUpdateForGA(ev);
-                        }
-                        if(WorkflowEngine.findBestSchedule==1)
-                            processCloudletUpdateForGABest(ev);
-
-                        break;
-                    case MINMIN:
-                    case MAXMIN:
-                    case FCFS:
-                    case MCT:
-                    case STATIC:
-                    case DATA:
-                    //TSP modification begin
                     case TSP_Placement:
                     case TSP_Scheduling:
                     case TSP_Scheduling_Placement:
@@ -147,6 +123,9 @@ public class TSPFogBroker extends FogBroker {
                     default:
                         break;
                 }
+                break;
+            case CloudSimTags.TSP_GATEWAY_IDLE:
+                processTSPGatewayFree(ev);
                 break;
             default:
                 processOtherEvent(ev);
@@ -286,6 +265,92 @@ public class TSPFogBroker extends FogBroker {
         }
     }
 
+    private double gatewayNextIdleTime = CloudSim.clock();
+
+    /**
+     * Performs one scheduling/placement decision on the gateway
+     * @param isRequired
+     */
+    private void doTSPDecision(boolean isRequired) {
+
+//        System.out.println("doTSPDecision: "+isRequired);
+
+        TSPBaseStrategyAlgorithm scheduler = (TSPBaseStrategyAlgorithm)getScheduler(Parameters.getSchedulingAlgorithm());
+
+        scheduler.setCloudletList(getCloudletList());
+        List<? extends Vm> vmlist = getVmsCreatedList();
+        scheduler.setVmList(vmlist);
+
+        double decision_time = 0;
+
+        try {
+            decision_time = scheduler.runSteep(isRequired);
+        } catch (Exception e) {
+            Log.printLine("Error in configuring scheduler_method");
+            e.printStackTrace();
+        }
+
+        if (decision_time == -1){
+            if (scheduler.getScheduledList().isEmpty()) {
+                //-1 means there was no server with enough resources for any task. And the list if checked because the first simulator task
+                return;
+            }else
+                // in this case it's the first simulator task
+                decision_time = 0;
+        }
+
+//        System.out.println("decision_time: "+decision_time);
+//        System.out.println("scheduledList.size: "+scheduler.getScheduledList().size());
+
+        List<Cloudlet> scheduledList = scheduler.getScheduledList();
+        for (Cloudlet cloudlet : scheduledList) {
+            int vmId = cloudlet.getVmId();
+            double delay=0;
+
+            Job job = (Job) cloudlet;
+
+            if (job.getTaskList().isEmpty()){
+                schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
+            }else {
+                //////
+
+                TSPTask tsp_task = (TSPTask) job.getTaskList().get(0);
+
+                delay += TSPEnvHelper.getOffloadingTimeByFogDeviceId(job.getoffloading(), tsp_task.getStorage());
+
+                /////
+                //offload the task when the decision time its reached
+                schedule(getVmsToDatacentersMap().get(vmId), delay + decision_time, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
+            }
+
+//            TSPEnvHelper.addBusyServer();
+        }
+
+        //mark el gateway busy until the end of the decision time
+        gatewayNextIdleTime = CloudSim.clock() + decision_time;
+
+        if (Parameters.getTSPStrategy() != TSP_DRL_BATCH) { //Because TSP_DRL_BATCH offloads all at once, there is no need to move to the next offloading.
+            schedule(this.getId(), decision_time, CloudSimTags.TSP_GATEWAY_IDLE);
+        }
+
+
+        getCloudletList().removeAll(scheduledList);
+        getCloudletSubmittedList().addAll(scheduledList);
+        cloudletsSubmitted += scheduledList.size();
+    }
+
+    /**
+     * @param ev a simEvent object
+     */
+    protected void processTSPGatewayFree(SimEvent ev) {
+        //if the gateway its busy then delays more this event
+        if (gatewayNextIdleTime > CloudSim.clock()){
+            schedule(this.getId(), gatewayNextIdleTime - CloudSim.clock(), CloudSimTags.TSP_GATEWAY_IDLE);
+            return;
+        }
+        this.doTSPDecision(false);
+    }
+
     /**
      * Update a cloudlet (job)
      *
@@ -293,224 +358,11 @@ public class TSPFogBroker extends FogBroker {
      */
     protected void processCloudletUpdate(SimEvent ev) {
 
-        BaseSchedulingAlgorithm scheduler = getScheduler(Parameters.getSchedulingAlgorithm());
-
-        scheduler.setCloudletList(getCloudletList());
-        List<? extends Vm> vmlist = getVmsCreatedList();
-        Collections.reverse(vmlist);
-        scheduler.setVmList(vmlist);
-
-        try {
-            scheduler.run();
-        } catch (Exception e) {
-            Log.printLine("Error in configuring scheduler_method");
-            e.printStackTrace();
+        if (gatewayNextIdleTime > CloudSim.clock()){
+            schedule(this.getId(), gatewayNextIdleTime - CloudSim.clock(), WorkflowSimTags.CLOUDLET_UPDATE);
+            return;
         }
-
-        WorkflowEngine wfEngine = (WorkflowEngine) CloudSim.getEntity(workflowEngineId);
-        Controller controller = wfEngine.getController();
-        List<Cloudlet> scheduledList = scheduler.getScheduledList();
-        for (Cloudlet cloudlet : scheduledList) {
-            int vmId = cloudlet.getVmId();
-            double delay = 0.0;
-            if (Parameters.getOverheadParams().getQueueDelay() != null) {
-                delay = Parameters.getOverheadParams().getQueueDelay(cloudlet);
-            }
-//            Job job = (Job) cloudlet;
-//            if(job.getoffloading() != controller.getmobile().getId()){
-//            	if(job.getoffloading() != controller.getcloud().getId())
-//            		delay = job.getInputsize() / controller.parameter / controller.WAN_Bandwidth;
-//            	else
-//            		delay = job.getInputsize() / controller.parameter / controller.LAN_Bandwidth;
-//            }
-//            System.out.println(cloudlet.getCloudletId()+".submit delay : "+delay);
-            schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
-        }
-        getCloudletList().removeAll(scheduledList);
-        getCloudletSubmittedList().addAll(scheduledList);
-        cloudletsSubmitted += scheduledList.size();
-    }
-
-    /**
-     * Update a cloudlet (job)
-     * 每接收到一个任务以后，调用此方法，设置提交到调度机上的任务，以及调度机绑定的虚拟机，并为cloudlets分配虚拟机
-     *每处理完一个任务以后，调用此方法，更新提交到调度机上的任务，以及调度机绑定的虚拟机
-     * @param ev a simEvent object
-     */
-    protected void processCloudletUpdateForPSOInit(SimEvent ev) {
-        List<Cloudlet> cloudletList=getCloudletList();
-        List<CondorVM> vmList=getVmsCreatedList();
-        if(PsoScheduling.initFlag==0) {
-            startTime = System.currentTimeMillis();
-            WorkflowEngine engine = (WorkflowEngine)CloudSim.getEntity(workflowEngineId);
-            PsoScheduling.init(engine.jobList.size(),getVmList().size());
-        }
-        List<Cloudlet> scheduledList =new ArrayList<Cloudlet>();
-        List<int[]> schedules=PsoScheduling.schedules;
-        for(int i=0;i<cloudletList.size();i++) {
-            int cloudletId=cloudletList.get(i).getCloudletId();
-            int vmId=schedules.get(count)[cloudletId];
-            cloudletList.get(i).setVmId(vmId);
-            //setVmState(vmId);
-            scheduledList.add(cloudletList.get(i));
-        }
-        for (Cloudlet cloudlet : scheduledList) {
-            int vmId = cloudlet.getVmId();
-            double delay = 0.0;
-            if (Parameters.getOverheadParams().getQueueDelay() != null) {
-                delay = Parameters.getOverheadParams().getQueueDelay(cloudlet);
-            }
-            // System.out.println("delay:"+delay);
-            // System.out.println("FogBroker.processCloudletUpdateForPSOInit提交给"+getVmsToDatacentersMap().get(vmId)+"号数据中心"+vmId+"号虚拟机的任务："+cloudlet.getCloudletId());
-
-            schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
-        }
-        //把Cloudlets交由数据中心处理以后，从CloudletList中移除这些任务，并向CloudletSubmittedList中添加这些任务
-        getCloudletList().removeAll(scheduledList);
-        getCloudletSubmittedList().addAll(scheduledList);
-        cloudletsSubmitted += scheduledList.size();
-    }
-
-    protected void processCloudletUpdateForPSOUpdate(SimEvent ev) {
-        List<Cloudlet> cloudletList=getCloudletList();
-        List<CondorVM> vmList=getVmsCreatedList();
-        if(WorkflowEngine.updateFlag2==1&&cloudletList.size()!=0) {
-            PsoScheduling.updateParticles();
-        }
-        List<Cloudlet> scheduledList =new ArrayList<Cloudlet>();
-        List<int[]> newSchedules=PsoScheduling.newSchedules;
-        for(int i=0;i<cloudletList.size();i++) {
-            int cloudletId=cloudletList.get(i).getCloudletId();
-            int vmId=newSchedules.get(count2)[cloudletId];
-            cloudletList.get(i).setVmId(vmId);
-            //setVmState(vmId);
-            scheduledList.add(cloudletList.get(i));
-        }
-        for (Cloudlet cloudlet : scheduledList) {
-            int vmId = cloudlet.getVmId();
-            double delay = 0.0;
-            if (Parameters.getOverheadParams().getQueueDelay() != null) {
-                delay = Parameters.getOverheadParams().getQueueDelay(cloudlet);
-            }
-            schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
-        }
-        //把Cloudlets交由数据中心处理以后，从CloudletList中移除这些任务，并向CloudletSubmittedList中添加这些任务
-        getCloudletList().removeAll(scheduledList);
-        getCloudletSubmittedList().addAll(scheduledList);
-        cloudletsSubmitted += scheduledList.size();
-    }
-
-    protected void processCloudletUpdateForPSOGbest(SimEvent ev) {
-        List<Cloudlet> cloudletList=getCloudletList();
-        List<CondorVM> vmList=getVmsCreatedList();
-        List<Cloudlet> scheduledList =new ArrayList<Cloudlet>();
-        for(int i=0;i<cloudletList.size();i++) {
-            int cloudletId=cloudletList.get(i).getCloudletId();
-            int vmId=PsoScheduling.gbest_schedule[cloudletId];
-            cloudletList.get(i).setVmId(vmId);
-            //setVmState(vmId);
-            scheduledList.add(cloudletList.get(i));
-        }
-        for (Cloudlet cloudlet : scheduledList) {
-            int vmId = cloudlet.getVmId();
-            double delay = 0.0;
-            if (Parameters.getOverheadParams().getQueueDelay() != null) {
-                delay = Parameters.getOverheadParams().getQueueDelay(cloudlet);
-            }
-            schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
-        }
-        //把Cloudlets交由数据中心处理以后，从CloudletList中移除这些任务，并向CloudletSubmittedList中添加这些任务
-        getCloudletList().removeAll(scheduledList);
-        getCloudletSubmittedList().addAll(scheduledList);
-        cloudletsSubmitted += scheduledList.size();
-    }
-
-    protected void processCloudletUpdateForGAInit(SimEvent ev) {
-        List<Cloudlet> cloudletList=getCloudletList();
-        List<CondorVM> vmList=getVmsCreatedList();
-        if(GASchedulingAlgorithm.initFlag==0) {
-            startTime = System.currentTimeMillis();
-            WorkflowEngine engine = (WorkflowEngine)CloudSim.getEntity(workflowEngineId);
-            GASchedulingAlgorithm.initPopsRandomly(engine.jobList.size(),getVmList().size());
-        }
-        List<Cloudlet> scheduledList =new ArrayList<Cloudlet>();
-        List<int[]> schedules=GASchedulingAlgorithm.schedules;
-        for(int i=0;i<cloudletList.size();i++) {
-            int cloudletId=cloudletList.get(i).getCloudletId();
-            int vmId=schedules.get(initIndexForGA)[cloudletId];
-            int scheduledVmId = ChooseVm(cloudletList.get(i), vmId);
-            cloudletList.get(i).setVmId(scheduledVmId);
-            //setVmState(vmId);
-            scheduledList.add(cloudletList.get(i));
-        }
-        for (Cloudlet cloudlet : scheduledList) {
-            int vmId = cloudlet.getVmId();
-            double delay = 0.0;
-            if (Parameters.getOverheadParams().getQueueDelay() != null) {
-                delay = Parameters.getOverheadParams().getQueueDelay(cloudlet);
-            }
-            schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
-        }
-        //把Cloudlets交由数据中心处理以后，从CloudletList中移除这些任务，并向CloudletSubmittedList中添加这些任务
-        getCloudletList().removeAll(scheduledList);
-        getCloudletSubmittedList().addAll(scheduledList);
-        cloudletsSubmitted += scheduledList.size();
-    }
-
-    protected void processCloudletUpdateForGA(SimEvent ev) {
-        List<Cloudlet> cloudletList=getCloudletList();
-        List<CondorVM> vmList=getVmsCreatedList();
-        if(WorkflowEngine.gaFlag2==0&&cloudletList.size()!=0) {
-            GASchedulingAlgorithm.GA();
-        }
-        List<Cloudlet> scheduledList =new ArrayList<Cloudlet>();
-        List<int[]> schedules=GASchedulingAlgorithm.tempChildren;
-        for(int i=0;i<cloudletList.size();i++) {
-            int cloudletId=cloudletList.get(i).getCloudletId();
-            int vmId=schedules.get(tempChildrenIndex)[cloudletId];
-            int scheduledVmId = ChooseVm(cloudletList.get(i), vmId);
-            cloudletList.get(i).setVmId(scheduledVmId);
-            //setVmState(vmId);
-            scheduledList.add(cloudletList.get(i));
-        }
-        for (Cloudlet cloudlet : scheduledList) {
-            int vmId = cloudlet.getVmId();
-            double delay = 0.0;
-            if (Parameters.getOverheadParams().getQueueDelay() != null) {
-                delay = Parameters.getOverheadParams().getQueueDelay(cloudlet);
-            }
-            schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
-        }
-        //把Cloudlets交由数据中心处理以后，从CloudletList中移除这些任务，并向CloudletSubmittedList中添加这些任务
-        getCloudletList().removeAll(scheduledList);
-        getCloudletSubmittedList().addAll(scheduledList);
-        cloudletsSubmitted += scheduledList.size();
-    }
-
-    protected void processCloudletUpdateForGABest(SimEvent ev) {
-        List<Cloudlet> cloudletList=getCloudletList();
-        List<CondorVM> vmList=getVmsCreatedList();
-        List<Cloudlet> scheduledList =new ArrayList<Cloudlet>();
-        for(int i=0;i<cloudletList.size();i++) {
-            int cloudletId=cloudletList.get(i).getCloudletId();
-            int vmId=GASchedulingAlgorithm.gbestSchedule[cloudletId];
-            int scheduledVmId = ChooseVm(cloudletList.get(i), vmId);
-            cloudletList.get(i).setVmId(scheduledVmId);
-            //setVmState(vmId);
-            scheduledList.add(cloudletList.get(i));
-        }
-        for (Cloudlet cloudlet : scheduledList) {
-            int vmId = cloudlet.getVmId();
-            double delay = 0.0;
-            if (Parameters.getOverheadParams().getQueueDelay() != null) {
-                delay = Parameters.getOverheadParams().getQueueDelay(cloudlet);
-            }
-            schedule(getVmsToDatacentersMap().get(vmId), delay, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
-        }
-        //把Cloudlets交由数据中心处理以后，从CloudletList中移除这些任务，并向CloudletSubmittedList中添加这些任务
-        getCloudletList().removeAll(scheduledList);
-        getCloudletSubmittedList().addAll(scheduledList);
-        cloudletsSubmitted += scheduledList.size();
+        this.doTSPDecision(cloudletsSubmitted == 0);
     }
 
     /**
@@ -536,6 +388,7 @@ public class TSPFogBroker extends FogBroker {
         CondorVM vm = (CondorVM) getVmsCreatedList().get(cloudlet.getVmId());
         //so that this resource is released
         vm.setState(WorkflowSimTags.VM_STATUS_IDLE);
+
         vm.setlastUtilizationUpdateTime(CloudSim.clock());
 
         WorkflowEngine wfEngine = (WorkflowEngine) CloudSim.getEntity(workflowEngineId);
@@ -544,19 +397,15 @@ public class TSPFogBroker extends FogBroker {
         if (Parameters.getOverheadParams().getPostDelay() != null) {
             delay = Parameters.getOverheadParams().getPostDelay(job);
         }
-//        if(job.getoffloading() != controller.getmobile().getId()){
-//        	if(job.getoffloading() != controller.getcloud().getId())
-//        		delay = job.getOutputsize() / controller.parameter / controller.WAN_Bandwidth;
-//        	else
-//        		delay = job.getOutputsize() / controller.parameter / controller.LAN_Bandwidth;
-//        }
-//        System.out.println(cloudlet.getCloudletId()+".return delay : "+delay);
+
         schedule(this.workflowEngineId, delay, CloudSimTags.CLOUDLET_RETURN, cloudlet);
 
         cloudletsSubmitted--;
         //not really update right now, should wait 1 s until many jobs have returned
         schedule(this.getId(), 0.0, WorkflowSimTags.CLOUDLET_UPDATE);
 
+//        System.out.println("Running task quantity: "+ cloudletsSubmitted);
+//        TSPEnvHelper.removeBusyServer();
     }
 
     /**

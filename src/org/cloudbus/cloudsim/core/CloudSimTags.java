@@ -267,6 +267,12 @@ public class CloudSimTags {
 	public static final int CLEAR = BASE + 49;
 	public static final int CLEARCONSUMPTION = BASE + 50;
 
+	/**
+	 * This is only for the TSP problem
+	 * Its means that there are tasks left for scheduling and placement and this event will notify when the scheduler will be available
+	 */
+	public static final int TSP_GATEWAY_IDLE = BASE + 51;
+
 	/** Private Constructor */
 	private CloudSimTags() {
 		throw new UnsupportedOperationException("CloudSim Tags cannot be instantiated");

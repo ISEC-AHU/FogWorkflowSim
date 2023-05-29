@@ -18,6 +18,8 @@ import org.workflowsim.FileItem;
 import org.workflowsim.Job;
 import org.workflowsim.WorkflowEngine;
 import org.workflowsim.utils.Parameters.FileType;
+import org.workflowsim.utils.TSPEnvHelper;
+import org.workflowsim.utils.TSPJobManager;
 
 /**
  * By extending from Controller this class contains the evaluating indicators library, which can calculate each indicator.
@@ -95,6 +97,16 @@ public class TSPController extends Controller{
         TotalEnergy=0.0;
         TotalCost=0.0;
         MSendTime=0.0;
+
+
+        FogDevice fog = getFog();
+        FogDevice cloud = getCloud();
+
+        TSPEnvHelper.setCloudId(cloud.getId());
+
+        TSPEnvHelper.setUploadRateVariables(fog.getUplinkLatency(), fog.getUplinkBandwidth(), cloud.getUplinkLatency(), cloud.getUplinkBandwidth());
+
+//        System.out.println("Controller created");
     }
 
     public FogDevice getFogDeviceById(int id){
@@ -125,6 +137,7 @@ public class TSPController extends Controller{
                 manageResources();
                 break;
             case FogEvents.STOP_SIMULATION:
+                System.out.println();
                 shutdownEntity();
                 CloudSim.clearEvent();
                 updateExecutionTime();
@@ -143,7 +156,6 @@ public class TSPController extends Controller{
     private void printCostDetails(){
         System.out.println("Total Energy = "+TotalEnergy);
         System.out.println("Total Cost = "+TotalCost);
-        System.out.println("Total Execution Time = "+TotalExecutionTime);
     }
 
     /**
@@ -197,23 +209,7 @@ public class TSPController extends Controller{
             time += fogDevice.getExecutionTime();
 
             if(name.contains("m")){
-//				List<Job> jobList = wfEngine.getJobsReceivedList();
-//				if(!jobList.isEmpty()){
-//					Job Lastjob = jobList.get(jobList.size()-1);//获取到最后一个执行的job
-//					for(FileItem file : Lastjob.getFileList()){
-//						if(file.getType() == FileType.OUTPUT)
-//							MReceTime += (file.getSize()/1024) / getCloud().getDownlinkBandwidth();
-//						//文件大小单位为bit,换算成Kb,带宽单位为Kbps,接收时间单位为s
-//					}
-//				}
-//				MSendTime = (getSendSize()/1024) / getmobile().getUplinkBandwidth();
-                MSendTime = LAN_sendInput / parameter / LAN_Bandwidth + WAN_sendInput / parameter / WAN_Bandwidth;
-                MReceTime = LAN_sendOutput / parameter / LAN_Bandwidth + WAN_sendOutput / parameter / WAN_Bandwidth;
-                FogLinearPowerModel powerModel = (FogLinearPowerModel) fogDevice.getHost().getPowerModel();
-                //移动设备能耗  = (空闲能耗 +负载能耗) +发送数据能耗+接收数据能耗
-                energy = fogDevice.getEnergyConsumption() + MSendTime * powerModel.getSendPower() +
-                        MReceTime * powerModel.getRecePower();
-                fogDevice.setEnergyConsumption(energy/1000);//updating the energy consumption
+                fogDevice.setEnergyConsumption(TSPJobManager.getGatewayEnergyConsumption(CloudSim.clock(), fogDevice.getHost()));//updating the energy consumption
             }
             else{
                 fogDevice.setTotalCost(getDatacenterCost(fogDevice.getId()));
@@ -239,7 +235,7 @@ public class TSPController extends Controller{
 
     private void printPowerDetails() {
         for(FogDevice dev : getFogDevices()) {
-            System.out.println(dev.getName() +" : Energy Consumed = "+dev.getEnergyConsumption() +" J");
+            Log.printLine(dev.getName() +" : Energy Consumed = "+dev.getEnergyConsumption() +" J");
         }
     }
 
@@ -263,17 +259,20 @@ public class TSPController extends Controller{
 
     public void print()
     {
-        Log.printLine();
-        Log.printLine("=========================================================");
-        System.out.println("Algorithm is running "+wfEngine.algorithmTime+"ms");
-        System.out.println("Workflow Makespan = "+TotalExecutionTime);
+        Log.printLine("\n===================== Simulation results =====================");
+        Log.printLine("Workflow Makespan = "+TotalExecutionTime);
+        Log.printLine("Task time AVG: " + TSPJobManager.getTaskCompletionTimeAvg());
         printPowerDetails();
-        printCostDetails();
-        System.out.println("Offloading to Cloud: "+count1+", to Fog: "+count2+", and in mobile: "+count3+".");
-        //printNetworkUsageDetails();
-        Log.printLine("=========================================================");
+//        printCostDetails();
+//        System.out.println("Offloading to Cloud: "+count1+", to Fog: "+count2+".");
+
+        Log.printLine("Gateway Idle Energy Consumed = " + TSPJobManager.getGatewayIdleEnergyConsumption());
+        Log.printLine("Gateway Busy Energy Consumed = " + TSPJobManager.getGatewayBusyEnergyConsumption());
+        TSPJobManager.printTaskExceededDeadlineQuantities();
+        Log.printLine("===============================================================");
         Log.printLine();
     }
+
     public void clear()
     {
         for(FogDevice device: fogDevices)
@@ -381,22 +380,22 @@ public class TSPController extends Controller{
 
     public FogDevice getmobile(){
         for(FogDevice dev : getFogDevices()) {
-            if (dev.getName().contains("m"))
+            if (dev.getName().startsWith("m"))
                 return dev;
         }
         return null;
     }
 
-    public FogDevice getcloud(){
+    public FogDevice getCloud(){
         for(FogDevice dev : getFogDevices())
-            if(dev.getName().equalsIgnoreCase("cloud"))
+            if(dev.getName().startsWith("cloud"))
                 return dev;
         return null;
     }
 
-    public FogDevice getFogNode(){
+    public FogDevice getFog(){
         for(FogDevice dev : getFogDevices())
-            if(dev.getName().contains("f"))
+            if(dev.getName().startsWith("f"))
                 return dev;
         return null;
     }

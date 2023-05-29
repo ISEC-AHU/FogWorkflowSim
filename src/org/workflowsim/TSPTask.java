@@ -41,11 +41,6 @@ public class TSPTask extends Task {
     private int task_id;
 
     /**
-     * The number of millions of instructions (MI) for this task
-     */
-    private long mi;
-
-    /**
      * The amount of RAM needed by this task
      */
     private long ram;
@@ -56,9 +51,9 @@ public class TSPTask extends Task {
     private long storage;
 
     /**
-     * The submission time of this task
+     * The arrival time of this task to the simulation
      */
-    private long time_submission;
+    private long arrival_time;
 
     /**
      * The maximum time to execute this task
@@ -70,6 +65,37 @@ public class TSPTask extends Task {
      */
 
     private double time_start_processing;
+    /**
+     * Gets the job id of the task
+     *
+     * @return job id of the task
+     */
+
+    /**
+     * time used by the agent for the scheduling/placement decision
+     */
+
+    private double decision_time;
+
+    /**
+     * Gets the decision time of the task
+     *
+     * @return job id of the task
+     */
+
+    public double getDecisionTime() {
+        return decision_time;
+    }
+
+    /**
+     * Sets the decision time of the task
+     * @param decision_time amount of RAM needed by the task
+     */
+    public void setDecisionTime(double decision_time) {
+        this.decision_time = decision_time;
+    }
+
+
     /**
      * Gets the job id of the task
      *
@@ -94,7 +120,7 @@ public class TSPTask extends Task {
      * @return the millions of instructions number of the task
      */
     public long getMi() {
-        return mi;
+        return runlength;
     }
 
     /**
@@ -103,7 +129,7 @@ public class TSPTask extends Task {
      * @param mi the millions of instructions number
      */
     public void setMi(long mi) {
-        this.mi = mi;
+        this.runlength = mi;
     }
 
     /**
@@ -143,21 +169,21 @@ public class TSPTask extends Task {
     }
 
     /**
-     * Gets the submission time of this task
+     * Gets the arrival time of this task
      *
-     * @return the submission time of this task
+     * @return the arrival time of this task
      */
-    public long getTimeSubmission() {
-        return time_submission;
+    public long getArrivalTime() {
+        return arrival_time;
     }
 
     /**
-     * Sets the submission time of this task
+     * Sets the arrival time of this task
      *
-     * @param time_submission submission time of this task
+     * @param arrival_time arrival time of this task
      */
-    public void setTimeSubmission(long time_submission) {
-        this.time_submission = time_submission;
+    public void setArrivalTime(long arrival_time) {
+        this.arrival_time = arrival_time;
     }
 
     /**
@@ -186,7 +212,7 @@ public class TSPTask extends Task {
      * @param mi millions of instructions number of the task
      * @param ram amount of RAM needed by the task
      * @param storage amount of storage needed by the task
-     * @param time_submission submission time of this task
+     * @param arrival_time arrival time of this task
      * @param time_deadline_final maximum time to execute this task
      * @param priority priority of this task
      */
@@ -198,7 +224,7 @@ public class TSPTask extends Task {
             final long mi,
             final long ram,
             final long storage,
-            final long time_submission,
+            final long arrival_time,
             final long time_deadline_final,
             final int priority) {
 
@@ -216,7 +242,7 @@ public class TSPTask extends Task {
         this.job_id=job_id;
         this.ram=ram;
         this.storage=storage;
-        this.time_submission=time_submission;
+        this.arrival_time = arrival_time;
         this.time_deadline_final=time_deadline_final;
         this.priority=priority;
     }
