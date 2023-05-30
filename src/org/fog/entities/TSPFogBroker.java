@@ -75,8 +75,6 @@ public class TSPFogBroker extends FogBroker {
      */
     @Override
     public void processEvent(SimEvent ev) {
-//    	if(CloudSim.clock()>40)
-//    	System.out.println(CloudSim.clock()+":"+CloudSim.getEntityName(ev.getSource())+"-> FogScheduler = "+ev.getTag());
         switch (ev.getTag()) {
             // Resource characteristics request
             case CloudSimTags.RESOURCE_CHARACTERISTICS_REQUEST:
@@ -273,8 +271,6 @@ public class TSPFogBroker extends FogBroker {
      */
     private void doTSPDecision(boolean isRequired) {
 
-//        System.out.println("doTSPDecision: "+isRequired);
-
         TSPBaseStrategyAlgorithm scheduler = (TSPBaseStrategyAlgorithm)getScheduler(Parameters.getSchedulingAlgorithm());
 
         scheduler.setCloudletList(getCloudletList());
@@ -299,8 +295,6 @@ public class TSPFogBroker extends FogBroker {
                 decision_time = 0;
         }
 
-//        System.out.println("decision_time: "+decision_time);
-//        System.out.println("scheduledList.size: "+scheduler.getScheduledList().size());
 
         List<Cloudlet> scheduledList = scheduler.getScheduledList();
         for (Cloudlet cloudlet : scheduledList) {
@@ -322,8 +316,11 @@ public class TSPFogBroker extends FogBroker {
                 //offload the task when the decision time its reached
                 schedule(getVmsToDatacentersMap().get(vmId), delay + decision_time, CloudSimTags.CLOUDLET_SUBMIT, cloudlet);
             }
-
+            //ToDo: si hay alguna igual eliminarla
 //            TSPEnvHelper.addBusyServer();
+
+//            System.out.println("Cloudlet scheduled: "+cloudlet.getCloudletId() + " on vm: " +vmId);
+
         }
 
         //mark el gateway busy until the end of the decision time
@@ -377,6 +374,9 @@ public class TSPFogBroker extends FogBroker {
         Cloudlet cloudlet = (Cloudlet) ev.getData();
         Job job = (Job) cloudlet;
 
+
+//        System.out.println("Cloudlet finished: "+cloudlet.getCloudletId() + " on vm: " +cloudlet.getVmId());
+
         /**
          * Generate a failure if failure rate is not zeros.
          */
@@ -392,7 +392,6 @@ public class TSPFogBroker extends FogBroker {
         vm.setlastUtilizationUpdateTime(CloudSim.clock());
 
         WorkflowEngine wfEngine = (WorkflowEngine) CloudSim.getEntity(workflowEngineId);
-        Controller controller = wfEngine.getController();
         double delay = 0.0;
         if (Parameters.getOverheadParams().getPostDelay() != null) {
             delay = Parameters.getOverheadParams().getPostDelay(job);
@@ -401,6 +400,8 @@ public class TSPFogBroker extends FogBroker {
         schedule(this.workflowEngineId, delay, CloudSimTags.CLOUDLET_RETURN, cloudlet);
 
         cloudletsSubmitted--;
+
+
         //not really update right now, should wait 1 s until many jobs have returned
         schedule(this.getId(), 0.0, WorkflowSimTags.CLOUDLET_UPDATE);
 

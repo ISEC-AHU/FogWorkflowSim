@@ -76,12 +76,10 @@ public class TSPBatchSchedulingAndPlacementAlgorithm extends TSPBaseStrategyAlgo
 
         double reward_avg = reward_total / ((reward_quantity == 0)?1:reward_quantity);
 
-//        System.out.println(reward_avg);
-
         TSPSocketClient.saveReward(TSPJobManager.last_executed_task_no, reward_avg);
         if (TSPJobManager.last_executed_task_no != 0){
             //updating the placer information
-            TSPSocketClient.retrain(TSPJobManager.last_executed_task_no - 1, state);
+            TSPSocketClient.retrain(TSPJobManager.last_executed_task_no - 1, state, getCloudletList().size() == reward_quantity);
         }
 
         TSPJobManager.last_executed_task_no += 1;
@@ -103,6 +101,10 @@ public class TSPBatchSchedulingAndPlacementAlgorithm extends TSPBaseStrategyAlgo
      * Placer in the next servers with enough resources
      */
     public void place(Cloudlet cloudlet, CondorVM vm){
+        if (vm.getState() == WorkflowSimTags.VM_STATUS_BUSY){
+            double d=1;
+        }
+
         vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
         cloudlet.setVmId(vm.getId());
         //System.out.println("vm"+vm.getId()+".mips: "+vm.getMips()+"  host: "+vm.getHost().getId());

@@ -55,7 +55,7 @@ public class TSPSocketClient {
      * @param fogNodesFeatures the fog server's properties
      * @return the number of the server to place the task
      */
-    public static String sendSeversSetup(String setupName,String strategy, double[] cloudNodeFeatures, double[][] fogNodesFeatures, int priorities_quantity, Boolean drlLoadPretrainedModelOn, Boolean drlTrainingOn, Boolean drlSaveFinalModelOn){
+    public static String sendSeversSetup(String setupName,String strategy, double[] cloudNodeFeatures, double[][] fogNodesFeatures, int priorities_quantity, int randomSeed, Boolean drlLoadPretrainedModelOn, Boolean drlTrainingOn, Boolean drlSaveFinalModelOn){
         try {
             // sends the info to the socket
             JSONObject json = new JSONObject();
@@ -67,6 +67,7 @@ public class TSPSocketClient {
             data.put("setup_name", setupName);
 
             data.put("strategy", strategy);
+            data.put("random_seed", randomSeed);
             if (strategy.equals("TS_DRL")){
                 data.put("priorities_quantity", priorities_quantity);
             }
@@ -195,7 +196,13 @@ public class TSPSocketClient {
      * @param state the simulation's environment information
      * @return the number of the server to place the task
      */
+
+
     public static String retrain(int action_id, Long[] state){
+        return "";
+    }
+
+    public static String retrain(int action_id, Long[] state, boolean done){
         try {
             // sends the info to the socket
             JSONObject json = new JSONObject();
@@ -204,6 +211,7 @@ public class TSPSocketClient {
             JSONObject data = new JSONObject();
             data.put("action_id", action_id);
             data.put("state", new JSONArray(state));
+            data.put("done", done);
 
             json.put("data", data);
 

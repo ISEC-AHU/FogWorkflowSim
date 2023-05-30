@@ -62,10 +62,6 @@ public abstract class TSPBaseStrategyAlgorithm extends BaseSchedulingAlgorithm {
      * @return the list of tasks
      */
 
-    public List getReadyForScheduleCloudletList(){ //temp
-        return new ArrayList<>();
-    }
-
     public List getReadyForScheduleCloudletList(boolean isRequired){
         List cloudletList = getCloudletList();
         List<Job> filteredCloudletList = new ArrayList<>();
@@ -96,8 +92,10 @@ public abstract class TSPBaseStrategyAlgorithm extends BaseSchedulingAlgorithm {
 
         if (isRequired && filteredCloudletList.isEmpty() && !cloudletList.isEmpty()){
             Object[] next_executable_job = TSPJobManager.getNextAvailableJobs(cloudletList, CloudSim.clock());
+
             CloudSim.clock = (Double)next_executable_job[0];
             filteredCloudletList = (ArrayList<Job>)next_executable_job[1];
+
         }
         return filteredCloudletList;
     }
