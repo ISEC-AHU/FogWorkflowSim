@@ -63,8 +63,8 @@ public class TSPApp {
 //    static double latency_gateway_fogNode  = 50;
     static double latency_mobile_gateway  = 20; //not used in this case
 
-    static double latency_gateway_fogNode  = 0.020;
-    static double latency_gateway_cloudNode  = 0.050;
+    static double latency_gateway_fogNode  = 0.050;
+    static double latency_gateway_cloudNode  = 0.100;
 
     // Scheduling setup
     final static String[] algorithmStr = new String[]{
@@ -559,48 +559,47 @@ public class TSPApp {
 
         String[] datasets = new String[]{
 //                "50k (112)",
-                "50k (4639)",
+//                "50k (4639)",
 //                "50k (4673)"
         };
         int [] fogNodesQuantities = new int[]{
                 40,
-//                30,
-//                20,
+                20,
         };
         // Setup begin
         Object[][] schedulerStrategyList = new Object[][] {
 //                {"TSP_Scheduling", Parameters.TSPStrategy.TS_FIFO},
 //                {"TSP_Scheduling", Parameters.TSPStrategy.TS_RANDOM},
 //                {"TSP_Scheduling", Parameters.TSPStrategy.TS_ROUND_ROBIN},
-//                {"TSP_Scheduling", Parameters.TSPStrategy.TS_DRL},
-
+                {"TSP_Scheduling", Parameters.TSPStrategy.TS_DRL},
+//
 //                {"TSP_Placement", Parameters.TSPStrategy.TP_FIFO},
 //                {"TSP_Placement", Parameters.TSPStrategy.TP_RANDOM},
 //                {"TSP_Placement", Parameters.TSPStrategy.TP_ROUND_ROBIN},
-//                {"TSP_Placement", Parameters.TSPStrategy.TP_DRL},
-
-//                {"TSP_Scheduling_Placement", Parameters.TSPStrategy.TSP_DRL},
+                {"TSP_Placement", Parameters.TSPStrategy.TP_DRL},
+//////
+                {"TSP_Scheduling_Placement", Parameters.TSPStrategy.TSP_DRL},
                 {"TSP_Batch_Schedule_Placement", Parameters.TSPStrategy.TSP_DRL_BATCH},
         };
         int [] randomSeeds = new int[]{
-//                3,
-//                5,
-//                7,
-//                11,
-//                13,
+                3,
+                5,
+                7,
+                11,
+                13,
                 42,
         };
 
-        boolean drlLoadPretrainedModelOn = false;
-        boolean drlTrainingOn = true;
-        boolean drlSaveFinalModelOn = true;
+        boolean drlLoadPretrainedModelOn = true;
+        boolean drlTrainingOn = false;
+        boolean drlSaveFinalModelOn = false;
 
-        int numEpisodes = 10;//probar reward acomulativo
         // Setup end
 
-        FileWriter csvResultsWriter = new FileWriter("Experiment results.csv");
-        csvResultsWriter.append("Dataset,Qty fog nodes,Strategy,Random seed,P1,P2,P3,P4,P5,Simulation time,Avg task time,Total energy,Gateway idle energy,Gateway busy energy,Gateway total energy\n");
-
+        FileWriter csvResultsWriterAVG = new FileWriter("Experiment results.csv");
+        FileWriter csvResultsWriterD = new FileWriter("Experiment results details.csv");
+        csvResultsWriterD.append("Dataset,Qty fog nodes,Strategy,Random seed,P1,P2,P3,P4,P5,Simulation time,Avg task time,Total energy,Gateway idle energy,Gateway busy energy,Gateway total energy\n");
+        csvResultsWriterAVG.append("Dataset,Qty fog nodes,Strategy,Random seed,P1,P2,P3,P4,P5,Simulation time,Avg task time,Total energy,Gateway idle energy,Gateway busy energy,Gateway total energy\n");
 
 
         int setupNo = 0;
@@ -615,47 +614,43 @@ public class TSPApp {
                     double totalP1, totalP2,  totalP3,  totalP4,  totalP5,  totalTime, totalTaskAvgTime, totalEnergy, totalGatewayIdleEnergy, totalGatewayBusyEnergy;
                     totalP1 = totalP2 = totalP3 =  totalP4 =  totalP5 =  totalTime = totalTaskAvgTime = totalEnergy = totalGatewayIdleEnergy = totalGatewayBusyEnergy = 0;
 
+
                     for (int randomSeed : randomSeeds) {
                         setupNo += 1;
 
 
-                        for (int ep = 0; ep < numEpisodes; ep ++){
-
-                            // defining the simulation environment
-                            setSimulationSetup(scheduler, strategy, dataset, fogNodesQuantity);
-                            simulate(deadline);
+                        // defining the simulation environment
+                        setSimulationSetup(scheduler, strategy, dataset, fogNodesQuantity);
+                        simulate(deadline);
 
 
-                            // initializing the auxiliary variables for job's execution control
-                            TSPJobManager.initSimulationVariables(my_real_gateway_mips, gatewayNodeFeatures[0], fogDevices);
+                        // initializing the auxiliary variables for job's execution control
+                        TSPJobManager.initSimulationVariables(my_real_gateway_mips, gatewayNodeFeatures[0], fogDevices);
 
-                            // logging setup
-                            System.out.println("\nInitializing episode "+ (ep + 1) +" of setup " + setupNo + "/" + setupQuantity + ":");
-                            System.out.println("Dataset: " + dataset);
-                            System.out.println("Qty fog nodes: " + fogNodesQuantity);
-                            System.out.println("Strategy: " + strategy.name());
-                            System.out.println("Random seed: " + randomSeed);
+                        // logging setup
+                        System.out.println("\nInitializing setup " + setupNo + "/" + setupQuantity);
+                        System.out.println("Dataset: " + dataset);
+                        System.out.println("Qty fog nodes: " + fogNodesQuantity);
+                        System.out.println("Strategy: " + strategy.name());
+                        System.out.println("Random seed: " + randomSeed);
 
-                            System.out.println("DRL training mode: " + "load_pretrained_on = " + drlLoadPretrainedModelOn + " training_on = " + drlTrainingOn + " save_final_model_on = " + drlSaveFinalModelOn);
+                        System.out.println("DRL training mode: " + "load_pretrained_on = " + drlLoadPretrainedModelOn + " training_on = " + drlTrainingOn + " save_final_model_on = " + drlSaveFinalModelOn);
 
-                            // sending the server configuration
-                            String setupName = dataset.substring(dataset.lastIndexOf("(") + 1, dataset.length() - 1) + "-" + strategy.name() + "-" + randomSeed;
-//                        String setupName = ("50k (4639)").substring(dataset.lastIndexOf("(") + 1, dataset.length() - 1) + "-" + strategy.name() + "-" + randomSeed;
+                        // sending the server configuration
+//                        String setupName = dataset.substring(dataset.lastIndexOf("(") + 1, dataset.length() - 1) + "-" + strategy.name() + "-" + fogNodesQuantity + "-" + randomSeed;
+                        String setupName = ("50k (4639)").substring(dataset.lastIndexOf("(") + 1, dataset.length() - 1) + "-" + strategy.name() + "-" + fogNodesQuantity + "-" + randomSeed;
 
-                            //sending configuration on the first episode
-                            if (ep == 0){
-                                System.out.println("Sending server configuration..");
-                                TSPSocketClient.sendSeversSetup(setupName, strategy.name(), cloudNodeFeatures, fogNodesFeatures, 5, randomSeed, drlLoadPretrainedModelOn, drlTrainingOn, drlSaveFinalModelOn); //Temporal change: priorities_quantity mapped to 5 for the current dataset
-                            }
-                            // stating the simulation
-                            System.out.println("Simulation running...");
-                            Log.disable();
-                            CloudSim.startSimulation();
+                        System.out.println("Sending server configuration..");
+                        TSPSocketClient.sendSeversSetup(setupName, strategy.name(), cloudNodeFeatures, fogNodesFeatures, 5, randomSeed, drlLoadPretrainedModelOn, drlTrainingOn, drlSaveFinalModelOn); //Temporal change: priorities_quantity mapped to 5 for the current dataset
 
-                            // showing the simulation results
-                            Log.enable();
-                            controller.print();
-                        }
+                        // stating the simulation
+                        System.out.println("Simulation running...");
+                        Log.disable();
+                        CloudSim.startSimulation();
+
+                        // showing the simulation results
+                        Log.enable();
+                        controller.print();
 
 
                         TSPSocketClient.saveModel();
@@ -665,12 +660,12 @@ public class TSPApp {
 
                         // Dataset,Qty fog nodes,Strategy,Random seed,P1,P2,P3,P4,P5,Simulation time,Avg task time,Total energy,Gateway idle energy,Gateway busy energy,Gateway total energy
 
-//                        csvResultsWriter.append(
-//                                dataset+","+fogNodesQuantity+","+strategy.name() +randomSeed+","+
-//                                        TSPJobManager.getQuantityOfExceededDeadline(1)+","+TSPJobManager.getQuantityOfExceededDeadline(2)+","+TSPJobManager.getQuantityOfExceededDeadline(3)+","+TSPJobManager.getQuantityOfExceededDeadline(4)+","+TSPJobManager.getQuantityOfExceededDeadline(5)+","+
-//                                        controller.TotalExecutionTime+","+TSPJobManager.getTaskCompletionTimeAvg()+","+controller.TotalEnergy+","+
-//                                        TSPJobManager.getGatewayIdleEnergyConsumption()+","+TSPJobManager.getGatewayBusyEnergyConsumption()+","+(TSPJobManager.getGatewayIdleEnergyConsumption()+TSPJobManager.getGatewayBusyEnergyConsumption())+"\n"
-//                        );
+                        csvResultsWriterD.append(
+                                dataset+","+fogNodesQuantity+","+strategy.name() + "," + randomSeed+","+
+                                        TSPJobManager.getQuantityOfExceededDeadline(1)+","+TSPJobManager.getQuantityOfExceededDeadline(2)+","+TSPJobManager.getQuantityOfExceededDeadline(3)+","+TSPJobManager.getQuantityOfExceededDeadline(4)+","+TSPJobManager.getQuantityOfExceededDeadline(5)+","+
+                                        controller.TotalExecutionTime+","+TSPJobManager.getTaskCompletionTimeAvg()+","+controller.TotalEnergy+","+
+                                        TSPJobManager.getGatewayIdleEnergyConsumption()+","+TSPJobManager.getGatewayBusyEnergyConsumption()+","+(TSPJobManager.getGatewayIdleEnergyConsumption()+TSPJobManager.getGatewayBusyEnergyConsumption())+"\n"
+                        );
 
                         totalP1 += TSPJobManager.getQuantityOfExceededDeadline(1);
                         totalP2 += TSPJobManager.getQuantityOfExceededDeadline(2);
@@ -685,18 +680,23 @@ public class TSPApp {
 
                     }
 
-                    csvResultsWriter.append(
-                            dataset+","+fogNodesQuantity+","+strategy.name()+","+"AVG"+","+
-                                    totalP1/randomSeeds.length+","+totalP2/randomSeeds.length+","+totalP3/randomSeeds.length+","+totalP4/randomSeeds.length+","+totalP5/randomSeeds.length+","+
-                                    totalTime/randomSeeds.length+","+totalTaskAvgTime/randomSeeds.length+","+totalEnergy/randomSeeds.length+","+
-                                    totalGatewayIdleEnergy/randomSeeds.length+","+totalGatewayBusyEnergy/randomSeeds.length+","+(totalGatewayIdleEnergy + totalGatewayBusyEnergy)/randomSeeds.length+"\n"
-                    );
+
+                    String avgLine = dataset+","+fogNodesQuantity+","+strategy.name()+","+"AVG"+","+
+                            totalP1/randomSeeds.length+","+totalP2/randomSeeds.length+","+totalP3/randomSeeds.length+","+totalP4/randomSeeds.length+","+totalP5/randomSeeds.length+","+
+                            totalTime/randomSeeds.length+","+totalTaskAvgTime/randomSeeds.length+","+totalEnergy/randomSeeds.length+","+
+                            totalGatewayIdleEnergy/randomSeeds.length+","+totalGatewayBusyEnergy/randomSeeds.length+","+(totalGatewayIdleEnergy + totalGatewayBusyEnergy)/randomSeeds.length+"\n";
+
+                    csvResultsWriterD.append(avgLine);
+                    csvResultsWriterAVG.append(avgLine);
                 }
             }
         }
 
-        csvResultsWriter.flush();
-        csvResultsWriter.close();
+        csvResultsWriterD.flush();
+        csvResultsWriterD.close();
+
+        csvResultsWriterAVG.flush();
+        csvResultsWriterAVG.close();
 
         TSPSocketClient.closeConnection();
     }

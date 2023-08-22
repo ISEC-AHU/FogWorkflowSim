@@ -5,6 +5,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.power.PowerHost;
 import org.workflowsim.*;
 import org.workflowsim.utils.Parameters;
+import org.workflowsim.utils.TSPEnvHelper;
 import org.workflowsim.utils.TSPJobManager;
 
 import java.util.ArrayList;
@@ -106,56 +107,69 @@ public abstract class TSPBaseStrategyAlgorithm extends BaseSchedulingAlgorithm {
      * @param tsp_task the task to be allocated
      * @return
      */
-    public double getReward(TSPTask tsp_task, CondorVM vm, boolean deadline_exceeded, double task_start_executing_time){
+    public double getReward(TSPTask tsp_task, CondorVM vm, boolean deadline_exceeded, double task_decision_time, double task_completion_time){
 
-        //compute the task's processing time and save it
-        double task_running_time = tsp_task.getMi() / vm.getMips();
-
-        double task_completion_time = task_start_executing_time + task_running_time - tsp_task.getArrivalTime();
-
-        TSPJobManager.updateDeviceBusyTime(vm.getHost().getId(), task_running_time);
-
-        double reward;
-        double energy_consumed;
-        PowerHost host;
+        double reward, lower_task_completion_time;
 
         switch (Parameters.getSchedulingAlgorithm()) {
             case TSP_Scheduling:
-                reward = 1 / task_completion_time;
-//                System.out.println(task_completion_time);
-                if (deadline_exceeded){
-                    reward /= tsp_task.getPriority();
+                lower_task_completion_time=Double.MAX_VALUE;
+
+                for (Iterator itc = getNotMobileVmList().iterator(); itc.hasNext();) {
+                    CondorVM e_vm = (CondorVM) itc.next();
+                    if ((e_vm.getState() == WorkflowSimTags.VM_STATUS_IDLE || e_vm.getId() == vm.getId()) && tsp_task.getRam() <= e_vm.getRam() && tsp_task.getStorage() <= e_vm.getSize()) {
+                        double possible_time = //this is the full time from the task arrival until the end of its execution. For not considering waiting time should be removed CloudSim.clock() y tsp_task.getArrivalTime()
+                                task_decision_time
+                                        + TSPEnvHelper.getOffloadingTimeByFogDeviceId(e_vm.getHost().getDatacenter().getId(), tsp_task.getStorage())
+                                        + CloudSim.clock()
+                                        + tsp_task.getMi() / e_vm.getMips()
+                                        - tsp_task.getArrivalTime();
+
+                        if (possible_time < lower_task_completion_time)
+                            lower_task_completion_time = possible_time;
+                    }
                 }
+
+                reward = lower_task_completion_time / task_completion_time;
+
+                if (deadline_exceeded){
+                    reward = ((1 - reward) * -1) / (6 - tsp_task.getPriority()) ;
+                }
+
                 break;
             case TSP_Placement:
-                // weight of the reward function components
-                double w1 = 0.5;
-                double w2 = 0.5;
+            case TSP_Scheduling_Placement:
+            case TSP_Batch_Schedule_Placement:
+                lower_task_completion_time=Double.MAX_VALUE;
 
-                host = (PowerHost)vm.getHost();
-                energy_consumed = task_running_time * host.getPowerModel().getPower(vm.getMips()/(host).getTotalMips());
+                for (Iterator itc = getNotMobileVmList().iterator(); itc.hasNext();) {
+                    CondorVM e_vm = (CondorVM) itc.next();
+                    if ((e_vm.getState() == WorkflowSimTags.VM_STATUS_IDLE || e_vm.getId() == vm.getId()) && tsp_task.getRam() <= e_vm.getRam() && tsp_task.getStorage() <= e_vm.getSize()) {
+                        double possible_time = //this is the full time from the task arrival until the end of its execution. For not considering waiting time should be removed CloudSim.clock() y tsp_task.getArrivalTime()
+                                task_decision_time
+                                + TSPEnvHelper.getOffloadingTimeByFogDeviceId(e_vm.getHost().getDatacenter().getId(), tsp_task.getStorage())
+                                + CloudSim.clock()
+                                + tsp_task.getMi() / e_vm.getMips()
+                                - tsp_task.getArrivalTime();
 
-                double r1 = -(2/Math.PI) * Math.atan(task_completion_time - tsp_task.getMi() * energy_consumed / vm.getMips());
-                double r2;
-
-                double task_expected_run_time = tsp_task.getTimeDeadlineFinal() - CloudSim.clock();
-                if (task_running_time <= task_expected_run_time){
-                    r2 = 1;
-                }else if(task_running_time > 2 * task_expected_run_time){
-                    r2 = 0;
-                }else {
-                    r2 = -Math.pow(task_completion_time / tsp_task.getTimeDeadlineFinal() - 1, 3) + 1;
+                        if (possible_time < lower_task_completion_time)
+                            lower_task_completion_time = possible_time;
+                    }
                 }
 
-                reward = w1 * r1 + w2 * r2;
+                reward = lower_task_completion_time / task_completion_time;
+
+                if (deadline_exceeded){
+                    reward = (1 - reward) * -1;
+                }
 
                 break;
-            case TSP_Scheduling_Placement:
-                reward = 1 / task_completion_time;
-                break;
-            case TSP_Batch_Schedule_Placement:
-                reward = 1 / task_completion_time;
-                break;
+//            case TSP_Scheduling_Placement:
+//                reward = 1 / task_completion_time;
+//                break;
+//            case TSP_Batch_Schedule_Placement:
+//                reward = 1 / task_completion_time;
+//                break;
             //TSP code end
             default:
                 reward = 0;

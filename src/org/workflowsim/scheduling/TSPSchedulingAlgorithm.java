@@ -60,10 +60,11 @@ public class TSPSchedulingAlgorithm extends TSPBaseStrategyAlgorithm {
 
         CondorVM vm = placerFCFS(cloudlet, tsp_task);
 
+        double task_decision_and_offloading_time = decision_time + TSPEnvHelper.getOffloadingTimeByFogDeviceId(vm.getHost().getDatacenter().getId(), tsp_task.getStorage());
+        double task_start_execution_timestamp = CloudSim.clock() + task_decision_and_offloading_time;
+        double task_running_time = tsp_task.getMi() / vm.getMips();
 
-        double task_start_executing_time = decision_time + TSPEnvHelper.getOffloadingTimeByFogDeviceId(vm.getHost().getDatacenter().getId(), tsp_task.getStorage());
-
-        boolean deadline_exceeded = task_start_executing_time + tsp_task.getMi() / vm.getMips() + CloudSim.clock() > tsp_task.getTimeDeadlineFinal();
+        boolean deadline_exceeded = task_start_execution_timestamp + task_running_time > tsp_task.getTimeDeadlineFinal();
 
         if (deadline_exceeded){
             TSPJobManager.registerTaskExceedingDeadline(tsp_task.getPriority());
@@ -72,11 +73,11 @@ public class TSPSchedulingAlgorithm extends TSPBaseStrategyAlgorithm {
             vm.setState(WorkflowSimTags.VM_STATUS_IDLE);
 //                    System.out.println("DEADLINE");
         }else {
-            TSPJobManager.addTaskRunning(cloudlet, tsp_task, decision_time, task_start_executing_time);
-//                    System.out.println("OK");
+            TSPJobManager.addTaskRunning(cloudlet, tsp_task, decision_time, task_start_execution_timestamp);
+            TSPJobManager.updateDeviceBusyTime(vm.getHost().getId(), tsp_task.getMi() / vm.getMips());
         }
 
-        double reward = getReward(tsp_task, vm, deadline_exceeded, task_start_executing_time);
+        double reward = getReward(tsp_task, vm, deadline_exceeded, decision_time, task_start_execution_timestamp + task_running_time - tsp_task.getArrivalTime());
 
         TSPSocketClient.saveReward(TSPJobManager.last_executed_task_no, reward);
         if (TSPJobManager.last_executed_task_no != 0){

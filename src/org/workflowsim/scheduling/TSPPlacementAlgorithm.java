@@ -66,10 +66,10 @@ public class TSPPlacementAlgorithm extends TSPBaseStrategyAlgorithm {
 //        System.out.println("aaa");
 
         //list of fog and cloud devices
-        List<Vm> not_mobile_list = getNotMobileVmList();
+        List<Vm> not_mobile_vm_list = getNotMobileVmList();
 
         //parses the task and the device status to a vector
-        Long[] state = TSPEnvHelper.parseStateWithTaskAndServers(tsp_task, not_mobile_list);
+        Long[] state = TSPEnvHelper.parseStateWithTaskAndServers(tsp_task, not_mobile_vm_list);
 
         //call the placement agent
         TSPDecisionResult response = TSPSocketClient.askForDecisionWithActionId(TSPJobManager.last_executed_task_no, state);
@@ -83,11 +83,13 @@ public class TSPPlacementAlgorithm extends TSPBaseStrategyAlgorithm {
             return -1.0;  // -1 means there was no server with enough resources for the current task
         }
 
-        CondorVM vm = (CondorVM) not_mobile_list.get(action);
+        CondorVM vm = (CondorVM) not_mobile_vm_list.get(action);
 
-        double task_start_executing_time = decision_time + TSPEnvHelper.getOffloadingTimeByFogDeviceId(vm.getHost().getDatacenter().getId(), tsp_task.getStorage());
+        double task_decision_and_offloading_time = decision_time + TSPEnvHelper.getOffloadingTimeByFogDeviceId(vm.getHost().getDatacenter().getId(), tsp_task.getStorage());
+        double task_start_execution_timestamp = CloudSim.clock() + task_decision_and_offloading_time;
+        double task_running_time = tsp_task.getMi() / vm.getMips();
 
-        boolean deadline_exceeded = task_start_executing_time + tsp_task.getMi() / vm.getMips() + CloudSim.clock() > tsp_task.getTimeDeadlineFinal();
+        boolean deadline_exceeded = task_start_execution_timestamp + task_running_time > tsp_task.getTimeDeadlineFinal();
 
         if (deadline_exceeded) {
             TSPJobManager.registerTaskExceedingDeadline(tsp_task.getPriority());
@@ -96,10 +98,11 @@ public class TSPPlacementAlgorithm extends TSPBaseStrategyAlgorithm {
             vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
             cloudlet.setVmId(vm.getId());
             getScheduledList().add(cloudlet);
-            TSPJobManager.addTaskRunning(cloudlet, tsp_task, decision_time, task_start_executing_time);
+            TSPJobManager.addTaskRunning(cloudlet, tsp_task, decision_time, task_start_execution_timestamp);
+            TSPJobManager.updateDeviceBusyTime(vm.getHost().getId(), task_running_time);
         }
 
-        double reward = getReward(tsp_task, vm, deadline_exceeded, task_start_executing_time);
+        double reward = getReward(tsp_task, vm, deadline_exceeded, decision_time, task_start_execution_timestamp + task_running_time - tsp_task.getArrivalTime());
 
         TSPSocketClient.saveReward(TSPJobManager.last_executed_task_no, reward);
         if (TSPJobManager.last_executed_task_no != 0){

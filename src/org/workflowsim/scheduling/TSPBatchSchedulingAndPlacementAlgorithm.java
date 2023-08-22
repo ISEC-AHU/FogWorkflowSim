@@ -54,9 +54,11 @@ public class TSPBatchSchedulingAndPlacementAlgorithm extends TSPBaseStrategyAlgo
 
                 TSPTask tsp_task = (TSPTask) ((Job) cloudlet).getTaskList().get(0);
 
-                double task_start_executing_time = decision_time + TSPEnvHelper.getOffloadingTimeByFogDeviceId(vm.getHost().getDatacenter().getId(), tsp_task.getStorage());
+                double task_decision_and_offloading_time = decision_time + TSPEnvHelper.getOffloadingTimeByFogDeviceId(vm.getHost().getDatacenter().getId(), tsp_task.getStorage());
+                double task_start_execution_timestamp = CloudSim.clock() + task_decision_and_offloading_time;
+                double task_running_time = tsp_task.getMi() / vm.getMips();
 
-                boolean deadline_exceeded = task_start_executing_time + tsp_task.getMi() / vm.getMips() + CloudSim.clock() > tsp_task.getTimeDeadlineFinal();
+                boolean deadline_exceeded = task_start_execution_timestamp + task_running_time > tsp_task.getTimeDeadlineFinal();
 
                 if (deadline_exceeded){
                     TSPJobManager.registerTaskExceedingDeadline(tsp_task.getPriority());
@@ -64,10 +66,11 @@ public class TSPBatchSchedulingAndPlacementAlgorithm extends TSPBaseStrategyAlgo
                 }else {
                     //place the task in the vm
                     place(cloudlet, vm);
-                    TSPJobManager.addTaskRunning(cloudlet, tsp_task, decision_time, task_start_executing_time);
+                    TSPJobManager.addTaskRunning(cloudlet, tsp_task, decision_time, task_start_execution_timestamp);
+                    TSPJobManager.updateDeviceBusyTime(vm.getHost().getId(), tsp_task.getMi() / vm.getMips());
                 }
 
-                double reward = getReward(tsp_task, vm, deadline_exceeded, task_start_executing_time);
+                double reward = getReward(tsp_task, vm, deadline_exceeded, decision_time, task_start_execution_timestamp + task_running_time - tsp_task.getArrivalTime());
 
                 reward_total += reward;
                 reward_quantity += 1;
@@ -79,7 +82,9 @@ public class TSPBatchSchedulingAndPlacementAlgorithm extends TSPBaseStrategyAlgo
         TSPSocketClient.saveReward(TSPJobManager.last_executed_task_no, reward_avg);
         if (TSPJobManager.last_executed_task_no != 0){
             //updating the placer information
-            TSPSocketClient.retrain(TSPJobManager.last_executed_task_no - 1, state, getCloudletList().size() == reward_quantity);
+            //last call: getCloudletList().size() == reward_quantity
+
+            TSPSocketClient.retrain(TSPJobManager.last_executed_task_no - 1, state);
         }
 
         TSPJobManager.last_executed_task_no += 1;
@@ -101,10 +106,6 @@ public class TSPBatchSchedulingAndPlacementAlgorithm extends TSPBaseStrategyAlgo
      * Placer in the next servers with enough resources
      */
     public void place(Cloudlet cloudlet, CondorVM vm){
-        if (vm.getState() == WorkflowSimTags.VM_STATUS_BUSY){
-            double d=1;
-        }
-
         vm.setState(WorkflowSimTags.VM_STATUS_BUSY);
         cloudlet.setVmId(vm.getId());
         //System.out.println("vm"+vm.getId()+".mips: "+vm.getMips()+"  host: "+vm.getHost().getId());

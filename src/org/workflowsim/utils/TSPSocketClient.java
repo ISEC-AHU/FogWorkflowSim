@@ -197,12 +197,7 @@ public class TSPSocketClient {
      * @return the number of the server to place the task
      */
 
-
     public static String retrain(int action_id, Long[] state){
-        return "";
-    }
-
-    public static String retrain(int action_id, Long[] state, boolean done){
         try {
             // sends the info to the socket
             JSONObject json = new JSONObject();
@@ -211,7 +206,6 @@ public class TSPSocketClient {
             JSONObject data = new JSONObject();
             data.put("action_id", action_id);
             data.put("state", new JSONArray(state));
-            data.put("done", done);
 
             json.put("data", data);
 

@@ -135,14 +135,14 @@ public class TSPJobManager {
      * @param task the task to be added
      */
 
-    public static void addTaskRunning(Cloudlet cloudlet, TSPTask task, double decision_time, double task_start_executing_time){
+    public static void addTaskRunning(Cloudlet cloudlet, TSPTask task, double decision_time, double task_start_execution_timestamp){
         //restringing the execution for considering scheduling restrictions
         jobs.get(task.getJobId()).addTasksRunning(task);
 
         //restringing the execution for the end of the scheduling restrictions
         task.setDecisionTime(decision_time);
-        cloudlet.setExecStartTime(task_start_executing_time);
-        task.setTimeStartProcessing(task_start_executing_time);
+        cloudlet.setExecStartTime(task_start_execution_timestamp);
+        task.setTimeStartProcessing(task_start_execution_timestamp);
 
         executing_task.add(task);
     }
