@@ -208,7 +208,7 @@ public class FogDevice extends PowerDatacenter {
 	 * @param ev
 	 */
 	private void manageResources(SimEvent ev) {
-		//updateEnergyConsumption();
+//		updateEnergyConsumption();
 		//send(getId(), Config.RESOURCE_MGMT_INTERVAL, FogEvents.RESOURCE_MGMT);
 	}
 	
@@ -248,6 +248,7 @@ public class FogDevice extends PowerDatacenter {
 	 * @return the double
 	 */
 	protected double updateCloudetProcessingWithoutSchedulingFutureEventsForce() {
+
 		double currentTime = CloudSim.clock();
 		double minTime = Double.MAX_VALUE;
 		double timeDiff = currentTime - getLastProcessTime();
@@ -380,48 +381,18 @@ public class FogDevice extends PowerDatacenter {
 		}
 		return -1;
 	}
-	
-/*	public void updateEnergyConsumption() {
-		double totalMipsAllocated = 0;
-		double Energy = 0;//getEnergyConsumption();
-		double ExecutionTime = 0;
-		double Cost = 0;
-		//System.out.println(getName()+"能耗:"+Energy);
-		List<PowerHost> hostlist = getHostList();
-		for(PowerHost host : hostlist){
-			//double newenergy = host.updateEnergyConsumption();
-			if(getName().contains("m")){//计算手机能耗
-				//Energy += newenergy;
-				ExecutionTime += host.ExecutionTime;
-			}
-			else {//计算服务器费用
-				Cost += host.updateCost();
-			}
-		}
 
-		double timeNow = CloudSim.clock();
-		//System.out.println("---------------------------------------------time now: "+timeNow);
-		//double currentEnergyConsumption = getEnergyConsumption();
-		double usetime=getExecutionTime()+timeNow-lastUtilizationUpdateTime;  //求该设备执行时间之和
-		//double newEnergyConsumption = currentEnergyConsumption + (timeNow-lastUtilizationUpdateTime)*getHost().getPowerModel().getPower(lastUtilization);
-		//setEnergyConsumption(Energy);
-		setExecutionTime(ExecutionTime);
-	
-		if(getName().equals("d-0")){
-			System.out.println("------------------------");
-			System.out.println("Utilization = "+lastUtilization);
-			System.out.println("Power = "+getHost().getPowerModel().getPower(lastUtilization));
-			System.out.println(timeNow-lastUtilizationUpdateTime);
+	public void updateEnergyConsumption() {
+			double current_energy = 0;
+			List<PowerHost> hostlist = getHostList();
+			for(PowerHost host : hostlist){
+				current_energy += host.updateEnergyConsumption();
+			}
+
+		System.out.println("current_energy: " + current_energy);
+
+			setEnergyConsumption(getEnergyConsumption() + current_energy);
 		}
-		
-		double currentCost = getTotalCost();
-		double newcost = currentCost + (timeNow-lastUtilizationUpdateTime)*getRatePerMips()*lastUtilization*getHost().getTotalMips();
-		//setTotalCost(Cost);
-		
-		
-		lastUtilization = Math.min(1, totalMipsAllocated/getHost().getTotalMips());
-		lastUtilizationUpdateTime = timeNow;
-	}*/
 
     /**
      * Processes a Cloudlet submission. The cloudlet is actually a job which can
@@ -435,7 +406,6 @@ public class FogDevice extends PowerDatacenter {
     @Override
     protected void processCloudletSubmit(SimEvent ev, boolean ack) {
         updateCloudletProcessing();
-       
         try {
             /**
              * cl is actually a job but it is not necessary to cast it to a job
@@ -540,7 +510,8 @@ public class FogDevice extends PowerDatacenter {
      * @param vm
      */
     private void updateTaskExecTime(Job job, Vm vm) {
-        double start_time = job.getExecStartTime();
+		double start_time = job.getExecStartTime();
+
         for (Task task : job.getTaskList()) {
             task.setExecStartTime(start_time);
             double task_runtime = task.getCloudletLength() / vm.getMips();

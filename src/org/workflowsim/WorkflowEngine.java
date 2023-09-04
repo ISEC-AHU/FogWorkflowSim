@@ -32,11 +32,14 @@ import org.cloudbus.cloudsim.core.SimEvent;
 import org.fog.entities.Controller;
 import org.fog.entities.FogBroker;
 import org.fog.entities.OffloadingEngine;
+import org.fog.entities.TSPFogBroker;
 import org.fog.utils.FogEvents;
 import org.workflowsim.reclustering.ReclusteringEngine;
 import org.workflowsim.scheduling.GASchedulingAlgorithm;
 import org.workflowsim.scheduling.PsoScheduling;
 import org.workflowsim.utils.Parameters;
+import org.workflowsim.utils.TSPJobManager;
+import sun.misc.VM;
 
 /**
  * WorkflowEngine represents a engine acting on behalf of a user. It hides VM
@@ -139,8 +142,13 @@ public class WorkflowEngine extends SimEntity {
             
             offloadingEngine = new OffloadingEngine("OffloadingEngine", null);
             offloadingEngine.setWorkflowEngine(this);
-            
-            FogBroker wfs = new FogBroker("FogScheduler");
+
+			FogBroker wfs;
+			if (Parameters.getIsTsp()){
+				wfs = new TSPFogBroker("MyFogScheduler");
+			}else {
+				wfs = new FogBroker("FogScheduler");				
+			}
             getSchedulers().add(wfs);
             getSchedulerIds().add(wfs.getId());
             wfs.setWorkflowEngineId(this.getId());
@@ -230,6 +238,12 @@ public class WorkflowEngine extends SimEntity {
 				case DATA:
 				case ROUNDROBIN:
 					processJobReturn(ev);
+					break;
+				case TSP_Placement:
+				case TSP_Scheduling:
+				case TSP_Scheduling_Placement:
+				case TSP_Batch_Schedule_Placement:
+					processJobReturnForTSP(ev);
 					break;
 				default:
 					break;
@@ -323,7 +337,58 @@ public class WorkflowEngine extends SimEntity {
             sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
         }
     }
-    
+
+
+
+	/**
+	 * Process a job return event.
+	 *
+	 * @param ev a SimEvent object
+	 * @pre ev != $null
+	 * @post $none
+	 */
+	protected void processJobReturnForTSP(SimEvent ev) {
+
+		Job job = (Job) ev.getData();
+		if (job.getCloudletStatus() == Cloudlet.FAILED) {
+			// Reclusteringengine will add retry job to jobList
+			int newId = getJobsList().size() + getJobsSubmittedList().size();
+			getJobsList().addAll(ReclusteringEngine.process(job, newId));
+		}
+
+		getJobsReceivedList().add(job);
+
+		jobsSubmitted--;
+
+		boolean vms_state_is_idle = true;
+		for(Vm vm:getAllVmList()) {
+			vms_state_is_idle &= ((CondorVM)vm).getState() == WorkflowSimTags.VM_STATUS_IDLE;
+		}
+		System.out.print("\r");
+		System.out.print("Remaining tasks: "+jobsSubmitted);
+
+		// if all VMs are in idle & there is not more jobs so the simulation its finished
+		if (vms_state_is_idle && getJobsList().isEmpty() && jobsSubmitted == TSPJobManager.getTaskExceedingDeadlineQuantity()){
+			sendNow(controllerId, FogEvents.STOP_SIMULATION, null);
+		}else {
+			sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
+		}
+
+//		if (getJobsList().isEmpty() && jobsSubmitted == 0) {
+//			//send msg to all the schedulers
+//            /*for (int i = 0; i < getSchedulerIds().size(); i++) {
+//                //sendNow(getSchedulerId(i), CloudSimTags.END_OF_SIMULATION, null);
+//            }*/
+//			System.out.println("aqui");
+//			sendNow(controllerId, FogEvents.STOP_SIMULATION, null);
+//		} else {
+//			sendNow(this.getId(), CloudSimTags.CLOUDLET_SUBMIT, null);
+//		}
+	}
+
+
+
+
     /**
      * Process a job return event.
      *数据中心处理完成以后 ，工作流引擎调用processJobReturn方法：若任务处理失败，则调用ReclusteringEngine中的方法，以便重新执行此任务

@@ -527,6 +527,7 @@ public class CloudSim {
 			Iterator<SimEvent> fit = future.iterator();
 			queue_empty = false;
 			SimEvent first = fit.next();
+
 			processEvent(first);
 			future.remove(first);
 
@@ -753,9 +754,9 @@ public class CloudSim {
 		int dest, src;
 		SimEntity dest_ent;
 		// Update the system's clock
-		if (e.eventTime() < clock) {
-			throw new IllegalArgumentException("Past event detected.");
-		}
+		//if (e.eventTime() < clock) {
+		//	throw new IllegalArgumentException("Past event detected.");
+		//}
 		clock = e.eventTime();
 
 		// Ok now process it
